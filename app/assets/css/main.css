@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Italianno&family=VT323&display=swap');
 
 :root {
   --bg-color: #c4b5e3;
@@ -20,7 +20,8 @@ body {
   font-size: 24px;
   line-height: 1.2;
   text-transform: uppercase;
-  -webkit-font-smoothing: none; /* helps with pixel crispness on some screens */
+  -webkit-font-smoothing: none;
+  overflow-x: hidden;
 }
 
 /* Base utility for the brutalist boxes */
@@ -105,4 +106,77 @@ body {
     var(--bg-color) 2px,
     var(--bg-color) 4px
   );
+}
+
+button, a {
+  cursor: pointer;
+  /* Maya Design: Interactive elements need active scale and hover transitions */
+  transition: transform 100ms ease-out, opacity 100ms ease-out, background-color 100ms ease-out;
+}
+
+button:active, a:active, .interactive:active {
+  transform: scale(0.96);
+}
+
+.italiano-font {
+  font-family: 'Italianno', cursive !important;
+  font-weight: 400;
+  text-transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Typography Utilities */
+.small-caps {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.hr-line {
+  overflow: hidden;
+  white-space: nowrap;
+  letter-spacing: 2px;
+  font-size: 1rem;
+}
+.mt-2 { margin-top: 0.5rem; }
+.mt-4 { margin-top: 1.5rem; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* Layout Utilities */
+.split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  height: 100%;
+}
+.align-center {
+  align-items: center;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.relative-container {
+  position: relative;
+  height: 100%;
+}
+.z-10 { z-index: 10; }
+
+@media (max-width: 1024px) {
+  .split-layout {
+    grid-template-columns: 1fr;
+  }
+  .relative-container {
+    display: flex;
+    flex-direction: column;
+  }
 }
