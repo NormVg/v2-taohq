@@ -13,6 +13,9 @@
   padding: 0;
 }
 
+html {
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--fg-color);
@@ -22,6 +25,22 @@ body {
   text-transform: uppercase;
   -webkit-font-smoothing: none;
   overflow-x: hidden;
+}
+
+/* Custom Brutalist Scrollbar */
+::-webkit-scrollbar {
+  width: 16px;
+}
+::-webkit-scrollbar-track {
+  background: var(--fg-color);
+  border-left: 2px solid var(--fg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-color);
+  border: 3px solid var(--fg-color);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: white;
 }
 
 /* Base utility for the brutalist boxes */

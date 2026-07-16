@@ -1,10 +1,14 @@
+<script setup>
+import catImg from '~/assets/cat.png'
+</script>
+
 <template>
   <BrutalistCard dashed class="app-footer">
     <div class="full-height-flex">
       
       <div class="center-banner">
         <div class="banner-inner">
-          <div class="logo-icon"></div>
+          <img src="~/assets/logo.svg" class="logo-icon" alt="Tao HQ Logo" />
           <h1 class="logo-text-large">TAO.HQ</h1>
         </div>
       </div>
@@ -16,12 +20,15 @@
 
       <div class="footer-links-grid mt-4">
         <div class="footer-col">
-          <a href="https://github.com" target="_blank">GitHub //</a>
-          <a href="https://x.com" target="_blank">X (Twitter) //</a>
-          <a href="mailto:hello@taohq.org">Communicate //</a>
+          <a href="https://github.com/TheAlphaOnes/" target="_blank">GitHub //</a>
+          <a href="https://x.com/TheNormVg" target="_blank">X (Twitter) //</a>
+          <a href="mailto:thealphaones.work@gmail.com">Communicate //</a>
         </div>
       </div>
 
+      <div class="footer-cat-container">
+        <DitherImage :src="catImg" class="footer-cat-dither" />
+      </div>
     </div>
   </BrutalistCard>
 </template>
@@ -56,9 +63,7 @@
 .logo-icon {
   width: 100px;
   height: 100px;
-  background-color: var(--bg-color);
   margin-right: 4rem;
-  clip-path: polygon(0 0, 100% 0, 100% 40%, 60% 40%, 60% 100%, 0 100%);
 }
 .logo-text-large {
   font-size: 12vw;
@@ -88,6 +93,16 @@
   display: flex;
   justify-content: flex-end;
   padding: 4rem 4rem 2rem 4rem;
+}
+.footer-cat-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 250px;
+  height: 250px;
+  z-index: 10;
+  pointer-events: none;
+  mix-blend-mode: multiply;
 }
 .footer-col {
   display: flex;

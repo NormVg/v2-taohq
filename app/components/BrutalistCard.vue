@@ -39,6 +39,7 @@ defineProps({
   color: var(--fg-color);
   display: flex;
   flex-direction: column;
+  scroll-snap-align: start;
 }
 
 .brutalist-section.inverted {
@@ -53,6 +54,7 @@ defineProps({
   border: 2px solid var(--fg-color);
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .dashed-border {
@@ -87,5 +89,6 @@ defineProps({
   z-index: 5;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 </style>

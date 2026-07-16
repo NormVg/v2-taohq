@@ -2,7 +2,9 @@
   <BrutalistCard inverted dashed class="section-features">
     <div class="features-grid">
       <div class="grid-cell feature-cell" @mouseenter="triggerFeature1" @mouseleave="resetFeature1">
-        <div class="dither-wipe-bg"></div>
+        <div class="dither-wipe-bg">
+          <DitherImage :src="skull1Img" class="feature-dither" />
+        </div>
         <div class="content-wrapper">
           <div class="feature-header">
             <h3>Organization<br/>Infrastructure</h3>
@@ -15,7 +17,9 @@
       </div>
       
       <div class="grid-cell feature-cell" @mouseenter="triggerFeature2" @mouseleave="resetFeature2">
-        <div class="dither-wipe-bg"></div>
+        <div class="dither-wipe-bg">
+          <DitherImage :src="skull2Img" class="feature-dither" />
+        </div>
         <div class="content-wrapper">
           <div class="feature-header">
             <h3>Scalable<br/>Craft</h3>
@@ -32,6 +36,8 @@
 
 <script setup>
 import { ref, onUnmounted } from 'vue'
+import skull1Img from '~/assets/22skull.png'
+import skull2Img from '~/assets/skull-flower.png'
 
 const f1Num = ref('[01]')
 const f2Num = ref('[02]')
@@ -118,6 +124,18 @@ const resetFeature2 = () => {
   transform: translateY(-100%);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 0;
+  overflow: hidden;
+}
+
+.feature-dither {
+  opacity: 0.15;
+  mix-blend-mode: multiply;
+  transform: scale(1.1);
+  transition: all 0.5s ease-out;
+}
+
+.feature-cell:hover .feature-dither {
+  transform: scale(1);
 }
 
 .feature-cell:hover .dither-wipe-bg {

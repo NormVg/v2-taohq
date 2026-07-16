@@ -108,6 +108,11 @@ onMounted(() => {
         float finalValue = step(threshold, gray);
         vec3 finalColor = mix(uColorDark, uColorLight, finalValue);
         
+        // If pixel is transparent, discard it entirely
+        if (texColor.a < 0.5) {
+            discard;
+        }
+        
         gl_FragColor = vec4(finalColor, texColor.a);
     }
   `

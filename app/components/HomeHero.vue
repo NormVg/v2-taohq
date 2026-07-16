@@ -57,8 +57,15 @@
   z-index: 2;
 }
 .hero-logo-container {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  gap: 2rem;
+  z-index: 10;
 }
+
 .logo-main {
   font-size: 15vw;
   margin: 0;

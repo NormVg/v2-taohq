@@ -4,7 +4,7 @@
       <!-- Top Section: Intro -->
       <div class="grid-cell intro-cell">
         <div class="hover-dither-bg">
-          <DitherImage src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800" />
+          <DitherImage :src="eyeWallImg" />
         </div>
         <h2 class="huge-heading">Building thoughtful software, systems, and lifestyle products.</h2>
       </div>
@@ -24,6 +24,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import eyeWallImg from '~/assets/eye-wall.png'
 
 const asciiRain = ref('')
 const glyphs = ['/', '\\', '|', '-', '_', '+', '=', '*', 'x', '>', '<', ':', '0', '1']
@@ -31,7 +32,7 @@ const glyphs = ['/', '\\', '|', '-', '_', '+', '=', '*', 'x', '>', '<', ':', '0'
 onMounted(() => {
   // Generate a giant string of ASCII for the background
   let rain = ''
-  for(let i=0; i<3000; i++) {
+  for(let i=0; i<15000; i++) {
     rain += glyphs[Math.floor(Math.random() * glyphs.length)]
   }
   asciiRain.value = rain
