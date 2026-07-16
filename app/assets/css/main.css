@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+:root {
+  --bg-color: #c4b5e3;
+  --fg-color: #151515;
+  --border-width: 4px;
+  --corner-size: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--fg-color);
+  font-family: 'VT323', monospace;
+  font-size: 24px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  -webkit-font-smoothing: none; /* helps with pixel crispness on some screens */
+}
+
+/* Base utility for the brutalist boxes */
+.brutalist-border {
+  position: relative;
+  border: var(--border-width) solid var(--fg-color);
+  background-color: var(--bg-color);
+}
+
+/* The little corner squares */
+.brutalist-border::before,
+.brutalist-border::after {
+  content: '';
+  position: absolute;
+  width: var(--corner-size);
+  height: var(--corner-size);
+  background-color: var(--fg-color);
+  z-index: 10;
+}
+
+.brutalist-border::before {
+  top: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+}
+
+.brutalist-border::after {
+  bottom: calc(-1 * var(--border-width));
+  right: calc(-1 * var(--border-width));
+}
+
+/* We need inner pseudo-elements for the other two corners */
+.brutalist-border > .corners::before,
+.brutalist-border > .corners::after {
+  content: '';
+  position: absolute;
+  width: var(--corner-size);
+  height: var(--corner-size);
+  background-color: var(--fg-color);
+  z-index: 10;
+}
+
+.brutalist-border > .corners::before {
+  top: calc(-1 * var(--border-width));
+  right: calc(-1 * var(--border-width));
+}
+
+.brutalist-border > .corners::after {
+  bottom: calc(-1 * var(--border-width));
+  left: calc(-1 * var(--border-width));
+}
+
+/* Variations for inverted cards */
+.brutalist-border.inverted {
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+  border-color: var(--bg-color);
+}
+
+.brutalist-border.inverted::before,
+.brutalist-border.inverted::after,
+.brutalist-border.inverted > .corners::before,
+.brutalist-border.inverted > .corners::after {
+  background-color: var(--bg-color);
+}
+
+/* Striped background utility */
+.bg-striped {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    var(--fg-color) 2px,
+    var(--fg-color) 4px
+  );
+}
+
+.bg-striped.inverted {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    var(--bg-color) 2px,
+    var(--bg-color) 4px
+  );
+}
