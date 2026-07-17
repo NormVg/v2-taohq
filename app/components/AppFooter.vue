@@ -25,6 +25,7 @@ import grimReaperImg from '~/assets/grim-reaper.png'
       <div class="footer-links-grid mt-4">
         <div class="footer-col">
           <NuxtLink to="/">Home //</NuxtLink>
+          <NuxtLink to="/studio">Studio //</NuxtLink>
           <NuxtLink to="/products">Products //</NuxtLink>
           <NuxtLink to="/writing">Writing //</NuxtLink>
           <NuxtLink to="/careers">Careers //</NuxtLink>
