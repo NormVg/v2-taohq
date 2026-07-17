@@ -30,6 +30,9 @@ importers:
         specifier: ^5.1.0
         version: 5.2.0(@vue/compiler-sfc@3.5.39)(esbuild@0.28.1)(rollup@4.62.2)(vite@7.3.6(@types/node@26.1.1)(jiti@2.7.0)(lightningcss@1.32.0)(terser@5.49.0)(yaml@2.9.0))(vue@3.5.39(typescript@5.9.3))
     devDependencies:
+      '@nuxtjs/device':
+        specifier: ^4.0.0
+        version: 4.0.0
       '@nuxtjs/seo':
         specifier: ^5.3.2
         version: 5.3.2(9e787503a851316efeead244b8900540)
@@ -1011,6 +1014,9 @@ packages:
 
   '@nuxtjs/color-mode@4.0.1':
     resolution: {integrity: sha512-eiA7hWXi5zNHaYKyJFCGF6i0wFZtuvR7KDXZ6jiSvwxjCpRFwphrw0MOSmNfArTSSsT1wpW+/2H92cejeVfUlg==}
+
+  '@nuxtjs/device@4.0.0':
+    resolution: {integrity: sha512-Tkbvde/GInmigbS/n3X3X+qXJWi6hsYrViKpZrakaBBYY3NbGYJb0c8aVxd3vI636HBbOhu0I39rv7MSjP7w8Q==}
 
   '@nuxtjs/mdc@0.22.1':
     resolution: {integrity: sha512-+tkGhBNxapWZiadZaf9yTxMtnSshjPY2VVnZsy/YoOu+c1p2S6MQgAHB9QWk+FIPT0epJ/VAtGh6qW1tjyPXOg==}
@@ -7471,6 +7477,10 @@ snapshots:
       semver: 7.8.5
     transitivePeerDependencies:
       - magicast
+
+  '@nuxtjs/device@4.0.0':
+    dependencies:
+      defu: 6.1.7
 
   '@nuxtjs/mdc@0.22.1(magicast@0.5.3)':
     dependencies:

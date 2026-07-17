@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
   css: ['~/assets/css/main.css'],
-  modules: ['@nuxt/content', '@vercel/analytics/nuxt', '@nuxtjs/seo'],
+  modules: ['@nuxt/content', '@vercel/analytics/nuxt', '@nuxtjs/seo', '@nuxtjs/device'],
   site: {
     url: 'https://v2.taohq.org',
     name: 'Tao HQ | TheAlphaOnes',

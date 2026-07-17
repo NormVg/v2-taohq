@@ -1,17 +1,14 @@
 <template>
-  <div>
-    <MobileHome v-if="isMobile" />
-    <DesktopHome v-else />
+  <div class="home-container">
+    <HomeHero />
+    <HomeStats />
+    <HomeFeatures />
+    <HomeProjects />
+    <HomeSystemInfo />
   </div>
 </template>
 
 <script setup>
-import { useDevice } from '#imports'
-import DesktopHome from '~/components/desktop/DesktopHome.vue'
-import MobileHome from '~/components/mobile/MobileHome.vue'
-
-const { isMobile } = useDevice()
-
 useSeoMeta({
   title: 'Tao HQ | TheAlphaOnes',
   description: 'We build digital machinery. Brutalist interfaces, zero-latency APIs, and uncompromising brand identities.',
@@ -21,3 +18,13 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
 })
 </script>
+
+<style scoped>
+.home-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* We let the layout-wrapper in default.vue handle the scrolling, 
+     but we can apply scroll-snap here if we make it a full-height overflow container. */
+}
+</style>
