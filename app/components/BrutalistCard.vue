@@ -40,6 +40,19 @@ defineProps({
   display: flex;
   flex-direction: column;
   scroll-snap-align: start;
+  position: relative;
+}
+
+/* Hack to allow scrolling in tall sections without getting trapped */
+.brutalist-section::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  scroll-snap-align: end;
 }
 
 .brutalist-section.inverted {
@@ -84,11 +97,10 @@ defineProps({
 .bottom-right { bottom: -6px; right: -6px; }
 
 .content-inner {
-  flex-grow: 1;
   position: relative;
-  z-index: 5;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  flex-grow: 1;
 }
 </style>

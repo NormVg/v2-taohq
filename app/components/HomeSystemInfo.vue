@@ -15,7 +15,11 @@
       <a href="mailto:thealphaones.work@gmail.com" class="dir-row group">
         <div class="dir-bg-wipe"></div>
         <div class="hover-dither-bg">
-          <DitherImage src="/images/zuckerberg_coding.gif" />
+          <DitherImage :src="img1" class="tiled-img" />
+          <DitherImage :src="img1" class="tiled-img" />
+          <DitherImage :src="img1" class="tiled-img" />
+          <DitherImage :src="img1" class="tiled-img" />
+          <DitherImage :src="img1" class="tiled-img" />
         </div>
         <div class="dir-content">
           <div class="dir-col-left">
@@ -32,7 +36,11 @@
       <a href="https://x.com/TheNormVg" target="_blank" class="dir-row group">
         <div class="dir-bg-wipe"></div>
         <div class="hover-dither-bg">
-          <DitherImage src="/images/eduardo_laptop.gif" />
+          <DitherImage :src="img2" class="tiled-img" />
+          <DitherImage :src="img2" class="tiled-img" />
+          <DitherImage :src="img2" class="tiled-img" />
+          <DitherImage :src="img2" class="tiled-img" />
+          <DitherImage :src="img2" class="tiled-img" />
         </div>
         <div class="dir-content">
           <div class="dir-col-left">
@@ -49,7 +57,11 @@
       <a href="https://github.com/TheAlphaOnes/" target="_blank" class="dir-row group">
         <div class="dir-bg-wipe"></div>
         <div class="hover-dither-bg">
-          <DitherImage src="/images/sean_parker_billion.gif" />
+          <DitherImage :src="img3" class="tiled-img" />
+          <DitherImage :src="img3" class="tiled-img" />
+          <DitherImage :src="img3" class="tiled-img" />
+          <DitherImage :src="img3" class="tiled-img" />
+          <DitherImage :src="img3" class="tiled-img" />
         </div>
         <div class="dir-content">
           <div class="dir-col-left">
@@ -65,6 +77,12 @@
     </div>
   </BrutalistCard>
 </template>
+
+<script setup>
+import img1 from '~/assets/skull-card.jpg'
+import img2 from '~/assets/hand.jpg'
+import img3 from '~/assets/sea-tied.jpg'
+</script>
 
 <style scoped>
 /* Ensure root container has a flex layout */
@@ -143,15 +161,26 @@
 
 .hover-dither-bg {
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 600px;
+  margin-top: -300px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
   opacity: 0;
-  transform: scale(1.05) translateY(10px);
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(0.98) translateY(20px);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 1;
   pointer-events: none;
+}
+
+.tiled-img {
+  width: 350px;
+  height: 100%;
+  flex-shrink: 0;
 }
 
 .dir-row:hover .dir-bg-wipe {

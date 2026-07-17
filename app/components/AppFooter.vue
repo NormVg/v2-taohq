@@ -1,5 +1,6 @@
 <script setup>
 import catImg from '~/assets/cat.png'
+import grimReaperImg from '~/assets/grim-reaper.png'
 </script>
 
 <template>
@@ -7,9 +8,12 @@ import catImg from '~/assets/cat.png'
     <div class="full-height-flex">
       
       <div class="center-banner">
+        <div class="logo-hover-dither">
+          <DitherImage :src="grimReaperImg" />
+        </div>
         <div class="banner-inner">
           <img src="~/assets/logo.svg" class="logo-icon" alt="Tao HQ Logo" />
-          <h1 class="logo-text-large">TAO.HQ</h1>
+          <h1 class="logo-text-large">taohq</h1>
         </div>
       </div>
       
@@ -19,6 +23,26 @@ import catImg from '~/assets/cat.png'
       </div>
 
       <div class="footer-links-grid mt-4">
+        <div class="footer-col">
+          <NuxtLink to="/">Home //</NuxtLink>
+          <NuxtLink to="/products">Products //</NuxtLink>
+          <NuxtLink to="/writing">Writing //</NuxtLink>
+          <NuxtLink to="/careers">Careers //</NuxtLink>
+          <NuxtLink to="/contact">Contact //</NuxtLink>
+          <NuxtLink to="/legal">Legal //</NuxtLink>
+        </div>
+        <div class="footer-col">
+          <NuxtLink to="/organization/about">About //</NuxtLink>
+          <NuxtLink to="/organization/philosophy">Philosophy //</NuxtLink>
+          <NuxtLink to="/organization/principles">Principles //</NuxtLink>
+          <NuxtLink to="/organization/team">Team //</NuxtLink>
+          <NuxtLink to="/organization/timeline">Timeline //</NuxtLink>
+          <NuxtLink to="/organization/infrastructure">Infrastructure //</NuxtLink>
+          <NuxtLink to="/organization/design-language">Design //</NuxtLink>
+          <NuxtLink to="/organization/technology">Technology //</NuxtLink>
+          <NuxtLink to="/organization/open-source">Open Source //</NuxtLink>
+          <NuxtLink to="/organization/brand-assets">Brand Assets //</NuxtLink>
+        </div>
         <div class="footer-col">
           <a href="https://github.com/TheAlphaOnes/" target="_blank">GitHub //</a>
           <a href="https://x.com/TheNormVg" target="_blank">X (Twitter) //</a>
@@ -37,29 +61,59 @@ import catImg from '~/assets/cat.png'
 .app-footer {
   /* To ensure consistent margin/padding if used outside index.vue */
   min-height: 100vh;
+  position: relative;
+  z-index: 10;
 }
 .full-height-flex {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex-grow: 1;
 }
 
 .center-banner {
   flex-grow: 1;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  background: var(--fg-color);
+  color: var(--bg-color);
+  padding: 4rem 4rem;
+  border-top: 4px solid var(--fg-color);
+  border-bottom: 4px solid var(--fg-color);
+  position: relative;
+  overflow: hidden;
+  cursor: crosshair;
 }
+
+.logo-hover-dither {
+  position: absolute;
+  top: 50%;
+  right: 4rem;
+  transform: translateY(-50%);
+  width: 400px;
+  height: 400px;
+  opacity: 0;
+  transition: opacity 400ms cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.center-banner:hover .logo-hover-dither {
+  opacity: 0.8;
+}
+
 .banner-inner {
   display: flex;
   align-items: center;
-  background-color: var(--fg-color);
-  color: var(--bg-color);
-  padding: 2rem 4rem;
-  width: 100%;
-  border-top: 4px solid var(--fg-color);
-  border-bottom: 4px solid var(--fg-color);
+  position: relative;
+  z-index: 2;
+  transition: transform 150ms cubic-bezier(0.19, 1, 0.22, 1);
 }
+
+.center-banner:hover .banner-inner {
+  transform: scale(1.02);
+}
+
 .logo-icon {
   width: 100px;
   height: 100px;
@@ -91,7 +145,9 @@ import catImg from '~/assets/cat.png'
 
 .footer-links-grid {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
   padding: 4rem 4rem 2rem 4rem;
 }
 .footer-cat-container {
@@ -106,6 +162,9 @@ import catImg from '~/assets/cat.png'
 }
 .footer-col {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 2rem;
 }
 .footer-col a {

@@ -21,6 +21,11 @@ const props = defineProps({
   colorLight: {
     type: String,
     default: '#c4b5e3'
+  },
+  // Scale of the "pixels" (e.g. 3.0 makes it 3x chunkier)
+  pixelSize: {
+    type: Number,
+    default: 3.0
   }
 })
 
@@ -63,6 +68,7 @@ onMounted(() => {
     uniform vec2 uResolution;
     uniform vec3 uColorDark;
     uniform vec3 uColorLight;
+    uniform float uPixelSize;
 
     float bayer4x4(vec2 p) {
         vec2 p0 = floor(mod(p, 4.0));
@@ -92,20 +98,23 @@ onMounted(() => {
     }
 
     void main() {
-        vec4 texColor = texture2D(uImage, vUv);
+        // Chunk UV for blocky image sampling
+        vec2 pUv = floor(vUv * (uResolution / uPixelSize)) / (uResolution / uPixelSize);
+        vec4 texColor = texture2D(uImage, pUv);
         
         // Convert to grayscale using luminance weights
         float gray = dot(texColor.rgb, vec3(0.299, 0.587, 0.114));
         
-        // Pixel coordinates relative to image resolution
-        vec2 pxCoord = vUv * uResolution;
+        // Pixel coordinates scaled down for the bayer matrix
+        vec2 pxCoord = floor(vUv * uResolution / uPixelSize);
         
         // Apply some contrast boost
         gray = clamp((gray - 0.5) * 1.5 + 0.5, 0.0, 1.0);
         
         float threshold = bayer4x4(pxCoord);
         
-        float finalValue = step(threshold, gray);
+        // Add a tiny offset so step(0, 0) evaluates to 0 instead of 1
+        float finalValue = step(threshold + 0.001, gray);
         vec3 finalColor = mix(uColorDark, uColorLight, finalValue);
         
         // If pixel is transparent, discard it entirely
@@ -177,6 +186,7 @@ onMounted(() => {
   gl.vertexAttribPointer(aUv, 2, gl.FLOAT, false, 0, 0)
 
   const uResolution = gl.getUniformLocation(program, 'uResolution')
+  const uPixelSize = gl.getUniformLocation(program, 'uPixelSize')
   const uColorDark = gl.getUniformLocation(program, 'uColorDark')
   const uColorLight = gl.getUniformLocation(program, 'uColorLight')
   const uImage = gl.getUniformLocation(program, 'uImage')
@@ -192,7 +202,7 @@ onMounted(() => {
   img.crossOrigin = 'anonymous'
   img.src = props.src
   img.onload = () => {
-    // Render at intrinsic size (capped for performance) to let CSS object-fit handle the container mapping
+    // Render at intrinsic size (capped for performance)
     let w = img.width
     let h = img.height
     const maxDim = 1200
@@ -206,6 +216,7 @@ onMounted(() => {
     canvas.value.height = h
     gl.viewport(0, 0, w, h)
     gl.uniform2f(uResolution, w, h)
+    gl.uniform1f(uPixelSize, props.pixelSize)
 
     const texture = gl.createTexture()
     gl.bindTexture(gl.TEXTURE_2D, texture)

@@ -1,23 +1,19 @@
 <template>
-  <main class="page-container">
+  <div class="home-container">
     <HomeHero />
     <HomeStats />
     <HomeFeatures />
     <HomeProjects />
     <HomeSystemInfo />
-    <AppFooter />
-  </main>
+  </div>
 </template>
 
 <style scoped>
-.page-container {
+.home-container {
   display: flex;
   flex-direction: column;
-  background-color: var(--fg-color);
   width: 100%;
-  height: 100vh;
-  overflow-y: auto;
-  overflow-x: hidden;
-  scroll-snap-type: y mandatory;
+  /* We let the layout-wrapper in default.vue handle the scrolling, 
+     but we can apply scroll-snap here if we make it a full-height overflow container. */
 }
 </style>

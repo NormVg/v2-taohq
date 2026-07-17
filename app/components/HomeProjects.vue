@@ -2,32 +2,32 @@
   <BrutalistCard dashed class="section-4" padding="0">
     <div class="horizontal-scroll-container" ref="scrollContainer">
       <div class="scroll-wrapper">
-        <div class="scroll-item group">
+        <div class="scroll-item group" @mouseenter="activeProject = 'FLOWER MOON [ARCHIVE 01]'" @mouseleave="activeProject = 'SELECT ASSET // ---'">
           <div class="ticker ticker-top">
             <div class="marquee"><span class="m-text">110010101110010010101001100101010010110111</span><span class="m-text">110010101110010010101001100101010010110111</span></div>
           </div>
           <div class="ticker ticker-bottom">
             <div class="marquee alt-scroll"><span class="m-text">101101001010001011001010100101101010010</span><span class="m-text">101101001010001011001010100101101010010</span></div>
           </div>
-          <DitherImage src="/images/scenery1.jpg" class="card-img" />
+          <DitherImage :src="flowerMoonImg" class="card-img" />
         </div>
-        <div class="scroll-item group">
+        <div class="scroll-item group" @mouseenter="activeProject = 'SKULL ARROW [ARCHIVE 02]'" @mouseleave="activeProject = 'SELECT ASSET // ---'">
           <div class="ticker ticker-top">
             <div class="marquee"><span class="m-text">101010110100101010100100101010101001110101</span><span class="m-text">101010110100101010100100101010101001110101</span></div>
           </div>
           <div class="ticker ticker-bottom">
             <div class="marquee alt-scroll"><span class="m-text">010010111010010100110101001011101001010</span><span class="m-text">010010111010010100110101001011101001010</span></div>
           </div>
-          <DitherImage src="/images/scenery2.jpg" class="card-img" />
+          <DitherImage :src="img2" class="card-img" />
         </div>
-        <div class="scroll-item group">
+        <div class="scroll-item group" @mouseenter="activeProject = 'CRAWL HANDS [ARCHIVE 03]'" @mouseleave="activeProject = 'SELECT ASSET // ---'">
           <div class="ticker ticker-top">
             <div class="marquee"><span class="m-text">011010010101011101001010010110101011010101</span><span class="m-text">011010010101011101001010010110101011010101</span></div>
           </div>
           <div class="ticker ticker-bottom">
             <div class="marquee alt-scroll"><span class="m-text">111010100010110100101010110100010101011</span><span class="m-text">111010100010110100101010110100010101011</span></div>
           </div>
-          <DitherImage src="/images/scenery3.jpg" class="card-img" />
+          <DitherImage :src="crawlHandsImg" class="card-img" />
         </div>
       </div>
     </div>
@@ -47,6 +47,7 @@
         </button>
       </div>
       <div class="slashes-wrapper">
+        <div class="project-name-display">{{ activeProject }}</div>
         <AnimatedSlashes :count="25" right />
       </div>
     </div>
@@ -55,8 +56,13 @@
 
 <script setup>
 import { ref, onUnmounted } from 'vue'
+import flowerMoonImg from '~/assets/flower-moon.png'
+import img2 from '~/assets/skull-arrow.png'
+import crawlHandsImg from '~/assets/crawl-hands.png'
 
 const scrollContainer = ref(null)
+
+const activeProject = ref('SELECT ASSET // ---')
 
 const prevText = ref('PREV')
 const nextText = ref('NEXT')
@@ -157,7 +163,6 @@ const scroll = (direction) => {
 
 .scroll-item:hover .card-img {
   transform: scale(1.05);
-  filter: brightness(1.1) contrast(1.1);
 }
 
 :deep(.card-img) {
@@ -234,8 +239,22 @@ const scroll = (direction) => {
 .bottom-bar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   padding: 1rem 4rem 2rem 4rem;
+}
+
+.slashes-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.project-name-display {
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  color: var(--fg-color);
 }
 
 .nav-controls {

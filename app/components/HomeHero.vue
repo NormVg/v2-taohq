@@ -1,6 +1,10 @@
+<script setup>
+</script>
+
 <template>
   <BrutalistCard inverted dashed class="section-1">
     <div class="watermark-bg">TheAlphaOnes</div>
+    
     <div class="top-text">
       <p class="small-caps">Every pixel tells a story.</p>
       <AnimatedSlashes :count="25" right class="mt-2" />
@@ -13,13 +17,17 @@
 
     <div class="bottom-nav">
       <div class="nav-links-row">
-        <NuxtLink to="/organization/about" class="nav-link-brutal">ABOUT</NuxtLink>
+        <NuxtLink to="/products" class="nav-link-brutal">PRODUCTS</NuxtLink>
         <span class="slash-separator">///</span>
-        <NuxtLink to="/organization/manifesto" class="nav-link-brutal">MANIFESTO</NuxtLink>
+        <NuxtLink to="/organization/about" class="nav-link-brutal">ORGANIZATION</NuxtLink>
         <span class="slash-separator">///</span>
-        <NuxtLink to="/organization/principles" class="nav-link-brutal">PRINCIPLES</NuxtLink>
+        <NuxtLink to="/writing" class="nav-link-brutal">WRITING</NuxtLink>
+        <span class="slash-separator">///</span>
+        <NuxtLink to="/careers" class="nav-link-brutal">CAREERS</NuxtLink>
+        <span class="slash-separator">///</span>
+        <NuxtLink to="/contact" class="nav-link-brutal">CONTACT</NuxtLink>
       </div>
-      <AnimatedSlashes :count="34" class="mt-2" />
+      <AnimatedSlashes :count="50" class="mt-2" />
     </div>
   </BrutalistCard>
 </template>
