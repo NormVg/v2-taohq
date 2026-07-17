@@ -1,6 +1,7 @@
 <template>
-  <main class="page-wrapper">
-    <BrutalistCard inverted dashed class="hero-section">
+  <main class="mobile-page-wrapper">
+    <section class="mobile-section inverted-section border-b-dashed">
+      <div class="mobile-section-content">
       <div class="watermark-bg">ABOUT</div>
       <div class="top-nav">
         <NuxtLink to="/" class="back-link">&lt;&lt; RETURN</NuxtLink>
@@ -21,9 +22,11 @@
         <span class="small-caps">SYSTEM STATUS: NOMINAL</span>
         <AnimatedSlashes :count="40" class="mt-2" />
       </div>
-    </BrutalistCard>
+    </div>
+    </section>
 
-    <BrutalistCard padding="6rem">
+    <section class="mobile-section border-b-dashed">
+      <div class="mobile-section-content">
       <div class="split-grid">
         <div class="grid-left">
           <h2 class="section-title">THE ARCHITECTURE</h2>
@@ -47,7 +50,8 @@
           </div>
         </div>
       </div>
-    </BrutalistCard>
+    </div>
+    </section>
   </main>
 </template>
 
@@ -63,11 +67,7 @@ useHead({
 </script>
 
 <style scoped>
-.page-wrapper {
-  background-color: var(--bg-color);
-  color: var(--fg-color);
-  min-height: 100vh;
-}
+
 .hero-section {
   position: relative;
   overflow: hidden;
@@ -182,5 +182,33 @@ useHead({
   border: 2px solid var(--fg-color);
   padding: 1rem;
   background-color: var(--fg-color);
+}
+
+.mobile-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.mobile-section {
+  width: 100%;
+}
+
+.mobile-section-content {
+  padding: 2rem 1.25rem;
+}
+
+.inverted-section {
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+}
+
+.border-b-dashed {
+  border-bottom: 2px dashed var(--fg-color);
+}
+.inverted-section.border-b-dashed {
+  border-bottom: 2px dashed var(--bg-color);
 }
 </style>

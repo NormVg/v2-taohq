@@ -12,8 +12,9 @@ useSeoMeta({
 </script>
 
 <template>
-  <main class="page-wrapper">
-    <BrutalistCard inverted dashed padding="4rem">
+  <main class="mobile-page-wrapper">
+    <section class="mobile-section inverted-section border-b-dashed">
+      <div class="mobile-section-content">
       <div class="top-nav">
         <NuxtLink to="/" class="back-link">&lt;&lt; RETURN</NuxtLink>
         <AnimatedSlashes :count="12" right />
@@ -23,9 +24,11 @@ useSeoMeta({
         <p class="subtitle mt-4">SYSTEM LOGS // TIMELINE</p>
         <AnimatedSlashes :count="40" class="mt-8" />
       </div>
-    </BrutalistCard>
+    </div>
+    </section>
       
-    <BrutalistCard padding="4rem">
+    <section class="mobile-section border-b-dashed">
+      <div class="mobile-section-content">
       <div class="timeline-container mt-8">
           
           <div class="timeline-event">
@@ -65,7 +68,8 @@ useSeoMeta({
           </div>
 
       </div>
-    </BrutalistCard>
+    </div>
+    </section>
 
     <div class="fixed-logo-wrapper">
       <div class="logo-inner-anim">
@@ -78,11 +82,7 @@ useSeoMeta({
 </template>
 
 <style scoped>
-.page-wrapper {
-  background-color: var(--bg-color);
-  color: var(--fg-color);
-  min-height: 100vh;
-}
+
 .subtitle {
   font-family: 'VT323', monospace;
   font-size: 2rem;
@@ -223,5 +223,33 @@ useSeoMeta({
 @keyframes slight-tilt {
   0% { transform: rotateZ(-5deg) scale(1); }
   100% { transform: rotateZ(5deg) scale(1.05); }
+}
+
+.mobile-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.mobile-section {
+  width: 100%;
+}
+
+.mobile-section-content {
+  padding: 2rem 1.25rem;
+}
+
+.inverted-section {
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+}
+
+.border-b-dashed {
+  border-bottom: 2px dashed var(--fg-color);
+}
+.inverted-section.border-b-dashed {
+  border-bottom: 2px dashed var(--bg-color);
 }
 </style>

@@ -1,10 +1,14 @@
 <template>
-  <div class="page-root">
+  <div class="mobile-page-wrapper inverted-section">
+    <div class="top-nav">
+      <NuxtLink to="/writing" class="nav-link">< WRITING</NuxtLink>
+    </div>
+
     <div class="top-right-dither-bg">
       <DitherImage :src="bgImage" class="bg-dither-img" />
     </div>
 
-    <div class="blog-post-wrapper">
+    <div class="blog-post-content">
       <template v-if="page">
         <header class="post-header">
           <h1 class="post-title">{{ page.title }}</h1>
@@ -14,7 +18,7 @@
           </div>
         </header>
         
-        <AnimatedSlashes :count="30" class="slashes-divider" />
+        <AnimatedSlashes :count="15" class="slashes-divider" />
         
         <article class="prose">
           <ContentRenderer :value="page" />
@@ -38,22 +42,47 @@ definePageMeta({ layout: 'blog' })
 </script>
 
 <style scoped>
-.page-root {
+.mobile-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  max-width: 100%;
+  overflow-x: hidden;
   position: relative;
-  width: 100%;
+  min-height: 100vh;
+}
+
+.inverted-section {
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+}
+
+.top-nav {
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding: 1rem 1.25rem;
+  border-bottom: 2px dashed var(--bg-color);
+  position: relative;
+  z-index: 2;
+}
+
+.nav-link {
+  color: var(--bg-color);
+  text-decoration: none;
 }
 
 .top-right-dither-bg {
   position: fixed;
   top: 0;
   right: 0;
-  width: 70vw;
-  height: 90vh;
+  width: 100vw;
+  height: 50vh;
   z-index: 0;
   opacity: 0.2;
   pointer-events: none;
-  mask-image: radial-gradient(circle at top right, black 0%, transparent 60%);
-  -webkit-mask-image: radial-gradient(circle at top right, black 0%, transparent 60%);
+  mask-image: radial-gradient(circle at top right, black 0%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at top right, black 0%, transparent 80%);
 }
 
 .bg-dither-img {
@@ -62,47 +91,47 @@ definePageMeta({ layout: 'blog' })
   object-fit: cover;
 }
 
-.blog-post-wrapper {
+.blog-post-content {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  max-width: 1000px;
+  padding: 2rem 1.25rem;
 }
 
 .post-header {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .post-title {
   font-family: 'VT323', monospace;
-  font-size: 5rem;
-  margin: 0 0 2rem 0;
+  font-size: 3.5rem;
+  margin: 0 0 1rem 0;
   text-transform: uppercase;
+  line-height: 1;
   color: var(--bg-color);
   border-bottom: 2px dashed var(--bg-color);
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 .post-meta {
   display: flex;
-  gap: 2rem;
+  flex-direction: column;
+  gap: 0.5rem;
   font-family: 'VT323', monospace;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   opacity: 0.8;
-  margin-bottom: 3rem;
 }
 
 .slashes-divider {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   opacity: 0.5;
 }
 
 .prose {
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.1rem;
-  line-height: 2;
+  line-height: 1.6;
   max-width: 100%;
   text-transform: uppercase;
   color: rgba(196, 181, 227, 0.8);
@@ -110,9 +139,9 @@ definePageMeta({ layout: 'blog' })
 
 :deep(.prose h2) {
   font-family: 'VT323', monospace;
-  font-size: 2.5rem;
-  margin-top: 4rem;
-  margin-bottom: 2rem;
+  font-size: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
   text-transform: uppercase;
   color: var(--bg-color);
   display: inline-block;
@@ -121,17 +150,17 @@ definePageMeta({ layout: 'blog' })
 }
 
 :deep(.prose p) {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 :deep(.prose ul) {
   list-style-type: disc;
   padding-left: 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 :deep(.prose li) {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 :deep(.prose strong) {
@@ -150,14 +179,14 @@ definePageMeta({ layout: 'blog' })
   color: var(--fg-color);
   padding: 0.2rem 0.4rem;
   font-family: 'VT323', monospace;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 :deep(.prose pre) {
   background: var(--bg-color) !important;
   color: var(--fg-color) !important;
-  padding: 2rem;
-  margin-bottom: 2rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
   overflow-x: auto;
   border: 2px dashed var(--fg-color);
 }
@@ -167,6 +196,7 @@ definePageMeta({ layout: 'blog' })
   color: inherit !important;
   padding: 0 !important;
   font-family: 'Courier New', Courier, monospace;
+  font-size: 0.9rem;
 }
 
 :deep(.prose pre code span) {
@@ -176,7 +206,7 @@ definePageMeta({ layout: 'blog' })
 :deep(.prose img) {
   width: 100%;
   height: auto;
-  margin: 3rem 0;
+  margin: 2rem 0;
   border: 2px dashed var(--bg-color);
   filter: grayscale(100%) contrast(150%);
   display: block;

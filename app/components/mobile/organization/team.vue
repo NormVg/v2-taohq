@@ -1,6 +1,7 @@
 <template>
-  <main class="page-wrapper">
-    <BrutalistCard dashed padding="4rem">
+  <main class="mobile-page-wrapper">
+    <section class="mobile-section border-b-dashed">
+      <div class="mobile-section-content">
       <div class="header-split">
         <div class="left">
           <NuxtLink to="/" class="back-link">&lt;&lt; RETURN</NuxtLink>
@@ -33,7 +34,8 @@
           </div>
         </div>
       </div>
-    </BrutalistCard>
+    </div>
+    </section>
   </main>
 </template>
 
@@ -51,11 +53,7 @@ useSeoMeta({
 </script>
 
 <style scoped>
-.page-wrapper {
-  background-color: var(--bg-color);
-  color: var(--fg-color);
-  min-height: 100vh;
-}
+
 .header-split {
   display: flex;
   flex-direction: column;
@@ -197,5 +195,33 @@ useSeoMeta({
 }
 .bio-text {
   max-width: 600px;
+}
+
+.mobile-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.mobile-section {
+  width: 100%;
+}
+
+.mobile-section-content {
+  padding: 2rem 1.25rem;
+}
+
+.inverted-section {
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+}
+
+.border-b-dashed {
+  border-bottom: 2px dashed var(--fg-color);
+}
+.inverted-section.border-b-dashed {
+  border-bottom: 2px dashed var(--bg-color);
 }
 </style>

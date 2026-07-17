@@ -1,6 +1,7 @@
 <template>
-  <main class="page-wrapper">
-    <BrutalistCard inverted dashed padding="4rem">
+  <main class="mobile-page-wrapper">
+    <section class="mobile-section inverted-section border-b-dashed">
+      <div class="mobile-section-content">
       <div class="top-nav">
         <NuxtLink to="/" class="back-link">&lt;&lt; RETURN</NuxtLink>
         <AnimatedSlashes :count="16" right />
@@ -48,7 +49,8 @@
           <p class="item-desc mt-2">Form follows function. The interface should reflect the raw mechanics of the underlying system.</p>
         </div>
       </div>
-    </BrutalistCard>
+    </div>
+    </section>
   </main>
 </template>
 
@@ -66,10 +68,7 @@ useSeoMeta({
 </script>
 
 <style scoped>
-.page-wrapper {
-  background-color: var(--bg-color);
-  color: var(--fg-color);
-}
+
 .top-nav {
   display: flex;
   justify-content: space-between;
@@ -150,5 +149,33 @@ useSeoMeta({
   opacity: 0.8;
   margin-top: auto;
   padding-top: 2rem;
+}
+
+.mobile-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.mobile-section {
+  width: 100%;
+}
+
+.mobile-section-content {
+  padding: 2rem 1.25rem;
+}
+
+.inverted-section {
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+}
+
+.border-b-dashed {
+  border-bottom: 2px dashed var(--fg-color);
+}
+.inverted-section.border-b-dashed {
+  border-bottom: 2px dashed var(--bg-color);
 }
 </style>
