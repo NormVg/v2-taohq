@@ -171,6 +171,10 @@ import img3 from '~/assets/skull-book.png'
   flex-shrink: 0;
 }
 
+.tiled-img :deep(canvas) {
+  object-position: right center;
+}
+
 .dir-row:hover .dir-bg-wipe {
   transform: scaleX(1);
   transform-origin: left;
