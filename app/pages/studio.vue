@@ -91,11 +91,16 @@
 
     </div>
 
-    <!-- Capabilities Directory -->
-    <div class="capabilities-block mb-16">
-      <BrutalistCard dashed padding="3rem" class="capabilities-card">
-        <h2 class="section-title mb-8">CAPABILITIES DIRECTORY</h2>
-        <div class="capabilities-grid">
+    <!-- Merged Terminal / Capabilities Directory -->
+    <BrutalistCard dashed padding="3rem" class="cta-terminal mb-16">
+      <div class="terminal-header">
+        <span>ROOT@TAO-HQ:~# ./list_capabilities.sh</span>
+        <AnimatedSlashes :count="10" right />
+      </div>
+      <div class="terminal-body">
+        <p class="mb-8">> EXECUTING CAPABILITIES QUERY...</p>
+        
+        <div class="capabilities-grid mb-12">
           <ul class="cap-list">
             <li>> FULL STACK WEB DEVELOPMENT</li>
             <li>> CUSTOM SOFTWARE DEVELOPMENT</li>
@@ -111,16 +116,7 @@
             <li>> API & BACKEND INTEGRATION</li>
           </ul>
         </div>
-      </BrutalistCard>
-    </div>
 
-    <!-- CTA Terminal -->
-    <BrutalistCard dashed padding="3rem" class="cta-terminal">
-      <div class="terminal-header">
-        <span>ROOT@TAO-HQ:~# INITIATE_PROTOCOL</span>
-        <AnimatedSlashes :count="10" right />
-      </div>
-      <div class="terminal-body">
         <p>> READY TO DEPLOY A NEW ASSET?</p>
         <p>> ESTABLISH SECURE CONNECTION TO DISCUSS YOUR PROJECT.</p>
         <p class="mt-8 mb-4">
@@ -323,9 +319,9 @@ useHead({
   font-family: 'VT323', monospace;
   font-size: 1.5rem;
   letter-spacing: 1px;
-  color: var(--fg-color);
+  color: var(--bg-color);
   text-transform: uppercase;
-  border-bottom: 2px dashed var(--fg-color);
+  border-bottom: 2px dashed var(--bg-color);
   padding-bottom: 0.5rem;
 }
 
