@@ -51,8 +51,13 @@ const { data: products } = await useAsyncData('products', () => {
 })
 definePageMeta({ layout: 'default' })
 
-useHead({
-  title: 'PRODUCTS // taohq'
+useSeoMeta({
+  title: 'PRODUCTS // taohq',
+  description: 'Explore PRODUCTS at Tao HQ. We believe software should feel understandable, durable, and calm.',
+  ogTitle: 'PRODUCTS // taohq',
+  ogDescription: 'Explore PRODUCTS at Tao HQ. We believe software should feel understandable, durable, and calm.',
+  ogImage: 'https://v2.taohq.org/og.png',
+  twitterCard: 'summary_large_image',
 })
 </script>
 

@@ -143,8 +143,13 @@ import uiUxImg from '~/assets/eye-wall.png'
 import engImg from '~/assets/skull-break.png'
 import brandImg from '~/assets/2face-demon.png'
 
-useHead({
-  title: 'STUDIO // taohq'
+useSeoMeta({
+  title: 'STUDIO // Tao HQ',
+  description: 'We partner with ambitious organizations to design, architect, and deploy uncompromising interfaces and brutalist systems.',
+  ogTitle: 'STUDIO // Tao HQ',
+  ogDescription: 'We partner with ambitious organizations to design, architect, and deploy uncompromising interfaces and brutalist systems.',
+  ogImage: 'https://v2.taohq.org/og.png',
+  twitterCard: 'summary_large_image',
 })
 </script>
 

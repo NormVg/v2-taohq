@@ -1,8 +1,13 @@
 <script setup>
 import { onMounted } from 'vue'
 
-useHead({
-  title: 'TECHNOLOGY // taohq'
+useSeoMeta({
+  title: 'TECHNOLOGY // taohq',
+  description: 'Explore TECHNOLOGY at Tao HQ. We believe software should feel understandable, durable, and calm.',
+  ogTitle: 'TECHNOLOGY // taohq',
+  ogDescription: 'Explore TECHNOLOGY at Tao HQ. We believe software should feel understandable, durable, and calm.',
+  ogImage: 'https://v2.taohq.org/og.png',
+  twitterCard: 'summary_large_image',
 })
 </script>
 

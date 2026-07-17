@@ -23,6 +23,7 @@ import grimReaperImg from '~/assets/grim-reaper.png'
       </div>
 
       <div class="footer-links-grid mt-4">
+        <!-- Core Navigation -->
         <div class="footer-col">
           <NuxtLink to="/">Home //</NuxtLink>
           <NuxtLink to="/studio">Studio //</NuxtLink>
@@ -32,6 +33,8 @@ import grimReaperImg from '~/assets/grim-reaper.png'
           <NuxtLink to="/contact">Contact //</NuxtLink>
           <NuxtLink to="/legal">Legal //</NuxtLink>
         </div>
+        
+        <!-- Organization / Foundation -->
         <div class="footer-col">
           <NuxtLink to="/organization/about">About //</NuxtLink>
           <NuxtLink to="/organization/philosophy">Philosophy //</NuxtLink>
@@ -39,11 +42,17 @@ import grimReaperImg from '~/assets/grim-reaper.png'
           <NuxtLink to="/organization/team">Team //</NuxtLink>
           <NuxtLink to="/organization/timeline">Timeline //</NuxtLink>
           <NuxtLink to="/organization/infrastructure">Infrastructure //</NuxtLink>
+        </div>
+
+        <!-- Systems & Assets -->
+        <div class="footer-col">
           <NuxtLink to="/organization/design-language">Design //</NuxtLink>
           <NuxtLink to="/organization/technology">Technology //</NuxtLink>
           <NuxtLink to="/organization/open-source">Open Source //</NuxtLink>
           <NuxtLink to="/organization/brand-assets">Brand Assets //</NuxtLink>
         </div>
+
+        <!-- External & Comms -->
         <div class="footer-col">
           <a href="https://github.com/TheAlphaOnes/" target="_blank">GitHub //</a>
           <a href="https://x.com/TheNormVg" target="_blank">X (Twitter) //</a>
@@ -145,11 +154,11 @@ import grimReaperImg from '~/assets/grim-reaper.png'
 }
 
 .footer-links-grid {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 1rem;
-  padding: 4rem 4rem 2rem 4rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 4rem 4rem 2rem 280px;
+  text-align: left;
 }
 .footer-cat-container {
   position: absolute;
@@ -163,10 +172,8 @@ import grimReaperImg from '~/assets/grim-reaper.png'
 }
 .footer-col {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 2rem;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 .footer-col a {
   color: var(--fg-color);
@@ -191,7 +198,7 @@ import grimReaperImg from '~/assets/grim-reaper.png'
   }
   .footer-links-grid {
     grid-template-columns: 1fr;
-    padding: 2rem;
+    padding: 2rem 2rem 260px 2rem;
   }
 }
 </style>

@@ -2,8 +2,13 @@
 import { onMounted } from 'vue'
 import catImg from '~/assets/cat.png'
 
-useHead({
-  title: 'DESIGN LANGUAGE // taohq'
+useSeoMeta({
+  title: 'DESIGN LANGUAGE // taohq',
+  description: 'Explore DESIGN LANGUAGE at Tao HQ. We believe software should feel understandable, durable, and calm.',
+  ogTitle: 'DESIGN LANGUAGE // taohq',
+  ogDescription: 'Explore DESIGN LANGUAGE at Tao HQ. We believe software should feel understandable, durable, and calm.',
+  ogImage: 'https://v2.taohq.org/og.png',
+  twitterCard: 'summary_large_image',
 })
 </script>
 

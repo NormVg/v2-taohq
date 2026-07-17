@@ -3,8 +3,13 @@ import { onMounted } from 'vue'
 import logoSvg from '~/assets/logo.svg'
 import catImg from '~/assets/cat.png'
 
-useHead({
-  title: 'BRAND ASSETS // taohq'
+useSeoMeta({
+  title: 'BRAND ASSETS // taohq',
+  description: 'Explore BRAND ASSETS at Tao HQ. We believe software should feel understandable, durable, and calm.',
+  ogTitle: 'BRAND ASSETS // taohq',
+  ogDescription: 'Explore BRAND ASSETS at Tao HQ. We believe software should feel understandable, durable, and calm.',
+  ogImage: 'https://v2.taohq.org/og.png',
+  twitterCard: 'summary_large_image',
 })
 </script>
 

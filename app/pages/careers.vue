@@ -1,11 +1,13 @@
 <script setup>
 import skullBreakImg from '~/assets/skull-break.png'
 
-useHead({
-  title: 'CAREERS // taohq',
-  meta: [
-    { name: 'description', content: 'Join us. Build what is necessary. Discard what is not.' }
-  ]
+useSeoMeta({
+  title: 'CAREERS // Tao HQ',
+  description: 'Join us. Build what is necessary. Discard what is not.',
+  ogTitle: 'CAREERS // Tao HQ',
+  ogDescription: 'Join us. Build what is necessary. Discard what is not.',
+  ogImage: 'https://v2.taohq.org/og.png',
+  twitterCard: 'summary_large_image',
 })
 </script>
 

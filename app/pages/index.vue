@@ -8,6 +8,17 @@
   </div>
 </template>
 
+<script setup>
+useSeoMeta({
+  title: 'Tao HQ | TheAlphaOnes',
+  description: 'We build digital machinery. Brutalist interfaces, zero-latency APIs, and uncompromising brand identities.',
+  ogTitle: 'Tao HQ | TheAlphaOnes',
+  ogDescription: 'We build digital machinery. Brutalist interfaces, zero-latency APIs, and uncompromising brand identities.',
+  ogImage: 'https://v2.taohq.org/og.png',
+  twitterCard: 'summary_large_image',
+})
+</script>
+
 <style scoped>
 .home-container {
   display: flex;

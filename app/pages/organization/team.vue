@@ -40,8 +40,13 @@
 <script setup>
 import vishnuPlaceholderImg from '~/assets/team-vishnu.png'
 
-useHead({
-  title: 'TEAM // taohq'
+useSeoMeta({
+  title: 'TEAM // taohq',
+  description: 'Explore TEAM at Tao HQ. We believe software should feel understandable, durable, and calm.',
+  ogTitle: 'TEAM // taohq',
+  ogDescription: 'Explore TEAM at Tao HQ. We believe software should feel understandable, durable, and calm.',
+  ogImage: 'https://v2.taohq.org/og.png',
+  twitterCard: 'summary_large_image',
 })
 </script>
 

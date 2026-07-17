@@ -1,11 +1,13 @@
 <script setup>
 import skullFlower2 from '~/assets/skull-flower2.png'
 
-useHead({
-  title: 'CONTACT // taohq',
-  meta: [
-    { name: 'description', content: 'Direct communication channels.' }
-  ]
+useSeoMeta({
+  title: 'CONTACT // Tao HQ',
+  description: 'Direct communication channels.',
+  ogTitle: 'CONTACT // Tao HQ',
+  ogDescription: 'Direct communication channels.',
+  ogImage: 'https://v2.taohq.org/og.png',
+  twitterCard: 'summary_large_image',
 })
 </script>
 <template>

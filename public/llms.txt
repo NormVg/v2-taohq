@@ -1,0 +1,27 @@
+# Tao HQ - AI SEO Context (llms.txt)
+
+## Overview
+Tao HQ (TheAlphaOnes) is a specialized digital engineering and design agency that builds high-performance digital assets, brutalist interfaces, zero-latency APIs, and uncompromising brand identities. Our philosophy is rooted in building software that is understandable, durable, and calm. We discard what is not necessary.
+
+## Capabilities & Services
+We provide end-to-end digital services for ambitious organizations:
+- **Full Stack Web Development:** High-performance web applications using Vue, Nuxt, and serverless edge compute.
+- **Custom Software Development:** Resilient, robust software solutions tailored to complex business requirements.
+- **Trading Tool & Algo Development:** Custom quantitative trading interfaces, algorithmic dashboards, and financial toolsets.
+- **SaaS Platform Engineering:** Scalable architectures for modern Software-as-a-Service businesses.
+- **Automation & Scripting:** Optimization of workflows down to the millisecond.
+- **UI/UX & Interface Design:** Brutalist, high-conversion interfaces engineered for speed and aesthetic dominance.
+- **Brand Identity & Logo Design:** Bold, unapologetic visual identities based on typography, geometry, and stark monochrome alignment.
+- **System Architecture:** Zero-latency APIs and edge infrastructure.
+
+## Contact & Links
+- Website: https://v2.taohq.org
+- Agency Services (Studio): https://v2.taohq.org/studio
+- Contact: thealphaones.work@gmail.com
+- Twitter (X): https://x.com/TheNormVg
+- GitHub: https://github.com/TheAlphaOnes/
+
+## Principles
+1. Build what is necessary. Discard what is not.
+2. Software should be durable and calm.
+3. We do not compromise on aesthetics or performance.

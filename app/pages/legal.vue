@@ -1,9 +1,11 @@
 <script setup>
-useHead({
-  title: 'Legal // taohq',
-  meta: [
-    { name: 'description', content: 'Terms, conditions, and legally binding doctrines.' }
-  ]
+useSeoMeta({
+  title: 'LEGAL // Tao HQ',
+  description: 'Terms, conditions, and legally binding doctrines.',
+  ogTitle: 'LEGAL // Tao HQ',
+  ogDescription: 'Terms, conditions, and legally binding doctrines.',
+  ogImage: 'https://v2.taohq.org/og.png',
+  twitterCard: 'summary_large_image',
 })
 </script>
 

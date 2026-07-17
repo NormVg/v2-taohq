@@ -55,8 +55,13 @@
 <script setup>
 import trangleSkullImg from '~/assets/trangle-skull.png'
 
-useHead({
-  title: 'PRINCIPLES // taohq'
+useSeoMeta({
+  title: 'PRINCIPLES // taohq',
+  description: 'Explore PRINCIPLES at Tao HQ. We believe software should feel understandable, durable, and calm.',
+  ogTitle: 'PRINCIPLES // taohq',
+  ogDescription: 'Explore PRINCIPLES at Tao HQ. We believe software should feel understandable, durable, and calm.',
+  ogImage: 'https://v2.taohq.org/og.png',
+  twitterCard: 'summary_large_image',
 })
 </script>
 
