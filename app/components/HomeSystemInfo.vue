@@ -150,12 +150,12 @@ import img3 from '~/assets/skull-book.png'
 .hover-dither-bg {
   position: absolute;
   top: 50%;
-  left: 0;
-  width: 100%;
+  right: 0;
+  width: 55%;
   height: 600px;
   margin-top: -300px;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
   align-items: center;
   gap: 1rem;
   opacity: 0;
@@ -163,6 +163,8 @@ import img3 from '~/assets/skull-book.png'
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 1;
   pointer-events: none;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 35%);
+  mask-image: linear-gradient(to right, transparent 0%, black 35%);
 }
 
 .tiled-img {
