@@ -67,7 +67,7 @@
 </template>
 
 <script setup>
-import img1 from '~/assets/rose-demon.png'
+import img1 from '~/assets/body-flower.png'
 import img2 from '~/assets/flower-skull.png'
 import img3 from '~/assets/skull-book.png'
 </script>
