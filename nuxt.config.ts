@@ -15,12 +15,12 @@ export default defineNuxtConfig({
         { property: 'og:title', content: 'Tao HQ | TheAlphaOnes' },
         { property: 'og:description', content: 'We believe software should feel understandable, durable, and calm.' },
         { property: 'og:type', content: 'website' },
-        { property: 'og:url', content: 'https://taohq.org' },
-        { property: 'og:image', content: 'https://taohq.org/og.png' },
+        { property: 'og:url', content: 'https://v2.taohq.org' },
+        { property: 'og:image', content: 'https://v2.taohq.org/og.png' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: 'Tao HQ | TheAlphaOnes' },
         { name: 'twitter:description', content: 'We believe software should feel understandable, durable, and calm.' },
-        { name: 'twitter:image', content: 'https://taohq.org/og.png' }
+        { name: 'twitter:image', content: 'https://v2.taohq.org/og.png' }
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }

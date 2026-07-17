@@ -52,7 +52,7 @@
 </template>
 
 <script setup>
-import treeSkullImg from '~/assets/half-skull.png'
+import treeSkullImg from '~/assets/skull-moon.png'
 
 useHead({
   title: 'PHILOSOPHY // taohq'
@@ -150,16 +150,14 @@ useHead({
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 .bg-dither {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 800px;
   height: 100%;
-  min-height: 600px;
   opacity: 0.15;
   z-index: 1;
   pointer-events: none;
