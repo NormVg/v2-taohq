@@ -40,9 +40,10 @@
             Brutalist, high-conversion interfaces engineered for speed and aesthetic dominance. We design user experiences that demand attention and optimize workflows down to the millisecond.
           </p>
           <ul class="service-list">
-            <li>> UI/UX DESIGN</li>
+            <li>> UI/UX & INTERFACE DESIGN</li>
+            <li>> HIGH-CONVERSION LANDING PAGES</li>
+            <li>> DESIGN SYSTEMS & TYPOGRAPHY</li>
             <li>> INTERACTION DESIGN</li>
-            <li>> DESIGN SYSTEMS</li>
           </ul>
         </div>
       </BrutalistCard>
@@ -54,16 +55,19 @@
         </div>
         <div class="service-content">
           <div class="service-header">
-            <h3>SYSTEM ARCHITECTURE</h3>
+            <h3>SOFTWARE & ARCHITECTURE</h3>
             <AnimatedSlashes :count="8" />
           </div>
           <p class="service-desc">
-            Zero-latency APIs, resilient edge infrastructure, and robust full-stack applications. Built on Nuxt, Vue, and high-performance serverless architectures that never sleep.
+            Zero-latency APIs, resilient edge infrastructure, and robust full-stack applications. Built on high-performance serverless architectures that never sleep.
           </p>
           <ul class="service-list">
-            <li>> FULL-STACK DEVELOPMENT</li>
-            <li>> BACKEND ARCHITECTURE</li>
-            <li>> EDGE COMPUTE / DEVOPS</li>
+            <li>> FULL STACK WEB DEVELOPMENT</li>
+            <li>> CUSTOM SOFTWARE DEVELOPMENT</li>
+            <li>> TRADING TOOL & ALGO DEVELOPMENT</li>
+            <li>> SAAS PLATFORM ENGINEERING</li>
+            <li>> AUTOMATION & SCRIPTING</li>
+            <li>> API & BACKEND INTEGRATION</li>
           </ul>
         </div>
       </BrutalistCard>
@@ -82,40 +86,23 @@
             Typography, geometry, and stark monochrome alignment. We construct bold, unapologetic visual identities that separate your brand from the noise of the modern web.
           </p>
           <ul class="service-list">
-            <li>> LOGO DESIGN</li>
+            <li>> LOGO & IDENTITY DESIGN</li>
             <li>> BRAND GUIDELINES</li>
             <li>> VISUAL STRATEGY</li>
+            <li>> CREATIVE DIRECTION</li>
           </ul>
         </div>
       </BrutalistCard>
 
     </div>
 
-    <!-- Merged Terminal / Capabilities Directory -->
+    <!-- Terminal CTA -->
     <BrutalistCard dashed padding="3rem" class="cta-terminal mb-16">
       <div class="terminal-header">
-        <span>ROOT@TAO-HQ:~# ./list_capabilities.sh</span>
+        <span>ROOT@TAO-HQ:~# ./deploy_asset.sh</span>
         <AnimatedSlashes :count="10" right />
       </div>
       <div class="terminal-body">
-        <p class="mb-8">> EXECUTING CAPABILITIES QUERY...</p>
-        
-        <div class="capabilities-grid mb-12">
-          <ul class="cap-list">
-            <li>> FULL STACK WEB DEVELOPMENT</li>
-            <li>> CUSTOM SOFTWARE DEVELOPMENT</li>
-            <li>> TRADING TOOL & ALGO DEVELOPMENT</li>
-            <li>> SAAS PLATFORM ENGINEERING</li>
-            <li>> AUTOMATION & SCRIPTING</li>
-          </ul>
-          <ul class="cap-list">
-            <li>> UI/UX & INTERFACE DESIGN</li>
-            <li>> HIGH-CONVERSION LANDING PAGES</li>
-            <li>> BRAND IDENTITY & LOGO DESIGN</li>
-            <li>> SYSTEM ARCHITECTURE</li>
-            <li>> API & BACKEND INTEGRATION</li>
-          </ul>
-        </div>
 
         <p>> READY TO DEPLOY A NEW ASSET?</p>
         <p>> ESTABLISH SECURE CONNECTION TO DISCUSS YOUR PROJECT.</p>
