@@ -40,13 +40,18 @@ useSeoMeta({
           <p class="desc mb-12">We do not use contact forms. Reach out directly via the appropriate channel.</p>
           
           <div class="channel-group mb-12">
-            <h2>GENERAL INQUIRIES</h2>
-            <a href="mailto:hello@tao.hq" class="email-link">HELLO@TAO.HQ</a>
+            <h2>DIRECT / FOUNDER</h2>
+            <a href="mailto:vishnu@taohq.org" class="email-link">VISHNU@TAOHQ.ORG</a>
           </div>
 
           <div class="channel-group mb-12">
-            <h2>SECURITY & INFRASTRUCTURE</h2>
-            <a href="mailto:security@tao.hq" class="email-link">SECURITY@TAO.HQ</a>
+            <h2>SUPPORT & OPERATIONS</h2>
+            <a href="mailto:support@taohq.org" class="email-link">SUPPORT@TAOHQ.ORG</a>
+          </div>
+
+          <div class="channel-group mb-12">
+            <h2>GENERAL INQUIRIES</h2>
+            <a href="mailto:hello@taohq.org" class="email-link">HELLO@TAOHQ.ORG</a>
           </div>
 
           <div class="channel-group">

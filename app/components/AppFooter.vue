@@ -56,7 +56,7 @@ import grimReaperImg from '~/assets/grim-reaper.png'
         <div class="footer-col">
           <a href="https://github.com/TheAlphaOnes/" target="_blank">GitHub //</a>
           <a href="https://x.com/TheNormVg" target="_blank">X (Twitter) //</a>
-          <a href="mailto:thealphaones.work@gmail.com">Communicate //</a>
+          <a href="mailto:hello@taohq.org">Communicate //</a>
         </div>
       </div>
 

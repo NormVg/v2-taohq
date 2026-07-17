@@ -17,7 +17,9 @@ We provide end-to-end digital services for ambitious organizations:
 ## Contact & Links
 - Website: https://v2.taohq.org
 - Agency Services (Studio): https://v2.taohq.org/studio
-- Contact: thealphaones.work@gmail.com
+- Contact (General): hello@taohq.org
+- Contact (Support): support@taohq.org
+- Contact (Direct): vishnu@taohq.org
 - Twitter (X): https://x.com/TheNormVg
 - GitHub: https://github.com/TheAlphaOnes/
 

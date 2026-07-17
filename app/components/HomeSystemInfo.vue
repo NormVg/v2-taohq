@@ -12,7 +12,7 @@
 
     <!-- Massive Interactive Directory -->
     <div class="directory-list">
-      <a href="mailto:thealphaones.work@gmail.com" class="dir-row group">
+      <a href="mailto:hello@taohq.org" class="dir-row group">
         <div class="dir-bg-wipe"></div>
         <div class="hover-dither-bg">
           <DitherImage :src="img1" class="tiled-img align-center" />
@@ -23,7 +23,7 @@
             <span class="dir-title">E-MAIL TRANSMISSION</span>
           </div>
           <div class="dir-col-right">
-            <span class="dir-value">THEALPHAONES.WORK@GMAIL.COM</span>
+            <span class="dir-value">HELLO@TAOHQ.ORG</span>
             <span class="dir-arrow">-></span>
           </div>
         </div>
@@ -67,7 +67,7 @@
 </template>
 
 <script setup>
-import img1 from '~/assets/body-flower.png'
+import img1 from '~/assets/rose-demon.png'
 import img2 from '~/assets/flower-skull.png'
 import img3 from '~/assets/skull-book.png'
 </script>
