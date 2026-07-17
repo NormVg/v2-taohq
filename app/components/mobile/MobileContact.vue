@@ -1,103 +1,109 @@
 <script setup>
 import skullFlower2 from '~/assets/skull-flower2.png'
-
-useSeoMeta({
-  title: 'CONTACT // Tao HQ',
-  description: 'Direct communication channels.',
-  ogTitle: 'CONTACT // Tao HQ',
-  ogDescription: 'Direct communication channels.',
-  ogImage: 'https://v2.taohq.org/og.png',
-  twitterCard: 'summary_large_image',
-})
+import DitherImage from '~/components/DitherImage.vue'
+import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
+import BrutalistCard from '~/components/BrutalistCard.vue'
 </script>
+
 <template>
-  <main class="page-wrapper">
-    <BrutalistCard inverted dashed padding="4rem">
-      <div class="top-nav">
-        <NuxtLink to="/" class="back-link">&lt;&lt; RETURN</NuxtLink>
-        <AnimatedSlashes :count="12" right />
-      </div>
-      <div class="header-container mt-12">
+  <main class="mobile-page-wrapper">
+    <!-- Breadcrumb -->
+    <div class="top-nav mb-4">
+      <NuxtLink to="/" class="nav-link">< RETURN</NuxtLink>
+    </div>
+
+    <!-- Header block -->
+    <BrutalistCard inverted dashed class="mobile-card mb-6">
+      <div class="header-container">
         <h1 class="display-title">INITIATE CONTACT</h1>
-        <p class="subtitle mt-4">DIRECT FREQUENCIES ONLY.</p>
-        <AnimatedSlashes :count="40" class="mt-8" />
+        <p class="subtitle mt-2">DIRECT FREQUENCIES ONLY.</p>
+        <AnimatedSlashes :count="20" class="mt-4" />
       </div>
     </BrutalistCard>
       
-    <BrutalistCard padding="4rem">
-      <div class="contact-grid mt-8">
-        <div class="visual-col">
-          <div class="dither-wrap">
-            <DitherImage :src="skullFlower2" />
-          </div>
-          <div class="overlay-text mt-4">
-            <AnimatedSlashes :count="20" />
-            <p class="mono-status mt-2">STATUS: ONLINE /// AWAITING SIGNAL</p>
-          </div>
+    <!-- Contact Details -->
+    <BrutalistCard class="mobile-card mb-8">
+      <div class="visual-col mb-8">
+        <div class="dither-wrap">
+          <DitherImage :src="skullFlower2" />
         </div>
+        <div class="overlay-text mt-4">
+          <AnimatedSlashes :count="10" />
+          <p class="mono-status mt-2">STATUS: ONLINE<br/>AWAITING SIGNAL</p>
+        </div>
+      </div>
+      
+      <div class="info-col">
+        <p class="desc mb-8">We do not use contact forms. Reach out directly via the appropriate channel.</p>
         
-        <div class="info-col">
-          <p class="desc mb-12">We do not use contact forms. Reach out directly via the appropriate channel.</p>
-          
-          <div class="channel-group mb-12">
-            <h2>DIRECT / FOUNDER</h2>
-            <a href="mailto:vishnu@taohq.org" class="email-link">VISHNU@TAOHQ.ORG</a>
-          </div>
-
-          <div class="channel-group mb-12">
-            <h2>SUPPORT & OPERATIONS</h2>
-            <a href="mailto:support@taohq.org" class="email-link">SUPPORT@TAOHQ.ORG</a>
-          </div>
-
-          <div class="channel-group mb-12">
-            <h2>GENERAL INQUIRIES</h2>
-            <a href="mailto:hello@taohq.org" class="email-link">HELLO@TAOHQ.ORG</a>
-          </div>
-
-          <div class="channel-group">
-            <h2>PGP PUBLIC KEY</h2>
-            <div class="pgp-block mt-4">
-              <pre>
------BEGIN PGP PUBLIC KEY BLOCK-----
-
-mQINBGI... [SECURE BLOCK INCOMPLETE] ...
-... WAITING FOR KEY GENERATION ...
------END PGP PUBLIC KEY BLOCK-----</pre>
-            </div>
-          </div>
-
+        <div class="channel-group mb-8">
+          <h2>DIRECT / FOUNDER</h2>
+          <a href="mailto:vishnu@taohq.org" class="email-link">VISHNU@TAOHQ.ORG</a>
         </div>
+
+        <div class="channel-group mb-8">
+          <h2>SUPPORT & OPERATIONS</h2>
+          <a href="mailto:support@taohq.org" class="email-link">SUPPORT@TAOHQ.ORG</a>
+        </div>
+
+        <div class="channel-group mb-8">
+          <h2>GENERAL INQUIRIES</h2>
+          <a href="mailto:hello@taohq.org" class="email-link">HELLO@TAOHQ.ORG</a>
+        </div>
+
+        <div class="channel-group">
+          <h2>PGP PUBLIC KEY</h2>
+          <div class="pgp-block mt-4">
+            <pre>
+-----BEGIN PGP KEY-----
+... WAITING FOR KEY ...
+-----END PGP KEY-----</pre>
+          </div>
+        </div>
+
       </div>
     </BrutalistCard>
-
-    <div class="fixed-logo-wrapper">
-      <div class="logo-inner-anim">
-        <a href="#" class="logo-hover-target" @click.prevent>
-          <img src="~/assets/logo.svg" alt="TAO Logo" class="flipping-logo" />
-        </a>
-      </div>
-    </div>
   </main>
 </template>
 
 <style scoped>
-.page-wrapper {
-  background-color: var(--bg-color);
+.mobile-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 100vw;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.mobile-card {
+  padding: 2rem 1.5rem;
+}
+
+.top-nav {
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.nav-link {
   color: var(--fg-color);
-  min-height: 100vh;
+  text-decoration: none;
+}
+
+.display-title {
+  font-family: 'VT323', monospace;
+  font-size: 3rem;
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
 }
 
 .subtitle {
   font-family: 'VT323', monospace;
-  font-size: 2rem;
-  margin: 1rem 0 0 0;
+  font-size: 1.5rem;
+  margin: 0.5rem 0 0 0;
   opacity: 0.8;
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
 }
 
 .visual-col {
@@ -107,112 +113,55 @@ mQINBGI... [SECURE BLOCK INCOMPLETE] ...
 
 .dither-wrap {
   border: 4px solid var(--fg-color);
-  height: 500px;
-}
-.dither-wrap :deep(canvas) {
+  height: 300px;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 .mono-status {
   font-family: 'VT323', monospace;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin: 0;
 }
 
 .info-col {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .desc {
-  font-size: 1.5rem;
-  line-height: 1.6;
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  line-height: 1.4;
   text-transform: uppercase;
+  border-bottom: 2px dashed var(--fg-color);
+  padding-bottom: 1rem;
 }
 
-@media (max-width: 900px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-    border-right: none;
-    padding-right: 0;
-  }
-  .visual-col {
-    border-right: none;
-    padding-right: 0;
-    border-bottom: 2px dashed var(--fg-color);
-    padding-bottom: 2rem;
-  }
+.channel-group h2 {
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+  margin: 0 0 0.5rem 0;
+  opacity: 0.7;
+}
+
+.email-link {
+  font-family: 'VT323', monospace;
+  font-size: 1.8rem;
+  color: var(--fg-color);
+  text-decoration: none;
+  border-bottom: 2px solid var(--fg-color);
 }
 
 .pgp-block pre {
   background: var(--fg-color);
   color: var(--bg-color);
-  padding: 1.5rem;
+  padding: 1rem;
   margin: 0;
   overflow-x: auto;
   font-family: 'Courier New', Courier, monospace;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   white-space: pre-wrap;
   word-break: break-all;
   border: 2px dashed var(--bg-color);
-}
-
-.fixed-logo-wrapper {
-  position: fixed;
-  bottom: 3rem;
-  right: 3rem;
-  z-index: 50;
-  pointer-events: none;
-  animation: float-complex 5.7s ease-in-out infinite alternate;
-}
-
-.logo-inner-anim {
-  animation: slight-tilt 7.1s ease-in-out infinite alternate;
-}
-
-.logo-hover-target {
-  display: block;
-  pointer-events: auto;
-  cursor: crosshair;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.logo-hover-target:hover {
-  transform: scale(1.3) translateY(-10px);
-}
-
-.flipping-logo {
-  width: 60px;
-  height: auto;
-  animation: flip-y 4.3s linear infinite;
-  transform-style: preserve-3d;
-  opacity: 0.85;
-  filter: drop-shadow(0 0 10px rgba(196, 181, 227, 0.5));
-  transition: all 0.4s ease;
-}
-
-.logo-hover-target:hover .flipping-logo {
-  opacity: 1;
-  filter: drop-shadow(0 0 20px rgba(196, 181, 227, 1)) drop-shadow(0 0 40px rgba(196, 181, 227, 0.6));
-  animation-duration: 0.6s;
-}
-
-@keyframes float-complex {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(5px); }
-}
-
-@keyframes flip-y {
-  0% { transform: rotateY(0deg); }
-  100% { transform: rotateY(360deg); }
-}
-
-@keyframes slight-tilt {
-  0% { transform: rotateZ(-5deg) scale(1); }
-  100% { transform: rotateZ(5deg) scale(1.05); }
 }
 </style>
