@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
 
 const props = defineProps({
   src: {
@@ -31,6 +31,7 @@ const props = defineProps({
 
 const container = ref(null)
 const canvas = ref(null)
+let glContext = null
 
 // Helper to convert hex to RGB 0-1
 function hexToRgb(hex) {
@@ -48,6 +49,7 @@ onMounted(() => {
     console.error('WebGL not supported')
     return
   }
+  glContext = gl
 
   // Vertex Shader
   const vsSource = `
@@ -231,6 +233,13 @@ onMounted(() => {
     gl.uniform1i(uImage, 0)
     
     gl.drawArrays(gl.TRIANGLES, 0, 6)
+  }
+})
+
+onBeforeUnmount(() => {
+  if (glContext) {
+    const ext = glContext.getExtension('WEBGL_lose_context')
+    if (ext) ext.loseContext()
   }
 })
 </script>
