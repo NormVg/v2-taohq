@@ -182,6 +182,7 @@ import grimReaperImg from '~/assets/grim-reaper.png'
   text-decoration: none;
   transition: opacity 0.2s;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 .footer-col a:hover {
   opacity: 0.5;
