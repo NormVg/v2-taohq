@@ -16,10 +16,6 @@
         <div class="dir-bg-wipe"></div>
         <div class="hover-dither-bg">
           <DitherImage :src="img1" class="tiled-img" />
-          <DitherImage :src="img1" class="tiled-img" />
-          <DitherImage :src="img1" class="tiled-img" />
-          <DitherImage :src="img1" class="tiled-img" />
-          <DitherImage :src="img1" class="tiled-img" />
         </div>
         <div class="dir-content">
           <div class="dir-col-left">
@@ -37,10 +33,6 @@
         <div class="dir-bg-wipe"></div>
         <div class="hover-dither-bg">
           <DitherImage :src="img2" class="tiled-img" />
-          <DitherImage :src="img2" class="tiled-img" />
-          <DitherImage :src="img2" class="tiled-img" />
-          <DitherImage :src="img2" class="tiled-img" />
-          <DitherImage :src="img2" class="tiled-img" />
         </div>
         <div class="dir-content">
           <div class="dir-col-left">
@@ -57,10 +49,6 @@
       <a href="https://github.com/TheAlphaOnes/" target="_blank" class="dir-row group">
         <div class="dir-bg-wipe"></div>
         <div class="hover-dither-bg">
-          <DitherImage :src="img3" class="tiled-img" />
-          <DitherImage :src="img3" class="tiled-img" />
-          <DitherImage :src="img3" class="tiled-img" />
-          <DitherImage :src="img3" class="tiled-img" />
           <DitherImage :src="img3" class="tiled-img" />
         </div>
         <div class="dir-content">
@@ -178,7 +166,7 @@ import img3 from '~/assets/sea-tied.jpg'
 }
 
 .tiled-img {
-  width: 350px;
+  width: 100%;
   height: 100%;
   flex-shrink: 0;
 }
