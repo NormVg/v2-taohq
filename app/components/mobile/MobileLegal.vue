@@ -1,25 +1,24 @@
 <script setup>
 import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
-import BrutalistCard from '~/components/BrutalistCard.vue'
 </script>
 
 <template>
   <main class="mobile-page-wrapper">
-    <div class="top-nav mb-4">
+    <div class="top-nav">
       <NuxtLink to="/" class="nav-link">< RETURN</NuxtLink>
     </div>
 
-    <BrutalistCard inverted dashed class="mobile-card mb-6">
-      <div class="header-container">
+    <section class="mobile-section inverted-section border-b-dashed">
+      <div class="mobile-section-content header-container">
         <p class="mono-label">DOC: LGL-001</p>
         <h1 class="display-title mt-2">LEGAL DOCTRINE</h1>
         <p class="subtitle mt-4">BINDING PROTOCOLS</p>
         <AnimatedSlashes :count="20" class="mt-4" />
       </div>
-    </BrutalistCard>
+    </section>
 
-    <BrutalistCard class="mobile-card mb-8">
-      <div class="legal-body">
+    <section class="mobile-section">
+      <div class="mobile-section-content legal-body">
         
         <section id="section-1" class="legal-section">
           <h2 class="sec-heading">01. TERMS OF USE</h2>
@@ -42,7 +41,7 @@ import BrutalistCard from '~/components/BrutalistCard.vue'
         </section>
 
       </div>
-    </BrutalistCard>
+    </section>
   </main>
 </template>
 
@@ -50,20 +49,37 @@ import BrutalistCard from '~/components/BrutalistCard.vue'
 .mobile-page-wrapper {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
   width: 100vw;
   max-width: 100%;
   overflow-x: hidden;
 }
 
-.mobile-card {
-  padding: 2rem 1.5rem;
+.mobile-section {
+  width: 100%;
+}
+
+.mobile-section-content {
+  padding: 2rem 1.25rem;
+}
+
+.inverted-section {
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+}
+
+.border-b-dashed {
+  border-bottom: 2px dashed var(--fg-color);
+}
+.inverted-section.border-b-dashed {
+  border-bottom: 2px dashed var(--bg-color);
 }
 
 .top-nav {
   font-family: 'VT323', monospace;
   font-size: 1.5rem;
   text-transform: uppercase;
+  padding: 1rem 1.25rem;
+  border-bottom: 2px dashed var(--fg-color);
 }
 
 .nav-link {

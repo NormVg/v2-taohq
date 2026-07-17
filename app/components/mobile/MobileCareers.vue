@@ -2,59 +2,64 @@
 import skullBreakImg from '~/assets/skull-break.png'
 import DitherImage from '~/components/DitherImage.vue'
 import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
-import BrutalistCard from '~/components/BrutalistCard.vue'
 </script>
 
 <template>
   <main class="mobile-page-wrapper">
-    <div class="top-nav mb-4">
+    <div class="top-nav">
       <NuxtLink to="/" class="nav-link">< RETURN</NuxtLink>
     </div>
 
-    <BrutalistCard inverted dashed class="mobile-card mb-6">
-      <div class="header-container">
+    <section class="mobile-section inverted-section border-b-dashed">
+      <div class="mobile-section-content header-container">
         <p class="eyebrow">/// RECRUITMENT</p>
         <h1 class="display-title mt-2">ABANDON<br/>MEDIOCRITY</h1>
         <p class="subtitle mt-4">We are not looking for employees. We are looking for zealots.</p>
         <AnimatedSlashes :count="20" class="mt-4" />
       </div>
-    </BrutalistCard>
+    </section>
 
-    <div class="image-wrapper mb-8">
-      <DitherImage :src="skullBreakImg" :pixelSize="4.0" />
-    </div>
-
-    <BrutalistCard class="mobile-card mb-8">
-      <div class="roles-header mb-6">
-        <h2 class="section-title">OPEN POSITIONS</h2>
-        <AnimatedSlashes :count="10" class="mt-2" />
+    <section class="mobile-section border-b-dashed">
+      <div class="mobile-section-content">
+        <div class="image-wrapper">
+          <DitherImage :src="skullBreakImg" :pixelSize="4.0" />
+        </div>
       </div>
-      
-      <div class="roles-stack">
-        
-        <div class="role-card inverted-role">
-          <div class="role-meta">LEADERSHIP /// REMOTE</div>
-          <h3>FOUNDING MEMBER (BUSINESS)</h3>
-          <p class="role-desc">Shape the operational and business trajectory of TAOHQ. We have the engineering; we need the strategic mind to scale the organization without compromising the philosophy.</p>
-          <a href="mailto:hello@taohq.org?subject=Founding Member Application" class="brutal-btn mt-4">TRANSMIT DOSSIER</a>
-        </div>
+    </section>
 
-        <div class="role-card">
-          <div class="role-meta">CONTENT /// REMOTE</div>
-          <h3>CONTENT STRATEGIST</h3>
-          <p class="role-desc">You write like a technical architect. No marketing fluff. No buzzwords. You will document our research, philosophies, and product launches with clarity and authority.</p>
-          <a href="mailto:hello@taohq.org?subject=Content Strategist Application" class="brutal-btn mt-4">TRANSMIT DOSSIER</a>
-        </div>
-
-        <div class="role-card">
-          <div class="role-meta">COMMUNITY /// REMOTE</div>
-          <h3>EVANGELIST</h3>
-          <p class="role-desc">Bridge the gap between our infrastructure and the public domain. Build a community of engineers and designers who resonate with digital asceticism.</p>
-          <a href="mailto:hello@taohq.org?subject=Evangelist Application" class="brutal-btn mt-4">TRANSMIT DOSSIER</a>
+    <section class="mobile-section">
+      <div class="mobile-section-content">
+        <div class="roles-header mb-6">
+          <h2 class="section-title">OPEN POSITIONS</h2>
+          <AnimatedSlashes :count="10" class="mt-2" />
         </div>
         
+        <div class="roles-stack">
+          
+          <div class="role-card inverted-role">
+            <div class="role-meta">LEADERSHIP /// REMOTE</div>
+            <h3>FOUNDING MEMBER (BUSINESS)</h3>
+            <p class="role-desc">Shape the operational and business trajectory of TAOHQ. We have the engineering; we need the strategic mind to scale the organization without compromising the philosophy.</p>
+            <a href="mailto:hello@taohq.org?subject=Founding Member Application" class="brutal-btn mt-4">TRANSMIT DOSSIER</a>
+          </div>
+
+          <div class="role-card">
+            <div class="role-meta">CONTENT /// REMOTE</div>
+            <h3>CONTENT STRATEGIST</h3>
+            <p class="role-desc">You write like a technical architect. No marketing fluff. No buzzwords. You will document our research, philosophies, and product launches with clarity and authority.</p>
+            <a href="mailto:hello@taohq.org?subject=Content Strategist Application" class="brutal-btn mt-4">TRANSMIT DOSSIER</a>
+          </div>
+
+          <div class="role-card">
+            <div class="role-meta">COMMUNITY /// REMOTE</div>
+            <h3>EVANGELIST</h3>
+            <p class="role-desc">Bridge the gap between our infrastructure and the public domain. Build a community of engineers and designers who resonate with digital asceticism.</p>
+            <a href="mailto:hello@taohq.org?subject=Evangelist Application" class="brutal-btn mt-4">TRANSMIT DOSSIER</a>
+          </div>
+          
+        </div>
       </div>
-    </BrutalistCard>
+    </section>
   </main>
 </template>
 
@@ -62,20 +67,37 @@ import BrutalistCard from '~/components/BrutalistCard.vue'
 .mobile-page-wrapper {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
   width: 100vw;
   max-width: 100%;
   overflow-x: hidden;
 }
 
-.mobile-card {
-  padding: 2rem 1.5rem;
+.mobile-section {
+  width: 100%;
+}
+
+.mobile-section-content {
+  padding: 2rem 1.25rem;
+}
+
+.inverted-section {
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+}
+
+.border-b-dashed {
+  border-bottom: 2px dashed var(--fg-color);
+}
+.inverted-section.border-b-dashed {
+  border-bottom: 2px dashed var(--bg-color);
 }
 
 .top-nav {
   font-family: 'VT323', monospace;
   font-size: 1.5rem;
   text-transform: uppercase;
+  padding: 1rem 1.25rem;
+  border-bottom: 2px dashed var(--fg-color);
 }
 
 .nav-link {
@@ -109,7 +131,7 @@ import BrutalistCard from '~/components/BrutalistCard.vue'
 }
 
 .image-wrapper {
-  border: 4px solid var(--fg-color);
+  border: 2px solid var(--fg-color);
   height: 350px;
   width: 100%;
 }
@@ -126,6 +148,7 @@ import BrutalistCard from '~/components/BrutalistCard.vue'
   padding-bottom: 0.5rem;
   margin: 0;
   text-transform: uppercase;
+  display: inline-block;
 }
 
 .roles-stack {
@@ -135,7 +158,7 @@ import BrutalistCard from '~/components/BrutalistCard.vue'
 }
 
 .role-card {
-  border: 4px solid var(--fg-color);
+  border: 2px solid var(--fg-color);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;

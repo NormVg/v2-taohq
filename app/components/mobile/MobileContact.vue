@@ -2,67 +2,67 @@
 import skullFlower2 from '~/assets/skull-flower2.png'
 import DitherImage from '~/components/DitherImage.vue'
 import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
-import BrutalistCard from '~/components/BrutalistCard.vue'
 </script>
 
 <template>
   <main class="mobile-page-wrapper">
-    <!-- Breadcrumb -->
-    <div class="top-nav mb-4">
+    <div class="top-nav">
       <NuxtLink to="/" class="nav-link">< RETURN</NuxtLink>
     </div>
 
     <!-- Header block -->
-    <BrutalistCard inverted dashed class="mobile-card mb-6">
-      <div class="header-container">
+    <section class="mobile-section inverted-section border-b-dashed">
+      <div class="mobile-section-content header-container">
         <h1 class="display-title">INITIATE CONTACT</h1>
         <p class="subtitle mt-2">DIRECT FREQUENCIES ONLY.</p>
         <AnimatedSlashes :count="20" class="mt-4" />
       </div>
-    </BrutalistCard>
+    </section>
       
     <!-- Contact Details -->
-    <BrutalistCard class="mobile-card mb-8">
-      <div class="visual-col mb-8">
-        <div class="dither-wrap">
-          <DitherImage :src="skullFlower2" />
+    <section class="mobile-section">
+      <div class="mobile-section-content">
+        <div class="visual-col mb-8">
+          <div class="dither-wrap">
+            <DitherImage :src="skullFlower2" />
+          </div>
+          <div class="overlay-text mt-4">
+            <AnimatedSlashes :count="10" />
+            <p class="mono-status mt-2">STATUS: ONLINE<br/>AWAITING SIGNAL</p>
+          </div>
         </div>
-        <div class="overlay-text mt-4">
-          <AnimatedSlashes :count="10" />
-          <p class="mono-status mt-2">STATUS: ONLINE<br/>AWAITING SIGNAL</p>
-        </div>
-      </div>
-      
-      <div class="info-col">
-        <p class="desc mb-8">We do not use contact forms. Reach out directly via the appropriate channel.</p>
         
-        <div class="channel-group mb-8">
-          <h2>DIRECT / FOUNDER</h2>
-          <a href="mailto:vishnu@taohq.org" class="email-link">VISHNU@TAOHQ.ORG</a>
-        </div>
+        <div class="info-col">
+          <p class="desc mb-8">We do not use contact forms. Reach out directly via the appropriate channel.</p>
+          
+          <div class="channel-group mb-8">
+            <h2>DIRECT / FOUNDER</h2>
+            <a href="mailto:vishnu@taohq.org" class="email-link">VISHNU@TAOHQ.ORG</a>
+          </div>
 
-        <div class="channel-group mb-8">
-          <h2>SUPPORT & OPERATIONS</h2>
-          <a href="mailto:support@taohq.org" class="email-link">SUPPORT@TAOHQ.ORG</a>
-        </div>
+          <div class="channel-group mb-8">
+            <h2>SUPPORT & OPERATIONS</h2>
+            <a href="mailto:support@taohq.org" class="email-link">SUPPORT@TAOHQ.ORG</a>
+          </div>
 
-        <div class="channel-group mb-8">
-          <h2>GENERAL INQUIRIES</h2>
-          <a href="mailto:hello@taohq.org" class="email-link">HELLO@TAOHQ.ORG</a>
-        </div>
+          <div class="channel-group mb-8">
+            <h2>GENERAL INQUIRIES</h2>
+            <a href="mailto:hello@taohq.org" class="email-link">HELLO@TAOHQ.ORG</a>
+          </div>
 
-        <div class="channel-group">
-          <h2>PGP PUBLIC KEY</h2>
-          <div class="pgp-block mt-4">
-            <pre>
+          <div class="channel-group">
+            <h2>PGP PUBLIC KEY</h2>
+            <div class="pgp-block mt-4">
+              <pre>
 -----BEGIN PGP KEY-----
 ... WAITING FOR KEY ...
 -----END PGP KEY-----</pre>
+            </div>
           </div>
-        </div>
 
+        </div>
       </div>
-    </BrutalistCard>
+    </section>
   </main>
 </template>
 
@@ -70,20 +70,37 @@ import BrutalistCard from '~/components/BrutalistCard.vue'
 .mobile-page-wrapper {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
   width: 100vw;
   max-width: 100%;
   overflow-x: hidden;
 }
 
-.mobile-card {
-  padding: 2rem 1.5rem;
+.mobile-section {
+  width: 100%;
+}
+
+.mobile-section-content {
+  padding: 2rem 1.25rem;
+}
+
+.inverted-section {
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+}
+
+.border-b-dashed {
+  border-bottom: 2px dashed var(--fg-color);
+}
+.inverted-section.border-b-dashed {
+  border-bottom: 2px dashed var(--bg-color);
 }
 
 .top-nav {
   font-family: 'VT323', monospace;
   font-size: 1.5rem;
   text-transform: uppercase;
+  padding: 1rem 1.25rem;
+  border-bottom: 2px dashed var(--fg-color);
 }
 
 .nav-link {
@@ -112,9 +129,14 @@ import BrutalistCard from '~/components/BrutalistCard.vue'
 }
 
 .dither-wrap {
-  border: 4px solid var(--fg-color);
+  border: 2px solid var(--fg-color);
   height: 300px;
   width: 100%;
+}
+.dither-wrap :deep(canvas) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .mono-status {

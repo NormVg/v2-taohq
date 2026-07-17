@@ -5,135 +5,138 @@ import engImg from '~/assets/skull-break.png'
 import brandImg from '~/assets/2face-demon.png'
 import DitherImage from '~/components/DitherImage.vue'
 import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
-import BrutalistCard from '~/components/BrutalistCard.vue'
-
-// SEO Meta is already defined in app/pages/studio.vue, we don't need it here.
 </script>
 
 <template>
   <main class="mobile-page-wrapper">
     <!-- Breadcrumb -->
-    <div class="top-nav mb-4">
-      <NuxtLink to="/" class="nav-link">< ROOT</NuxtLink>
+    <div class="top-nav">
+      <NuxtLink to="/" class="nav-link">< RETURN</NuxtLink>
       <span class="nav-current">/STUDIO</span>
     </div>
 
     <!-- Header block -->
-    <BrutalistCard inverted dashed class="mobile-card hero-card mb-8">
-      <div class="header-container">
+    <section class="mobile-section hero-section inverted-section">
+      <div class="mobile-section-content header-container">
         <h1 class="display-title">STUDIO</h1>
         <p class="subtitle mt-2">WE ENGINEER HIGH-PERFORMANCE DIGITAL ASSETS.</p>
         <AnimatedSlashes :count="20" class="mt-4" />
       </div>
-    </BrutalistCard>
+    </section>
 
     <!-- Manifesto / Intro -->
-    <div class="manifesto-block mb-8">
-      <h2 class="section-title">AGENCY SERVICES</h2>
-      <p class="manifesto-text mt-4">
-        We don't build websites. We forge digital machinery. Our studio partners with ambitious organizations to design, architect, and deploy uncompromising interfaces, impenetrable backend systems, and radical brand identities.
-      </p>
-    </div>
+    <section class="mobile-section border-b-dashed">
+      <div class="mobile-section-content manifesto-block">
+        <h2 class="section-title">AGENCY SERVICES</h2>
+        <p class="manifesto-text mt-4">
+          We don't build websites. We forge digital machinery. Our studio partners with ambitious organizations to design, architect, and deploy uncompromising interfaces, impenetrable backend systems, and radical brand identities.
+        </p>
+      </div>
+    </section>
 
     <!-- Services Stack -->
-    <div class="services-stack mb-8">
-      
-      <!-- Service 1: UI/UX -->
-      <BrutalistCard padding="0" class="service-card group">
-        <div class="service-bg-wrapper">
-          <DitherImage :src="uiUxImg" :pixelSize="3" class="service-dither" />
-        </div>
-        <div class="service-content">
-          <div class="service-header">
-            <h3>INTERFACE & EXPERIENCE</h3>
-            <AnimatedSlashes :count="6" />
+    <section class="mobile-section border-b-dashed">
+      <div class="mobile-section-content services-stack">
+        
+        <!-- Service 1: UI/UX -->
+        <div class="service-card group">
+          <div class="service-bg-wrapper">
+            <DitherImage :src="uiUxImg" :pixelSize="3" class="service-dither" />
           </div>
-          <p class="service-desc">
-            Brutalist, high-conversion interfaces engineered for speed and aesthetic dominance. We design user experiences that demand attention and optimize workflows down to the millisecond.
-          </p>
-          <ul class="service-list">
-            <li>> UI/UX DESIGN</li>
-            <li>> INTERACTION DESIGN</li>
-            <li>> DESIGN SYSTEMS</li>
-          </ul>
-        </div>
-      </BrutalistCard>
-
-      <!-- Service 2: ENGINEERING -->
-      <BrutalistCard padding="0" class="service-card group">
-        <div class="service-bg-wrapper">
-          <DitherImage :src="engImg" :pixelSize="3" class="service-dither" />
-        </div>
-        <div class="service-content">
-          <div class="service-header">
-            <h3>SYSTEM ARCHITECTURE</h3>
-            <AnimatedSlashes :count="6" />
+          <div class="service-content">
+            <div class="service-header">
+              <h3>INTERFACE & EXPERIENCE</h3>
+              <AnimatedSlashes :count="6" />
+            </div>
+            <p class="service-desc">
+              Brutalist, high-conversion interfaces engineered for speed and aesthetic dominance. We design user experiences that demand attention and optimize workflows down to the millisecond.
+            </p>
+            <ul class="service-list">
+              <li>> UI/UX DESIGN</li>
+              <li>> INTERACTION DESIGN</li>
+              <li>> DESIGN SYSTEMS</li>
+            </ul>
           </div>
-          <p class="service-desc">
-            Zero-latency APIs, resilient edge infrastructure, and robust full-stack applications. Built on Nuxt, Vue, and high-performance serverless architectures that never sleep.
-          </p>
-          <ul class="service-list">
-            <li>> FULL-STACK DEVELOPMENT</li>
-            <li>> BACKEND ARCHITECTURE</li>
-            <li>> EDGE COMPUTE / DEVOPS</li>
-          </ul>
         </div>
-      </BrutalistCard>
 
-      <!-- Service 3: BRAND IDENTITY -->
-      <BrutalistCard padding="0" class="service-card group">
-        <div class="service-bg-wrapper">
-          <DitherImage :src="brandImg" :pixelSize="3" class="service-dither" />
-        </div>
-        <div class="service-content">
-          <div class="service-header">
-            <h3>BRAND IDENTITY</h3>
-            <AnimatedSlashes :count="6" />
+        <!-- Service 2: ENGINEERING -->
+        <div class="service-card group">
+          <div class="service-bg-wrapper">
+            <DitherImage :src="engImg" :pixelSize="3" class="service-dither" />
           </div>
-          <p class="service-desc">
-            Typography, geometry, and stark monochrome alignment. We construct bold, unapologetic visual identities that separate your brand from the noise of the modern web.
-          </p>
-          <ul class="service-list">
-            <li>> LOGO DESIGN</li>
-            <li>> BRAND GUIDELINES</li>
-            <li>> VISUAL STRATEGY</li>
-          </ul>
+          <div class="service-content">
+            <div class="service-header">
+              <h3>SYSTEM ARCHITECTURE</h3>
+              <AnimatedSlashes :count="6" />
+            </div>
+            <p class="service-desc">
+              Zero-latency APIs, resilient edge infrastructure, and robust full-stack applications. Built on Nuxt, Vue, and high-performance serverless architectures that never sleep.
+            </p>
+            <ul class="service-list">
+              <li>> FULL-STACK DEVELOPMENT</li>
+              <li>> BACKEND ARCHITECTURE</li>
+              <li>> EDGE COMPUTE / DEVOPS</li>
+            </ul>
+          </div>
         </div>
-      </BrutalistCard>
 
-    </div>
+        <!-- Service 3: BRAND IDENTITY -->
+        <div class="service-card group">
+          <div class="service-bg-wrapper">
+            <DitherImage :src="brandImg" :pixelSize="3" class="service-dither" />
+          </div>
+          <div class="service-content">
+            <div class="service-header">
+              <h3>BRAND IDENTITY</h3>
+              <AnimatedSlashes :count="6" />
+            </div>
+            <p class="service-desc">
+              Typography, geometry, and stark monochrome alignment. We construct bold, unapologetic visual identities that separate your brand from the noise of the modern web.
+            </p>
+            <ul class="service-list">
+              <li>> LOGO DESIGN</li>
+              <li>> BRAND GUIDELINES</li>
+              <li>> VISUAL STRATEGY</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
 
     <!-- Capabilities Directory -->
-    <BrutalistCard dashed class="mobile-card cta-terminal mb-8">
-      <div class="terminal-header">
-        <span>ROOT@TAO-HQ:~#</span>
-        <AnimatedSlashes :count="5" right />
-      </div>
-      <div class="terminal-body mt-4">
-        <p class="mb-4">> EXECUTING QUERY...</p>
-        
-        <div class="capabilities-grid mb-6">
-          <ul class="cap-list">
-            <li>> FULL STACK WEB DEVELOPMENT</li>
-            <li>> CUSTOM SOFTWARE DEVELOPMENT</li>
-            <li>> TRADING TOOL & ALGO DEVELOPMENT</li>
-            <li>> SAAS PLATFORM ENGINEERING</li>
-            <li>> AUTOMATION & SCRIPTING</li>
-            <li>> UI/UX & INTERFACE DESIGN</li>
-            <li>> HIGH-CONVERSION LANDING PAGES</li>
-            <li>> BRAND IDENTITY & LOGO DESIGN</li>
-            <li>> SYSTEM ARCHITECTURE</li>
-            <li>> API & BACKEND INTEGRATION</li>
-          </ul>
+    <section class="mobile-section inverted-section">
+      <div class="mobile-section-content cta-terminal">
+        <div class="terminal-header">
+          <span>ROOT@TAO-HQ:~#</span>
+          <AnimatedSlashes :count="5" right />
         </div>
+        <div class="terminal-body mt-4">
+          <p class="mb-4">> EXECUTING QUERY...</p>
+          
+          <div class="capabilities-grid mb-6">
+            <ul class="cap-list">
+              <li>> FULL STACK WEB DEVELOPMENT</li>
+              <li>> CUSTOM SOFTWARE DEVELOPMENT</li>
+              <li>> TRADING TOOL & ALGO DEVELOPMENT</li>
+              <li>> SAAS PLATFORM ENGINEERING</li>
+              <li>> AUTOMATION & SCRIPTING</li>
+              <li>> UI/UX & INTERFACE DESIGN</li>
+              <li>> HIGH-CONVERSION LANDING PAGES</li>
+              <li>> BRAND IDENTITY & LOGO DESIGN</li>
+              <li>> SYSTEM ARCHITECTURE</li>
+              <li>> API & BACKEND INTEGRATION</li>
+            </ul>
+          </div>
 
-        <p>> DEPLOY NEW ASSET?</p>
-        <p class="mt-6 mb-4">
-          <NuxtLink to="/contact" class="cta-btn">> INITIALIZE CONTACT</NuxtLink>
-        </p>
-        <p class="blink">_</p>
+          <p>> DEPLOY NEW ASSET?</p>
+          <p class="mt-6 mb-4">
+            <NuxtLink to="/contact" class="cta-btn">> INITIALIZE CONTACT</NuxtLink>
+          </p>
+          <p class="blink">_</p>
+        </div>
       </div>
-    </BrutalistCard>
+    </section>
   </main>
 </template>
 
@@ -141,20 +144,34 @@ import BrutalistCard from '~/components/BrutalistCard.vue'
 .mobile-page-wrapper {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
   width: 100vw;
   max-width: 100%;
   overflow-x: hidden;
 }
 
-.mobile-card {
-  padding: 2rem 1.5rem;
+.mobile-section {
+  width: 100%;
+}
+
+.mobile-section-content {
+  padding: 2rem 1.25rem;
+}
+
+.inverted-section {
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+}
+
+.border-b-dashed {
+  border-bottom: 2px dashed var(--fg-color);
 }
 
 .top-nav {
   font-family: 'VT323', monospace;
   font-size: 1.5rem;
   text-transform: uppercase;
+  padding: 1rem 1.25rem;
+  border-bottom: 2px dashed var(--fg-color);
 }
 
 .nav-link {
@@ -168,6 +185,10 @@ import BrutalistCard from '~/components/BrutalistCard.vue'
 }
 
 /* Header */
+.hero-section {
+  border-bottom: 2px dashed var(--bg-color);
+}
+
 .display-title {
   font-family: 'VT323', monospace;
   font-size: 4rem;
@@ -191,6 +212,7 @@ import BrutalistCard from '~/components/BrutalistCard.vue'
   border-bottom: 2px solid var(--fg-color);
   padding-bottom: 0.5rem;
   margin: 0;
+  display: inline-block;
 }
 
 .manifesto-text {
@@ -204,7 +226,7 @@ import BrutalistCard from '~/components/BrutalistCard.vue'
 .services-stack {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .service-card {
@@ -213,6 +235,7 @@ import BrutalistCard from '~/components/BrutalistCard.vue'
   flex-direction: column;
   overflow: hidden;
   background-color: var(--bg-color);
+  border: 2px solid var(--fg-color);
 }
 
 .service-bg-wrapper {
@@ -277,12 +300,11 @@ import BrutalistCard from '~/components/BrutalistCard.vue'
 
 /* Terminal */
 .cta-terminal {
-  background-color: var(--fg-color);
-  color: var(--bg-color);
+  color: inherit;
 }
 
 .terminal-header {
-  border-bottom: 2px dashed var(--bg-color);
+  border-bottom: 2px dashed currentColor;
   padding-bottom: 1rem;
   display: flex;
   justify-content: space-between;
@@ -313,9 +335,9 @@ import BrutalistCard from '~/components/BrutalistCard.vue'
   font-family: 'VT323', monospace;
   font-size: 1.1rem;
   letter-spacing: 0px;
-  color: var(--bg-color);
+  color: inherit;
   text-transform: uppercase;
-  border-bottom: 1px dashed var(--bg-color);
+  border-bottom: 1px dashed currentColor;
   padding-bottom: 0.5rem;
 }
 
