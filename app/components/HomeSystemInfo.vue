@@ -67,9 +67,9 @@
 </template>
 
 <script setup>
-import img1 from '~/assets/skull-card.jpg'
-import img2 from '~/assets/hand.jpg'
-import img3 from '~/assets/sea-tied.jpg'
+import img1 from '~/assets/rose-demon.png'
+import img2 from '~/assets/flower-skull.png'
+import img3 from '~/assets/skull-book.png'
 </script>
 
 <style scoped>
