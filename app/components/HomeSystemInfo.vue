@@ -15,7 +15,7 @@
       <a href="mailto:thealphaones.work@gmail.com" class="dir-row group">
         <div class="dir-bg-wipe"></div>
         <div class="hover-dither-bg">
-          <DitherImage :src="img1" class="tiled-img" />
+          <DitherImage :src="img1" class="tiled-img align-center" />
         </div>
         <div class="dir-content">
           <div class="dir-col-left">
@@ -175,6 +175,10 @@ import img3 from '~/assets/skull-book.png'
 
 .tiled-img :deep(canvas) {
   object-position: right center;
+}
+
+.tiled-img.align-center :deep(canvas) {
+  object-position: center center;
 }
 
 .dir-row:hover .dir-bg-wipe {
