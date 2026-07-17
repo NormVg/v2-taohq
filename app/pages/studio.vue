@@ -91,6 +91,29 @@
 
     </div>
 
+    <!-- Capabilities Directory -->
+    <div class="capabilities-block mb-16">
+      <BrutalistCard dashed padding="3rem" class="capabilities-card">
+        <h2 class="section-title mb-8">CAPABILITIES DIRECTORY</h2>
+        <div class="capabilities-grid">
+          <ul class="cap-list">
+            <li>> FULL STACK WEB DEVELOPMENT</li>
+            <li>> CUSTOM SOFTWARE DEVELOPMENT</li>
+            <li>> TRADING TOOL & ALGO DEVELOPMENT</li>
+            <li>> SAAS PLATFORM ENGINEERING</li>
+            <li>> AUTOMATION & SCRIPTING</li>
+          </ul>
+          <ul class="cap-list">
+            <li>> UI/UX & INTERFACE DESIGN</li>
+            <li>> HIGH-CONVERSION LANDING PAGES</li>
+            <li>> BRAND IDENTITY & LOGO DESIGN</li>
+            <li>> SYSTEM ARCHITECTURE</li>
+            <li>> API & BACKEND INTEGRATION</li>
+          </ul>
+        </div>
+      </BrutalistCard>
+    </div>
+
     <!-- CTA Terminal -->
     <BrutalistCard dashed padding="3rem" class="cta-terminal">
       <div class="terminal-header">
@@ -268,6 +291,42 @@ useHead({
 .service-list li {
   margin-bottom: 0.5rem;
   color: var(--primary-color, #c4b5e3);
+}
+
+.capabilities-card {
+  background-color: var(--bg-color);
+}
+
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .capabilities-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+.cap-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cap-list li {
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: var(--fg-color);
+  text-transform: uppercase;
+  border-bottom: 2px dashed var(--fg-color);
+  padding-bottom: 0.5rem;
 }
 
 /* CTA Terminal */
