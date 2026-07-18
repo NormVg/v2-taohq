@@ -1,17 +1,29 @@
 <template>
   <main class="page-wrapper pt-32 pb-32 px-4 md:px-8 max-w-7xl mx-auto">
-    <!-- Breadcrumb -->
-    <div class="top-nav mb-8">
-      <NuxtLink to="/" class="nav-link">← ROOT</NuxtLink>
-      <span class="nav-current">/STUDIO</span>
-    </div>
 
     <!-- Header block -->
-    <BrutalistCard inverted dashed padding="4rem" class="mb-16">
-      <div class="header-container mt-12">
-        <h1 class="display-title">STUDIO</h1>
-        <p class="subtitle mt-4">WE ENGINEER HIGH-PERFORMANCE DIGITAL ASSETS.</p>
-        <AnimatedSlashes :count="40" class="mt-8" />
+    <BrutalistCard inverted dashed padding="0" class="studio-header mb-16">
+      <!-- Top-left label -->
+      <div class="sh-top-left">
+        <NuxtLink to="/" class="sh-back-link">← ROOT</NuxtLink>
+        <span class="sh-sep">/</span>
+        <span class="sh-breadcrumb">STUDIO</span>
+      </div>
+
+      <!-- Top-right label -->
+      <div class="sh-top-right">
+        <p class="sh-tag">WE ENGINEER HIGH-PERFORMANCE DIGITAL ASSETS.</p>
+        <AnimatedSlashes :count="20" right class="mt-2" />
+      </div>
+
+      <!-- Center title -->
+      <div class="sh-center">
+        <h1 class="sh-title">STUDIO</h1>
+      </div>
+
+      <!-- Bottom slashes -->
+      <div class="sh-bottom">
+        <AnimatedSlashes :count="60" />
       </div>
     </BrutalistCard>
 
@@ -198,25 +210,79 @@ useSeoMeta({
   opacity: 0.5;
 }
 
-.header-container {
-  display: flex;
-  flex-direction: column;
+/* ── Studio Header ─────────────────────────────────── */
+.studio-header {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
 }
 
-.display-title {
+.sh-top-left {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+  z-index: 10;
   font-family: 'VT323', monospace;
-  font-size: clamp(4rem, 8vw, 8rem);
-  line-height: 1;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sh-back-link {
+  color: var(--bg-color);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.sh-back-link:hover { opacity: 1; }
+
+.sh-sep { opacity: 0.4; }
+
+.sh-breadcrumb {
+  opacity: 0.5;
+}
+
+.sh-top-right {
+  position: absolute;
+  top: 4rem;
+  right: 4rem;
+  text-align: right;
+  z-index: 10;
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+  max-width: 380px;
+}
+
+.sh-tag {
+  opacity: 0.7;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.sh-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  z-index: 2;
+}
+
+.sh-title {
+  font-family: 'VT323', monospace;
+  font-size: clamp(6rem, 16vw, 16rem);
+  line-height: 0.85;
   margin: 0;
   text-transform: uppercase;
   letter-spacing: -0.02em;
 }
 
-.subtitle {
-  font-family: 'VT323', monospace;
-  font-size: 2rem;
-  margin: 1rem 0 0 0;
-  opacity: 0.8;
+.sh-bottom {
+  position: absolute;
+  bottom: 4rem;
+  left: 4rem;
+  right: 4rem;
+  z-index: 10;
 }
 
 .manifesto-block {
