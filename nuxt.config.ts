@@ -69,23 +69,45 @@ export default defineNuxtConfig({
     ],
   },
 
-  // —— Sitemap: stable production generation + content routes ——
+  // —— Sitemap: fully static — no API calls during prerender ——
   sitemap: {
     siteUrl: SITE_URL,
     autoLastmod: true,
-    // Avoid XSL dependency edge cases in some hosts
     xsl: false,
     credits: false,
     defaults: {
       changefreq: 'weekly',
       priority: 0.7,
     },
-    // Explicit content + static URLs (fixes incomplete sitemap / production 500s)
-    sources: ['/api/__sitemap__/urls'],
     exclude: [
       '/api/**',
       '/_nuxt/**',
       '/__nuxt_content/**',
+    ],
+    urls: [
+      { loc: '/', changefreq: 'weekly', priority: 1.0 },
+      { loc: '/studio', changefreq: 'weekly', priority: 0.9 },
+      { loc: '/products', changefreq: 'weekly', priority: 0.9 },
+      { loc: '/writing', changefreq: 'weekly', priority: 0.9 },
+      { loc: '/careers', changefreq: 'monthly', priority: 0.7 },
+      { loc: '/contact', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/legal', changefreq: 'yearly', priority: 0.3 },
+      { loc: '/organization/about', changefreq: 'monthly', priority: 0.8 },
+      { loc: '/organization/philosophy', changefreq: 'monthly', priority: 0.7 },
+      { loc: '/organization/principles', changefreq: 'monthly', priority: 0.7 },
+      { loc: '/organization/team', changefreq: 'monthly', priority: 0.7 },
+      { loc: '/organization/timeline', changefreq: 'monthly', priority: 0.6 },
+      { loc: '/organization/technology', changefreq: 'monthly', priority: 0.7 },
+      { loc: '/organization/infrastructure', changefreq: 'monthly', priority: 0.7 },
+      { loc: '/organization/design-language', changefreq: 'monthly', priority: 0.7 },
+      { loc: '/organization/brand-assets', changefreq: 'monthly', priority: 0.6 },
+      { loc: '/organization/open-source', changefreq: 'monthly', priority: 0.7 },
+      { loc: '/products/tao-canvas', changefreq: 'weekly', priority: 0.85 },
+      { loc: '/products/tao-identity', changefreq: 'weekly', priority: 0.85 },
+      { loc: '/products/rose-demon', changefreq: 'weekly', priority: 0.85 },
+      { loc: '/writing/01-first-log', changefreq: 'monthly', priority: 0.75 },
+      { loc: '/writing/good-infrastructure-is-invisible', changefreq: 'monthly', priority: 0.75 },
+      { loc: '/writing/the-case-for-brutalist-architecture', changefreq: 'monthly', priority: 0.75 },
     ],
   },
 
