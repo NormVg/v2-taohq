@@ -27,7 +27,7 @@ export default defineEventHandler(async (event) => {
     { loc: '/organization/open-source', changefreq: 'monthly', priority: 0.7, lastmod: now },
   ]
 
-  const contentFallback = [
+  const contentPaths = [
     '/products/tao-canvas',
     '/products/tao-identity',
     '/products/rose-demon',
@@ -35,21 +35,6 @@ export default defineEventHandler(async (event) => {
     '/writing/good-infrastructure-is-invisible',
     '/writing/the-case-for-brutalist-architecture',
   ]
-
-  let contentPaths: string[] = []
-  try {
-    const docs = await queryCollection(event, 'content').all()
-    contentPaths = (docs || [])
-      .map((doc: { path?: string }) => doc.path)
-      .filter((p): p is string => typeof p === 'string' && p.length > 1)
-  }
-  catch {
-    contentPaths = contentFallback
-  }
-
-  if (!contentPaths.length) {
-    contentPaths = contentFallback
-  }
 
   const contentRoutes = contentPaths.map((loc) => ({
     loc,
