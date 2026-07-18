@@ -186,13 +186,13 @@ useSeoMeta({
 .bg-dither {
   width: 100%;
   aspect-ratio: 1;
-  border: 4px solid var(--bg-color);
+  mix-blend-mode: screen;
 }
 
 .bg-dither :deep(canvas) {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .quote-content {

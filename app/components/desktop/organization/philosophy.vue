@@ -167,6 +167,7 @@ useSeoMeta({
   opacity: 0.15;
   z-index: 1;
   pointer-events: none;
+  mix-blend-mode: screen;
 }
 .bg-dither :deep(canvas) {
   width: 100%;
