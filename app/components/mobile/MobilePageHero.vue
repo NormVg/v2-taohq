@@ -202,9 +202,6 @@ defineProps({
   background: transparent;
   /* No drop-shadow: WebKit often paints a rectangular filter box */
   filter: none;
-  /* Hide rectangular back-face of 3D plane during flip */
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
   transform-style: preserve-3d;
   opacity: 0.95;
   animation: mph-flip 4.3s linear infinite;
