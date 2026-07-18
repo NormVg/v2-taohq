@@ -256,6 +256,7 @@ useSeoMeta({
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  padding: 8px; /* room for -6px corner bleed */
 }
 
 .service-card {
@@ -264,8 +265,6 @@ useSeoMeta({
   display: flex;
   flex-direction: column;
   cursor: crosshair;
-  /* Padding to make room for corners that bleed outside */
-  padding: 6px;
 }
 
 /* Inner bordered box — dark card on light section for contrast */
@@ -280,7 +279,7 @@ useSeoMeta({
   background-color: var(--fg-color);
 }
 
-/* Corner markers — bg-color (light) so they show against the dark card surface */
+/* Corner markers — bg-color punches out against dark card surface */
 .sc-corner {
   position: absolute;
   width: 12px;
@@ -288,10 +287,10 @@ useSeoMeta({
   background-color: var(--bg-color);
   z-index: 20;
 }
-.sc-tl { top: 0; left: 0; }
-.sc-tr { top: 0; right: 0; }
-.sc-bl { bottom: 0; left: 0; }
-.sc-br { bottom: 0; right: 0; }
+.sc-tl { top: -6px; left: -6px; }
+.sc-tr { top: -6px; right: -6px; }
+.sc-bl { bottom: -6px; left: -6px; }
+.sc-br { bottom: -6px; right: -6px; }
 
 .service-bg-wrapper {
   position: absolute;
