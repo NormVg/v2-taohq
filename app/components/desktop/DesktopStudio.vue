@@ -268,7 +268,7 @@ useSeoMeta({
   padding: 6px;
 }
 
-/* Inner bordered box — overflow hidden is safe here since corners are on .service-card */
+/* Inner bordered box — light card on dark section for contrast */
 .service-inner {
   position: relative;
   flex: 1;
@@ -277,15 +277,15 @@ useSeoMeta({
   flex-direction: column;
   min-height: 400px;
   overflow: hidden;
-  background-color: var(--fg-color);
+  background-color: var(--bg-color);
 }
 
-/* Corner markers — use bg-color since we're in an inverted section */
+/* Corner markers — fg-color (dark) so they show against the light card surface */
 .sc-corner {
   position: absolute;
   width: 12px;
   height: 12px;
-  background-color: var(--bg-color);
+  background-color: var(--fg-color);
   z-index: 20;
 }
 .sc-tl { top: 0; left: 0; }
@@ -315,11 +315,11 @@ useSeoMeta({
   display: flex;
   flex-direction: column;
   flex: 1;
-  color: var(--bg-color);
+  color: var(--fg-color);
 }
 
 .service-header {
-  border-bottom: 2px dashed var(--bg-color);
+  border-bottom: 2px dashed var(--fg-color);
   padding-bottom: 1rem;
   margin-bottom: 1.5rem;
 }
@@ -350,7 +350,7 @@ useSeoMeta({
 
 .service-list li {
   margin-bottom: 0.5rem;
-  color: var(--bg-color);
+  color: var(--fg-color);
   opacity: 0.7;
 }
 
