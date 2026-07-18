@@ -1,5 +1,21 @@
+<script setup>
+import { useDevice } from '#imports'
+import MobileNav from '~/components/mobile/MobileNav.vue'
+import MobileFooter from '~/components/mobile/MobileFooter.vue'
+import AppFooter from '~/components/AppFooter.vue'
+
+const { isMobile } = useDevice()
+</script>
+
 <template>
-  <div class="layout-wrapper">
+  <div v-if="isMobile" class="mobile-layout-wrapper">
+    <MobileNav />
+    <main class="mobile-main">
+      <slot />
+    </main>
+    <MobileFooter />
+  </div>
+  <div v-else class="layout-wrapper">
     <main class="content-container">
       <slot />
     </main>
@@ -18,10 +34,26 @@
 
 .content-container {
   flex-grow: 1;
-  padding: 8rem 2rem 4rem 2rem; /* Give room for the fixed AppHeader */
+  padding: 4rem 2rem;
   max-width: 800px;
   margin: 0 auto;
+  width: 100%;
   color: var(--bg-color);
   font-family: monospace;
+}
+
+.mobile-layout-wrapper {
+  width: 100%;
+  min-height: 100dvh;
+  background-color: var(--fg-color);
+  padding-top: 60px;
+  overflow-x: hidden;
+}
+
+.mobile-main {
+  min-height: calc(100dvh - 60px);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 </style>

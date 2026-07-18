@@ -1,24 +1,20 @@
 <template>
-  <div class="mobile-page-wrapper inverted-section">
-    <div class="top-nav">
-      <NuxtLink to="/writing" class="nav-link">< WRITING</NuxtLink>
-    </div>
-
+  <div class="page-root">
     <div class="top-right-dither-bg">
       <DitherImage :src="bgImage" class="bg-dither-img" />
     </div>
 
-    <div class="blog-post-content">
+    <div class="blog-post-wrapper">
       <template v-if="page">
         <header class="post-header">
           <h1 class="post-title">{{ page.title }}</h1>
           <div class="post-meta">
-            <span>DATE // {{ page.meta?.date || 'XX.XX.XXXX' }}</span>
-            <span>AUTHOR // {{ page.meta?.author || 'SYSTEM' }}</span>
+            <span>DATE // {{ meta?.date || page.meta?.date || page.date || 'XX.XX.XXXX' }}</span>
+            <span>AUTHOR // {{ meta?.author || page.meta?.author || page.author || 'SYSTEM' }}</span>
           </div>
         </header>
         
-        <AnimatedSlashes :count="15" class="slashes-divider" />
+        <AnimatedSlashes :count="30" class="slashes-divider" />
         
         <article class="prose">
           <ContentRenderer :value="page" />
@@ -32,57 +28,46 @@
 </template>
 
 <script setup>
+import { fetchDocByPath } from '~/utils/site-content'
+
 const bgImage = '/images/scenery2.jpg'
 const route = useRoute()
-const { data: page } = await useAsyncData(route.path, () => {
-  return queryCollection('content').path(route.path).first()
+
+const { data: page } = await useAsyncData(`writing-raw-d-${route.path}`, async () => {
+  try {
+    return await queryCollection('content').path(route.path).first()
+  } catch {
+    return null
+  }
 })
 
-definePageMeta({ layout: 'blog' })
+const { data: meta } = await useAsyncData(`writing-doc-d-${route.path}`, () =>
+  fetchDocByPath(route.path),
+)
+
+useSeoMeta({
+  title: () => (meta.value?.title ? `${meta.value.title} // taohq` : 'WRITING // taohq'),
+  description: () => meta.value?.description || 'Tao HQ system log.',
+})
 </script>
 
 <style scoped>
-.mobile-page-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  max-width: 100%;
-  overflow-x: hidden;
+.page-root {
   position: relative;
-  min-height: 100vh;
-}
-
-.inverted-section {
-  background-color: var(--fg-color);
-  color: var(--bg-color);
-}
-
-.top-nav {
-  font-family: 'VT323', monospace;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  padding: 1rem 1.25rem;
-  border-bottom: 2px dashed var(--bg-color);
-  position: relative;
-  z-index: 2;
-}
-
-.nav-link {
-  color: var(--bg-color);
-  text-decoration: none;
+  width: 100%;
 }
 
 .top-right-dither-bg {
   position: fixed;
   top: 0;
   right: 0;
-  width: 100vw;
-  height: 50vh;
+  width: 70vw;
+  height: 90vh;
   z-index: 0;
   opacity: 0.2;
   pointer-events: none;
-  mask-image: radial-gradient(circle at top right, black 0%, transparent 80%);
-  -webkit-mask-image: radial-gradient(circle at top right, black 0%, transparent 80%);
+  mask-image: radial-gradient(circle at top right, black 0%, transparent 60%);
+  -webkit-mask-image: radial-gradient(circle at top right, black 0%, transparent 60%);
 }
 
 .bg-dither-img {
@@ -91,47 +76,47 @@ definePageMeta({ layout: 'blog' })
   object-fit: cover;
 }
 
-.blog-post-content {
+.blog-post-wrapper {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
-  padding: 2rem 1.25rem;
+  gap: 2rem;
+  max-width: 1000px;
 }
 
 .post-header {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .post-title {
   font-family: 'VT323', monospace;
-  font-size: 3.5rem;
-  margin: 0 0 1rem 0;
+  font-size: 5rem;
+  margin: 0 0 2rem 0;
   text-transform: uppercase;
-  line-height: 1;
   color: var(--bg-color);
   border-bottom: 2px dashed var(--bg-color);
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
 }
 
 .post-meta {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  gap: 2rem;
   font-family: 'VT323', monospace;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   opacity: 0.8;
+  margin-bottom: 3rem;
 }
 
 .slashes-divider {
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
   opacity: 0.5;
 }
 
 .prose {
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.1rem;
-  line-height: 1.6;
+  line-height: 2;
   max-width: 100%;
   text-transform: uppercase;
   color: rgba(196, 181, 227, 0.8);
@@ -139,9 +124,9 @@ definePageMeta({ layout: 'blog' })
 
 :deep(.prose h2) {
   font-family: 'VT323', monospace;
-  font-size: 2rem;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
   text-transform: uppercase;
   color: var(--bg-color);
   display: inline-block;
@@ -150,17 +135,17 @@ definePageMeta({ layout: 'blog' })
 }
 
 :deep(.prose p) {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 :deep(.prose ul) {
   list-style-type: disc;
   padding-left: 1.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 :deep(.prose li) {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 :deep(.prose strong) {
@@ -179,14 +164,14 @@ definePageMeta({ layout: 'blog' })
   color: var(--fg-color);
   padding: 0.2rem 0.4rem;
   font-family: 'VT323', monospace;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 :deep(.prose pre) {
   background: var(--bg-color) !important;
   color: var(--fg-color) !important;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
   overflow-x: auto;
   border: 2px dashed var(--fg-color);
 }
@@ -196,7 +181,6 @@ definePageMeta({ layout: 'blog' })
   color: inherit !important;
   padding: 0 !important;
   font-family: 'Courier New', Courier, monospace;
-  font-size: 0.9rem;
 }
 
 :deep(.prose pre code span) {
@@ -206,7 +190,7 @@ definePageMeta({ layout: 'blog' })
 :deep(.prose img) {
   width: 100%;
   height: auto;
-  margin: 2rem 0;
+  margin: 3rem 0;
   border: 2px dashed var(--bg-color);
   filter: grayscale(100%) contrast(150%);
   display: block;

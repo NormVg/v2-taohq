@@ -63,7 +63,7 @@ const resetFeature2 = () => {
     <section class="mobile-section stats-section border-b-dashed">
       <div class="mobile-section-content">
         <h2 class="mobile-heading">Building thoughtful software, systems, and lifestyle products.</h2>
-        <div class="dither-wrapper my-8">
+        <div class="dither-wrapper">
           <DitherImage :src="eyeWallImg" :pixelSize="4" />
         </div>
         <p class="body-text">TheAlphaOnes is an independent umbrella organisation behind developer tools, software products, and experimental systems.</p>
@@ -294,6 +294,35 @@ const resetFeature2 = () => {
   display: inline-block;
 }
 
+/* 2. Stats dither image — must have real height so canvas can fill */
+.dither-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  min-height: 200px;
+  max-height: 280px;
+  margin: 2rem 0;
+  border: 2px solid var(--fg-color);
+  overflow: hidden;
+  background-color: var(--fg-color);
+}
+
+.dither-wrapper :deep(.dither-container) {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.dither-wrapper :deep(canvas) {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  display: block;
+}
+
 /* 3. Features */
 .features-stack {
   display: flex;
@@ -309,13 +338,19 @@ const resetFeature2 = () => {
 
 .feature-bg {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1.5);
+  inset: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
   z-index: 1;
+  overflow: hidden;
+}
+
+.feature-bg :deep(.dither-container),
+.feature-bg :deep(canvas) {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
 }
 
 .opacity-dither {
@@ -369,16 +404,29 @@ const resetFeature2 = () => {
 }
 
 .proj-img-wrap {
+  position: relative;
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16 / 9;
+  min-height: 160px;
   border-bottom: 2px solid var(--fg-color);
   background-color: var(--fg-color);
+  overflow: hidden;
+}
+
+.proj-img-wrap :deep(.dither-container) {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .proj-img-wrap :deep(canvas) {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
   object-fit: cover;
+  display: block;
 }
 
 .proj-info {
@@ -450,13 +498,19 @@ const resetFeature2 = () => {
 
 .dir-bg {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1.2);
+  inset: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
   z-index: 1;
+  overflow: hidden;
+}
+
+.dir-bg :deep(.dither-container),
+.dir-bg :deep(canvas) {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
 }
 
 .dir-content {
