@@ -44,12 +44,12 @@ function hexToRgb(hex) {
 }
 
 onMounted(() => {
-  const gl = canvas.value.getContext('webgl') || canvas.value.getContext('experimental-webgl')
+  const tempCanvas = document.createElement('canvas')
+  const gl = tempCanvas.getContext('webgl') || tempCanvas.getContext('experimental-webgl')
   if (!gl) {
     console.error('WebGL not supported')
     return
   }
-  glContext = gl
 
   // Vertex Shader
   const vsSource = `
@@ -214,8 +214,8 @@ onMounted(() => {
       h = Math.floor(h * ratio)
     }
     
-    canvas.value.width = w
-    canvas.value.height = h
+    tempCanvas.width = w
+    tempCanvas.height = h
     gl.viewport(0, 0, w, h)
     gl.uniform2f(uResolution, w, h)
     gl.uniform1f(uPixelSize, props.pixelSize)
@@ -233,14 +233,25 @@ onMounted(() => {
     gl.uniform1i(uImage, 0)
     
     gl.drawArrays(gl.TRIANGLES, 0, 6)
+
+    // Copy to visible 2D canvas
+    if (canvas.value) {
+      canvas.value.width = w
+      canvas.value.height = h
+      const ctx = canvas.value.getContext('2d')
+      if (ctx) {
+        ctx.drawImage(tempCanvas, 0, 0)
+      }
+    }
+
+    // Immediately destroy WebGL context to free GPU resources and avoid browser context limits
+    const ext = gl.getExtension('WEBGL_lose_context')
+    if (ext) ext.loseContext()
   }
 })
 
 onBeforeUnmount(() => {
-  if (glContext) {
-    const ext = glContext.getExtension('WEBGL_lose_context')
-    if (ext) ext.loseContext()
-  }
+  // We no longer hold onto the WebGL context, so no cleanup needed here
 })
 </script>
 
