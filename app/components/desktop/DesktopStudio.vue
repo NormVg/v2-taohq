@@ -15,8 +15,8 @@
       </div>
     </BrutalistCard>
 
-    <!-- Agency Services Section (inverted) -->
-    <BrutalistCard inverted dashed padding="4rem" class="mb-16">
+    <!-- Agency Services Section (light, non-inverted) -->
+    <BrutalistCard dashed padding="4rem" class="mb-16">
       <!-- Manifesto / Intro -->
       <div class="manifesto-block mb-12">
         <h2 class="section-title-inv">AGENCY SERVICES</h2>
@@ -238,17 +238,17 @@ useSeoMeta({
 .section-title-inv {
   font-family: 'VT323', monospace;
   font-size: 3rem;
-  border-bottom: 2px solid var(--bg-color);
+  border-bottom: 2px solid var(--fg-color);
   padding-bottom: 0.5rem;
   margin: 0;
-  color: var(--bg-color);
+  color: var(--fg-color);
 }
 
 .manifesto-text {
   font-size: 1.5rem;
   line-height: 1.6;
   text-transform: uppercase;
-  color: var(--bg-color);
+  color: var(--fg-color);
 }
 
 /* Services Grid */
@@ -268,24 +268,24 @@ useSeoMeta({
   padding: 6px;
 }
 
-/* Inner bordered box — light card on dark section for contrast */
+/* Inner bordered box — dark card on light section for contrast */
 .service-inner {
   position: relative;
   flex: 1;
-  border: 2px solid var(--bg-color);
+  border: 2px solid var(--fg-color);
   display: flex;
   flex-direction: column;
   min-height: 400px;
   overflow: hidden;
-  background-color: var(--bg-color);
+  background-color: var(--fg-color);
 }
 
-/* Corner markers — fg-color (dark) so they show against the light card surface */
+/* Corner markers — bg-color (light) so they show against the dark card surface */
 .sc-corner {
   position: absolute;
   width: 12px;
   height: 12px;
-  background-color: var(--fg-color);
+  background-color: var(--bg-color);
   z-index: 20;
 }
 .sc-tl { top: 0; left: 0; }
@@ -315,11 +315,11 @@ useSeoMeta({
   display: flex;
   flex-direction: column;
   flex: 1;
-  color: var(--fg-color);
+  color: var(--bg-color);
 }
 
 .service-header {
-  border-bottom: 2px dashed var(--fg-color);
+  border-bottom: 2px dashed var(--bg-color);
   padding-bottom: 1rem;
   margin-bottom: 1.5rem;
 }
@@ -350,7 +350,7 @@ useSeoMeta({
 
 .service-list li {
   margin-bottom: 0.5rem;
-  color: var(--fg-color);
+  color: var(--bg-color);
   opacity: 0.7;
 }
 
