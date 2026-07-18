@@ -28,64 +28,82 @@
       
       <!-- Service 1: UI/UX -->
       <div class="service-card group">
-        <div class="service-bg-wrapper">
-          <DitherImage :src="uiUxImg" :pixelSize="3" class="service-dither" />
-        </div>
-        <div class="service-content">
-          <div class="service-header">
-            <h3>INTERFACE & EXPERIENCE</h3>
-            <AnimatedSlashes :count="8" />
+        <div class="service-border">
+          <div class="sc-corner sc-tl"></div>
+          <div class="sc-corner sc-tr"></div>
+          <div class="sc-corner sc-bl"></div>
+          <div class="sc-corner sc-br"></div>
+          <div class="service-bg-wrapper">
+            <DitherImage :src="uiUxImg" :pixelSize="3" class="service-dither" />
           </div>
-          <p class="service-desc">
-            Brutalist, high-conversion interfaces engineered for speed and aesthetic dominance. We design user experiences that demand attention and optimize workflows down to the millisecond.
-          </p>
-          <ul class="service-list">
-            <li>> UI/UX DESIGN</li>
-            <li>> INTERACTION DESIGN</li>
-            <li>> DESIGN SYSTEMS</li>
-          </ul>
+          <div class="service-content">
+            <div class="service-header">
+              <h3>INTERFACE & EXPERIENCE</h3>
+              <AnimatedSlashes :count="8" />
+            </div>
+            <p class="service-desc">
+              Brutalist, high-conversion interfaces engineered for speed and aesthetic dominance. We design user experiences that demand attention and optimize workflows down to the millisecond.
+            </p>
+            <ul class="service-list">
+              <li>> UI/UX DESIGN</li>
+              <li>> INTERACTION DESIGN</li>
+              <li>> DESIGN SYSTEMS</li>
+            </ul>
+          </div>
         </div>
       </div>
 
       <!-- Service 2: ENGINEERING -->
       <div class="service-card group">
-        <div class="service-bg-wrapper">
-          <DitherImage :src="engImg" :pixelSize="3" class="service-dither" />
-        </div>
-        <div class="service-content">
-          <div class="service-header">
-            <h3>SYSTEM ARCHITECTURE</h3>
-            <AnimatedSlashes :count="8" />
+        <div class="service-border">
+          <div class="sc-corner sc-tl"></div>
+          <div class="sc-corner sc-tr"></div>
+          <div class="sc-corner sc-bl"></div>
+          <div class="sc-corner sc-br"></div>
+          <div class="service-bg-wrapper">
+            <DitherImage :src="engImg" :pixelSize="3" class="service-dither" />
           </div>
-          <p class="service-desc">
-            Zero-latency APIs, resilient edge infrastructure, and robust full-stack applications. Built on Nuxt, Vue, and high-performance serverless architectures that never sleep.
-          </p>
-          <ul class="service-list">
-            <li>> FULL-STACK DEVELOPMENT</li>
-            <li>> BACKEND ARCHITECTURE</li>
-            <li>> EDGE COMPUTE / DEVOPS</li>
-          </ul>
+          <div class="service-content">
+            <div class="service-header">
+              <h3>SYSTEM ARCHITECTURE</h3>
+              <AnimatedSlashes :count="8" />
+            </div>
+            <p class="service-desc">
+              Zero-latency APIs, resilient edge infrastructure, and robust full-stack applications. Built on Nuxt, Vue, and high-performance serverless architectures that never sleep.
+            </p>
+            <ul class="service-list">
+              <li>> FULL-STACK DEVELOPMENT</li>
+              <li>> BACKEND ARCHITECTURE</li>
+              <li>> EDGE COMPUTE / DEVOPS</li>
+            </ul>
+          </div>
         </div>
       </div>
 
       <!-- Service 3: BRAND IDENTITY -->
       <div class="service-card group">
-        <div class="service-bg-wrapper">
-          <DitherImage :src="brandImg" :pixelSize="3" class="service-dither" />
-        </div>
-        <div class="service-content">
-          <div class="service-header">
-            <h3>BRAND IDENTITY</h3>
-            <AnimatedSlashes :count="8" />
+        <div class="service-border">
+          <div class="sc-corner sc-tl"></div>
+          <div class="sc-corner sc-tr"></div>
+          <div class="sc-corner sc-bl"></div>
+          <div class="sc-corner sc-br"></div>
+          <div class="service-bg-wrapper">
+            <DitherImage :src="brandImg" :pixelSize="3" class="service-dither" />
           </div>
-          <p class="service-desc">
-            Typography, geometry, and stark monochrome alignment. We construct bold, unapologetic visual identities that separate your brand from the noise of the modern web.
-          </p>
-          <ul class="service-list">
-            <li>> LOGO DESIGN</li>
-            <li>> BRAND GUIDELINES</li>
-            <li>> VISUAL STRATEGY</li>
-          </ul>
+          <div class="service-content">
+            <div class="service-header">
+              <h3>BRAND IDENTITY</h3>
+              <AnimatedSlashes :count="8" />
+            </div>
+            <p class="service-desc">
+              Typography, geometry, and stark monochrome alignment. We construct bold, unapologetic visual identities that separate your brand from the noise of the modern web.
+            </p>
+            <ul class="service-list">
+              <li>> LOGO DESIGN</li>
+              <li>> BRAND GUIDELINES</li>
+              <li>> VISUAL STRATEGY</li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -231,11 +249,33 @@ useSeoMeta({
   min-height: 400px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   cursor: crosshair;
+}
+
+/* The actual bordered box with corners — mirrors BrutalistCard internals */
+.service-border {
+  position: relative;
+  flex: 1;
   border: 2px solid var(--fg-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 400px;
+  overflow: hidden;
   background-color: var(--bg-color);
 }
+
+/* Corner markers — identical to BrutalistCard corners */
+.sc-corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: var(--fg-color);
+  z-index: 20;
+}
+.sc-tl { top: -6px; left: -6px; }
+.sc-tr { top: -6px; right: -6px; }
+.sc-bl { bottom: -6px; left: -6px; }
+.sc-br { bottom: -6px; right: -6px; }
 
 .service-bg-wrapper {
   position: absolute;
@@ -258,7 +298,7 @@ useSeoMeta({
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1;
 }
 
 .service-header {
