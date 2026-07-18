@@ -27,7 +27,7 @@
     <div class="services-grid mb-16">
       
       <!-- Service 1: UI/UX -->
-      <BrutalistCard padding="0" class="service-card group">
+      <div class="service-card group">
         <div class="service-bg-wrapper">
           <DitherImage :src="uiUxImg" :pixelSize="3" class="service-dither" />
         </div>
@@ -45,10 +45,10 @@
             <li>> DESIGN SYSTEMS</li>
           </ul>
         </div>
-      </BrutalistCard>
+      </div>
 
       <!-- Service 2: ENGINEERING -->
-      <BrutalistCard padding="0" class="service-card group">
+      <div class="service-card group">
         <div class="service-bg-wrapper">
           <DitherImage :src="engImg" :pixelSize="3" class="service-dither" />
         </div>
@@ -66,10 +66,10 @@
             <li>> EDGE COMPUTE / DEVOPS</li>
           </ul>
         </div>
-      </BrutalistCard>
+      </div>
 
       <!-- Service 3: BRAND IDENTITY -->
-      <BrutalistCard padding="0" class="service-card group">
+      <div class="service-card group">
         <div class="service-bg-wrapper">
           <DitherImage :src="brandImg" :pixelSize="3" class="service-dither" />
         </div>
@@ -87,7 +87,7 @@
             <li>> VISUAL STRATEGY</li>
           </ul>
         </div>
-      </BrutalistCard>
+      </div>
 
     </div>
 
@@ -140,7 +140,7 @@
 <script setup>
 import { onMounted } from 'vue'
 import uiUxImg from '~/assets/eye-wall.png'
-import engImg from '~/assets/skull-moon.png'
+import engImg from '~/assets/skull-break.png'
 import brandImg from '~/assets/2face-demon.png'
 
 useSeoMeta({
@@ -233,6 +233,8 @@ useSeoMeta({
   flex-direction: column;
   overflow: hidden;
   cursor: crosshair;
+  border: 2px solid var(--fg-color);
+  background-color: var(--bg-color);
 }
 
 .service-bg-wrapper {
@@ -247,7 +249,7 @@ useSeoMeta({
   pointer-events: none;
 }
 .service-card:hover .service-bg-wrapper {
-  opacity: 0.15;
+  opacity: 0.25;
 }
 
 .service-content {
