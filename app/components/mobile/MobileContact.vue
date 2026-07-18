@@ -6,18 +6,10 @@ import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
 
 <template>
   <main class="mobile-page-wrapper">
-    <div class="top-nav">
-      <NuxtLink to="/" class="nav-link">< RETURN</NuxtLink>
-    </div>
-
-    <!-- Header block -->
-    <section class="mobile-section inverted-section border-b-dashed">
-      <div class="mobile-section-content header-container">
-        <h1 class="display-title">INITIATE CONTACT</h1>
-        <p class="subtitle mt-2">DIRECT FREQUENCIES ONLY.</p>
-        <AnimatedSlashes :count="20" class="mt-4" />
-      </div>
-    </section>
+    <MobilePageHero
+      title="INITIATE CONTACT"
+      subtitle="DIRECT FREQUENCIES ONLY."
+    />
       
     <!-- Contact Details -->
     <section class="mobile-section">
@@ -45,19 +37,9 @@ import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
             <a href="mailto:support@taohq.org" class="email-link">SUPPORT@TAOHQ.ORG</a>
           </div>
 
-          <div class="channel-group mb-8">
+          <div class="channel-group">
             <h2>GENERAL INQUIRIES</h2>
             <a href="mailto:hello@taohq.org" class="email-link">HELLO@TAOHQ.ORG</a>
-          </div>
-
-          <div class="channel-group">
-            <h2>PGP PUBLIC KEY</h2>
-            <div class="pgp-block mt-4">
-              <pre>
------BEGIN PGP KEY-----
-... WAITING FOR KEY ...
------END PGP KEY-----</pre>
-            </div>
           </div>
 
         </div>
@@ -172,18 +154,5 @@ import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
   color: var(--fg-color);
   text-decoration: none;
   border-bottom: 2px solid var(--fg-color);
-}
-
-.pgp-block pre {
-  background: var(--fg-color);
-  color: var(--bg-color);
-  padding: 1rem;
-  margin: 0;
-  overflow-x: auto;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 0.9rem;
-  white-space: pre-wrap;
-  word-break: break-all;
-  border: 2px dashed var(--bg-color);
 }
 </style>

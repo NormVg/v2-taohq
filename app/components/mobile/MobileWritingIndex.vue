@@ -1,15 +1,10 @@
 <template>
   <main class="m-writing">
-    <div class="top-bar">
-      <NuxtLink to="/" class="back">&lt;&lt; RETURN</NuxtLink>
-    </div>
-
-    <section class="hero">
-      <p class="label">DIR // WRITING</p>
-      <h1 class="title">SYSTEM LOGS</h1>
-      <p class="subtitle">WRITING & RESEARCH</p>
-      <AnimatedSlashes :count="18" class="slashes" />
-    </section>
+    <MobilePageHero
+      eyebrow="DIR // WRITING"
+      title="SYSTEM LOGS"
+      subtitle="WRITING & RESEARCH"
+    />
 
     <section class="list-section">
       <div v-if="pending" class="empty">

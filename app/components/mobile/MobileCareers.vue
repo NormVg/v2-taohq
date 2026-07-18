@@ -6,18 +6,13 @@ import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
 
 <template>
   <main class="mobile-page-wrapper">
-    <div class="top-nav">
-      <NuxtLink to="/" class="nav-link">< RETURN</NuxtLink>
-    </div>
-
-    <section class="mobile-section inverted-section border-b-dashed">
-      <div class="mobile-section-content header-container">
-        <p class="eyebrow">/// RECRUITMENT</p>
-        <h1 class="display-title mt-2">ABANDON<br/>MEDIOCRITY</h1>
-        <p class="subtitle mt-4">We are not looking for employees. We are looking for zealots.</p>
-        <AnimatedSlashes :count="20" class="mt-4" />
-      </div>
-    </section>
+    <MobilePageHero
+      eyebrow="/// RECRUITMENT"
+      subtitle="We are not looking for employees. We are looking for zealots."
+      title="ABANDON MEDIOCRITY"
+    >
+      <template #title>ABANDON<br>MEDIOCRITY</template>
+    </MobilePageHero>
 
     <section class="mobile-section border-b-dashed">
       <div class="mobile-section-content">

@@ -1,15 +1,9 @@
 <template>
   <main class="mobile-page-wrapper">
-    <div class="top-nav">
-      <NuxtLink to="/" class="back-link">< RETURN</NuxtLink>
-    </div>
-
-    <section class="mobile-section border-b-dashed">
-      <div class="mobile-section-content content-header">
-        <p class="small-caps mb-4">PHILOSOPHY // 01</p>
-        <h1 class="display-title">DIGITAL ASCETICISM</h1>
-      </div>
-    </section>
+    <MobilePageHero
+      eyebrow="PHILOSOPHY // 01"
+      title="DIGITAL ASCETICISM"
+    />
 
     <section class="mobile-section border-b-dashed">
       <div class="mobile-section-content philosophy-stack">

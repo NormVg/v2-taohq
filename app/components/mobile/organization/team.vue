@@ -1,18 +1,12 @@
 <template>
   <main class="mobile-page-wrapper">
-    <div class="top-nav">
-      <NuxtLink to="/" class="back-link">< RETURN</NuxtLink>
-    </div>
-
-    <section class="mobile-section border-b-dashed">
-      <div class="mobile-section-content">
-        <h1 class="display-title mt-4">TEAM // TAOHQ</h1>
-        <AnimatedSlashes :count="24" class="mt-4" />
-        <p class="team-manifesto mt-8">
+    <MobilePageHero title="TEAM // TAOHQ" :slash-count="24">
+      <template #hero-body>
+        <p class="team-manifesto-hero">
           An aggregate of independent nodes, synchronized by a shared terminal. We do not have titles. We have functions.
         </p>
-      </div>
-    </section>
+      </template>
+    </MobilePageHero>
 
     <section class="mobile-section">
       <div class="mobile-section-content">
@@ -100,6 +94,15 @@ useSeoMeta({
   font-weight: 400;
   margin: 0;
   line-height: 1;
+}
+
+.team-manifesto-hero {
+  font-family: 'VT323', monospace;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  text-transform: uppercase;
+  margin: 1rem 0 0;
+  opacity: 0.9;
 }
 
 .team-manifesto {

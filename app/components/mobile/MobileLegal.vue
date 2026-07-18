@@ -4,18 +4,11 @@ import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
 
 <template>
   <main class="mobile-page-wrapper">
-    <div class="top-nav">
-      <NuxtLink to="/" class="nav-link">< RETURN</NuxtLink>
-    </div>
-
-    <section class="mobile-section inverted-section border-b-dashed">
-      <div class="mobile-section-content header-container">
-        <p class="mono-label">DOC: LGL-001</p>
-        <h1 class="display-title mt-2">LEGAL DOCTRINE</h1>
-        <p class="subtitle mt-4">BINDING PROTOCOLS</p>
-        <AnimatedSlashes :count="20" class="mt-4" />
-      </div>
-    </section>
+    <MobilePageHero
+      eyebrow="DOC: LGL-001"
+      title="LEGAL DOCTRINE"
+      subtitle="BINDING PROTOCOLS"
+    />
 
     <section class="mobile-section">
       <div class="mobile-section-content legal-body">

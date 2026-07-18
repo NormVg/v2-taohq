@@ -9,20 +9,14 @@ import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
 
 <template>
   <main class="mobile-page-wrapper">
-    <!-- Breadcrumb -->
-    <div class="top-nav">
-      <NuxtLink to="/" class="nav-link">< RETURN</NuxtLink>
-      <span class="nav-current">/STUDIO</span>
-    </div>
-
-    <!-- Header block -->
-    <section class="mobile-section hero-section inverted-section">
-      <div class="mobile-section-content header-container">
-        <h1 class="display-title">STUDIO</h1>
-        <p class="subtitle mt-2">WE ENGINEER HIGH-PERFORMANCE DIGITAL ASSETS.</p>
-        <AnimatedSlashes :count="20" class="mt-4" />
-      </div>
-    </section>
+    <MobilePageHero
+      title="STUDIO"
+      subtitle="WE ENGINEER HIGH-PERFORMANCE DIGITAL ASSETS."
+    >
+      <template #back-extra>
+        <span class="studio-path">/STUDIO</span>
+      </template>
+    </MobilePageHero>
 
     <!-- Manifesto / Intro -->
     <section class="mobile-section border-b-dashed">
@@ -184,27 +178,11 @@ import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
   border-bottom: 2px dashed var(--fg-color);
 }
 
-.top-nav {
+.studio-path {
   font-family: 'VT323', monospace;
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  padding: 1rem 1.25rem;
-  border-bottom: 2px dashed var(--fg-color);
-}
-
-.nav-link {
-  color: var(--fg-color);
-  text-decoration: none;
-  margin-right: 0.5rem;
-}
-
-.nav-current {
-  opacity: 0.5;
-}
-
-/* Header */
-.hero-section {
-  border-bottom: 2px dashed var(--bg-color);
+  font-size: 1.15rem;
+  opacity: 0.55;
+  letter-spacing: 0.06em;
 }
 
 .display-title {

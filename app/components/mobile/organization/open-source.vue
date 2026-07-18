@@ -1,16 +1,9 @@
 <template>
   <main class="mobile-page-wrapper">
-    <div class="top-nav">
-      <NuxtLink to="/" class="back-link">< RETURN</NuxtLink>
-    </div>
-
-    <section class="mobile-section inverted-section border-b-dashed">
-      <div class="mobile-section-content header-container">
-        <h1 class="display-title mt-4">OPEN SOURCE</h1>
-        <p class="subtitle mt-4">THE CODE BELONGS TO THE COLLECTIVE.</p>
-        <AnimatedSlashes :count="20" class="mt-8" />
-      </div>
-    </section>
+    <MobilePageHero
+      title="OPEN SOURCE"
+      subtitle="THE CODE BELONGS TO THE COLLECTIVE."
+    />
 
     <section class="mobile-section border-b-dashed">
       <div class="mobile-section-content">

@@ -1,16 +1,9 @@
 <template>
   <main class="mobile-page-wrapper">
-    <div class="top-nav">
-      <NuxtLink to="/" class="back-link">< RETURN</NuxtLink>
-    </div>
-
-    <section class="mobile-section inverted-section border-b-dashed">
-      <div class="mobile-section-content header-container">
-        <h1 class="display-title mt-4">INFRASTRUCTURE</h1>
-        <p class="subtitle mt-4">INVISIBLE, RESILIENT, GLOBAL.</p>
-        <AnimatedSlashes :count="20" class="mt-8" />
-      </div>
-    </section>
+    <MobilePageHero
+      title="INFRASTRUCTURE"
+      subtitle="INVISIBLE, RESILIENT, GLOBAL."
+    />
       
     <section class="mobile-section border-b-dashed">
       <div class="mobile-section-content mt-4">

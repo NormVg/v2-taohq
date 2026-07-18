@@ -1,16 +1,10 @@
 <template>
   <main class="mobile-page-wrapper">
-    <div class="top-nav">
-      <NuxtLink to="/" class="back-link">< RETURN</NuxtLink>
-    </div>
-
-    <section class="mobile-section inverted-section border-b-dashed">
-      <div class="mobile-section-content header-container">
-        <h1 class="display-title mt-4">CORE PRINCIPLES</h1>
-        <p class="subtitle mt-4">AXIOMS FOR DIGITAL CONSTRUCTION</p>
-        <AnimatedSlashes :count="16" class="mt-8" />
-      </div>
-    </section>
+    <MobilePageHero
+      title="CORE PRINCIPLES"
+      subtitle="AXIOMS FOR DIGITAL CONSTRUCTION"
+      :slash-count="16"
+    />
       
     <section class="mobile-section border-b-dashed">
       <div class="mobile-section-content bento-stack">

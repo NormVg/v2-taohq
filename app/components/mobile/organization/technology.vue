@@ -1,16 +1,9 @@
 <template>
   <main class="mobile-page-wrapper">
-    <div class="top-nav">
-      <NuxtLink to="/" class="back-link">< RETURN</NuxtLink>
-    </div>
-
-    <section class="mobile-section inverted-section border-b-dashed">
-      <div class="mobile-section-content header-container">
-        <h1 class="display-title mt-4">TECHNOLOGY</h1>
-        <p class="subtitle mt-4">THE ARCHITECTURE OF TAOHQ</p>
-        <AnimatedSlashes :count="20" class="mt-8" />
-      </div>
-    </section>
+    <MobilePageHero
+      title="TECHNOLOGY"
+      subtitle="THE ARCHITECTURE OF TAOHQ"
+    />
       
     <section class="mobile-section border-b-dashed">
       <div class="mobile-section-content">
@@ -55,20 +48,6 @@
           </div>
         </div>
         
-        <div class="terminal-block mt-12">
-          <div class="terminal-header">
-            <span>ROOT@TAO-HQ:~# SYS_STATUS</span>
-            <AnimatedSlashes :count="10" right />
-          </div>
-          <div class="terminal-body mt-4">
-            <p>> INITIALIZING NUXT CLUSTER...</p>
-            <p>> CONNECTING TO EDGE DATABASES... [OK]</p>
-            <p>> COMPUTE NODES ONLINE: 4,096</p>
-            <p>> ALL SYSTEMS NOMINAL.</p>
-            <p class="blink mt-4">_</p>
-          </div>
-        </div>
-
       </div>
     </section>
   </main>
@@ -114,6 +93,75 @@ useSeoMeta({
 }
 .inverted-section.border-b-dashed {
   border-bottom: 2px dashed var(--bg-color);
+}
+
+/* Black hero: hold text + spinning logo in the same box */
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+}
+
+.header-container {
+  position: relative;
+  z-index: 2;
+  padding-right: 5.5rem; /* room for logo */
+  padding-bottom: 1rem;
+}
+
+.hero-logo-wrap {
+  position: absolute;
+  right: 1.15rem;
+  bottom: 1.25rem;
+  z-index: 1;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  animation: float-complex 5.7s ease-in-out infinite alternate;
+}
+
+.logo-inner-anim {
+  animation: slight-tilt 7.1s ease-in-out infinite alternate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flipping-logo {
+  width: 52px;
+  height: auto;
+  animation: flip-y 4.3s linear infinite;
+  transform-style: preserve-3d;
+  opacity: 0.9;
+  /* Soft glow on dark hero so mark reads clearly */
+  filter: drop-shadow(0 0 8px rgba(196, 181, 227, 0.55));
+}
+
+@keyframes float-complex {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(4px); }
+}
+
+@keyframes flip-y {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+@keyframes slight-tilt {
+  0% { transform: rotateZ(-5deg) scale(1); }
+  100% { transform: rotateZ(5deg) scale(1.05); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-logo-wrap,
+  .logo-inner-anim,
+  .flipping-logo {
+    animation: none !important;
+  }
 }
 
 .top-nav {
@@ -205,41 +253,5 @@ useSeoMeta({
   line-height: 1.4;
   opacity: 0.9;
   text-transform: uppercase;
-}
-
-.terminal-block {
-  background-color: var(--fg-color);
-  color: var(--bg-color);
-  padding: 1.5rem;
-  border: 4px solid var(--fg-color);
-}
-
-.terminal-header {
-  border-bottom: 2px dashed var(--bg-color);
-  padding-bottom: 0.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: 'VT323', monospace;
-  font-size: 1.2rem;
-}
-
-.terminal-body {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.terminal-body p {
-  margin: 0.5rem 0;
-}
-
-.blink {
-  animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
 }
 </style>

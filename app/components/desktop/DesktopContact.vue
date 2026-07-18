@@ -49,21 +49,9 @@ useSeoMeta({
             <a href="mailto:support@taohq.org" class="email-link">SUPPORT@TAOHQ.ORG</a>
           </div>
 
-          <div class="channel-group mb-12">
+          <div class="channel-group">
             <h2>GENERAL INQUIRIES</h2>
             <a href="mailto:hello@taohq.org" class="email-link">HELLO@TAOHQ.ORG</a>
-          </div>
-
-          <div class="channel-group">
-            <h2>PGP PUBLIC KEY</h2>
-            <div class="pgp-block mt-4">
-              <pre>
------BEGIN PGP PUBLIC KEY BLOCK-----
-
-mQINBGI... [SECURE BLOCK INCOMPLETE] ...
-... WAITING FOR KEY GENERATION ...
------END PGP PUBLIC KEY BLOCK-----</pre>
-            </div>
           </div>
 
         </div>
@@ -145,19 +133,6 @@ mQINBGI... [SECURE BLOCK INCOMPLETE] ...
     border-bottom: 2px dashed var(--fg-color);
     padding-bottom: 2rem;
   }
-}
-
-.pgp-block pre {
-  background: var(--fg-color);
-  color: var(--bg-color);
-  padding: 1.5rem;
-  margin: 0;
-  overflow-x: auto;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 1.1rem;
-  white-space: pre-wrap;
-  word-break: break-all;
-  border: 2px dashed var(--bg-color);
 }
 
 .fixed-logo-wrapper {

@@ -1,15 +1,10 @@
 <template>
   <main class="m-products">
-    <div class="top-bar">
-      <NuxtLink to="/" class="back">&lt;&lt; RETURN</NuxtLink>
-    </div>
-
-    <section class="hero">
-      <p class="label">DIR // PRODUCTS</p>
-      <h1 class="title">PRODUCTS</h1>
-      <p class="subtitle">ACTIVE DEPLOYMENTS</p>
-      <AnimatedSlashes :count="18" class="slashes" />
-    </section>
+    <MobilePageHero
+      eyebrow="DIR // PRODUCTS"
+      title="PRODUCTS"
+      subtitle="ACTIVE DEPLOYMENTS"
+    />
 
     <section class="list-section">
       <div v-if="pending" class="empty">

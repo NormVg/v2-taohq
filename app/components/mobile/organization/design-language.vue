@@ -1,16 +1,9 @@
 <template>
   <main class="mobile-page-wrapper">
-    <div class="top-nav">
-      <NuxtLink to="/" class="back-link">< RETURN</NuxtLink>
-    </div>
-
-    <section class="mobile-section inverted-section border-b-dashed">
-      <div class="mobile-section-content header-container">
-        <h1 class="display-title mt-4">DESIGN LANGUAGE</h1>
-        <p class="subtitle mt-4">THE BRUTALIST STYLE GUIDE</p>
-        <AnimatedSlashes :count="20" class="mt-8" />
-      </div>
-    </section>
+    <MobilePageHero
+      title="DESIGN LANGUAGE"
+      subtitle="THE BRUTALIST STYLE GUIDE"
+    />
       
     <section class="mobile-section border-b-dashed">
       <div class="mobile-section-content">

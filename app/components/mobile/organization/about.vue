@@ -1,22 +1,14 @@
 <template>
   <main class="mobile-page-wrapper">
-    <div class="top-nav">
-      <NuxtLink to="/" class="back-link">< RETURN</NuxtLink>
-    </div>
-
-    <section class="mobile-section inverted-section border-b-dashed">
-      <div class="mobile-section-content hero-content">
-        <h1 class="display-title">ABOUT // TAOHQ</h1>
-        <p class="body-copy mt-4">
-          We are a collective of digital architects constructing systems that outlive their creators. 
+    <MobilePageHero title="ABOUT // TAOHQ">
+      <template #hero-body>
+        <p class="about-hero-copy">
+          We are a collective of digital architects constructing systems that outlive their creators.
           taohq is not a company. It is an ongoing experiment in structural permanence, brutalist aesthetics, and terminal-grade efficiency.
         </p>
-        <div class="mt-8">
-          <span class="small-caps">SYSTEM STATUS: NOMINAL</span>
-          <AnimatedSlashes :count="20" class="mt-2" />
-        </div>
-      </div>
-    </section>
+        <p class="about-hero-status">SYSTEM STATUS: NOMINAL</p>
+      </template>
+    </MobilePageHero>
 
     <section class="mobile-section border-b-dashed">
       <div class="mobile-section-content">
@@ -105,12 +97,22 @@ useHead({
   flex-direction: column;
 }
 
-.display-title {
-  font-size: 3.5rem;
+.about-hero-copy {
   font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  margin: 1rem 0 0;
+  opacity: 0.9;
   text-transform: uppercase;
-  margin: 0;
-  line-height: 1;
+}
+
+.about-hero-status {
+  font-family: 'VT323', monospace;
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  opacity: 0.7;
+  margin: 1rem 0 0;
+  text-transform: uppercase;
 }
 
 .body-copy {

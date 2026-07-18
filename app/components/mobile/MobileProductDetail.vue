@@ -1,24 +1,21 @@
 <template>
   <div class="product-mobile">
-    <div class="top-bar">
-      <NuxtLink to="/products" class="back">&lt;&lt; PRODUCTS</NuxtLink>
-    </div>
-
-    <div class="bg-dither" aria-hidden="true">
-      <DitherImage :src="bgImage" />
-    </div>
-
-    <div class="content">
-      <template v-if="page">
-        <header class="header">
-          <p class="label">PRODUCT // DEPLOYMENT</p>
-          <h1 class="title">{{ page.title }}</h1>
+    <template v-if="page">
+      <MobilePageHero
+        to="/products"
+        back-label="<< PRODUCTS"
+        eyebrow="PRODUCT // DEPLOYMENT"
+        :title="page.title"
+      >
+        <template #hero-body>
           <div class="meta">
             <span>STATUS // {{ page.status || 'ONLINE' }}</span>
             <span>VERSION // {{ page.version || '1.0.0' }}</span>
           </div>
-        </header>
+        </template>
+      </MobilePageHero>
 
+      <div class="content">
         <div class="hero">
           <img
             v-if="isImage(page.heroMedia)"
@@ -45,13 +42,20 @@
         <article class="prose">
           <ContentRenderer v-if="rawPage" :value="rawPage" />
         </article>
-      </template>
+      </div>
+    </template>
 
-      <div v-else class="not-found">
-        <h1 class="title">404 // NOT FOUND</h1>
+    <template v-else>
+      <MobilePageHero
+        to="/products"
+        back-label="<< PRODUCTS"
+        title="404 // NOT FOUND"
+        :logo="false"
+      />
+      <div class="content">
         <NuxtLink to="/products" class="back-btn">&lt;&lt; BACK TO PRODUCTS</NuxtLink>
       </div>
-    </div>
+    </template>
   </div>
 </template>
 
@@ -98,52 +102,8 @@ useSeoMeta({
   max-width: 100%;
   overflow-x: hidden;
   min-height: 100%;
-  background: var(--fg-color);
-  color: var(--bg-color);
-}
-
-.top-bar {
-  position: sticky;
-  top: 0;
-  z-index: 5;
-  padding: 0.85rem 1.25rem;
-  border-bottom: 2px dashed var(--bg-color);
-  background: var(--fg-color);
-  font-family: 'VT323', monospace;
-  font-size: 1.35rem;
-}
-
-.back {
-  color: inherit;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-}
-
-.back:active {
-  transform: scale(0.96);
-  opacity: 0.8;
-}
-
-.bg-dither {
-  position: fixed;
-  top: 60px;
-  right: 0;
-  width: 100%;
-  height: 42vh;
-  z-index: 0;
-  opacity: 0.14;
-  pointer-events: none;
-  mask-image: radial-gradient(circle at top right, black 0%, transparent 75%);
-  -webkit-mask-image: radial-gradient(circle at top right, black 0%, transparent 75%);
-}
-
-.bg-dither :deep(.dither-container),
-.bg-dither :deep(canvas) {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover;
+  background: var(--bg-color);
+  color: var(--fg-color);
 }
 
 .content {
@@ -152,29 +112,8 @@ useSeoMeta({
   padding: 1.5rem 1.25rem 3rem;
   display: flex;
   flex-direction: column;
-}
-
-.header {
-  margin-bottom: 1.25rem;
-}
-
-.label {
-  font-family: 'VT323', monospace;
-  font-size: 1.05rem;
-  opacity: 0.7;
-  margin: 0 0 0.65rem;
-  letter-spacing: 0.06em;
-}
-
-.title {
-  font-family: 'VT323', monospace;
-  font-size: clamp(2.2rem, 9vw, 3.1rem);
-  margin: 0 0 0.85rem;
-  line-height: 0.95;
-  text-transform: uppercase;
-  border-bottom: 2px dashed var(--bg-color);
-  padding-bottom: 0.55rem;
-  text-wrap: balance;
+  background: var(--fg-color);
+  color: var(--bg-color);
 }
 
 .meta {
@@ -183,8 +122,9 @@ useSeoMeta({
   gap: 0.3rem;
   font-family: 'VT323', monospace;
   font-size: 1.1rem;
-  opacity: 0.8;
+  opacity: 0.85;
   text-transform: uppercase;
+  margin-top: 0.85rem;
 }
 
 .hero {
