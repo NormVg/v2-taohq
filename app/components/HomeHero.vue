@@ -2,22 +2,11 @@
 import { ref, onMounted } from 'vue'
 
 const showSplash = ref(true)
-const loadProgress = ref(0)
 
 onMounted(() => {
-  const duration = 1600
-  const interval = 30
-  const step = 100 / (duration / interval)
-  
-  const timer = setInterval(() => {
-    if (loadProgress.value >= 100) {
-      clearInterval(timer)
-      loadProgress.value = 100
-      setTimeout(() => { showSplash.value = false }, 200)
-    } else {
-      loadProgress.value += step
-    }
-  }, interval)
+  setTimeout(() => {
+    showSplash.value = false
+  }, 1600)
 })
 </script>
 
@@ -28,9 +17,6 @@ onMounted(() => {
       <div v-if="showSplash" class="splash-screen">
         <div class="splash-mark">
           <img src="~/assets/logo.svg" alt="TAO Logo" class="splash-logo-img" />
-        </div>
-        <div class="splash-counter">
-          {{ Math.floor(loadProgress) }}%
         </div>
       </div>
     </Transition>
@@ -176,17 +162,6 @@ onMounted(() => {
   object-fit: contain;
   filter: brightness(0.1); /* Make the purple logo dark */
   animation: logo-breathe 2s ease-in-out infinite alternate;
-}
-
-.splash-counter {
-  position: absolute;
-  bottom: 3rem;
-  right: 4rem;
-  font-family: 'VT323', monospace;
-  font-size: 3rem;
-  color: var(--fg-color);
-  opacity: 0.8;
-  line-height: 1;
 }
 
 @keyframes logo-breathe {
