@@ -267,7 +267,7 @@ useSeoMeta({
   cursor: crosshair;
 }
 
-/* Inner bordered box — dark card on light section for contrast */
+/* Inner bordered box */
 .service-inner {
   position: relative;
   flex: 1;
@@ -276,15 +276,15 @@ useSeoMeta({
   flex-direction: column;
   min-height: 400px;
   overflow: hidden;
-  background-color: var(--fg-color);
+  background-color: var(--bg-color);
 }
 
-/* Corner markers — bg-color punches out against dark card surface */
+/* Corner markers */
 .sc-corner {
   position: absolute;
   width: 12px;
   height: 12px;
-  background-color: var(--bg-color);
+  background-color: var(--fg-color);
   z-index: 20;
 }
 .sc-tl { top: -6px; left: -6px; }
@@ -314,11 +314,11 @@ useSeoMeta({
   display: flex;
   flex-direction: column;
   flex: 1;
-  color: var(--bg-color);
+  color: var(--fg-color);
 }
 
 .service-header {
-  border-bottom: 2px dashed var(--bg-color);
+  border-bottom: 2px dashed var(--fg-color);
   padding-bottom: 1rem;
   margin-bottom: 1.5rem;
 }
@@ -349,7 +349,7 @@ useSeoMeta({
 
 .service-list li {
   margin-bottom: 0.5rem;
-  color: var(--bg-color);
+  color: var(--fg-color);
   opacity: 0.7;
 }
 
