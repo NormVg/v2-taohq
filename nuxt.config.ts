@@ -23,8 +23,7 @@ export default defineNuxtConfig({
         lang: 'en',
       },
       title: SITE_NAME,
-      // Avoid "TheAlphaOnes · TheAlphaOnes" on home; pages set their own full titles
-      titleTemplate: '%s',
+      titleTemplate: (title) => title === SITE_NAME ? SITE_NAME : `${title} | ${SITE_NAME}`,
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
