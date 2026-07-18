@@ -38,8 +38,8 @@
     </BrutalistCard>
 
     <BrutalistCard inverted>
-      <div class="quote-wrapper">
-        <div class="bg-dither">
+      <div class="quote-layout">
+        <div class="dither-square">
           <DitherImage :src="treeSkullImg" :pixelSize="4" />
         </div>
         <div class="center-quote">
@@ -139,42 +139,45 @@ useSeoMeta({
   line-height: 1.6;
   opacity: 0.85;
 }
-.center-quote {
+.quote-layout {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  min-height: 50vh;
-  position: relative;
-  z-index: 10;
-}
-.quote-wrapper {
-  position: relative;
-  width: 100%;
-  display: flex;
   justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  gap: 4rem;
+  padding: 4rem 0;
 }
-.bg-dither {
-  position: absolute;
-  top: 0;
-  left: 0;
+@media (min-width: 1024px) {
+  .quote-layout {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    text-align: left;
+  }
+}
+.dither-square {
+  flex-shrink: 0;
   width: 100%;
-  height: 100%;
-  opacity: 0.15;
-  z-index: 1;
-  pointer-events: none;
+  max-width: 500px;
+  aspect-ratio: 1;
+  border: 4px solid var(--bg-color);
+  background-color: var(--fg-color);
 }
-.bg-dither :deep(canvas) {
+.dither-square :deep(canvas) {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+.center-quote {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
 .large-quote {
   font-family: 'VT323', monospace;
-  font-size: clamp(3rem, 6vw, 5rem);
+  font-size: clamp(3rem, 5vw, 4.5rem);
   line-height: 1.1;
   max-width: 800px;
   font-weight: 400;
