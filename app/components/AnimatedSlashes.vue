@@ -72,13 +72,13 @@ onMounted(() => {
   // Trigger once initially after a small delay
   setTimeout(triggerScramble, 500 + Math.random() * 1000);
   
-  // And then automatically every 6 to 12 seconds to make the app feel alive
+  // And then automatically every 3 to 5 seconds to make the app feel alive
   autoScrambleTimer = setInterval(() => {
     // Only trigger if not currently hovering
     if (!isHovering.value) {
       triggerScramble();
     }
-  }, 8000 + Math.random() * 4000);
+  }, 3000 + Math.random() * 2000);
 });
 
 onBeforeUnmount(() => {
