@@ -6,11 +6,21 @@
       </NuxtLink>
       
       <nav class="nav-links">
-        <NuxtLink to="/products" class="nav-link" active-class="active">[ PRODUCTS ]</NuxtLink>
-        <NuxtLink to="/organization/about" class="nav-link" active-class="active">[ ORG ]</NuxtLink>
-        <NuxtLink to="/writing" class="nav-link" active-class="active">[ WRITING ]</NuxtLink>
-        <NuxtLink to="/careers" class="nav-link" active-class="active">[ CAREERS ]</NuxtLink>
-        <NuxtLink to="/contact" class="nav-link" active-class="active">[ CONTACT ]</NuxtLink>
+        <NuxtLink to="/products" class="nav-link" active-class="active" v-sound>
+          [ PRODUCTS ]
+        </NuxtLink>
+        <NuxtLink to="/organization/about" class="nav-link" active-class="active" v-sound>
+          [ ORG ]
+        </NuxtLink>
+        <NuxtLink to="/writing" class="nav-link" active-class="active" v-sound>
+          [ WRITING ]
+        </NuxtLink>
+        <NuxtLink to="/careers" class="nav-link" active-class="active" v-sound>
+          [ CAREERS ]
+        </NuxtLink>
+        <NuxtLink to="/contact" class="nav-link" active-class="active" v-sound>
+          [ CONTACT ]
+        </NuxtLink>
       </nav>
     </div>
   </header>

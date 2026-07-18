@@ -3,6 +3,7 @@
     class="animated-slashes" 
     :class="{ 'align-right': right, 'align-center': center }"
     @mouseenter="triggerScramble"
+    v-sound="{ type: 'tick', feel: 'crisp' }"
   >
     <span 
       v-for="(char, n) in chars" 

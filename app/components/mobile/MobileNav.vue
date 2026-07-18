@@ -22,8 +22,8 @@ function closeMenu() {
   <div>
     <!-- Sticky Header -->
     <header class="mobile-header">
-      <NuxtLink to="/" class="logo" @click="closeMenu">TAOHQ</NuxtLink>
-      <button class="hamburger" @click="toggleMenu">
+      <NuxtLink to="/" class="logo" @click="closeMenu" v-sound>TAOHQ</NuxtLink>
+      <button class="hamburger" @click="toggleMenu" v-sound="'toggle'">
         {{ menuOpen ? '[X]' : '[=]' }}
       </button>
     </header>
@@ -31,25 +31,25 @@ function closeMenu() {
     <!-- Fullscreen Overlay Menu -->
     <div v-if="menuOpen" class="mobile-menu-overlay">
       <nav class="mobile-nav-links">
-        <NuxtLink to="/" @click="closeMenu">HOME //</NuxtLink>
-        <NuxtLink to="/studio" @click="closeMenu">STUDIO //</NuxtLink>
-        <NuxtLink to="/products" @click="closeMenu">PRODUCTS //</NuxtLink>
-        <NuxtLink to="/writing" @click="closeMenu">WRITING //</NuxtLink>
-        <NuxtLink to="/careers" @click="closeMenu">CAREERS //</NuxtLink>
-        <NuxtLink to="/contact" @click="closeMenu">CONTACT //</NuxtLink>
-        <NuxtLink to="/legal" @click="closeMenu">LEGAL //</NuxtLink>
+        <NuxtLink to="/" @click="closeMenu" v-sound>HOME //</NuxtLink>
+        <NuxtLink to="/studio" @click="closeMenu" v-sound>STUDIO //</NuxtLink>
+        <NuxtLink to="/products" @click="closeMenu" v-sound>PRODUCTS //</NuxtLink>
+        <NuxtLink to="/writing" @click="closeMenu" v-sound>WRITING //</NuxtLink>
+        <NuxtLink to="/careers" @click="closeMenu" v-sound>CAREERS //</NuxtLink>
+        <NuxtLink to="/contact" @click="closeMenu" v-sound>CONTACT //</NuxtLink>
+        <NuxtLink to="/legal" @click="closeMenu" v-sound>LEGAL //</NuxtLink>
         
         <div class="menu-divider"></div>
         
-        <NuxtLink to="/organization/about" @click="closeMenu">ABOUT //</NuxtLink>
-        <NuxtLink to="/organization/philosophy" @click="closeMenu">PHILOSOPHY //</NuxtLink>
-        <NuxtLink to="/organization/team" @click="closeMenu">TEAM //</NuxtLink>
-        <NuxtLink to="/organization/timeline" @click="closeMenu">TIMELINE //</NuxtLink>
+        <NuxtLink to="/organization/about" @click="closeMenu" v-sound>ABOUT //</NuxtLink>
+        <NuxtLink to="/organization/philosophy" @click="closeMenu" v-sound>PHILOSOPHY //</NuxtLink>
+        <NuxtLink to="/organization/team" @click="closeMenu" v-sound>TEAM //</NuxtLink>
+        <NuxtLink to="/organization/timeline" @click="closeMenu" v-sound>TIMELINE //</NuxtLink>
       </nav>
       
       <div class="menu-footer">
-        <a href="https://github.com/TheAlphaOnes/" target="_blank">GITHUB //</a>
-        <a href="https://x.com/TheNormVg" target="_blank">X (TWITTER) //</a>
+        <a href="https://github.com/TheAlphaOnes/" target="_blank" v-sound>GITHUB //</a>
+        <a href="https://x.com/TheNormVg" target="_blank" v-sound>X (TWITTER) //</a>
       </div>
     </div>
   </div>

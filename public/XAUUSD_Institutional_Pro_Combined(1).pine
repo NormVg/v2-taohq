@@ -1,0 +1,222 @@
+//@version=5
+indicator("XAUUSD Institutional Pro - Combined", overlay=true, max_labels_count=500)
+
+//=====================================================================
+// INPUTS
+//=====================================================================
+emaFast   = input.int(20, "EMA Fast")
+emaSlow   = input.int(50, "EMA Slow")
+
+adxLen    = input.int(14, "ADX Length")
+adxMin    = input.float(25.0, "Minimum ADX")
+
+swingLen  = input.int(10, "Swing Length")
+atrLen    = input.int(14, "ATR Length")
+
+liqLen    = input.int(20, "Liquidity Lookback")
+tradeSession = input.session("1330-2230", "Trading Session (IST)")
+
+trailATR  = input.float(2.0, "ATR Trail Multiplier")
+
+//=====================================================================
+// EMA
+//=====================================================================
+ema20 = ta.ema(close, emaFast)
+ema50 = ta.ema(close, emaSlow)
+
+plot(ema20, color=color.yellow, linewidth=2, title="EMA Fast")
+plot(ema50, color=color.red,    linewidth=2, title="EMA Slow")
+
+//=====================================================================
+// ADX / DI
+//=====================================================================
+upMove   = high - high[1]
+downMove = low[1] - low
+
+plusDM  = (upMove > downMove and upMove > 0) ? upMove : 0
+minusDM = (downMove > upMove and downMove > 0) ? downMove : 0
+
+trSmooth = ta.rma(ta.tr, adxLen)
+
+plusDI  = 100 * ta.rma(plusDM, adxLen) / trSmooth
+minusDI = 100 * ta.rma(minusDM, adxLen) / trSmooth
+
+dx  = math.abs(plusDI - minusDI) / (plusDI + minusDI) * 100
+adx = ta.rma(dx, adxLen)
+
+//=====================================================================
+// TREND
+//=====================================================================
+bullTrend = ema20 > ema50
+bearTrend = ema20 < ema50
+
+//=====================================================================
+// PULLBACK
+//=====================================================================
+buyPullback  = low <= ema20 and close > ema20
+sellPullback = high >= ema20 and close < ema20
+
+//=====================================================================
+// BASE SIGNALS
+//=====================================================================
+buySignal =
+     bullTrend and
+     adx > adxMin and
+     plusDI > minusDI and
+     buyPullback and
+     barstate.isconfirmed
+
+sellSignal =
+     bearTrend and
+     adx > adxMin and
+     minusDI > plusDI and
+     sellPullback and
+     barstate.isconfirmed
+
+plotshape(buySignal, title="BUY (base)", style=shape.labelup, location=location.belowbar,
+     color=color.lime, text="BUY")
+
+plotshape(sellSignal, title="SELL (base)", style=shape.labeldown, location=location.abovebar,
+     color=color.red, text="SELL")
+
+alertcondition(buySignal,  "BUY",  "BUY Signal")
+alertcondition(sellSignal, "SELL", "SELL Signal")
+
+//=====================================================================
+// STRUCTURE: SWINGS / BOS / CHoCH
+//=====================================================================
+atr = ta.atr(atrLen)
+
+pivotHigh = ta.pivothigh(high, swingLen, swingLen)
+pivotLow  = ta.pivotlow(low,  swingLen, swingLen)
+
+var float lastHigh = na
+var float lastLow  = na
+
+if not na(pivotHigh)
+    lastHigh := pivotHigh
+
+if not na(pivotLow)
+    lastLow := pivotLow
+
+bullBOS = ta.crossover(close, lastHigh)
+bearBOS = ta.crossunder(close, lastLow)
+
+var bool bullish = false
+
+if bullBOS
+    bullish := true
+if bearBOS
+    bullish := false
+
+bullCHoCH = bullBOS and not bullish[1]
+bearCHoCH = bearBOS and bullish[1]
+
+//=====================================================================
+// ENTRY (base signal confirmed by structure break)
+//=====================================================================
+buyEntry  = buySignal  and bullBOS
+sellEntry = sellSignal and bearBOS
+
+//=====================================================================
+// STOP LOSS / TARGETS
+//=====================================================================
+buySL  = low  - atr * 1.5
+sellSL = high + atr * 1.5
+
+buyRisk  = close - buySL
+sellRisk = sellSL - close
+
+buyTP1 = close + buyRisk * 2
+buyTP2 = close + buyRisk * 4
+buyTP3 = close + buyRisk * 8
+
+sellTP1 = close - sellRisk * 2
+sellTP2 = close - sellRisk * 4
+sellTP3 = close - sellRisk * 8
+
+if buyEntry
+    label.new(bar_index, low,
+         "BUY\nEntry : " + str.tostring(close)  + "\nSL : " + str.tostring(buySL) +
+         "\nTP1 : " + str.tostring(buyTP1) + "\nTP2 : " + str.tostring(buyTP2) + "\nTP3 : " + str.tostring(buyTP3),
+         style=label.style_label_up, color=color.green, textcolor=color.white)
+
+if sellEntry
+    label.new(bar_index, high,
+         "SELL\nEntry : " + str.tostring(close) + "\nSL : " + str.tostring(sellSL) +
+         "\nTP1 : " + str.tostring(sellTP1) + "\nTP2 : " + str.tostring(sellTP2) + "\nTP3 : " + str.tostring(sellTP3),
+         style=label.style_label_down, color=color.red, textcolor=color.white)
+
+plotshape(bullBOS, title="Bull BOS", style=shape.triangleup, color=color.lime,
+     location=location.belowbar, size=size.tiny)
+
+plotshape(bearBOS, title="Bear BOS", style=shape.triangledown, color=color.red,
+     location=location.abovebar, size=size.tiny)
+
+plotshape(bullCHoCH, title="Bull CHoCH", style=shape.circle, color=color.green,
+     location=location.belowbar, size=size.tiny)
+
+plotshape(bearCHoCH, title="Bear CHoCH", style=shape.circle, color=color.orange,
+     location=location.abovebar, size=size.tiny)
+
+//=====================================================================
+// LIQUIDITY SWEEP + SESSION FILTER
+//=====================================================================
+inSession = not na(time(timeframe.period, tradeSession))
+
+buySweep  = low  < ta.lowest(low[1],  liqLen) and close > low
+sellSweep = high > ta.highest(high[1], liqLen) and close < high
+
+plotshape(buySweep, title="Buy Sweep", style=shape.circle, color=color.aqua,
+     size=size.tiny, location=location.belowbar)
+
+plotshape(sellSweep, title="Sell Sweep", style=shape.circle, color=color.fuchsia,
+     size=size.tiny, location=location.abovebar)
+
+//=====================================================================
+// FINAL SIGNAL (trend + structure + liquidity + session)
+//=====================================================================
+finalBuy  = buyEntry  and buySweep  and inSession
+finalSell = sellEntry and sellSweep and inSession
+
+plotshape(finalBuy, title="FINAL BUY", style=shape.arrowup, color=color.lime,
+     size=size.large, location=location.belowbar)
+
+plotshape(finalSell, title="FINAL SELL", style=shape.arrowdown, color=color.red,
+     size=size.large, location=location.abovebar)
+
+//=====================================================================
+// TRAILING STOP (visual only)
+//=====================================================================
+longTrail  = close - atr * trailATR
+shortTrail = close + atr * trailATR
+
+plot(finalBuy  ? longTrail  : na, color=color.green, linewidth=2, title="Long Trail")
+plot(finalSell ? shortTrail : na, color=color.red,   linewidth=2, title="Short Trail")
+
+//=====================================================================
+// DASHBOARD
+//=====================================================================
+var table dash = table.new(position.top_right, 2, 5)
+
+if barstate.islast
+    table.cell(dash, 0, 0, "Trend")
+    table.cell(dash, 1, 0, bullTrend ? "BULL" : "BEAR")
+
+    table.cell(dash, 0, 1, "ADX")
+    table.cell(dash, 1, 1, str.tostring(adx, "#.0"))
+
+    table.cell(dash, 0, 2, "Session")
+    table.cell(dash, 1, 2, inSession ? "OPEN" : "CLOSED")
+
+    table.cell(dash, 0, 3, "Signal")
+    table.cell(dash, 1, 3, finalBuy ? "BUY" : finalSell ? "SELL" : "WAIT")
+
+    table.cell(dash, 0, 4, "EMA")
+    table.cell(dash, 1, 4, ema20 > ema50 ? "UP" : "DOWN")
+
+//=====================================================================
+// ALERTS
+//=====================================================================
+alertcondition(finalBuy,  title="FINAL BUY",  message="Institutional BUY Signal")
+alertcondition(finalSell, title="FINAL SELL", message="Institutional SELL Signal")

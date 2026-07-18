@@ -33,13 +33,13 @@
     </div>
     <div class="bottom-bar">
       <div class="nav-controls">
-        <button class="ascii-btn" @click="scroll('left')" @mouseenter="triggerPrev" @mouseleave="resetPrev">
+        <button class="ascii-btn" @click="scroll('left')" @mouseenter="triggerPrev" @mouseleave="resetPrev" v-sound="'tick'">
           <span class="btn-bracket">[</span>
           <span class="btn-arrow left-arrow">&lt;</span>
           <span class="btn-text">{{ prevText }}</span>
           <span class="btn-bracket">]</span>
         </button>
-        <button class="ascii-btn" @click="scroll('right')" @mouseenter="triggerNext" @mouseleave="resetNext">
+        <button class="ascii-btn" @click="scroll('right')" @mouseenter="triggerNext" @mouseleave="resetNext" v-sound="'tick'">
           <span class="btn-bracket">[</span>
           <span class="btn-text">{{ nextText }}</span>
           <span class="btn-arrow right-arrow">&gt;</span>

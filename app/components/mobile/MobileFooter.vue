@@ -1,3 +1,8 @@
+<script setup>
+import { useUISound } from '~/composables/useUISound'
+const { isSoundEnabled, toggleSound } = useUISound()
+</script>
+
 <template>
   <footer class="mobile-footer">
     <div class="footer-brand mb-12">
@@ -10,12 +15,12 @@
       <div class="footer-group">
         <h3 class="footer-heading">CORE //</h3>
         <div class="footer-links">
-          <NuxtLink to="/">Home</NuxtLink>
-          <NuxtLink to="/studio">Studio</NuxtLink>
-          <NuxtLink to="/products">Products</NuxtLink>
-          <NuxtLink to="/writing">Writing</NuxtLink>
-          <NuxtLink to="/careers">Careers</NuxtLink>
-          <NuxtLink to="/contact">Contact</NuxtLink>
+          <NuxtLink to="/" v-sound>Home</NuxtLink>
+          <NuxtLink to="/studio" v-sound>Studio</NuxtLink>
+          <NuxtLink to="/products" v-sound>Products</NuxtLink>
+          <NuxtLink to="/writing" v-sound>Writing</NuxtLink>
+          <NuxtLink to="/careers" v-sound>Careers</NuxtLink>
+          <NuxtLink to="/contact" v-sound>Contact</NuxtLink>
         </div>
       </div>
 
@@ -23,12 +28,12 @@
       <div class="footer-group">
         <h3 class="footer-heading">FOUNDATION //</h3>
         <div class="footer-links">
-          <NuxtLink to="/organization/about">About</NuxtLink>
-          <NuxtLink to="/organization/philosophy">Philosophy</NuxtLink>
-          <NuxtLink to="/organization/principles">Principles</NuxtLink>
-          <NuxtLink to="/organization/team">Team</NuxtLink>
-          <NuxtLink to="/organization/timeline">Timeline</NuxtLink>
-          <NuxtLink to="/organization/infrastructure">Infrastructure</NuxtLink>
+          <NuxtLink to="/organization/about" v-sound>About</NuxtLink>
+          <NuxtLink to="/organization/philosophy" v-sound>Philosophy</NuxtLink>
+          <NuxtLink to="/organization/principles" v-sound>Principles</NuxtLink>
+          <NuxtLink to="/organization/team" v-sound>Team</NuxtLink>
+          <NuxtLink to="/organization/timeline" v-sound>Timeline</NuxtLink>
+          <NuxtLink to="/organization/infrastructure" v-sound>Infrastructure</NuxtLink>
         </div>
       </div>
 
@@ -36,10 +41,10 @@
       <div class="footer-group">
         <h3 class="footer-heading">SYSTEMS //</h3>
         <div class="footer-links">
-          <NuxtLink to="/organization/design-language">Design</NuxtLink>
-          <NuxtLink to="/organization/technology">Technology</NuxtLink>
-          <NuxtLink to="/organization/open-source">Open Source</NuxtLink>
-          <NuxtLink to="/organization/brand-assets">Brand Assets</NuxtLink>
+          <NuxtLink to="/organization/design-language" v-sound>Design</NuxtLink>
+          <NuxtLink to="/organization/technology" v-sound>Technology</NuxtLink>
+          <NuxtLink to="/organization/open-source" v-sound>Open Source</NuxtLink>
+          <NuxtLink to="/organization/brand-assets" v-sound>Brand Assets</NuxtLink>
         </div>
       </div>
       
@@ -47,9 +52,12 @@
       <div class="footer-group">
         <h3 class="footer-heading">CONNECT //</h3>
         <div class="footer-links">
-          <a href="https://github.com/TheAlphaOnes/" target="_blank">GitHub</a>
-          <a href="https://x.com/TheNormVg" target="_blank">X (Twitter)</a>
-          <a href="mailto:hello@taohq.org">Communicate</a>
+          <a href="https://github.com/TheAlphaOnes/" target="_blank" v-sound>GitHub</a>
+          <a href="https://x.com/TheNormVg" target="_blank" v-sound>X (Twitter)</a>
+          <a href="mailto:hello@taohq.org" v-sound>Communicate</a>
+          <button class="sound-toggle mt-2" @click="toggleSound" v-sound="'pop'">
+            Sound: {{ isSoundEnabled ? 'ON' : 'OFF' }}
+          </button>
         </div>
       </div>
     </div>
@@ -129,6 +137,27 @@
 
 .footer-links a:hover,
 .footer-links a:active {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.sound-toggle {
+  background: none;
+  border: none;
+  color: var(--bg-color);
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sound-toggle:hover,
+.sound-toggle:active {
   opacity: 1;
   text-decoration: underline;
 }

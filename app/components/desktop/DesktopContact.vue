@@ -14,7 +14,7 @@ useSeoMeta({
   <main class="page-wrapper">
     <BrutalistCard inverted dashed padding="4rem">
       <div class="top-nav">
-        <NuxtLink to="/" class="back-link">&lt;&lt; RETURN</NuxtLink>
+        <NuxtLink to="/" class="back-link" v-sound>&lt;&lt; RETURN</NuxtLink>
         <AnimatedSlashes :count="12" right />
       </div>
       <div class="header-container mt-12">
@@ -41,17 +41,17 @@ useSeoMeta({
           
           <div class="channel-group mb-12">
             <h2>DIRECT / FOUNDER</h2>
-            <a href="mailto:vishnu@taohq.org" class="email-link">VISHNU@TAOHQ.ORG</a>
+            <a href="mailto:vishnu@taohq.org" class="email-link" v-sound>VISHNU@TAOHQ.ORG</a>
           </div>
 
           <div class="channel-group mb-12">
             <h2>SUPPORT & OPERATIONS</h2>
-            <a href="mailto:support@taohq.org" class="email-link">SUPPORT@TAOHQ.ORG</a>
+            <a href="mailto:support@taohq.org" class="email-link" v-sound>SUPPORT@TAOHQ.ORG</a>
           </div>
 
           <div class="channel-group">
             <h2>GENERAL INQUIRIES</h2>
-            <a href="mailto:hello@taohq.org" class="email-link">HELLO@TAOHQ.ORG</a>
+            <a href="mailto:hello@taohq.org" class="email-link" v-sound>HELLO@TAOHQ.ORG</a>
           </div>
 
         </div>
