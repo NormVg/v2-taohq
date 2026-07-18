@@ -56,7 +56,7 @@
 </template>
 
 <script setup>
-import treeSkullImg from '~/assets/skull-moon.png'
+import treeSkullImg from '~/assets/2skull-arrow.png'
 import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
 import DitherImage from '~/components/DitherImage.vue'
 

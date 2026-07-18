@@ -52,7 +52,7 @@
 </template>
 
 <script setup>
-import treeSkullImg from '~/assets/skull-moon.png'
+import treeSkullImg from '~/assets/2skull-arrow.png'
 
 useSeoMeta({
   title: 'PHILOSOPHY // taohq',
