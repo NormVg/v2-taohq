@@ -23,6 +23,9 @@ export default defineNuxtPlugin((nuxtApp) => {
         
         playSound(soundType, soundFeel)
       })
+    },
+    getSSRProps() {
+      return {} // Return empty object to prevent SSR crash
     }
   })
 })
