@@ -38,7 +38,7 @@ export default defineEventHandler(async (event) => {
 
   let contentPaths: string[] = []
   try {
-    const docs = await serverQueryCollection(event, 'content').all()
+    const docs = await queryCollection(event, 'content').all()
     contentPaths = (docs || [])
       .map((doc: { path?: string }) => doc.path)
       .filter((p): p is string => typeof p === 'string' && p.length > 1)
