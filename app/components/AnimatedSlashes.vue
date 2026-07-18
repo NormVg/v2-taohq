@@ -1,7 +1,7 @@
 <template>
   <div 
     class="animated-slashes" 
-    :class="{ 'align-right': right }"
+    :class="{ 'align-right': right, 'align-center': center }"
     @mouseenter="triggerScramble"
   >
     <span 
@@ -18,7 +18,8 @@ import { ref, onMounted } from 'vue';
 
 const props = defineProps({
   count: { type: Number, default: 40 },
-  right: { type: Boolean, default: false }
+  right: { type: Boolean, default: false },
+  center: { type: Boolean, default: false }
 });
 
 const chars = ref(Array(props.count).fill('/'));
@@ -81,6 +82,10 @@ function triggerScramble() {
 
 .animated-slashes.align-right {
   justify-content: flex-end;
+}
+
+.animated-slashes.align-center {
+  justify-content: center;
 }
 
 .slash {

@@ -48,7 +48,7 @@
         </div>
         <div class="quote-content mt-8">
           <h2 class="large-quote">"THE MACHINE MUST BE COLD, SO THE HUMAN CAN BE WARM."</h2>
-          <AnimatedSlashes :count="20" class="mt-8" />
+          <AnimatedSlashes :count="20" center class="mt-8" />
         </div>
       </div>
     </section>

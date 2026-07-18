@@ -44,7 +44,7 @@
         </div>
         <div class="center-quote">
           <h2 class="large-quote">"THE MACHINE MUST BE COLD, SO THE HUMAN CAN BE WARM."</h2>
-          <AnimatedSlashes :count="30" class="mt-8" />
+          <AnimatedSlashes :count="30" center class="mt-8" />
         </div>
       </div>
     </BrutalistCard>
@@ -159,8 +159,9 @@ useSeoMeta({
 }
 .bg-dither {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.3);
   width: 100%;
   height: 100%;
   opacity: 0.15;
