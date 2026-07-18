@@ -11,106 +11,10 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     '@vercel/analytics/nuxt',
-    '@nuxtjs/seo',
     '@nuxtjs/device',
   ],
 
-  // —— Core site identity (used by sitemap, robots, schema.org, OG) ——
-  site: {
-    url: SITE_URL,
-    name: SITE_NAME,
-    description: SITE_DESCRIPTION,
-    defaultLocale: 'en',
-    indexable: true,
-    trailingSlash: false,
-  },
 
-  // —— Robots: allow full crawl + AI scrapers ——
-  robots: {
-    // Explicitly allow indexing in all environments once deployed
-    // (dev still blocks unless mockProductionEnv — intentional)
-    disallow: [],
-    allow: ['/'],
-    sitemap: [`${SITE_URL}/sitemap.xml`],
-    // Do not block non-SEO bots (AI scrapers allowed via groups below)
-    blockNonSeoBots: false,
-    groups: [
-      {
-        userAgent: '*',
-        allow: ['/'],
-        disallow: [],
-      },
-      // Explicit AI / LLM crawlers (allowed)
-      {
-        userAgent: [
-          'GPTBot',
-          'ChatGPT-User',
-          'OAI-SearchBot',
-          'Google-Extended',
-          'GoogleOther',
-          'anthropic-ai',
-          'ClaudeBot',
-          'Claude-Web',
-          'PerplexityBot',
-          'Applebot-Extended',
-          'Bytespider',
-          'CCBot',
-          'meta-externalagent',
-          'FacebookBot',
-          'cohere-ai',
-          'Diffbot',
-          'ImagesiftBot',
-          'Omgilibot',
-          'Amazonbot',
-        ],
-        allow: ['/'],
-        disallow: [],
-      },
-    ],
-  },
-
-  // —— Sitemap: disabled — served as a static file at public/sitemap.xml ——
-  sitemap: false,
-
-  // —— Schema.org Organization (GEO + knowledge graph) ——
-  schemaOrg: {
-    identity: {
-      type: 'Organization',
-      name: SITE_NAME,
-      alternateName: ['TAO', 'TAOHQ', 'Tao HQ', 'The Alpha Ones'],
-      url: SITE_URL,
-      logo: `${SITE_URL}/og.png`,
-      description: SITE_DESCRIPTION,
-      email: 'hello@taohq.org',
-      sameAs: [
-        'https://github.com/TheAlphaOnes/',
-        'https://x.com/TheNormVg',
-      ],
-    },
-  },
-
-  // —— OG image signing secret hint (set NUXT_OG_IMAGE_SECRET in prod) ——
-  ogImage: {
-    enabled: true,
-    defaults: {
-      component: undefined,
-    },
-  },
-
-  // —— SEO utils ——
-  seo: {
-    meta: {
-      description: SITE_DESCRIPTION,
-      themeColor: [
-        { content: '#c4b5e3', media: '(prefers-color-scheme: light)' },
-        { content: '#151515', media: '(prefers-color-scheme: dark)' },
-      ],
-      colorScheme: 'light dark',
-      author: SITE_NAME,
-      robots: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
-      googlebot: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
-    },
-  },
 
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
