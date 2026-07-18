@@ -2,11 +2,22 @@
 import { ref, onMounted } from 'vue'
 
 const showSplash = ref(true)
+const loadProgress = ref(0)
 
 onMounted(() => {
-  setTimeout(() => {
-    showSplash.value = false
-  }, 2200)
+  const duration = 1600
+  const interval = 30
+  const step = 100 / (duration / interval)
+  
+  const timer = setInterval(() => {
+    if (loadProgress.value >= 100) {
+      clearInterval(timer)
+      loadProgress.value = 100
+      setTimeout(() => { showSplash.value = false }, 200)
+    } else {
+      loadProgress.value += step
+    }
+  }, interval)
 })
 </script>
 
@@ -18,7 +29,9 @@ onMounted(() => {
         <div class="splash-mark">
           <img src="~/assets/logo.svg" alt="TAO Logo" class="splash-logo-img" />
         </div>
-        <div class="splash-progress"></div>
+        <div class="splash-counter">
+          {{ Math.floor(loadProgress) }}%
+        </div>
       </div>
     </Transition>
 
@@ -165,23 +178,20 @@ onMounted(() => {
   animation: logo-breathe 2s ease-in-out infinite alternate;
 }
 
-.splash-progress {
+.splash-counter {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 6px;
-  background-color: var(--fg-color);
-  animation: load-sweep 1.8s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+  bottom: 3rem;
+  right: 4rem;
+  font-family: 'VT323', monospace;
+  font-size: 3rem;
+  color: var(--fg-color);
+  opacity: 0.8;
+  line-height: 1;
 }
 
 @keyframes logo-breathe {
   0% { transform: scale(0.95); opacity: 0.8; }
   100% { transform: scale(1.05); opacity: 1; }
-}
-
-@keyframes load-sweep {
-  0% { width: 0%; }
-  100% { width: 100%; }
 }
 
 .splash-leave-active {
