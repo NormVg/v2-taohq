@@ -1,24 +1,26 @@
 <template>
   <main class="mobile-page-wrapper">
-    <section class="mobile-section inverted-section border-b-dashed">
-      <div class="mobile-section-content">
-      <div class="top-nav">
-        <NuxtLink to="/" class="back-link">&lt;&lt; RETURN</NuxtLink>
-        <AnimatedSlashes :count="16" right />
-      </div>
+    <div class="top-nav">
+      <NuxtLink to="/" class="back-link">< RETURN</NuxtLink>
+    </div>
 
-      <div class="header-container mt-12">
-        <h1 class="display-title">CORE PRINCIPLES</h1>
+    <section class="mobile-section inverted-section border-b-dashed">
+      <div class="mobile-section-content header-container">
+        <h1 class="display-title mt-4">CORE PRINCIPLES</h1>
         <p class="subtitle mt-4">AXIOMS FOR DIGITAL CONSTRUCTION</p>
+        <AnimatedSlashes :count="16" class="mt-8" />
       </div>
+    </section>
       
-      <div class="bento-grid mt-16">
+    <section class="mobile-section border-b-dashed">
+      <div class="mobile-section-content bento-stack">
+        
         <div class="bento-item highlight">
           <div class="item-header">
             <span class="axiom-num">AXIOM .01</span>
           </div>
           <h2 class="item-title mt-4">Performance is non-negotiable.</h2>
-          <p class="item-desc mt-2">Latency is a failure of architecture. Every millisecond must be fought for.</p>
+          <p class="item-desc mt-4">Latency is a failure of architecture. Every millisecond must be fought for.</p>
         </div>
 
         <div class="bento-item">
@@ -26,10 +28,10 @@
             <span class="axiom-num">AXIOM .02</span>
           </div>
           <h2 class="item-title mt-4">No Magic.</h2>
-          <p class="item-desc mt-2">Explicit code over implicit behavior. If you do not understand the abstraction, do not use it.</p>
+          <p class="item-desc mt-4">Explicit code over implicit behavior. If you do not understand the abstraction, do not use it.</p>
         </div>
 
-        <div class="fixed-visual">
+        <div class="visual-wrapper">
           <DitherImage :src="trangleSkullImg" :pixelSize="3" colorDark="#c4b5e3" colorLight="#151515" />
         </div>
 
@@ -38,7 +40,7 @@
             <span class="axiom-num">AXIOM .03</span>
           </div>
           <h2 class="item-title mt-4">Radical Independence.</h2>
-          <p class="item-desc mt-2">Own your infrastructure. Minimize third-party dependencies that introduce external risk.</p>
+          <p class="item-desc mt-4">Own your infrastructure. Minimize third-party dependencies that introduce external risk.</p>
         </div>
 
         <div class="bento-item highlight">
@@ -46,16 +48,18 @@
             <span class="axiom-num">AXIOM .04</span>
           </div>
           <h2 class="item-title mt-4">Beauty Through Utility.</h2>
-          <p class="item-desc mt-2">Form follows function. The interface should reflect the raw mechanics of the underlying system.</p>
+          <p class="item-desc mt-4">Form follows function. The interface should reflect the raw mechanics of the underlying system.</p>
         </div>
+
       </div>
-    </div>
     </section>
   </main>
 </template>
 
 <script setup>
 import trangleSkullImg from '~/assets/trangle-skull.png'
+import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
+import DitherImage from '~/components/DitherImage.vue'
 
 useSeoMeta({
   title: 'PRINCIPLES // taohq',
@@ -68,89 +72,6 @@ useSeoMeta({
 </script>
 
 <style scoped>
-
-.top-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.back-link {
-  font-family: 'VT323', monospace;
-  font-size: 1.5rem;
-  color: var(--bg-color);
-  text-decoration: none;
-  white-space: nowrap;
-}
-.back-link:hover {
-  opacity: 0.7;
-}
-.header-container {
-  border-bottom: 2px dashed var(--bg-color);
-  padding-bottom: 2rem;
-}
-.display-title {
-  font-size: clamp(4rem, 8vw, 7rem);
-  line-height: 1;
-  margin: 0;
-  font-weight: 400;
-}
-.subtitle {
-  font-family: 'VT323', monospace;
-  font-size: 1.5rem;
-  letter-spacing: 4px;
-}
-.bento-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-}
-@media (min-width: 768px) {
-  .bento-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (min-width: 1024px) {
-  .bento-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-.bento-item {
-  border: 2px solid var(--bg-color);
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-}
-.bento-item.highlight {
-  background-color: var(--bg-color);
-  color: var(--fg-color);
-}
-.bento-item.image-item {
-  padding: 0;
-  border: none;
-  overflow: hidden;
-  background: var(--bg-color);
-}
-.item-header {
-  border-bottom: 1px solid currentColor;
-  padding-bottom: 0.5rem;
-}
-.axiom-num {
-  font-family: 'VT323', monospace;
-  font-size: 1.25rem;
-}
-.item-title {
-  font-size: 1.5rem;
-  text-transform: uppercase;
-  margin: 0;
-  line-height: 1.2;
-}
-.item-desc {
-  font-size: 1.125rem;
-  opacity: 0.8;
-  margin-top: auto;
-  padding-top: 2rem;
-}
-
 .mobile-page-wrapper {
   display: flex;
   flex-direction: column;
@@ -177,5 +98,93 @@ useSeoMeta({
 }
 .inverted-section.border-b-dashed {
   border-bottom: 2px dashed var(--bg-color);
+}
+
+.top-nav {
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  padding: 1rem 1.25rem;
+  border-bottom: 2px dashed var(--bg-color);
+  background-color: var(--fg-color);
+}
+
+.back-link {
+  color: var(--bg-color);
+  text-decoration: none;
+}
+
+.display-title {
+  font-size: 3.5rem;
+  font-family: 'VT323', monospace;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.bento-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bento-item {
+  border: 4px solid var(--fg-color);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.bento-item.highlight {
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+  border-color: var(--bg-color);
+}
+
+.item-header {
+  border-bottom: 2px dashed currentColor;
+  padding-bottom: 0.5rem;
+}
+
+.axiom-num {
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+}
+
+.item-title {
+  font-family: 'VT323', monospace;
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.item-desc {
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  opacity: 0.9;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.visual-wrapper {
+  width: 100%;
+  aspect-ratio: 1;
+  border: 4px solid var(--fg-color);
+  background: var(--bg-color);
+}
+
+.visual-wrapper :deep(canvas) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 </style>
