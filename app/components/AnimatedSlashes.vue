@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 const props = defineProps({
   count: { type: Number, default: 40 },
@@ -65,6 +65,26 @@ function triggerScramble() {
     isHovering.value = false;
   }, 900);
 }
+
+let autoScrambleTimer = null;
+
+onMounted(() => {
+  // Trigger once initially after a small delay
+  setTimeout(triggerScramble, 500 + Math.random() * 1000);
+  
+  // And then automatically every 6 to 12 seconds to make the app feel alive
+  autoScrambleTimer = setInterval(() => {
+    // Only trigger if not currently hovering
+    if (!isHovering.value) {
+      triggerScramble();
+    }
+  }, 8000 + Math.random() * 4000);
+});
+
+onBeforeUnmount(() => {
+  clearInterval(autoScrambleTimer);
+  intervals.forEach(clearInterval);
+});
 </script>
 
 <style scoped>
