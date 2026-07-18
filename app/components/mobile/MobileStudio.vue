@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted } from 'vue'
 import uiUxImg from '~/assets/eye-wall.png'
-import engImg from '~/assets/skull-break.png'
+import engImg from '~/assets/skull-moon.png'
 import brandImg from '~/assets/2face-demon.png'
 import DitherImage from '~/components/DitherImage.vue'
 import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
@@ -244,7 +244,7 @@ import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0.15;
+  opacity: 0.08;
   z-index: 1;
   pointer-events: none;
 }

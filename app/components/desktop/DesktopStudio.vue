@@ -140,7 +140,7 @@
 <script setup>
 import { onMounted } from 'vue'
 import uiUxImg from '~/assets/eye-wall.png'
-import engImg from '~/assets/skull-break.png'
+import engImg from '~/assets/skull-moon.png'
 import brandImg from '~/assets/2face-demon.png'
 
 useSeoMeta({
@@ -247,7 +247,7 @@ useSeoMeta({
   pointer-events: none;
 }
 .service-card:hover .service-bg-wrapper {
-  opacity: 0.25;
+  opacity: 0.15;
 }
 
 .service-content {
