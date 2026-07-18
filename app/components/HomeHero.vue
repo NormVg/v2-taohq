@@ -1,8 +1,35 @@
 <script setup>
+import { ref, onMounted } from 'vue'
+
+const showSplash = ref(true)
+
+onMounted(() => {
+  setTimeout(() => {
+    showSplash.value = false
+  }, 2200)
+})
 </script>
 
 <template>
   <BrutalistCard inverted dashed class="section-1">
+    
+    <Transition name="splash">
+      <div v-if="showSplash" class="splash-screen">
+        <div class="splash-content">
+          <div class="terminal-logs">
+            <p>> KERNEL INITIALIZED</p>
+            <p>> MOUNTING VIRTUAL DOM...</p>
+            <p>> ALLOCATING MEMORY... [OK]</p>
+          </div>
+          <h1 class="italiano-font splash-logo">TheAlphaOnes</h1>
+          <div class="progress-bar">
+            <div class="progress-fill"></div>
+          </div>
+          <AnimatedSlashes :count="30" center class="mt-4" />
+        </div>
+      </div>
+    </Transition>
+
     <div class="watermark-bg">TheAlphaOnes</div>
     
     <div class="top-text">
@@ -113,5 +140,80 @@
 
 .slash-separator {
   opacity: 0.5;
+}
+
+/* SPLASH SCREEN STYLES */
+.splash-screen {
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  background-color: var(--fg-color);
+  color: var(--bg-color);
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.terminal-logs {
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+  opacity: 0.8;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.terminal-logs p {
+  margin: 0.25rem 0;
+}
+
+.splash-logo {
+  font-size: 10vw;
+  margin: 0;
+  line-height: 0.8;
+}
+
+.progress-bar {
+  width: 300px;
+  height: 4px;
+  background-color: transparent;
+  border: 1px solid var(--bg-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill {
+  position: absolute;
+  top: 0; 
+  left: 0; 
+  bottom: 0;
+  background-color: var(--bg-color);
+  width: 0%;
+  animation: load-progress 2s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+}
+
+@keyframes load-progress {
+  0% { width: 0%; }
+  30% { width: 35%; }
+  50% { width: 35%; }
+  80% { width: 80%; }
+  100% { width: 100%; }
+}
+
+.splash-leave-active {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+}
+.splash-leave-to {
+  transform: translateY(-100%);
+  opacity: 0;
 }
 </style>
