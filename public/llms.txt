@@ -1,4 +1,4 @@
-# The Alpha Ones (TAOHQ)
+# The Alpha Ones
 > Building thoughtful software, systems, and lifestyle products.
 
 The Alpha Ones is an independent umbrella organization behind developer tools, software products, and experimental systems. Our architecture philosophy focuses on **brutalism**, **calm interfaces**, and **durable infrastructure**. We believe good infrastructure is invisible.

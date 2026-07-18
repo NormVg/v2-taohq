@@ -24,7 +24,7 @@ useSeoMeta({
 
 useSchemaOrg([
   defineWebSite({
-    name: 'The Alpha Ones (TAOHQ)',
+    name: 'The Alpha Ones',
     url: 'https://v2.taohq.org',
     description: 'Building thoughtful software, developer tools, and digital infrastructure. Calm interfaces, durable systems, and long-term craft.',
   }),

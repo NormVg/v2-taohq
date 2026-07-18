@@ -1,4 +1,4 @@
-import { serverQueryCollection } from '#content/server'
+
 
 /**
  * Explicit sitemap URLs for all public pages + Nuxt Content routes.
