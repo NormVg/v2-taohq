@@ -15,18 +15,10 @@ onMounted(() => {
     
     <Transition name="splash">
       <div v-if="showSplash" class="splash-screen">
-        <div class="splash-content">
-          <div class="terminal-logs">
-            <p>> KERNEL INITIALIZED</p>
-            <p>> MOUNTING VIRTUAL DOM...</p>
-            <p>> ALLOCATING MEMORY... [OK]</p>
-          </div>
-          <h1 class="italiano-font splash-logo">TheAlphaOnes</h1>
-          <div class="progress-bar">
-            <div class="progress-fill"></div>
-          </div>
-          <AnimatedSlashes :count="30" center class="mt-4" />
+        <div class="splash-mark">
+          <img src="~/assets/logo.svg" alt="TAO Logo" class="splash-logo-img" />
         </div>
+        <div class="splash-progress"></div>
       </div>
     </Transition>
 
@@ -149,71 +141,54 @@ onMounted(() => {
   left: 0; 
   right: 0; 
   bottom: 0;
-  background-color: var(--fg-color);
-  color: var(--bg-color);
+  background-color: var(--bg-color); /* Light background for contrast against dark hero */
   z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.splash-mark {
+  width: 120px;
+  height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.splash-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
+.splash-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0.1); /* Make the purple logo dark */
+  animation: logo-breathe 2s ease-in-out infinite alternate;
 }
 
-.terminal-logs {
-  font-family: 'VT323', monospace;
-  font-size: 1.2rem;
-  opacity: 0.8;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.terminal-logs p {
-  margin: 0.25rem 0;
-}
-
-.splash-logo {
-  font-size: 10vw;
-  margin: 0;
-  line-height: 0.8;
-}
-
-.progress-bar {
-  width: 300px;
-  height: 4px;
-  background-color: transparent;
-  border: 1px solid var(--bg-color);
-  position: relative;
-  overflow: hidden;
-}
-
-.progress-fill {
+.splash-progress {
   position: absolute;
-  top: 0; 
-  left: 0; 
   bottom: 0;
-  background-color: var(--bg-color);
-  width: 0%;
-  animation: load-progress 2s cubic-bezier(0.8, 0, 0.2, 1) forwards;
+  left: 0;
+  height: 6px;
+  background-color: var(--fg-color);
+  animation: load-sweep 1.8s cubic-bezier(0.8, 0, 0.2, 1) forwards;
 }
 
-@keyframes load-progress {
+@keyframes logo-breathe {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  100% { transform: scale(1.05); opacity: 1; }
+}
+
+@keyframes load-sweep {
   0% { width: 0%; }
-  30% { width: 35%; }
-  50% { width: 35%; }
-  80% { width: 80%; }
   100% { width: 100%; }
 }
 
 .splash-leave-active {
-  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .splash-leave-to {
-  transform: translateY(-100%);
   opacity: 0;
+  transform: scale(1.05);
 }
 </style>
