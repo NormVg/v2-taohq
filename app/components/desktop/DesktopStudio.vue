@@ -1,125 +1,117 @@
 <template>
   <main class="page-wrapper pt-32 pb-32 px-4 md:px-8 max-w-7xl mx-auto">
+    <!-- Breadcrumb -->
+    <div class="top-nav mb-8">
+      <NuxtLink to="/" class="nav-link">← ROOT</NuxtLink>
+      <span class="nav-current">/STUDIO</span>
+    </div>
 
     <!-- Header block -->
-    <BrutalistCard inverted dashed padding="0" class="studio-header mb-16">
-      <!-- Top-left label -->
-      <div class="sh-top-left">
-        <NuxtLink to="/" class="sh-back-link">← ROOT</NuxtLink>
-        <span class="sh-sep">/</span>
-        <span class="sh-breadcrumb">STUDIO</span>
-      </div>
-
-      <!-- Top-right label -->
-      <div class="sh-top-right">
-        <p class="sh-tag">WE ENGINEER HIGH-PERFORMANCE DIGITAL ASSETS.</p>
-        <AnimatedSlashes :count="20" right class="mt-2" />
-      </div>
-
-      <!-- Center title -->
-      <div class="sh-center">
-        <h1 class="sh-title">STUDIO</h1>
-      </div>
-
-      <!-- Bottom slashes -->
-      <div class="sh-bottom">
-        <AnimatedSlashes :count="60" />
+    <BrutalistCard inverted dashed padding="4rem" class="mb-16">
+      <div class="header-container mt-12">
+        <h1 class="display-title">STUDIO</h1>
+        <p class="subtitle mt-4">WE ENGINEER HIGH-PERFORMANCE DIGITAL ASSETS.</p>
+        <AnimatedSlashes :count="40" class="mt-8" />
       </div>
     </BrutalistCard>
 
-    <!-- Manifesto / Intro -->
-    <div class="manifesto-block mb-16">
-      <h2 class="section-title">AGENCY SERVICES</h2>
-      <p class="manifesto-text mt-8">
-        We don't build websites. We forge digital machinery. Our studio partners with ambitious organizations to design, architect, and deploy uncompromising interfaces, impenetrable backend systems, and radical brand identities.
-      </p>
-    </div>
+    <!-- Agency Services Section (inverted) -->
+    <BrutalistCard inverted dashed padding="4rem" class="mb-16">
+      <!-- Manifesto / Intro -->
+      <div class="manifesto-block mb-12">
+        <h2 class="section-title-inv">AGENCY SERVICES</h2>
+        <p class="manifesto-text mt-8">
+          We don't build websites. We forge digital machinery. Our studio partners with ambitious organizations to design, architect, and deploy uncompromising interfaces, impenetrable backend systems, and radical brand identities.
+        </p>
+      </div>
 
-    <!-- Services Grid -->
-    <div class="services-grid mb-16">
-      
-      <!-- Service 1: UI/UX -->
-      <div class="service-card group">
-        <div class="service-border">
+      <!-- Services Grid -->
+      <div class="services-grid">
+        
+        <!-- Service 1: UI/UX -->
+        <div class="service-card group">
+          <!-- corner squares sit outside service-inner overflow -->
           <div class="sc-corner sc-tl"></div>
           <div class="sc-corner sc-tr"></div>
           <div class="sc-corner sc-bl"></div>
           <div class="sc-corner sc-br"></div>
-          <div class="service-bg-wrapper">
-            <DitherImage :src="uiUxImg" :pixelSize="3" class="service-dither" />
-          </div>
-          <div class="service-content">
-            <div class="service-header">
-              <h3>INTERFACE & EXPERIENCE</h3>
-              <AnimatedSlashes :count="8" />
+          <div class="service-inner">
+            <div class="service-bg-wrapper">
+              <DitherImage :src="uiUxImg" :pixelSize="3" class="service-dither" />
             </div>
-            <p class="service-desc">
-              Brutalist, high-conversion interfaces engineered for speed and aesthetic dominance. We design user experiences that demand attention and optimize workflows down to the millisecond.
-            </p>
-            <ul class="service-list">
-              <li>> UI/UX DESIGN</li>
-              <li>> INTERACTION DESIGN</li>
-              <li>> DESIGN SYSTEMS</li>
-            </ul>
+            <div class="service-content">
+              <div class="service-header">
+                <h3>INTERFACE & EXPERIENCE</h3>
+                <AnimatedSlashes :count="8" />
+              </div>
+              <p class="service-desc">
+                Brutalist, high-conversion interfaces engineered for speed and aesthetic dominance. We design user experiences that demand attention and optimize workflows down to the millisecond.
+              </p>
+              <ul class="service-list">
+                <li>> UI/UX DESIGN</li>
+                <li>> INTERACTION DESIGN</li>
+                <li>> DESIGN SYSTEMS</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Service 2: ENGINEERING -->
-      <div class="service-card group">
-        <div class="service-border">
+        <!-- Service 2: ENGINEERING -->
+        <div class="service-card group">
           <div class="sc-corner sc-tl"></div>
           <div class="sc-corner sc-tr"></div>
           <div class="sc-corner sc-bl"></div>
           <div class="sc-corner sc-br"></div>
-          <div class="service-bg-wrapper">
-            <DitherImage :src="engImg" :pixelSize="3" class="service-dither" />
-          </div>
-          <div class="service-content">
-            <div class="service-header">
-              <h3>SYSTEM ARCHITECTURE</h3>
-              <AnimatedSlashes :count="8" />
+          <div class="service-inner">
+            <div class="service-bg-wrapper">
+              <DitherImage :src="engImg" :pixelSize="3" class="service-dither" />
             </div>
-            <p class="service-desc">
-              Zero-latency APIs, resilient edge infrastructure, and robust full-stack applications. Built on Nuxt, Vue, and high-performance serverless architectures that never sleep.
-            </p>
-            <ul class="service-list">
-              <li>> FULL-STACK DEVELOPMENT</li>
-              <li>> BACKEND ARCHITECTURE</li>
-              <li>> EDGE COMPUTE / DEVOPS</li>
-            </ul>
+            <div class="service-content">
+              <div class="service-header">
+                <h3>SYSTEM ARCHITECTURE</h3>
+                <AnimatedSlashes :count="8" />
+              </div>
+              <p class="service-desc">
+                Zero-latency APIs, resilient edge infrastructure, and robust full-stack applications. Built on Nuxt, Vue, and high-performance serverless architectures that never sleep.
+              </p>
+              <ul class="service-list">
+                <li>> FULL-STACK DEVELOPMENT</li>
+                <li>> BACKEND ARCHITECTURE</li>
+                <li>> EDGE COMPUTE / DEVOPS</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Service 3: BRAND IDENTITY -->
-      <div class="service-card group">
-        <div class="service-border">
+        <!-- Service 3: BRAND IDENTITY -->
+        <div class="service-card group">
           <div class="sc-corner sc-tl"></div>
           <div class="sc-corner sc-tr"></div>
           <div class="sc-corner sc-bl"></div>
           <div class="sc-corner sc-br"></div>
-          <div class="service-bg-wrapper">
-            <DitherImage :src="brandImg" :pixelSize="3" class="service-dither" />
-          </div>
-          <div class="service-content">
-            <div class="service-header">
-              <h3>BRAND IDENTITY</h3>
-              <AnimatedSlashes :count="8" />
+          <div class="service-inner">
+            <div class="service-bg-wrapper">
+              <DitherImage :src="brandImg" :pixelSize="3" class="service-dither" />
             </div>
-            <p class="service-desc">
-              Typography, geometry, and stark monochrome alignment. We construct bold, unapologetic visual identities that separate your brand from the noise of the modern web.
-            </p>
-            <ul class="service-list">
-              <li>> LOGO DESIGN</li>
-              <li>> BRAND GUIDELINES</li>
-              <li>> VISUAL STRATEGY</li>
-            </ul>
+            <div class="service-content">
+              <div class="service-header">
+                <h3>BRAND IDENTITY</h3>
+                <AnimatedSlashes :count="8" />
+              </div>
+              <p class="service-desc">
+                Typography, geometry, and stark monochrome alignment. We construct bold, unapologetic visual identities that separate your brand from the noise of the modern web.
+              </p>
+              <ul class="service-list">
+                <li>> LOGO DESIGN</li>
+                <li>> BRAND GUIDELINES</li>
+                <li>> VISUAL STRATEGY</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
 
-    </div>
+      </div>
+    </BrutalistCard>
 
     <!-- Merged Terminal / Capabilities Directory -->
     <BrutalistCard dashed padding="3rem" class="cta-terminal mb-16">
@@ -210,79 +202,25 @@ useSeoMeta({
   opacity: 0.5;
 }
 
-/* ── Studio Header ─────────────────────────────────── */
-.studio-header {
-  position: relative;
-  overflow: hidden;
-  min-height: 100vh;
-}
-
-.sh-top-left {
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-  z-index: 10;
-  font-family: 'VT323', monospace;
-  font-size: 1.4rem;
+.header-container {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  flex-direction: column;
 }
 
-.sh-back-link {
-  color: var(--bg-color);
-  text-decoration: none;
-  opacity: 0.7;
-  transition: opacity 0.2s;
-}
-.sh-back-link:hover { opacity: 1; }
-
-.sh-sep { opacity: 0.4; }
-
-.sh-breadcrumb {
-  opacity: 0.5;
-}
-
-.sh-top-right {
-  position: absolute;
-  top: 4rem;
-  right: 4rem;
-  text-align: right;
-  z-index: 10;
+.display-title {
   font-family: 'VT323', monospace;
-  font-size: 1.2rem;
-  max-width: 380px;
-}
-
-.sh-tag {
-  opacity: 0.7;
-  margin: 0;
-  letter-spacing: 1px;
-}
-
-.sh-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-  z-index: 2;
-}
-
-.sh-title {
-  font-family: 'VT323', monospace;
-  font-size: clamp(6rem, 16vw, 16rem);
-  line-height: 0.85;
+  font-size: clamp(4rem, 8vw, 8rem);
+  line-height: 1;
   margin: 0;
   text-transform: uppercase;
   letter-spacing: -0.02em;
 }
 
-.sh-bottom {
-  position: absolute;
-  bottom: 4rem;
-  left: 4rem;
-  right: 4rem;
-  z-index: 10;
+.subtitle {
+  font-family: 'VT323', monospace;
+  font-size: 2rem;
+  margin: 1rem 0 0 0;
+  opacity: 0.8;
 }
 
 .manifesto-block {
@@ -297,10 +235,20 @@ useSeoMeta({
   margin: 0;
 }
 
+.section-title-inv {
+  font-family: 'VT323', monospace;
+  font-size: 3rem;
+  border-bottom: 2px solid var(--bg-color);
+  padding-bottom: 0.5rem;
+  margin: 0;
+  color: var(--bg-color);
+}
+
 .manifesto-text {
   font-size: 1.5rem;
   line-height: 1.6;
   text-transform: uppercase;
+  color: var(--bg-color);
 }
 
 /* Services Grid */
@@ -316,32 +264,34 @@ useSeoMeta({
   display: flex;
   flex-direction: column;
   cursor: crosshair;
+  /* Padding to make room for corners that bleed outside */
+  padding: 6px;
 }
 
-/* The actual bordered box with corners — mirrors BrutalistCard internals */
-.service-border {
+/* Inner bordered box — overflow hidden is safe here since corners are on .service-card */
+.service-inner {
   position: relative;
   flex: 1;
-  border: 2px solid var(--fg-color);
+  border: 2px solid var(--bg-color);
   display: flex;
   flex-direction: column;
   min-height: 400px;
   overflow: hidden;
-  background-color: var(--bg-color);
+  background-color: var(--fg-color);
 }
 
-/* Corner markers — identical to BrutalistCard corners */
+/* Corner markers — use bg-color since we're in an inverted section */
 .sc-corner {
   position: absolute;
   width: 12px;
   height: 12px;
-  background-color: var(--fg-color);
+  background-color: var(--bg-color);
   z-index: 20;
 }
-.sc-tl { top: -6px; left: -6px; }
-.sc-tr { top: -6px; right: -6px; }
-.sc-bl { bottom: -6px; left: -6px; }
-.sc-br { bottom: -6px; right: -6px; }
+.sc-tl { top: 0; left: 0; }
+.sc-tr { top: 0; right: 0; }
+.sc-bl { bottom: 0; left: 0; }
+.sc-br { bottom: 0; right: 0; }
 
 .service-bg-wrapper {
   position: absolute;
@@ -355,7 +305,7 @@ useSeoMeta({
   pointer-events: none;
 }
 .service-card:hover .service-bg-wrapper {
-  opacity: 0.25;
+  opacity: 0.3;
 }
 
 .service-content {
@@ -365,10 +315,11 @@ useSeoMeta({
   display: flex;
   flex-direction: column;
   flex: 1;
+  color: var(--bg-color);
 }
 
 .service-header {
-  border-bottom: 2px dashed var(--fg-color);
+  border-bottom: 2px dashed var(--bg-color);
   padding-bottom: 1rem;
   margin-bottom: 1.5rem;
 }
@@ -399,7 +350,8 @@ useSeoMeta({
 
 .service-list li {
   margin-bottom: 0.5rem;
-  color: var(--primary-color, #c4b5e3);
+  color: var(--bg-color);
+  opacity: 0.7;
 }
 
 .capabilities-card {
