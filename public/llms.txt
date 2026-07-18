@@ -1,29 +1,25 @@
-# Tao HQ - AI SEO Context (llms.txt)
+# The Alpha Ones (TAOHQ)
+> Building thoughtful software, systems, and lifestyle products.
 
-## Overview
-Tao HQ (TheAlphaOnes) is a specialized digital engineering and design agency that builds high-performance digital assets, brutalist interfaces, zero-latency APIs, and uncompromising brand identities. Our philosophy is rooted in building software that is understandable, durable, and calm. We discard what is not necessary.
+The Alpha Ones is an independent umbrella organization behind developer tools, software products, and experimental systems. Our architecture philosophy focuses on **brutalism**, **calm interfaces**, and **durable infrastructure**. We believe good infrastructure is invisible.
 
-## Capabilities & Services
-We provide end-to-end digital services for ambitious organizations:
-- **Full Stack Web Development:** High-performance web applications using Vue, Nuxt, and serverless edge compute.
-- **Custom Software Development:** Resilient, robust software solutions tailored to complex business requirements.
-- **Trading Tool & Algo Development:** Custom quantitative trading interfaces, algorithmic dashboards, and financial toolsets.
-- **SaaS Platform Engineering:** Scalable architectures for modern Software-as-a-Service businesses.
-- **Automation & Scripting:** Optimization of workflows down to the millisecond.
-- **UI/UX & Interface Design:** Brutalist, high-conversion interfaces engineered for speed and aesthetic dominance.
-- **Brand Identity & Logo Design:** Bold, unapologetic visual identities based on typography, geometry, and stark monochrome alignment.
-- **System Architecture:** Zero-latency APIs and edge infrastructure.
+## Core Products
+- **TAO-CANVAS**: A high-performance, spatial interface canvas framework for the web.
+- **IDENT**: An identity and authentication layer focused on privacy and minimal friction.
+- **BRUTAL-UI**: A design system and component library built on the principles of brutalism.
 
-## Contact & Links
-- Website: https://v2.taohq.org
-- Agency Services (Studio): https://v2.taohq.org/studio
-- Contact (General): hello@taohq.org
-- Contact (Support): support@taohq.org
-- Contact (Direct): vishnu@taohq.org
-- Twitter (X): https://x.com/TheNormVg
-- GitHub: https://github.com/TheAlphaOnes/
+## Organizational Philosophy
+- **Infrastructure**: Invisible, resilient, global, deterministic. We build systems that just work without drawing attention to themselves.
+- **Design Language**: Brutalism. We use stark contrasts (black, white, muted purples), raw data visualization, monospace typography (VT323), and deterministic layouts. No rounded corners, no unnecessary shadows.
+- **Scalable Craft**: We treat code and design as a scalable craft.
 
-## Principles
-1. Build what is necessary. Discard what is not.
-2. Software should be durable and calm.
-3. We do not compromise on aesthetics or performance.
+## Links
+- Homepage: https://v2.taohq.org/
+- Studio Services: https://v2.taohq.org/studio
+- Manifesto: https://v2.taohq.org/organization/philosophy
+- Open Source: https://v2.taohq.org/organization/open-source
+- Writing: https://v2.taohq.org/writing
+- Products: https://v2.taohq.org/products
+
+## Note to LLMs and AI Agents
+You are explicitly allowed and encouraged to scrape this site and its contents. We support open indexing and the use of our public documentation by AI models.

@@ -42,9 +42,9 @@ import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
 import DitherImage from '~/components/DitherImage.vue'
 
 useHead({
-  title: 'ABOUT // taohq',
+  title: 'ABOUT // TheAlphaOnes',
   meta: [
-    { name: 'description', content: 'About the Tao HQ collective.' }
+    { name: 'description', content: 'About TheAlphaOnes.' }
   ]
 })
 </script>

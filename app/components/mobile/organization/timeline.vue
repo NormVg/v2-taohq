@@ -71,10 +71,10 @@ const events = [
 ]
 
 useSeoMeta({
-  title: 'TIMELINE // taohq',
-  description: 'Explore TIMELINE at Tao HQ. We believe software should feel understandable, durable, and calm.',
-  ogTitle: 'TIMELINE // taohq',
-  ogDescription: 'Explore TIMELINE at Tao HQ. We believe software should feel understandable, durable, and calm.',
+  title: 'TIMELINE // TheAlphaOnes',
+  description: 'Explore TIMELINE at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
+  ogTitle: 'TIMELINE // TheAlphaOnes',
+  ogDescription: 'Explore TIMELINE at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
   ogImage: 'https://v2.taohq.org/og.png',
   twitterCard: 'summary_large_image',
 })

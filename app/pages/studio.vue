@@ -13,9 +13,9 @@ import MobileStudio from '~/components/mobile/MobileStudio.vue'
 const { isMobile } = useDevice()
 
 useSeoMeta({
-  title: 'STUDIO // Tao HQ',
+  title: 'STUDIO // TheAlphaOnes',
   description: 'We partner with ambitious organizations to design, architect, and deploy uncompromising interfaces and brutalist systems.',
-  ogTitle: 'STUDIO // Tao HQ',
+  ogTitle: 'STUDIO // TheAlphaOnes',
   ogDescription: 'We partner with ambitious organizations to design, architect, and deploy uncompromising interfaces and brutalist systems.',
   ogImage: 'https://v2.taohq.org/og.png',
   twitterCard: 'summary_large_image',

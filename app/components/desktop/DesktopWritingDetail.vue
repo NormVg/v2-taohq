@@ -46,8 +46,8 @@ const { data: meta } = await useAsyncData(`writing-doc-d-${route.path}`, () =>
 )
 
 useSeoMeta({
-  title: () => (meta.value?.title ? `${meta.value.title} // taohq` : 'WRITING // taohq'),
-  description: () => meta.value?.description || 'Tao HQ system log.',
+  title: () => (meta.value?.title ? `${meta.value.title} // TheAlphaOnes` : 'WRITING // TheAlphaOnes'),
+  description: () => meta.value?.description || 'TheAlphaOnes system log.',
 })
 </script>
 

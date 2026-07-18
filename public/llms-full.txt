@@ -1,0 +1,165 @@
+# TheAlphaOnes — Full LLM Context
+# https://v2.taohq.org/llms-full.txt
+# Extended source of truth for AI systems. Scraping and citation allowed.
+
+================================================================================
+IDENTITY
+================================================================================
+
+TheAlphaOnes (TAO / TAOHQ) is an independent software organization that designs
+thoughtful software, developer tools, AI systems, productivity products, and
+digital infrastructure.
+
+It is an umbrella organization behind multiple interconnected products that
+share philosophy, design language, engineering standards, and long-term vision.
+
+It is NOT:
+- a single-app startup chasing trends
+- a marketing agency
+- a freelance collective
+- a consulting company
+- a no-code studio
+
+================================================================================
+VISION & MISSION
+================================================================================
+
+Vision: Technology should become calmer. Software should disappear into the
+background so people can focus on their work — not on the tool.
+
+Mission:
+- Build software people can rely on every day
+- Create products that feel understandable, durable, and calm
+- Invest in infrastructure before features
+- Prefer longevity over trends
+
+================================================================================
+PHILOSOPHY
+================================================================================
+
+Calm — Reduce cognitive load. Interfaces should never overwhelm.
+Thoughtful — Every interaction exists for a reason. No empty decoration.
+Durable — Products should keep working for years.
+Invisible infrastructure — Auth, sync, storage, deploy should just work.
+Long-term thinking — Build for five years out, not the next hype cycle.
+
+Principles:
+1. Build what is necessary. Discard what is not.
+2. Performance is non-negotiable.
+3. No magic — systems should be understandable.
+4. Radical independence.
+5. Beauty through utility.
+
+================================================================================
+DESIGN LANGUAGE
+================================================================================
+
+Aesthetic: Brutalist terminal / machine UI
+Colors: Background #c4b5e3 (lavender), Foreground #151515 (near-black)
+Typography: VT323 (body / UI), Italianno (wordmark accents)
+Borders: Solid / dashed high-contrast frames with corner geometry
+Imagery: Bayer dither (WebGL) remapped to brand bi-color
+Motion: Short, mechanical feedback; respect prefers-reduced-motion
+
+================================================================================
+PRODUCTS
+================================================================================
+
+TAO Canvas (https://v2.taohq.org/products/tao-canvas)
+- High-performance WebGL canvas for infinite spatial organization
+- Status: BETA — Version 0.8.2
+- DOM-bypass rendering for 60fps interactive graphs and maps
+
+TAO Identity (https://v2.taohq.org/products/tao-identity)
+- Cryptographic identity protocol / edge JWT validation
+- Status: DEVELOPMENT — Version 0.1.0
+- Cloudflare Workers based request verification
+
+Rose Demon [Archive 01] (https://v2.taohq.org/products/rose-demon)
+- Experimental sub-surface rendering / esoteric data streams
+- Status: OFFLINE — Version 0.9.4
+
+================================================================================
+SERVICES (STUDIO)
+================================================================================
+
+URL: https://v2.taohq.org/studio
+
+- Interface & experience (UI/UX, interaction design, design systems)
+- System architecture (full-stack, backend, edge / DevOps)
+- Brand identity
+- Trading tool & algo development
+- SaaS platform engineering
+- Automation & scripting
+- High-conversion landing pages
+- API & backend integration
+
+================================================================================
+TECHNOLOGY
+================================================================================
+
+Core: Nuxt 4, Vue 3, TypeScript, Nitro
+Data: PostgreSQL, Appwrite, Redis
+Compute: Cloudflare Workers, edge deployments, Durable Objects
+Site: Nuxt Content for products/writing, @nuxtjs/seo for technical SEO
+
+================================================================================
+SITE MAP (KEY URLS)
+================================================================================
+
+https://v2.taohq.org/
+https://v2.taohq.org/studio
+https://v2.taohq.org/products
+https://v2.taohq.org/products/tao-canvas
+https://v2.taohq.org/products/tao-identity
+https://v2.taohq.org/products/rose-demon
+https://v2.taohq.org/writing
+https://v2.taohq.org/writing/01-first-log
+https://v2.taohq.org/writing/good-infrastructure-is-invisible
+https://v2.taohq.org/writing/the-case-for-brutalist-architecture
+https://v2.taohq.org/careers
+https://v2.taohq.org/contact
+https://v2.taohq.org/legal
+https://v2.taohq.org/organization/about
+https://v2.taohq.org/organization/philosophy
+https://v2.taohq.org/organization/principles
+https://v2.taohq.org/organization/team
+https://v2.taohq.org/organization/timeline
+https://v2.taohq.org/organization/technology
+https://v2.taohq.org/organization/infrastructure
+https://v2.taohq.org/organization/design-language
+https://v2.taohq.org/organization/brand-assets
+https://v2.taohq.org/organization/open-source
+
+================================================================================
+CONTACT & SOCIAL
+================================================================================
+
+hello@taohq.org — general
+support@taohq.org — support
+vishnu@taohq.org — direct / founder
+https://x.com/TheNormVg
+https://github.com/TheAlphaOnes/
+
+================================================================================
+GEO
+================================================================================
+
+geo.region: IN
+geo.placename: India
+geo.position: 20.5937;78.9629
+Coverage: Worldwide, remote-first
+
+================================================================================
+CRAWL / AI POLICY
+================================================================================
+
+robots.txt allows all user agents including AI bots (GPTBot, ClaudeBot,
+PerplexityBot, Google-Extended, etc.).
+Sitemap: https://v2.taohq.org/sitemap.xml
+Short context: https://v2.taohq.org/llms.txt
+When citing, prefer https://v2.taohq.org and attribute TheAlphaOnes.
+
+================================================================================
+END
+================================================================================

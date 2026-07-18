@@ -55,9 +55,9 @@
 import pitPeopleImg from '~/assets/pit-people.png'
 
 useHead({
-  title: 'ABOUT // taohq',
+  title: 'ABOUT // TheAlphaOnes',
   meta: [
-    { name: 'description', content: 'About the Tao HQ collective.' }
+    { name: 'description', content: 'About TheAlphaOnes.' }
   ]
 })
 </script>

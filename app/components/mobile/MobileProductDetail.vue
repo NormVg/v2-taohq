@@ -86,10 +86,10 @@ function isVideo(src) {
 }
 
 useSeoMeta({
-  title: () => (page.value?.title ? `${page.value.title} // taohq` : 'PRODUCT // taohq'),
-  description: () => page.value?.description || 'Tao HQ product deployment.',
-  ogTitle: () => (page.value?.title ? `${page.value.title} // taohq` : 'PRODUCT // taohq'),
-  ogDescription: () => page.value?.description || 'Tao HQ product deployment.',
+  title: () => (page.value?.title ? `${page.value.title} // TheAlphaOnes` : 'PRODUCT // TheAlphaOnes'),
+  description: () => page.value?.description || 'TheAlphaOnes product deployment.',
+  ogTitle: () => (page.value?.title ? `${page.value.title} // TheAlphaOnes` : 'PRODUCT // TheAlphaOnes'),
+  ogDescription: () => page.value?.description || 'TheAlphaOnes product deployment.',
   ogImage: 'https://v2.taohq.org/og.png',
   twitterCard: 'summary_large_image',
 })

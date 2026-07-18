@@ -94,10 +94,10 @@ import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
 import DitherImage from '~/components/DitherImage.vue'
 
 useSeoMeta({
-  title: 'DESIGN LANGUAGE // taohq',
-  description: 'Explore DESIGN LANGUAGE at Tao HQ. We believe software should feel understandable, durable, and calm.',
-  ogTitle: 'DESIGN LANGUAGE // taohq',
-  ogDescription: 'Explore DESIGN LANGUAGE at Tao HQ. We believe software should feel understandable, durable, and calm.',
+  title: 'DESIGN LANGUAGE // TheAlphaOnes',
+  description: 'Explore DESIGN LANGUAGE at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
+  ogTitle: 'DESIGN LANGUAGE // TheAlphaOnes',
+  ogDescription: 'Explore DESIGN LANGUAGE at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
   ogImage: 'https://v2.taohq.org/og.png',
   twitterCard: 'summary_large_image',
 })

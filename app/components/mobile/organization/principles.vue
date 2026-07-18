@@ -56,10 +56,10 @@ import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
 import DitherImage from '~/components/DitherImage.vue'
 
 useSeoMeta({
-  title: 'PRINCIPLES // taohq',
-  description: 'Explore PRINCIPLES at Tao HQ. We believe software should feel understandable, durable, and calm.',
-  ogTitle: 'PRINCIPLES // taohq',
-  ogDescription: 'Explore PRINCIPLES at Tao HQ. We believe software should feel understandable, durable, and calm.',
+  title: 'PRINCIPLES // TheAlphaOnes',
+  description: 'Explore PRINCIPLES at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
+  ogTitle: 'PRINCIPLES // TheAlphaOnes',
+  ogDescription: 'Explore PRINCIPLES at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
   ogImage: 'https://v2.taohq.org/og.png',
   twitterCard: 'summary_large_image',
 })

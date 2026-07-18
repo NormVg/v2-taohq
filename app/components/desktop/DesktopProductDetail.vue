@@ -75,8 +75,8 @@ function isVideo(src) {
 }
 
 useSeoMeta({
-  title: () => (page.value?.title ? `${page.value.title} // taohq` : 'PRODUCT // taohq'),
-  description: () => page.value?.description || 'Tao HQ product deployment.',
+  title: () => (page.value?.title ? `${page.value.title} // TheAlphaOnes` : 'PRODUCT // TheAlphaOnes'),
+  description: () => page.value?.description || 'TheAlphaOnes product deployment.',
 })
 </script>
 

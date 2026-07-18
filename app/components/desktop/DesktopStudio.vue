@@ -166,9 +166,9 @@ import engImg from '~/assets/skull-break.png'
 import brandImg from '~/assets/2face-demon.png'
 
 useSeoMeta({
-  title: 'STUDIO // Tao HQ',
+  title: 'STUDIO // TheAlphaOnes',
   description: 'We partner with ambitious organizations to design, architect, and deploy uncompromising interfaces and brutalist systems.',
-  ogTitle: 'STUDIO // Tao HQ',
+  ogTitle: 'STUDIO // TheAlphaOnes',
   ogDescription: 'We partner with ambitious organizations to design, architect, and deploy uncompromising interfaces and brutalist systems.',
   ogImage: 'https://v2.taohq.org/og.png',
   twitterCard: 'summary_large_image',

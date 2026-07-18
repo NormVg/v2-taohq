@@ -2,9 +2,9 @@
 import skullBreakImg from '~/assets/skull-break.png'
 
 useSeoMeta({
-  title: 'CAREERS // Tao HQ',
+  title: 'CAREERS // TheAlphaOnes',
   description: 'Join us. Build what is necessary. Discard what is not.',
-  ogTitle: 'CAREERS // Tao HQ',
+  ogTitle: 'CAREERS // TheAlphaOnes',
   ogDescription: 'Join us. Build what is necessary. Discard what is not.',
   ogImage: 'https://v2.taohq.org/og.png',
   twitterCard: 'summary_large_image',

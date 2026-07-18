@@ -2,9 +2,9 @@
 import skullFlower2 from '~/assets/skull-flower2.png'
 
 useSeoMeta({
-  title: 'CONTACT // Tao HQ',
+  title: 'CONTACT // TheAlphaOnes',
   description: 'Direct communication channels.',
-  ogTitle: 'CONTACT // Tao HQ',
+  ogTitle: 'CONTACT // TheAlphaOnes',
   ogDescription: 'Direct communication channels.',
   ogImage: 'https://v2.taohq.org/og.png',
   twitterCard: 'summary_large_image',

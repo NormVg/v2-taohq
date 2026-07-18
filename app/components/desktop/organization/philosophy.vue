@@ -55,10 +55,10 @@
 import treeSkullImg from '~/assets/2skull-arrow.png'
 
 useSeoMeta({
-  title: 'PHILOSOPHY // taohq',
-  description: 'Explore PHILOSOPHY at Tao HQ. We believe software should feel understandable, durable, and calm.',
-  ogTitle: 'PHILOSOPHY // taohq',
-  ogDescription: 'Explore PHILOSOPHY at Tao HQ. We believe software should feel understandable, durable, and calm.',
+  title: 'PHILOSOPHY // TheAlphaOnes',
+  description: 'Explore PHILOSOPHY at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
+  ogTitle: 'PHILOSOPHY // TheAlphaOnes',
+  ogDescription: 'Explore PHILOSOPHY at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
   ogImage: 'https://v2.taohq.org/og.png',
   twitterCard: 'summary_large_image',
 })

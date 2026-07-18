@@ -15,10 +15,10 @@ const { isMobile } = useDevice()
 definePageMeta({ layout: 'default' })
 
 useSeoMeta({
-  title: 'WRITING // taohq',
-  description: 'Explore WRITING at Tao HQ. We believe software should feel understandable, durable, and calm.',
-  ogTitle: 'WRITING // taohq',
-  ogDescription: 'Explore WRITING at Tao HQ. We believe software should feel understandable, durable, and calm.',
+  title: 'WRITING // TheAlphaOnes',
+  description: 'Explore WRITING at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
+  ogTitle: 'WRITING // TheAlphaOnes',
+  ogDescription: 'Explore WRITING at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
   ogImage: 'https://v2.taohq.org/og.png',
   twitterCard: 'summary_large_image',
 })

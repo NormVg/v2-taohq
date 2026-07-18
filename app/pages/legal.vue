@@ -13,9 +13,9 @@ import MobileLegal from '~/components/mobile/MobileLegal.vue'
 const { isMobile } = useDevice()
 
 useSeoMeta({
-  title: 'LEGAL // Tao HQ',
+  title: 'LEGAL // TheAlphaOnes',
   description: 'Terms, conditions, and legally binding doctrines.',
-  ogTitle: 'LEGAL // Tao HQ',
+  ogTitle: 'LEGAL // TheAlphaOnes',
   ogDescription: 'Terms, conditions, and legally binding doctrines.',
   ogImage: 'https://v2.taohq.org/og.png',
   twitterCard: 'summary_large_image',

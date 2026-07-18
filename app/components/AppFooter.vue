@@ -12,7 +12,7 @@ import grimReaperImg from '~/assets/grim-reaper.png'
           <DitherImage :src="grimReaperImg" />
         </div>
         <div class="banner-inner">
-          <img src="~/assets/logo.svg" class="logo-icon" alt="Tao HQ Logo" />
+          <img src="~/assets/logo.svg" class="logo-icon" alt="TheAlphaOnes Logo" />
           <h1 class="logo-text-large">taohq</h1>
         </div>
       </div>

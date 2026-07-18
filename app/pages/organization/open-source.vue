@@ -13,10 +13,10 @@ import MobileOrganizationOpenSource from '~/components/mobile/organization/open-
 const { isMobile } = useDevice()
 
 useSeoMeta({
-  title: 'OPEN SOURCE // taohq',
-  description: 'Explore OPEN SOURCE at Tao HQ. We believe software should feel understandable, durable, and calm.',
-  ogTitle: 'OPEN SOURCE // taohq',
-  ogDescription: 'Explore OPEN SOURCE at Tao HQ. We believe software should feel understandable, durable, and calm.',
+  title: 'OPEN SOURCE // TheAlphaOnes',
+  description: 'Explore OPEN SOURCE at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
+  ogTitle: 'OPEN SOURCE // TheAlphaOnes',
+  ogDescription: 'Explore OPEN SOURCE at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
   ogImage: 'https://v2.taohq.org/og.png',
   twitterCard: 'summary_large_image',
 })

@@ -3,10 +3,10 @@ import { onMounted } from 'vue'
 import infraImg from '~/assets/half-skull.png'
 
 useSeoMeta({
-  title: 'INFRASTRUCTURE // taohq',
-  description: 'Explore INFRASTRUCTURE at Tao HQ. We believe software should feel understandable, durable, and calm.',
-  ogTitle: 'INFRASTRUCTURE // taohq',
-  ogDescription: 'Explore INFRASTRUCTURE at Tao HQ. We believe software should feel understandable, durable, and calm.',
+  title: 'INFRASTRUCTURE // TheAlphaOnes',
+  description: 'Explore INFRASTRUCTURE at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
+  ogTitle: 'INFRASTRUCTURE // TheAlphaOnes',
+  ogDescription: 'Explore INFRASTRUCTURE at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
   ogImage: 'https://v2.taohq.org/og.png',
   twitterCard: 'summary_large_image',
 })

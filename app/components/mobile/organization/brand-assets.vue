@@ -76,10 +76,10 @@ import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
 import DitherImage from '~/components/DitherImage.vue'
 
 useSeoMeta({
-  title: 'BRAND ASSETS // taohq',
-  description: 'Explore BRAND ASSETS at Tao HQ. We believe software should feel understandable, durable, and calm.',
-  ogTitle: 'BRAND ASSETS // taohq',
-  ogDescription: 'Explore BRAND ASSETS at Tao HQ. We believe software should feel understandable, durable, and calm.',
+  title: 'BRAND ASSETS // TheAlphaOnes',
+  description: 'Explore BRAND ASSETS at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
+  ogTitle: 'BRAND ASSETS // TheAlphaOnes',
+  ogDescription: 'Explore BRAND ASSETS at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
   ogImage: 'https://v2.taohq.org/og.png',
   twitterCard: 'summary_large_image',
 })
