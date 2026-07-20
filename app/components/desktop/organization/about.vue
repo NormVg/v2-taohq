@@ -1,8 +1,7 @@
 <template>
   <main class="page-wrapper">
     <!-- ABOUT HERO -->
-    <BrutalistCard inverted dashed class="hero-section">
-      <div class="watermark-bg">TAOHQ</div>
+    <BrutalistCard inverted dashed class="hero-section" padding="4rem">
       <div class="top-nav">
         <NuxtLink to="/" class="back-link">&lt;&lt; RETURN</NuxtLink>
         <AnimatedSlashes :count="12" right />
@@ -172,17 +171,7 @@ useSeoMeta({
   display: flex;
   flex-direction: column;
 }
-.watermark-bg {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 20vw;
-  font-weight: 700;
-  color: rgba(196, 181, 227, 0.03);
-  z-index: 0;
-  pointer-events: none;
-}
+
 .top-nav {
   position: relative;
   z-index: 10;
@@ -212,11 +201,12 @@ useSeoMeta({
   text-align: center;
 }
 .display-title {
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(4rem, 10vw, 8rem);
   font-family: 'VT323', monospace;
+  font-weight: 400;
   text-transform: uppercase;
   margin: 0;
-  letter-spacing: -2px;
+  line-height: 1;
 }
 .display-title-secondary {
   font-size: clamp(3rem, 6vw, 5rem);
