@@ -89,7 +89,7 @@
     </BrutalistCard>
 
     <!-- PRINCIPLES / AXIOMS -->
-    <BrutalistCard inverted padding="4rem">
+    <BrutalistCard inverted padding="4rem" class="axioms-card">
       <div class="bento-grid">
         <div class="bento-item highlight">
           <div class="item-header">
@@ -383,6 +383,16 @@ useSeoMeta({
 .bento-item.highlight {
   background-color: var(--fg-color);
   color: var(--bg-color);
+}
+.axioms-card .bento-item {
+  border-color: var(--bg-color);
+}
+.axioms-card .bento-item.highlight {
+  background-color: var(--bg-color);
+  color: var(--fg-color);
+}
+.axioms-card .fixed-visual {
+  background: transparent;
 }
 .fixed-visual {
   padding: 0;

@@ -71,7 +71,7 @@
     </section>
 
     <!-- PRINCIPLES / AXIOMS -->
-    <section class="mobile-section inverted-section border-b-dashed">
+    <section class="mobile-section inverted-section border-b-dashed axioms-section">
       <div class="mobile-section-content bento-stack">
         <div class="bento-item highlight">
           <div class="item-header">
@@ -312,6 +312,17 @@ useHead({
   background-color: var(--fg-color);
   color: var(--bg-color);
   border-color: var(--bg-color);
+}
+.axioms-section .bento-item {
+  border-color: var(--bg-color);
+}
+.axioms-section .bento-item.highlight {
+  background-color: var(--bg-color);
+  color: var(--fg-color);
+  border-color: var(--bg-color);
+}
+.axioms-section .visual-wrapper {
+  background: transparent;
 }
 
 .item-header {
