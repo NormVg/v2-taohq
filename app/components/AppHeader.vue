@@ -15,9 +15,6 @@
         <NuxtLink to="/writing" class="nav-link" active-class="active" v-sound v-hover-sound>
           [ WRITING ]
         </NuxtLink>
-        <NuxtLink to="/careers" class="nav-link" active-class="active" v-sound v-hover-sound>
-          [ CAREERS ]
-        </NuxtLink>
         <NuxtLink to="/contact" class="nav-link" active-class="active" v-sound v-hover-sound>
           [ CONTACT ]
         </NuxtLink>

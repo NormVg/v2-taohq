@@ -41,8 +41,6 @@ onMounted(() => {
         <span class="slash-separator">///</span>
         <NuxtLink to="/writing" class="nav-link-brutal" v-sound v-hover-sound>WRITING</NuxtLink>
         <span class="slash-separator">///</span>
-        <NuxtLink to="/careers" class="nav-link-brutal" v-sound v-hover-sound>CAREERS</NuxtLink>
-        <span class="slash-separator">///</span>
         <NuxtLink to="/contact" class="nav-link-brutal" v-sound v-hover-sound>CONTACT</NuxtLink>
       </div>
       <AnimatedSlashes :count="50" class="mt-2" />

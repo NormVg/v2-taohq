@@ -35,7 +35,7 @@ function closeMenu() {
         <NuxtLink to="/studio" @click="closeMenu" v-sound>STUDIO //</NuxtLink>
         <NuxtLink to="/products" @click="closeMenu" v-sound>PRODUCTS //</NuxtLink>
         <NuxtLink to="/writing" @click="closeMenu" v-sound>WRITING //</NuxtLink>
-        <NuxtLink to="/careers" @click="closeMenu" v-sound>CAREERS //</NuxtLink>
+
         <NuxtLink to="/contact" @click="closeMenu" v-sound>CONTACT //</NuxtLink>
         <NuxtLink to="/legal" @click="closeMenu" v-sound>LEGAL //</NuxtLink>
         
