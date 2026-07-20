@@ -3,6 +3,8 @@ title: "BUBBLES.SPACE"
 description: "Your AI assistant's home. A workspace OS built for the way you actually think."
 status: "IN DEVELOPMENT"
 homeImage: "flower-moon.png"
+tickerTop: "110010101110010010101001100101010010110111"
+tickerBottom: "101101001010001011001010100101101010010"
 ---
 
 **We are building a personal AI workspace OS for people who want to stop managing tools and start actually thinking — a space where Bubbles, your AI assistant, lives and works alongside you.**

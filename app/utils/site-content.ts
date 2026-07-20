@@ -11,6 +11,8 @@ export type SiteDoc = {
   version?: string
   heroMedia?: string
   homeImage?: string
+  tickerTop?: string
+  tickerBottom?: string
   date?: string
   author?: string
   link?: string
@@ -57,6 +59,8 @@ export function normalizeSiteDoc(raw: Record<string, unknown> | null | undefined
     version: asString(raw.version) || asString(meta.version),
     heroMedia: asString(raw.heroMedia) || asString(meta.heroMedia),
     homeImage: asString(raw.homeImage) || asString(meta.homeImage),
+    tickerTop: asString(raw.tickerTop) || asString(meta.tickerTop),
+    tickerBottom: asString(raw.tickerBottom) || asString(meta.tickerBottom),
     date: asString(raw.date) || asString(meta.date),
     author: asString(raw.author) || asString(meta.author),
     link: asString(raw.link) || asString(meta.link),

@@ -13,10 +13,10 @@
           v-hover-sound
         >
           <div class="ticker ticker-top">
-            <div class="marquee"><span class="m-text">{{ tickerStrsTop[index % 5] }}</span><span class="m-text">{{ tickerStrsTop[index % 5] }}</span></div>
+            <div class="marquee"><span class="m-text">{{ product.tickerTop || '110010101110010010101001100101010010110111' }}</span><span class="m-text">{{ product.tickerTop || '110010101110010010101001100101010010110111' }}</span></div>
           </div>
           <div class="ticker ticker-bottom">
-            <div class="marquee alt-scroll"><span class="m-text">{{ tickerStrsBottom[index % 5] }}</span><span class="m-text">{{ tickerStrsBottom[index % 5] }}</span></div>
+            <div class="marquee alt-scroll"><span class="m-text">{{ product.tickerBottom || '101101001010001011001010100101101010010' }}</span><span class="m-text">{{ product.tickerBottom || '101101001010001011001010100101101010010' }}</span></div>
           </div>
           <DitherImage :src="imageMap[product.homeImage] || imageMap['flower-moon.png']" class="card-img" />
         </NuxtLink>
@@ -64,21 +64,7 @@ const imageMap = {
   'body-flower.png': mayaImg
 }
 
-const tickerStrsTop = [
-  '110010101110010010101001100101010010110111',
-  '101010110100101010100100101010101001110101',
-  '011010010101011101001010010110101011010101',
-  '100110101110010010101001100101010010110100',
-  '110010101110010010101001100101010010110111'
-]
 
-const tickerStrsBottom = [
-  '101101001010001011001010100101101010010',
-  '010010111010010100110101001011101001010',
-  '111010100010110100101010110100010101011',
-  '011010010101011101001010010110101011010101',
-  '101010110100101010100100101010101001110101'
-]
 
 const scrollContainer = ref(null)
 
