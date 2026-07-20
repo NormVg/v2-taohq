@@ -76,9 +76,9 @@
 import { ref, onUnmounted } from 'vue'
 import flowerMoonImg from '~/assets/flower-moon.png'
 import img2 from '~/assets/skull-arrow.png'
-import crawlHandsImg from '~/assets/crawl-hands.png'
-import krakenImg from '~/assets/rose-demon.png'
-import mayaImg from '~/assets/heart-rose.png'
+import crawlHandsImg from '~/assets/skull-book.png'
+import krakenImg from '~/assets/pray-skull.png'
+import mayaImg from '~/assets/body-flower.png'
 
 const scrollContainer = ref(null)
 
