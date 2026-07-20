@@ -98,20 +98,6 @@
           </div>
         </div>
 
-        <div class="terminal-block mt-12">
-          <div class="terminal-header">
-            <span>ROOT@TAO:~# SYS_STATUS</span>
-          </div>
-          <div class="terminal-body">
-            <p>> INITIALIZING NUXT CLUSTER...</p>
-            <p>> CONNECTING TO NEON DATABASES... [OK]</p>
-            <p>> CONNECTING TO UPSTASH CACHE... [OK]</p>
-            <p>> WAKING EVE AGENTS... [OK]</p>
-            <p>> ALL SYSTEMS NOMINAL.</p>
-            <p class="blink">_</p>
-          </div>
-        </div>
-        
       </div>
     </section>
   </main>

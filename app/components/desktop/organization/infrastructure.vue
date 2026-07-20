@@ -120,22 +120,6 @@ useSeoMeta({
         </div>
       </div>
       
-      <!-- TERMINAL BLOCK -->
-      <div class="terminal-block mt-16">
-        <div class="terminal-header">
-          <span>ROOT@TAO-HQ:~# SYS_STATUS</span>
-          <AnimatedSlashes :count="10" right />
-        </div>
-        <div class="terminal-body">
-          <p>> INITIALIZING NUXT CLUSTER...</p>
-          <p>> CONNECTING TO NEON DATABASES... [OK]</p>
-          <p>> CONNECTING TO UPSTASH CACHE... [OK]</p>
-          <p>> WAKING EVE AGENTS... [OK]</p>
-          <p>> COMPUTE NODES ONLINE: 4,096</p>
-          <p>> ALL SYSTEMS NOMINAL.</p>
-          <p class="blink">_</p>
-        </div>
-      </div>
     </BrutalistCard>
   </main>
 </template>
