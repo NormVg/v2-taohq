@@ -1,22 +1,35 @@
 ---
 title: "BUBBLES.SPACE"
-description: "A persistent, multiplayer workspace powered by AI."
-status: "LIVE"
+description: "Your AI assistant's home. A workspace OS built for the way you actually think."
+status: "IN DEVELOPMENT"
 heroMedia: "/images/flower-moon.png"
 ---
 
-**We are building a persistent, multiplayer spatial workspace for digital workers and creative teams to eliminate context switching and think fluidly alongside AI.**
+**We are building a personal AI workspace OS for people who want to stop managing tools and start actually thinking — a space where Bubbles, your AI assistant, lives and works alongside you.**
 
 ## The Problem
-The modern digital worker is drowning in browser tabs and fragmented tools. We found ourselves constantly bouncing between different apps to brainstorm, write code, draw architecture diagrams, and document our ideas. This constant context switching breaks flow state and makes it incredibly hard to maintain a clear train of thought. We realized we didn't need another isolated productivity app; we needed a unified operating system for our ideas.
+
+Most of us have developed a strange relationship with our tools. We open fifteen tabs, jump between apps, copy-paste the same note four times, and by the time we've organized everything, we've forgotten what we were actually trying to do. The irony is painful — the tools meant to help us focus have become the very things fragmenting our attention.
+
+And AI hasn't really fixed this. We've just added a sixteenth tab: a chatbox you have to go visit, ask a question, and then carry the answer back yourself. That's not intelligence. That's a slightly smarter search engine.
 
 ## The Solution
-Bubbles.space is an autonomous, always-on operating environment where your data and your AI agents live together in perfect sync. 
 
-- **A Unified Spatial Canvas**: At its core is a zoomable, pan-able canvas architecture that lets you visually arrange your thoughts without the constraints of linear documents. 
-- **Dynamic Widget Ecosystem**: We integrated live graphs, Mermaid flowcharts, image carousels, and Markdown editors that adapt directly on the canvas to whatever you're working on.
-- **Agentic Workflows**: By deeply integrating Eve (an agent development framework from Vercel), powerful AI agents live directly in your space. They recall past interactions through a context-aware memory tree, ready to brainstorm or organize data on the fly.
-- **Realtime Collaboration**: Built on a highly optimized stack with Neon Postgres, Drizzle ORM, and Ably WebSockets, every interaction is synchronized in real-time across devices and teams.
+Bubbles.space is the environment where Bubbles — your personal AI assistant — lives. It's not an app you open when you need something. It's a space you exist in while you work.
 
-## Built for Independence
-As an independent team, we built Bubbles.space to scale our own capabilities. Learn more about the underlying architecture that makes this possible on our [Infrastructure Page](/organization/infrastructure), or follow our ongoing development on [X (Twitter)](https://twitter.com/TheNormVg).
+Think of it less like a productivity tool and more like a workspace that genuinely understands what you're trying to get done. A spatial canvas where your notes, your projects, your data, and your AI all occupy the same room. You arrange your thinking visually, and Bubbles quietly does the heavy lifting around it.
+
+- **A Canvas, Not a Feed**: Bubbles.space gives you a zoomable, spatial environment to organize your thinking the way your brain actually works — not in a linear list, but in clusters, connections, and proximity.
+- **Bubbles Lives Here**: Your AI assistant isn't a popup. It's a native presence in the workspace, recalling context from past sessions, understanding what you're working on, and moving things forward without waiting to be asked.
+- **Your Tools, In One Place**: Documents, graphs, diagrams, timers, web content — all as widgets on the canvas, where they belong, not scattered across a dozen apps.
+- **Work With Others Naturally**: People can co-exist in the same workspace. Not because it's a "collaboration feature" — just because that's how real work happens.
+
+## What We're Building Toward
+
+We think the future of AI is proactive. Not a chatbox, but a thinking partner that already knows your context and acts on it. Bubbles.space is the environment where that becomes real.
+
+It's built on a deeply integrated stack — Nuxt 4, Neon Postgres, Ably for real-time sync, and [Eve](https://sdk.vercel.ai/), Vercel's agent development framework — designed to keep everything fast, persistent, and always in sync across your devices.
+
+This isn't just a productivity app. We're trying to create a lifestyle — a new way of relating to your work and your tools, powered by AI that actually respects your intelligence.
+
+Follow along with what we're building on [X (Twitter)](https://twitter.com/TheNormVg), or read more about our thinking in our [Writing](/writing) section.
