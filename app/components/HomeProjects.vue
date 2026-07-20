@@ -2,7 +2,7 @@
   <BrutalistCard dashed class="section-4" padding="0">
     <div class="horizontal-scroll-container" ref="scrollContainer">
       <div class="scroll-wrapper">
-        <div class="scroll-item group" @mouseenter="activeProject = 'FLOWER MOON [ARCHIVE 01]'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-sound>
+        <div class="scroll-item group" @mouseenter="activeProject = 'BUBBLES.SPACE // LIVE'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-sound>
           <div class="ticker ticker-top">
             <div class="marquee"><span class="m-text">110010101110010010101001100101010010110111</span><span class="m-text">110010101110010010101001100101010010110111</span></div>
           </div>
@@ -11,7 +11,7 @@
           </div>
           <DitherImage :src="flowerMoonImg" class="card-img" />
         </div>
-        <div class="scroll-item group" @mouseenter="activeProject = 'SKULL ARROW [ARCHIVE 02]'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-sound>
+        <div class="scroll-item group" @mouseenter="activeProject = 'BUBBLES.MAIL // LIVE'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-sound>
           <div class="ticker ticker-top">
             <div class="marquee"><span class="m-text">101010110100101010100100101010101001110101</span><span class="m-text">101010110100101010100100101010101001110101</span></div>
           </div>
@@ -20,7 +20,7 @@
           </div>
           <DitherImage :src="img2" class="card-img" />
         </div>
-        <div class="scroll-item group" @mouseenter="activeProject = 'CRAWL HANDS [ARCHIVE 03]'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-sound>
+        <div class="scroll-item group" @mouseenter="activeProject = 'WEB-HAVE-SOUNDS // OSS'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-sound>
           <div class="ticker ticker-top">
             <div class="marquee"><span class="m-text">011010010101011101001010010110101011010101</span><span class="m-text">011010010101011101001010010110101011010101</span></div>
           </div>
@@ -28,6 +28,24 @@
             <div class="marquee alt-scroll"><span class="m-text">111010100010110100101010110100010101011</span><span class="m-text">111010100010110100101010110100010101011</span></div>
           </div>
           <DitherImage :src="crawlHandsImg" class="card-img" />
+        </div>
+        <div class="scroll-item group" @mouseenter="activeProject = 'KRAKEN // INTERNAL'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-sound>
+          <div class="ticker ticker-top">
+            <div class="marquee"><span class="m-text">100110101110010010101001100101010010110100</span><span class="m-text">100110101110010010101001100101010010110100</span></div>
+          </div>
+          <div class="ticker ticker-bottom">
+            <div class="marquee alt-scroll"><span class="m-text">011010010101011101001010010110101011010101</span><span class="m-text">011010010101011101001010010110101011010101</span></div>
+          </div>
+          <DitherImage :src="krakenImg" class="card-img" />
+        </div>
+        <div class="scroll-item group" @mouseenter="activeProject = 'MAYA UI // DESIGN SYSTEM'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-sound>
+          <div class="ticker ticker-top">
+            <div class="marquee"><span class="m-text">110010101110010010101001100101010010110111</span><span class="m-text">110010101110010010101001100101010010110111</span></div>
+          </div>
+          <div class="ticker ticker-bottom">
+            <div class="marquee alt-scroll"><span class="m-text">101010110100101010100100101010101001110101</span><span class="m-text">101010110100101010100100101010101001110101</span></div>
+          </div>
+          <DitherImage :src="mayaImg" class="card-img" />
         </div>
       </div>
     </div>
@@ -59,6 +77,8 @@ import { ref, onUnmounted } from 'vue'
 import flowerMoonImg from '~/assets/flower-moon.png'
 import img2 from '~/assets/skull-arrow.png'
 import crawlHandsImg from '~/assets/crawl-hands.png'
+import krakenImg from '~/assets/rose-demon.png'
+import mayaImg from '~/assets/heart-rose.png'
 
 const scrollContainer = ref(null)
 
