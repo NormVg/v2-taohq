@@ -65,6 +65,15 @@ const { data: logs } = await useAsyncData('writing-list', () => fetchWriting())
 .logs-list {
   display: flex;
   flex-direction: column;
+  /* Fill remaining card space and scroll internally */
+  flex: 1 1 0;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+.logs-list::-webkit-scrollbar {
+  display: none; /* Safari / Chrome */
 }
 
 .log-entry {

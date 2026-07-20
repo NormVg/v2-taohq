@@ -70,6 +70,15 @@ const { data: products } = await useAsyncData('products-list', () => fetchProduc
 .products-grid {
   display: flex;
   flex-direction: column;
+  /* Fill remaining card space and scroll internally */
+  flex: 1 1 0;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+.products-grid::-webkit-scrollbar {
+  display: none; /* Safari / Chrome */
 }
 
 .product-card {
