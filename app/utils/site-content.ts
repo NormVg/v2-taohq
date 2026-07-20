@@ -125,7 +125,7 @@ export async function fetchDocsUnder(prefix: string): Promise<SiteDoc[]> {
   if (!raw.length) {
     const known =
       bare === 'products'
-        ? ['/products/tao-canvas', '/products/tao-identity', '/products/rose-demon']
+        ? ['/products/bubbles-space', '/products/bubbles-mail', '/products/web-have-sounds', '/products/kraken', '/products/maya-ui']
         : bare === 'writing'
           ? [
               '/writing/01-first-log',
