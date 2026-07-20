@@ -2,14 +2,14 @@
   <BrutalistCard dashed class="section-stats">
     <div class="stats-grid">
       <!-- Top Section: Intro -->
-      <div class="grid-cell intro-cell">
+      <div class="grid-cell intro-cell" v-sound>
         <div class="hover-dither-bg">
           <DitherImage :src="eyeWallImg" />
         </div>
         <h2 class="huge-heading">Building thoughtful software, systems, and lifestyle products.</h2>
       </div>
       
-      <div class="grid-cell description-cell">
+      <div class="grid-cell description-cell" v-sound>
         <div class="ascii-rain-bg">
           {{ asciiRain }}
         </div>
