@@ -1,14 +1,14 @@
 ---
 title: "KRAKEN"
-description: "AUTONOMOUS CODING AGENT. DEPLOYMENT EDITOR."
+description: "Our autonomous coding agent and internal editor."
 status: "INTERNAL"
 heroMedia: "~/assets/pray-skull.png"
 ---
 
-CORE DIGITAL INFRASTRUCTURE.
+The engine behind our workflow.
 
-- AUTOMATED CODE GENERATION.
-- INTERNAL SYSTEMS MANAGEMENT.
-- BACKGROUND EXECUTION.
+- Writes code autonomously.
+- Manages internal deployments.
+- Runs tasks quietly in the background.
 
-THE ENGINE POWERING THEALPHAONES LOGIC.
+Built to scale our small team.

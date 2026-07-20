@@ -1,16 +1,16 @@
 ---
 title: "WEB-HAVE-SOUNDS"
-description: "ZERO-DEPENDENCY AUDIO GENERATION. MATH-DRIVEN SOUND."
+description: "Zero-dependency, math-driven audio generation."
 status: "OSS"
 heroMedia: "~/assets/skull-book.png"
 link: "https://github.com/NormVg/web-have-sound"
 ---
 
-ALGORITHMIC SONIC FEEDBACK.
+Algorithmic sound for the web.
 
-- NATIVE WEB AUDIO API.
-- ZERO ASSET OVERHEAD (NO .WAV, .MP3).
-- ZERO NETWORK LATENCY.
-- NINE CONTEXTUAL AUDIO CATEGORIES.
+- Uses the native Web Audio API.
+- No external audio files (.wav, .mp3).
+- Zero network latency.
+- Nine contextual sound categories.
 
-PURE MATHEMATICS. ZERO BUNDLE BLOAT.
+Pure math. Zero bundle bloat.

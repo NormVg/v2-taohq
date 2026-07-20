@@ -1,15 +1,15 @@
 ---
 title: "BUBBLES.SPACE"
-description: "PERSISTENT AI WORKSPACE. MULTIPLAYER SYNCHRONIZATION."
+description: "A persistent, multiplayer workspace powered by AI."
 status: "LIVE"
 heroMedia: "~/assets/flower-moon.png"
 ---
 
-AUTONOMOUS OPERATING ENVIRONMENT.
+One unified space for your team.
 
-- SPATIAL CANVAS ARCHITECTURE.
-- DYNAMIC WIDGET ECOSYSTEM.
-- AGENTIC WORKFLOWS (EVE FRAMEWORK).
-- REALTIME STATE SYNC (ABLY PROTOCOL).
+- Infinite canvas for spatial thinking.
+- Dynamic widgets that adapt to your work.
+- Built-in AI agents via the Eve framework.
+- Realtime multiplayer sync.
 
-ELIMINATE CONTEXT SWITCHING. DEPLOY ONE UNIFIED SPACE.
+Stop switching tabs. Work in one place.

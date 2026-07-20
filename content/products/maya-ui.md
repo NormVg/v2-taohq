@@ -1,14 +1,14 @@
 ---
 title: "MAYA UI"
-description: "VUE & NUXT DESIGN SYSTEM. BRUTALIST PRIMITIVES."
+description: "Our brutalist design system for Vue and Nuxt."
 status: "DESIGN SYSTEM"
 heroMedia: "~/assets/body-flower.png"
 ---
 
-THE VISUAL LANGUAGE OF THEALPHAONES.
+The visual language of TheAlphaOnes.
 
-- HIGH-PERFORMANCE COMPONENT ARCHITECTURE.
-- SEAMLESS NUXT INTEGRATION.
-- STRICT DESIGN PRIMITIVES.
+- Lightweight, fast components.
+- Seamless Nuxt integration.
+- Strict, minimal design primitives.
 
-ENGINEERED FOR EXPRESSIVE, ZERO-FLUFF DEPLOYMENTS.
+Built for clean, expressive interfaces. No fluff.

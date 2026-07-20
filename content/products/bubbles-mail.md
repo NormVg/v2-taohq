@@ -1,14 +1,14 @@
 ---
 title: "BUBBLES.MAIL"
-description: "AI-ACCELERATED MACOS CLIENT. HIGH-SIGNAL TIER."
+description: "An AI-accelerated macOS mail client."
 status: "LIVE"
 heroMedia: "~/assets/skull-arrow.png"
 ---
 
-HIGH-SIGNAL COMMUNICATION PROTOCOL.
+Cut through the noise.
 
-- ZERO LATENCY.
-- AI-DRIVEN TRIAGE.
-- NATIVE ARCHITECTURE.
+- Zero lag, native macOS feel.
+- AI sorts your inbox instantly.
+- Built for deep work, not distractions.
 
-MAXIMUM THROUGHPUT. ZERO FRICTION.
+Maximum speed. Zero friction.
