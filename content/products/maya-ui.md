@@ -1,8 +1,0 @@
----
-title: "MAYA UI"
-description: "COMPONENT ARCHITECTURE DESIGN SYSTEM"
-status: "DESIGN SYSTEM"
-homeImage: "body-flower.png"
----
-
-**MAYA UI IS THE INTERNAL DESIGN SYSTEM FOR THEALPHAONES.**
