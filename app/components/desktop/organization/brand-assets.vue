@@ -30,7 +30,7 @@ useSeoMeta({
     <BrutalistCard padding="4rem">
       <div class="assets-grid mt-8">
         
-        <div class="asset-card">
+        <div class="asset-card" v-sound.hover="{ type: 'wind', feel: 'ghost' }">
           <div class="preview">
             <DitherImage :src="logoSvg" :pixelSize="1.0" colorLight="#151515" colorDark="#151515" />
           </div>
@@ -41,7 +41,7 @@ useSeoMeta({
           </div>
         </div>
         
-        <div class="asset-card">
+        <div class="asset-card" v-sound.hover="{ type: 'wind', feel: 'ghost' }">
           <div class="preview logo-text-preview">
             <span class="italiano-font">TheAlphaOnes</span>
           </div>
@@ -52,7 +52,7 @@ useSeoMeta({
           </div>
         </div>
         
-        <div class="asset-card">
+        <div class="asset-card" v-sound.hover="{ type: 'wind', feel: 'ghost' }">
           <div class="preview">
             <DitherImage :src="catImg" :pixelSize="3.0" />
           </div>
@@ -89,7 +89,7 @@ useSeoMeta({
 
     <div class="fixed-logo-wrapper">
       <div class="logo-inner-anim">
-        <a href="#" class="logo-hover-target" aria-label="TheAlphaOnes logo" @click.prevent>
+        <a href="#" class="logo-hover-target" aria-label="TheAlphaOnes logo" @click.prevent v-sound.hover="{ type: 'wind', feel: 'ghost' }">
           <img src="~/assets/logo.svg" alt="TAO Logo" class="flipping-logo" />
         </a>
       </div>

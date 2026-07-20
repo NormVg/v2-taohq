@@ -1,7 +1,12 @@
-<template>
+import os
+
+DESKTOP_ABOUT_PATH = "/Users/vishnu_mac/Desktop/room/tao.hq/v2.taohq/app/components/desktop/organization/about.vue"
+
+desktop_about_content = """<template>
   <main class="page-wrapper">
     <!-- ABOUT HERO -->
-    <BrutalistCard inverted dashed class="hero-section" padding="4rem">
+    <BrutalistCard inverted dashed class="hero-section">
+      <div class="watermark-bg">TAOHQ</div>
       <div class="top-nav">
         <NuxtLink to="/" class="back-link">&lt;&lt; RETURN</NuxtLink>
         <AnimatedSlashes :count="12" right />
@@ -89,9 +94,9 @@
     </BrutalistCard>
 
     <!-- PRINCIPLES / AXIOMS -->
-    <BrutalistCard inverted padding="4rem" class="axioms-card">
+    <BrutalistCard padding="4rem">
       <div class="bento-grid">
-        <div class="bento-item highlight" v-sound.hover="{ type: 'wind', feel: 'ghost' }">
+        <div class="bento-item highlight">
           <div class="item-header">
             <span class="axiom-num">AXIOM .01</span>
           </div>
@@ -99,7 +104,7 @@
           <p class="item-desc mt-2">Good infrastructure is invisible. Users should never think about authentication, syncing, storage, deployment, or internal architecture.</p>
         </div>
 
-        <div class="bento-item" v-sound.hover="{ type: 'wind', feel: 'ghost' }">
+        <div class="bento-item">
           <div class="item-header">
             <span class="axiom-num">AXIOM .02</span>
           </div>
@@ -108,10 +113,10 @@
         </div>
 
         <div class="fixed-visual">
-          <DitherImage :src="trangleSkullImg" :pixelSize="3" colorDark="#151515" colorLight="#c4b5e3" />
+          <DitherImage :src="trangleSkullImg" :pixelSize="3" colorDark="#c4b5e3" colorLight="#151515" />
         </div>
 
-        <div class="bento-item" v-sound.hover="{ type: 'wind', feel: 'ghost' }">
+        <div class="bento-item">
           <div class="item-header">
             <span class="axiom-num">AXIOM .03</span>
           </div>
@@ -119,7 +124,7 @@
           <p class="item-desc mt-2">Every product shares internal standards to ensure longevity and maintainability across the ecosystem.</p>
         </div>
 
-        <div class="bento-item highlight" v-sound.hover="{ type: 'wind', feel: 'ghost' }">
+        <div class="bento-item highlight">
           <div class="item-header">
             <span class="axiom-num">AXIOM .04</span>
           </div>
@@ -141,14 +146,6 @@
         </div>
       </div>
     </BrutalistCard>
-
-    <div class="fixed-logo-wrapper">
-      <div class="logo-inner-anim">
-        <a href="#" class="logo-hover-target" aria-label="TheAlphaOnes logo" @click.prevent v-sound.hover="{ type: 'wind', feel: 'ghost' }">
-          <img src="~/assets/logo.svg" alt="TAO Logo" class="flipping-logo" />
-        </a>
-      </div>
-    </div>
   </main>
 </template>
 
@@ -179,7 +176,17 @@ useSeoMeta({
   display: flex;
   flex-direction: column;
 }
-
+.watermark-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20vw;
+  font-weight: 700;
+  color: rgba(196, 181, 227, 0.03);
+  z-index: 0;
+  pointer-events: none;
+}
 .top-nav {
   position: relative;
   z-index: 10;
@@ -205,16 +212,15 @@ useSeoMeta({
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: center;
 }
 .display-title {
-  font-size: clamp(4rem, 10vw, 8rem);
+  font-size: clamp(3rem, 8vw, 6rem);
   font-family: 'VT323', monospace;
-  font-weight: 400;
   text-transform: uppercase;
   margin: 0;
-  line-height: 1;
+  letter-spacing: -2px;
 }
 .display-title-secondary {
   font-size: clamp(3rem, 6vw, 5rem);
@@ -392,16 +398,6 @@ useSeoMeta({
   background-color: var(--fg-color);
   color: var(--bg-color);
 }
-.axioms-card .bento-item {
-  border-color: var(--bg-color);
-}
-.axioms-card .bento-item.highlight {
-  background-color: var(--bg-color);
-  color: var(--fg-color);
-}
-.axioms-card .fixed-visual {
-  background: transparent;
-}
 .fixed-visual {
   padding: 0;
   border: none;
@@ -431,60 +427,10 @@ useSeoMeta({
   margin-top: auto;
   padding-top: 2rem;
 }
-
-.fixed-logo-wrapper {
-  position: fixed;
-  bottom: 3rem;
-  right: 3rem;
-  z-index: 50;
-  pointer-events: none;
-  animation: float-complex 5.7s ease-in-out infinite alternate;
-}
-
-.logo-inner-anim {
-  animation: slight-tilt 7.1s ease-in-out infinite alternate;
-}
-
-.logo-hover-target {
-  display: block;
-  pointer-events: auto;
-  cursor: crosshair;
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.logo-hover-target:hover {
-  transform: scale(1.3) translateY(-10px);
-}
-
-.flipping-logo {
-  width: 60px;
-  height: auto;
-  animation: flip-y 4.3s linear infinite;
-  transform-style: preserve-3d;
-  opacity: 0.85;
-  filter: drop-shadow(0 0 10px rgba(196, 181, 227, 0.5));
-  transition: all 0.4s ease;
-}
-
-.logo-hover-target:hover .flipping-logo {
-  opacity: 1;
-  filter: drop-shadow(0 0 20px rgba(196, 181, 227, 1)) drop-shadow(0 0 40px rgba(196, 181, 227, 0.6));
-  animation-duration: 0.6s;
-}
-
-@keyframes float-complex {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(5px); }
-}
-
-@keyframes flip-y {
-  0% { transform: rotateY(0deg); }
-  100% { transform: rotateY(360deg); }
-}
-
-@keyframes slight-tilt {
-  0% { transform: rotateZ(-5deg) scale(1); }
-  100% { transform: rotateZ(5deg) scale(1.05); }
-}
 </style>
+"""
+
+with open(DESKTOP_ABOUT_PATH, "w") as f:
+    f.write(desktop_about_content)
+
+print("Created merged desktop about.vue")

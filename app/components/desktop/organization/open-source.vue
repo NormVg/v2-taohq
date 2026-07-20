@@ -37,7 +37,7 @@ useSeoMeta({
 
       <div class="repo-list mt-12">
         <a href="https://github.com/NormVg/web-have-sound" target="_blank" class="repo-item-link" style="text-decoration: none; color: inherit; display: block;">
-          <div class="repo-item">
+          <div class="repo-item" v-sound.hover="{ type: 'wind', feel: 'ghost' }">
             <div class="repo-meta">
               <h2>WEB-HAVE-SOUNDS</h2>
               <AnimatedSlashes :count="15" />
@@ -57,7 +57,7 @@ useSeoMeta({
 
     <div class="fixed-logo-wrapper">
       <div class="logo-inner-anim">
-        <a href="#" class="logo-hover-target" aria-label="TheAlphaOnes logo" @click.prevent>
+        <a href="#" class="logo-hover-target" aria-label="TheAlphaOnes logo" @click.prevent v-sound.hover="{ type: 'wind', feel: 'ghost' }">
           <img src="~/assets/logo.svg" alt="TAO Logo" class="flipping-logo" />
         </a>
       </div>

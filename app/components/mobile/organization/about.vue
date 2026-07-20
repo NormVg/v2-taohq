@@ -73,7 +73,7 @@
     <!-- PRINCIPLES / AXIOMS -->
     <section class="mobile-section inverted-section border-b-dashed axioms-section">
       <div class="mobile-section-content bento-stack">
-        <div class="bento-item highlight">
+        <div class="bento-item highlight" v-sound.hover="{ type: 'wind', feel: 'ghost' }">
           <div class="item-header">
             <span class="axiom-num">AXIOM .01</span>
           </div>
@@ -81,7 +81,7 @@
           <p class="item-desc mt-4">Good infrastructure is invisible. Users should never think about authentication, syncing, storage, deployment, or internal architecture.</p>
         </div>
 
-        <div class="bento-item">
+        <div class="bento-item" v-sound.hover="{ type: 'wind', feel: 'ghost' }">
           <div class="item-header">
             <span class="axiom-num">AXIOM .02</span>
           </div>
@@ -93,7 +93,7 @@
           <DitherImage :src="trangleSkullImg" :pixelSize="3" colorDark="#151515" colorLight="#c4b5e3" />
         </div>
 
-        <div class="bento-item">
+        <div class="bento-item" v-sound.hover="{ type: 'wind', feel: 'ghost' }">
           <div class="item-header">
             <span class="axiom-num">AXIOM .03</span>
           </div>
@@ -101,7 +101,7 @@
           <p class="item-desc mt-4">Every product shares internal standards to ensure longevity and maintainability across the ecosystem.</p>
         </div>
 
-        <div class="bento-item highlight">
+        <div class="bento-item highlight" v-sound.hover="{ type: 'wind', feel: 'ghost' }">
           <div class="item-header">
             <span class="axiom-num">AXIOM .04</span>
           </div>

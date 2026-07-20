@@ -11,7 +11,7 @@ const { isSoundEnabled, toggleSound } = useUISound()
     <div class="full-height-flex">
       
       <div class="center-banner">
-        <div class="logo-hover-dither">
+        <div class="logo-hover-dither" v-sound="{ type: 'pop', feel: 'glass' }">
           <DitherImage :src="grimReaperImg" />
         </div>
         <div class="banner-inner">
