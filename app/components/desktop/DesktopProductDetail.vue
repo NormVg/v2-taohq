@@ -15,7 +15,7 @@
           </div>
         </header>
 
-        <div class="hero-media-container">
+        <div v-if="page.heroMedia" class="hero-media-container">
           <img
             v-if="isImage(page.heroMedia)"
             :src="page.heroMedia"

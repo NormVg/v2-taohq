@@ -17,7 +17,7 @@
       </MobilePageHero>
 
       <div class="content">
-        <div class="hero">
+        <div v-if="page.heroMedia" class="hero">
           <img
             v-if="isImage(page.heroMedia)"
             :src="page.heroMedia"
