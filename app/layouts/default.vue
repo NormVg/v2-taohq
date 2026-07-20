@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch, nextTick } from 'vue'
+import { ref, computed, watch, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
 import { useDevice } from '#imports'
 import MobileNav from '~/components/mobile/MobileNav.vue'
@@ -9,6 +9,9 @@ import AppFooter from '~/components/AppFooter.vue'
 const { isMobile } = useDevice()
 const route = useRoute()
 const layoutWrapper = ref(null)
+
+/** Only the homepage uses section-based scroll snapping */
+const isHomePage = computed(() => route.path === '/')
 
 watch(() => route.path, async () => {
   if (!isMobile) {
@@ -33,7 +36,11 @@ watch(() => route.path, async () => {
     </template>
     
     <template v-else>
-      <div class="layout-wrapper" ref="layoutWrapper">
+      <div
+        class="layout-wrapper"
+        :class="{ 'snap-sections': isHomePage }"
+        ref="layoutWrapper"
+      >
         <slot />
         <AppFooter />
       </div>
@@ -48,8 +55,12 @@ watch(() => route.path, async () => {
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
-  scroll-snap-type: y mandatory;
   background-color: var(--bg-color);
+}
+
+/* Scroll snapping only active on the homepage */
+.layout-wrapper.snap-sections {
+  scroll-snap-type: y mandatory;
 }
 
 /* Mobile Layout */
