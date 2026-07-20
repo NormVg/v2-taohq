@@ -87,12 +87,11 @@ const { data: products } = await useAsyncData('products-list', () => fetchProduc
   padding: 3rem 0;
   color: var(--fg-color);
   text-decoration: none;
-  transition: padding-left 0.2s ease-out;
   overflow: hidden;
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
 }
 
 .product-link:hover {
-  padding-left: 2rem;
   background-color: var(--fg-color);
   color: var(--bg-color);
 }
@@ -104,6 +103,11 @@ const { data: products } = await useAsyncData('products-list', () => fetchProduc
   flex-direction: column;
   gap: 1rem;
   pointer-events: none;
+  transition: transform 0.2s ease-out;
+}
+
+.product-link:hover .product-content {
+  transform: translateX(2rem);
 }
 
 .product-hover-dither {

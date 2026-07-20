@@ -84,12 +84,11 @@ const { data: logs } = await useAsyncData('writing-list', () => fetchWriting())
   text-decoration: none;
   font-family: 'VT323', monospace;
   font-size: 2rem;
-  transition: padding-left 0.2s ease-out;
   overflow: hidden;
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
 }
 
 .log-link:hover {
-  padding-left: 2rem;
   background-color: var(--fg-color);
   color: var(--bg-color);
 }
@@ -100,6 +99,11 @@ const { data: logs } = await useAsyncData('writing-list', () => fetchWriting())
   display: flex;
   gap: 2rem;
   pointer-events: none;
+  transition: transform 0.2s ease-out;
+}
+
+.log-link:hover .log-content {
+  transform: translateX(2rem);
 }
 
 .log-hover-dither {
