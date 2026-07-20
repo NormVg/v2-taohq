@@ -91,7 +91,7 @@
     <!-- PRINCIPLES / AXIOMS -->
     <BrutalistCard inverted padding="4rem" class="axioms-card">
       <div class="bento-grid">
-        <div class="bento-item highlight" v-sound.hover="{ type: 'wind', feel: 'ghost' }">
+        <div class="bento-item highlight" v-sound.hover="{ type: 'tick', feel: 'organic' }">
           <div class="item-header">
             <span class="axiom-num">AXIOM .01</span>
           </div>
@@ -99,7 +99,7 @@
           <p class="item-desc mt-2">Good infrastructure is invisible. Users should never think about authentication, syncing, storage, deployment, or internal architecture.</p>
         </div>
 
-        <div class="bento-item" v-sound.hover="{ type: 'wind', feel: 'ghost' }">
+        <div class="bento-item" v-sound.hover="{ type: 'tick', feel: 'organic' }">
           <div class="item-header">
             <span class="axiom-num">AXIOM .02</span>
           </div>
@@ -111,7 +111,7 @@
           <DitherImage :src="trangleSkullImg" :pixelSize="3" colorDark="#151515" colorLight="#c4b5e3" />
         </div>
 
-        <div class="bento-item" v-sound.hover="{ type: 'wind', feel: 'ghost' }">
+        <div class="bento-item" v-sound.hover="{ type: 'tick', feel: 'organic' }">
           <div class="item-header">
             <span class="axiom-num">AXIOM .03</span>
           </div>
@@ -119,7 +119,7 @@
           <p class="item-desc mt-2">Every product shares internal standards to ensure longevity and maintainability across the ecosystem.</p>
         </div>
 
-        <div class="bento-item highlight" v-sound.hover="{ type: 'wind', feel: 'ghost' }">
+        <div class="bento-item highlight" v-sound.hover="{ type: 'tick', feel: 'organic' }">
           <div class="item-header">
             <span class="axiom-num">AXIOM .04</span>
           </div>
@@ -144,7 +144,7 @@
 
     <div class="fixed-logo-wrapper">
       <div class="logo-inner-anim">
-        <a href="#" class="logo-hover-target" aria-label="TheAlphaOnes logo" @click.prevent v-sound.hover="{ type: 'wind', feel: 'ghost' }">
+        <a href="#" class="logo-hover-target" aria-label="TheAlphaOnes logo" @click.prevent v-sound.hover="{ type: 'tick', feel: 'organic' }">
           <img src="~/assets/logo.svg" alt="TAO Logo" class="flipping-logo" />
         </a>
       </div>

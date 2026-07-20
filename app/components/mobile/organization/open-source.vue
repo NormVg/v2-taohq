@@ -18,7 +18,7 @@
 
         <div class="repo-stack mt-8">
           <a href="https://github.com/NormVg/web-have-sound" target="_blank" class="repo-item-link" style="text-decoration: none; color: inherit; display: block;">
-            <div class="repo-card" v-sound.hover="{ type: 'wind', feel: 'ghost' }">
+            <div class="repo-card" v-sound.hover="{ type: 'tick', feel: 'organic' }">
               <div class="repo-meta">
                 <h2>WEB-HAVE-SOUNDS</h2>
                 <AnimatedSlashes :count="10" />

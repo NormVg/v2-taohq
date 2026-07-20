@@ -9,7 +9,7 @@
       <div class="mobile-section-content">
         <div class="assets-stack mt-4">
           
-          <div class="asset-card" v-sound.hover="{ type: 'wind', feel: 'ghost' }">
+          <div class="asset-card" v-sound.hover="{ type: 'tick', feel: 'organic' }">
             <div class="preview">
               <DitherImage :src="logoSvg" :pixelSize="1.0" colorLight="#151515" colorDark="#151515" />
             </div>
@@ -20,7 +20,7 @@
             </div>
           </div>
           
-          <div class="asset-card" v-sound.hover="{ type: 'wind', feel: 'ghost' }">
+          <div class="asset-card" v-sound.hover="{ type: 'tick', feel: 'organic' }">
             <div class="preview logo-text-preview">
               <span class="italiano-font">TheAlphaOnes</span>
             </div>
@@ -31,7 +31,7 @@
             </div>
           </div>
           
-          <div class="asset-card" v-sound.hover="{ type: 'wind', feel: 'ghost' }">
+          <div class="asset-card" v-sound.hover="{ type: 'tick', feel: 'organic' }">
             <div class="preview">
               <DitherImage :src="catImg" :pixelSize="3.0" />
             </div>
