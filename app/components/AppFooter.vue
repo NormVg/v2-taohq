@@ -38,7 +38,6 @@ const { isSoundEnabled, toggleSound } = useUISound()
         <div class="footer-col">
           <NuxtLink to="/organization/about" v-sound>About //</NuxtLink>
           <NuxtLink to="/organization/team" v-sound>Team //</NuxtLink>
-          <NuxtLink to="/organization/timeline" v-sound>Timeline //</NuxtLink>
           <NuxtLink to="/organization/infrastructure" v-sound>Systems //</NuxtLink>
           <NuxtLink to="/careers" v-sound>Careers //</NuxtLink>
         </div>

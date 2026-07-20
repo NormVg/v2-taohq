@@ -29,11 +29,8 @@ const { isSoundEnabled, toggleSound } = useUISound()
         <h3 class="footer-heading">FOUNDATION //</h3>
         <div class="footer-links">
           <NuxtLink to="/organization/about" v-sound>About</NuxtLink>
-          <NuxtLink to="/organization/philosophy" v-sound>Philosophy</NuxtLink>
-          <NuxtLink to="/organization/principles" v-sound>Principles</NuxtLink>
           <NuxtLink to="/organization/team" v-sound>Team</NuxtLink>
-          <NuxtLink to="/organization/timeline" v-sound>Timeline</NuxtLink>
-          <NuxtLink to="/organization/infrastructure" v-sound>Infrastructure</NuxtLink>
+          <NuxtLink to="/organization/infrastructure" v-sound>Systems</NuxtLink>
         </div>
       </div>
 
@@ -42,7 +39,6 @@ const { isSoundEnabled, toggleSound } = useUISound()
         <h3 class="footer-heading">SYSTEMS //</h3>
         <div class="footer-links">
           <NuxtLink to="/organization/design-language" v-sound>Design</NuxtLink>
-          <NuxtLink to="/organization/technology" v-sound>Technology</NuxtLink>
           <NuxtLink to="/organization/open-source" v-sound>Open Source</NuxtLink>
           <NuxtLink to="/organization/brand-assets" v-sound>Brand Assets</NuxtLink>
         </div>

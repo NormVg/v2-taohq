@@ -42,9 +42,8 @@ function closeMenu() {
         <div class="menu-divider"></div>
         
         <NuxtLink to="/organization/about" @click="closeMenu" v-sound>ABOUT //</NuxtLink>
-        <NuxtLink to="/organization/philosophy" @click="closeMenu" v-sound>PHILOSOPHY //</NuxtLink>
         <NuxtLink to="/organization/team" @click="closeMenu" v-sound>TEAM //</NuxtLink>
-        <NuxtLink to="/organization/timeline" @click="closeMenu" v-sound>TIMELINE //</NuxtLink>
+        <NuxtLink to="/organization/infrastructure" @click="closeMenu" v-sound>SYSTEMS //</NuxtLink>
       </nav>
       
       <div class="menu-footer">
