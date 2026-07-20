@@ -89,7 +89,7 @@
     </BrutalistCard>
 
     <!-- PRINCIPLES / AXIOMS -->
-    <BrutalistCard padding="4rem">
+    <BrutalistCard inverted padding="4rem">
       <div class="bento-grid">
         <div class="bento-item highlight">
           <div class="item-header">
@@ -108,7 +108,7 @@
         </div>
 
         <div class="fixed-visual">
-          <DitherImage :src="trangleSkullImg" :pixelSize="3" colorDark="#c4b5e3" colorLight="#151515" />
+          <DitherImage :src="trangleSkullImg" :pixelSize="3" colorDark="#151515" colorLight="#c4b5e3" />
         </div>
 
         <div class="bento-item">

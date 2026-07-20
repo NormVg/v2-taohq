@@ -71,7 +71,7 @@
     </section>
 
     <!-- PRINCIPLES / AXIOMS -->
-    <section class="mobile-section border-b-dashed">
+    <section class="mobile-section inverted-section border-b-dashed">
       <div class="mobile-section-content bento-stack">
         <div class="bento-item highlight">
           <div class="item-header">
@@ -90,7 +90,7 @@
         </div>
 
         <div class="visual-wrapper">
-          <DitherImage :src="trangleSkullImg" :pixelSize="3" colorDark="#c4b5e3" colorLight="#151515" />
+          <DitherImage :src="trangleSkullImg" :pixelSize="3" colorDark="#151515" colorLight="#c4b5e3" />
         </div>
 
         <div class="bento-item">
