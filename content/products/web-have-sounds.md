@@ -2,6 +2,7 @@
 title: "WEB-HAVE-SOUNDS"
 description: "A zero-dependency JavaScript library for generating UI sound effects through math. No audio files. No network requests."
 status: "OSS"
+homeImage: "skull-book.png"
 link: "https://github.com/NormVg/web-have-sound"
 ---
 

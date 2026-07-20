@@ -2,6 +2,7 @@
 title: "BUBBLES.MAIL"
 description: "An intelligent mail client from the Bubbles ecosystem. It reads your inbox so you don't have to."
 status: "IN DEVELOPMENT"
+homeImage: "skull-arrow.png"
 ---
 
 **We are building an intelligent mail client for people drowning in their own inboxes — one that takes the raw chaos of email and turns it into something you can actually act on.**

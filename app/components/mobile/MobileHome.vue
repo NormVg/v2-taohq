@@ -15,7 +15,14 @@ import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
 import { fetchProducts } from '~/utils/site-content'
 
 const { data: products } = await useAsyncData('mobile-home-products', () => fetchProducts())
-const images = [projImg1, projImg2, projImg3]
+
+const imageMap = {
+  'flower-moon.png': projImg1,
+  'skull-arrow.png': projImg2,
+  'skull-book.png': projImg3,
+  'pray-skull.png': projImg3,
+  'body-flower.png': projImg1
+}
 
 const f1Num = ref('[01]')
 const f2Num = ref('[02]')
@@ -132,7 +139,7 @@ const resetFeature2 = () => {
             v-hover-sound
           >
             <div class="proj-img-wrap">
-              <DitherImage :src="images[index % images.length]" :pixelSize="4" />
+              <DitherImage :src="imageMap[product.homeImage] || imageMap['flower-moon.png']" :pixelSize="4" />
             </div>
             <div class="proj-info">
               <div class="proj-id">ID: {{ String(index + 1).padStart(3, '0') }}</div>

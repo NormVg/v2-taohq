@@ -18,7 +18,7 @@
           <div class="ticker ticker-bottom">
             <div class="marquee alt-scroll"><span class="m-text">{{ tickerStrsBottom[index % 5] }}</span><span class="m-text">{{ tickerStrsBottom[index % 5] }}</span></div>
           </div>
-          <DitherImage :src="images[index % images.length]" class="card-img" />
+          <DitherImage :src="imageMap[product.homeImage] || imageMap['flower-moon.png']" class="card-img" />
         </NuxtLink>
       </div>
     </div>
@@ -56,7 +56,13 @@ import { fetchProducts } from '~/utils/site-content'
 
 const { data: products } = await useAsyncData('home-products', () => fetchProducts())
 
-const images = [flowerMoonImg, img2, crawlHandsImg, krakenImg, mayaImg]
+const imageMap = {
+  'flower-moon.png': flowerMoonImg,
+  'skull-arrow.png': img2,
+  'skull-book.png': crawlHandsImg,
+  'pray-skull.png': krakenImg,
+  'body-flower.png': mayaImg
+}
 
 const tickerStrsTop = [
   '110010101110010010101001100101010010110111',
