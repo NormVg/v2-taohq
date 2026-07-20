@@ -26,6 +26,8 @@ As strong believers in [Open Source](/organization/open-source), we've made this
 npm install @thenormvg/web-have-sounds
 ```
 
+You can view the package on [npm](https://www.npmjs.com/package/@thenormvg/web-have-sounds).
+
 **Usage:**
 ```javascript
 import { playUISound } from '@thenormvg/web-have-sounds';
@@ -36,4 +38,4 @@ document.querySelector('#submit-btn').addEventListener('click', () => {
 });
 ```
 
-Join the development and view the full documentation on [GitHub](https://github.com/NormVg/web-have-sound), or connect with us on [X (Twitter)](https://twitter.com/NormVg).
+Join the development and view the full documentation on [GitHub](https://github.com/NormVg/web-have-sound), or connect with us on [X (Twitter)](https://twitter.com/TheNormVg).

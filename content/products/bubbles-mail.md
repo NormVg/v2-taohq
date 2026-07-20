@@ -18,4 +18,4 @@ Bubbles.mail is our answer to the modern inbox. It marries the raw performance o
 - **Deep Work Focus**: Designed to let you batch process your communications effortlessly, allowing you to return to your actual work without friction.
 
 ## Our Philosophy
-We built this tool for ourselves first, heavily inspired by our [brutalist design philosophy](/organization/philosophy). It is unapologetically minimal, built to respect your time. Connect with us on [X (Twitter)](https://twitter.com/NormVg) to share your thoughts, or learn more about our vision on our [About Page](/organization/about).
+We built this tool for ourselves first, heavily inspired by our [brutalist design philosophy](/organization/philosophy). It is unapologetically minimal, built to respect your time. Connect with us on [X (Twitter)](https://twitter.com/TheNormVg) to share your thoughts, or learn more about our vision on our [About Page](/organization/about).
