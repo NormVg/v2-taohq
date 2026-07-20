@@ -141,6 +141,14 @@
         </div>
       </div>
     </BrutalistCard>
+
+    <div class="fixed-logo-wrapper">
+      <div class="logo-inner-anim">
+        <a href="#" class="logo-hover-target" aria-label="TheAlphaOnes logo" @click.prevent>
+          <img src="~/assets/logo.svg" alt="TAO Logo" class="flipping-logo" />
+        </a>
+      </div>
+    </div>
   </main>
 </template>
 
@@ -422,5 +430,61 @@ useSeoMeta({
   opacity: 0.8;
   margin-top: auto;
   padding-top: 2rem;
+}
+
+.fixed-logo-wrapper {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  z-index: 50;
+  pointer-events: none;
+  animation: float-complex 5.7s ease-in-out infinite alternate;
+}
+
+.logo-inner-anim {
+  animation: slight-tilt 7.1s ease-in-out infinite alternate;
+}
+
+.logo-hover-target {
+  display: block;
+  pointer-events: auto;
+  cursor: crosshair;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-hover-target:hover {
+  transform: scale(1.3) translateY(-10px);
+}
+
+.flipping-logo {
+  width: 60px;
+  height: auto;
+  animation: flip-y 4.3s linear infinite;
+  transform-style: preserve-3d;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 10px rgba(196, 181, 227, 0.5));
+  transition: all 0.4s ease;
+}
+
+.logo-hover-target:hover .flipping-logo {
+  opacity: 1;
+  filter: drop-shadow(0 0 20px rgba(196, 181, 227, 1)) drop-shadow(0 0 40px rgba(196, 181, 227, 0.6));
+  animation-duration: 0.6s;
+}
+
+@keyframes float-complex {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(5px); }
+}
+
+@keyframes flip-y {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+@keyframes slight-tilt {
+  0% { transform: rotateZ(-5deg) scale(1); }
+  100% { transform: rotateZ(5deg) scale(1.05); }
 }
 </style>
