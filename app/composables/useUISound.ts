@@ -1,9 +1,10 @@
-import { ref, watch, onMounted } from 'vue'
+import { ref, watch } from 'vue'
 import { playUISound as libPlaySound } from '@thenormvg/web-have-sounds'
 
 // Global state for sound preference
 const isSoundEnabled = ref(true)
 const isInitialized = ref(false)
+let audioUnlocked = false
 
 export function useUISound() {
   if (import.meta.client && !isInitialized.value) {
@@ -22,6 +23,7 @@ export function useUISound() {
 
     // Unlock AudioContext on first user interaction to allow hover sounds
     const unlockAudio = () => {
+      audioUnlocked = true
       // Play a silent sound to force AudioContext to resume
       libPlaySound('click', { gainMult: 0.001, decayMult: 0.01, filterFreq: 200, q: 1, pitchMult: 1, oscType: 'sine' })
       window.removeEventListener('click', unlockAudio)
@@ -45,8 +47,10 @@ export function useUISound() {
   }
 
   // Wrapper around the library's play function
-  const playSound = (type: any, feel: any = 'aero') => {
+  const playSound = (type: any, feel: any = 'aero', isHover = false) => {
     if (import.meta.client && isSoundEnabled.value) {
+      if (isHover && !audioUnlocked) return
+      if (!isHover) audioUnlocked = true
       libPlaySound(type, feel)
     }
   }
@@ -57,3 +61,4 @@ export function useUISound() {
     playSound
   }
 }
+

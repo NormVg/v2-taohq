@@ -20,9 +20,10 @@ export default defineNuxtPlugin((nuxtApp) => {
           }
         }
         
-        playSound(soundType, soundFeel)
+        playSound(soundType, soundFeel, false)
       })
     },
+    updated() {}, // Empty updated hook prevents Vue HMR errors
     getSSRProps() { return {} }
   })
 
@@ -42,9 +43,10 @@ export default defineNuxtPlugin((nuxtApp) => {
           }
         }
         
-        playSound(soundType, soundFeel)
+        playSound(soundType, soundFeel, true) // true indicates hover event
       })
     },
+    updated() {}, // Empty updated hook prevents Vue HMR errors
     getSSRProps() { return {} }
   })
 })
