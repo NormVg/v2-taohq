@@ -181,7 +181,6 @@ useSeoMeta({
   font-size: 1.05rem;
   line-height: 1.6;
   max-width: 100%;
-  text-transform: uppercase;
   color: rgba(196, 181, 227, 0.88);
   overflow-wrap: anywhere;
   word-break: break-word;

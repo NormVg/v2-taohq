@@ -2,7 +2,7 @@
 title: "WEB-HAVE-SOUNDS"
 description: "Zero-dependency, math-driven audio generation."
 status: "OSS"
-heroMedia: "~/assets/skull-book.png"
+heroMedia: "/images/skull-book.png"
 link: "https://github.com/NormVg/web-have-sound"
 ---
 

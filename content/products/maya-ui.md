@@ -2,7 +2,7 @@
 title: "MAYA UI"
 description: "Our brutalist design system for Vue and Nuxt."
 status: "DESIGN SYSTEM"
-heroMedia: "~/assets/body-flower.png"
+heroMedia: "/images/body-flower.png"
 ---
 
 The visual language of TheAlphaOnes.

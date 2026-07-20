@@ -12,6 +12,7 @@ export type SiteDoc = {
   heroMedia?: string
   date?: string
   author?: string
+  link?: string
   stem?: string
   meta?: Record<string, unknown>
   body?: unknown
@@ -56,6 +57,7 @@ export function normalizeSiteDoc(raw: Record<string, unknown> | null | undefined
     heroMedia: asString(raw.heroMedia) || asString(meta.heroMedia),
     date: asString(raw.date) || asString(meta.date),
     author: asString(raw.author) || asString(meta.author),
+    link: asString(raw.link) || asString(meta.link),
     meta,
   }
 }

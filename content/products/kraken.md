@@ -2,7 +2,7 @@
 title: "KRAKEN"
 description: "Our autonomous coding agent and internal editor."
 status: "INTERNAL"
-heroMedia: "~/assets/pray-skull.png"
+heroMedia: "/images/pray-skull.png"
 ---
 
 The engine behind our workflow.

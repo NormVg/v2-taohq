@@ -12,6 +12,7 @@ const pageSchema = z.object({
   heroMedia: z.string().optional(),
   date: z.string().optional(),
   author: z.string().optional(),
+  link: z.string().optional(),
 })
 
 export default defineContentConfig({

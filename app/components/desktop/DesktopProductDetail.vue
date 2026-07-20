@@ -190,7 +190,6 @@ useSeoMeta({
   font-size: 1.1rem;
   line-height: 2;
   max-width: 100%;
-  text-transform: uppercase;
   color: rgba(196, 181, 227, 0.8);
 }
 

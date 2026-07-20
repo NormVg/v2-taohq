@@ -2,7 +2,7 @@
 title: "BUBBLES.SPACE"
 description: "A persistent, multiplayer workspace powered by AI."
 status: "LIVE"
-heroMedia: "~/assets/flower-moon.png"
+heroMedia: "/images/flower-moon.png"
 ---
 
 One unified space for your team.

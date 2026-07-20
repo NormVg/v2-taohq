@@ -2,7 +2,7 @@
 title: "BUBBLES.MAIL"
 description: "An AI-accelerated macOS mail client."
 status: "LIVE"
-heroMedia: "~/assets/skull-arrow.png"
+heroMedia: "/images/skull-arrow.png"
 ---
 
 Cut through the noise.
