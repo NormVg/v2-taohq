@@ -1,6 +1,6 @@
 ---
 title: "KRAKEN"
-description: "Internal deployment and infrastructure management."
+description: "A coding agent and editor."
 status: "INTERNAL"
 heroMedia: "~/assets/pray-skull.png"
 ---

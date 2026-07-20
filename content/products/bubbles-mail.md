@@ -1,8 +1,8 @@
 ---
 title: "BUBBLES.MAIL"
-description: "Secure, encrypted email transmission."
+description: "An intelligent, minimalist, AI-powered email client for macOS."
 status: "LIVE"
 heroMedia: "~/assets/skull-arrow.png"
 ---
 
-Bubbles.mail handles secure digital transmission.
+Bubbles.mail is an intelligent, minimalist, AI-powered email client for macOS designed for high-signal communication.

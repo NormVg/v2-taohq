@@ -1,6 +1,6 @@
 ---
 title: "MAYA UI"
-description: "A brutalist design system and component library."
+description: "A polished Vue and Nuxt component library for expressive UI and Ux"
 status: "DESIGN SYSTEM"
 heroMedia: "~/assets/body-flower.png"
 ---

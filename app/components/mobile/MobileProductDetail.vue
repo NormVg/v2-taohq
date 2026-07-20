@@ -11,6 +11,7 @@
           <div class="meta">
             <span>STATUS // {{ page.status || 'ONLINE' }}</span>
             <span>VERSION // {{ page.version || '1.0.0' }}</span>
+            <a v-if="page.link" :href="page.link" target="_blank" rel="noopener noreferrer" class="link-out">GITHUB // OPEN -></a>
           </div>
         </template>
       </MobilePageHero>
@@ -125,6 +126,19 @@ useSeoMeta({
   opacity: 0.85;
   text-transform: uppercase;
   margin-top: 0.85rem;
+}
+
+.link-out {
+  color: var(--fg-color);
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 4px;
+}
+
+.link-out:hover {
+  background: var(--fg-color);
+  color: var(--bg-color);
+  text-decoration: none;
 }
 
 .hero {

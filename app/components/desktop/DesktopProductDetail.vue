@@ -11,6 +11,7 @@
           <div class="product-meta">
             <span>STATUS // {{ page.status || 'ONLINE' }}</span>
             <span>VERSION // {{ page.version || '1.0.0' }}</span>
+            <a v-if="page.link" :href="page.link" target="_blank" rel="noopener noreferrer" class="product-link-out">GITHUB // OPEN -></a>
           </div>
         </header>
 
@@ -134,6 +135,19 @@ useSeoMeta({
   font-family: 'VT323', monospace;
   font-size: 1.25rem;
   opacity: 0.8;
+}
+
+.product-link-out {
+  color: var(--bg-color);
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 4px;
+}
+
+.product-link-out:hover {
+  background-color: var(--bg-color);
+  color: var(--fg-color);
+  text-decoration: none;
 }
 
 .hero-media-container {
