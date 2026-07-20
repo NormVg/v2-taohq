@@ -92,7 +92,7 @@ function closeMenu() {
   top: 60px;
   left: 0;
   width: 100vw;
-  height: calc(100vh - 60px);
+  height: calc(100dvh - 60px);
   background-color: var(--bg-color);
   z-index: 999;
   display: flex;

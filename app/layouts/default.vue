@@ -55,13 +55,13 @@ watch(() => route.path, async () => {
 /* Mobile Layout */
 .mobile-layout-wrapper {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   background-color: var(--bg-color);
   padding-top: 60px; /* Account for sticky header */
   overflow-x: hidden; /* Prevent mobile zoom-out bug */
 }
 
 .mobile-main {
-  min-height: calc(100vh - 60px);
+  min-height: calc(100dvh - 60px);
 }
 </style>

@@ -16,6 +16,7 @@
           :key="article.path"
           :to="article.path"
           class="row"
+          v-sound
         >
           <div class="row-dither" aria-hidden="true">
             <DitherImage :src="hoverImage" :pixel-size="3.5" />
