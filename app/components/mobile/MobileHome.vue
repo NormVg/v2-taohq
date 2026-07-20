@@ -12,6 +12,10 @@ import dither3 from '~/assets/skull-break.png'
 
 import DitherImage from '~/components/DitherImage.vue'
 import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
+import { fetchProducts } from '~/utils/site-content'
+
+const { data: products } = await useAsyncData('mobile-home-products', () => fetchProducts())
+const images = [projImg1, projImg2, projImg3]
 
 const f1Num = ref('[01]')
 const f2Num = ref('[02]')
@@ -119,39 +123,21 @@ const resetFeature2 = () => {
         </div>
         
         <div class="projects-stack">
-          <!-- Proj 1 -->
-          <NuxtLink to="/products" class="proj-card">
+          <NuxtLink 
+            v-for="(product, index) in products"
+            :key="product.path"
+            :to="product.path" 
+            class="proj-card"
+            v-sound
+            v-hover-sound
+          >
             <div class="proj-img-wrap">
-              <DitherImage :src="projImg1" :pixelSize="4" />
+              <DitherImage :src="images[index % images.length]" :pixelSize="4" />
             </div>
             <div class="proj-info">
-              <div class="proj-id">ID: 001</div>
-              <h3 class="proj-name">TAO-CANVAS</h3>
-              <p class="proj-desc">DESKTOP-GRADE INFINITE CANVAS</p>
-            </div>
-          </NuxtLink>
-
-          <!-- Proj 2 -->
-          <NuxtLink to="/products" class="proj-card">
-            <div class="proj-img-wrap">
-              <DitherImage :src="projImg2" :pixelSize="4" />
-            </div>
-            <div class="proj-info">
-              <div class="proj-id">ID: 002</div>
-              <h3 class="proj-name">IDENT</h3>
-              <p class="proj-desc">ZERO-TRUST AUTHENTICATION</p>
-            </div>
-          </NuxtLink>
-
-          <!-- Proj 3 -->
-          <NuxtLink to="/products" class="proj-card">
-            <div class="proj-img-wrap">
-              <DitherImage :src="projImg3" :pixelSize="4" />
-            </div>
-            <div class="proj-info">
-              <div class="proj-id">ID: 003</div>
-              <h3 class="proj-name">BRUTAL-UI</h3>
-              <p class="proj-desc">COMPONENT ARCHITECTURE</p>
+              <div class="proj-id">ID: {{ String(index + 1).padStart(3, '0') }}</div>
+              <h3 class="proj-name">{{ product.title }}</h3>
+              <p class="proj-desc">{{ product.description || 'ACTIVE DEPLOYMENT' }}</p>
             </div>
           </NuxtLink>
         </div>

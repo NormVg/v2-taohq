@@ -2,51 +2,24 @@
   <BrutalistCard dashed class="section-4" padding="0">
     <div class="horizontal-scroll-container" ref="scrollContainer">
       <div class="scroll-wrapper">
-        <div class="scroll-item group" @mouseenter="activeProject = 'BUBBLES.SPACE // LIVE'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-hover-sound>
+        <NuxtLink 
+          v-for="(product, index) in products" 
+          :key="product.path"
+          :to="product.path"
+          class="scroll-item group" 
+          @mouseenter="activeProject = `${product.title} // ${product.status || 'LIVE'}`" 
+          @mouseleave="activeProject = 'SELECT ASSET // ---'" 
+          v-sound
+          v-hover-sound
+        >
           <div class="ticker ticker-top">
-            <div class="marquee"><span class="m-text">110010101110010010101001100101010010110111</span><span class="m-text">110010101110010010101001100101010010110111</span></div>
+            <div class="marquee"><span class="m-text">{{ tickerStrsTop[index % 5] }}</span><span class="m-text">{{ tickerStrsTop[index % 5] }}</span></div>
           </div>
           <div class="ticker ticker-bottom">
-            <div class="marquee alt-scroll"><span class="m-text">101101001010001011001010100101101010010</span><span class="m-text">101101001010001011001010100101101010010</span></div>
+            <div class="marquee alt-scroll"><span class="m-text">{{ tickerStrsBottom[index % 5] }}</span><span class="m-text">{{ tickerStrsBottom[index % 5] }}</span></div>
           </div>
-          <DitherImage :src="flowerMoonImg" class="card-img" />
-        </div>
-        <div class="scroll-item group" @mouseenter="activeProject = 'BUBBLES.MAIL // LIVE'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-hover-sound>
-          <div class="ticker ticker-top">
-            <div class="marquee"><span class="m-text">101010110100101010100100101010101001110101</span><span class="m-text">101010110100101010100100101010101001110101</span></div>
-          </div>
-          <div class="ticker ticker-bottom">
-            <div class="marquee alt-scroll"><span class="m-text">010010111010010100110101001011101001010</span><span class="m-text">010010111010010100110101001011101001010</span></div>
-          </div>
-          <DitherImage :src="img2" class="card-img" />
-        </div>
-        <div class="scroll-item group" @mouseenter="activeProject = 'WEB-HAVE-SOUNDS // OSS'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-hover-sound>
-          <div class="ticker ticker-top">
-            <div class="marquee"><span class="m-text">011010010101011101001010010110101011010101</span><span class="m-text">011010010101011101001010010110101011010101</span></div>
-          </div>
-          <div class="ticker ticker-bottom">
-            <div class="marquee alt-scroll"><span class="m-text">111010100010110100101010110100010101011</span><span class="m-text">111010100010110100101010110100010101011</span></div>
-          </div>
-          <DitherImage :src="crawlHandsImg" class="card-img" />
-        </div>
-        <div class="scroll-item group" @mouseenter="activeProject = 'KRAKEN // INTERNAL'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-hover-sound>
-          <div class="ticker ticker-top">
-            <div class="marquee"><span class="m-text">100110101110010010101001100101010010110100</span><span class="m-text">100110101110010010101001100101010010110100</span></div>
-          </div>
-          <div class="ticker ticker-bottom">
-            <div class="marquee alt-scroll"><span class="m-text">011010010101011101001010010110101011010101</span><span class="m-text">011010010101011101001010010110101011010101</span></div>
-          </div>
-          <DitherImage :src="krakenImg" class="card-img" />
-        </div>
-        <div class="scroll-item group" @mouseenter="activeProject = 'MAYA UI // DESIGN SYSTEM'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-hover-sound>
-          <div class="ticker ticker-top">
-            <div class="marquee"><span class="m-text">110010101110010010101001100101010010110111</span><span class="m-text">110010101110010010101001100101010010110111</span></div>
-          </div>
-          <div class="ticker ticker-bottom">
-            <div class="marquee alt-scroll"><span class="m-text">101010110100101010100100101010101001110101</span><span class="m-text">101010110100101010100100101010101001110101</span></div>
-          </div>
-          <DitherImage :src="mayaImg" class="card-img" />
-        </div>
+          <DitherImage :src="images[index % images.length]" class="card-img" />
+        </NuxtLink>
       </div>
     </div>
     <div class="bottom-bar">
@@ -79,6 +52,27 @@ import img2 from '~/assets/skull-arrow.png'
 import crawlHandsImg from '~/assets/skull-book.png'
 import krakenImg from '~/assets/pray-skull.png'
 import mayaImg from '~/assets/body-flower.png'
+import { fetchProducts } from '~/utils/site-content'
+
+const { data: products } = await useAsyncData('home-products', () => fetchProducts())
+
+const images = [flowerMoonImg, img2, crawlHandsImg, krakenImg, mayaImg]
+
+const tickerStrsTop = [
+  '110010101110010010101001100101010010110111',
+  '101010110100101010100100101010101001110101',
+  '011010010101011101001010010110101011010101',
+  '100110101110010010101001100101010010110100',
+  '110010101110010010101001100101010010110111'
+]
+
+const tickerStrsBottom = [
+  '101101001010001011001010100101101010010',
+  '010010111010010100110101001011101001010',
+  '111010100010110100101010110100010101011',
+  '011010010101011101001010010110101011010101',
+  '101010110100101010100100101010101001110101'
+]
 
 const scrollContainer = ref(null)
 
@@ -160,6 +154,7 @@ const scroll = (direction) => {
   padding: 0 4rem;
 }
 .scroll-item {
+  display: block;
   position: relative;
   height: 100%;
   aspect-ratio: 10/16;
@@ -168,6 +163,7 @@ const scroll = (direction) => {
   cursor: crosshair;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
 }
 
 .scroll-item:hover {
