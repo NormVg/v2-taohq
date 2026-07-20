@@ -10,8 +10,8 @@ const { isSoundEnabled, toggleSound } = useUISound()
   <BrutalistCard dashed class="app-footer">
     <div class="full-height-flex">
       
-      <div class="center-banner">
-        <div class="logo-hover-dither" v-sound="{ type: 'pop', feel: 'glass' }">
+      <div class="center-banner" v-sound="{ type: 'pop', feel: 'glass' }">
+        <div class="logo-hover-dither">
           <DitherImage :src="grimReaperImg" />
         </div>
         <div class="banner-inner">
