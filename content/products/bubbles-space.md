@@ -1,10 +1,15 @@
 ---
 title: "BUBBLES.SPACE"
-description: "A persistent AI workspace that's always open and in sync."
+description: "PERSISTENT AI WORKSPACE. MULTIPLAYER SYNCHRONIZATION."
 status: "LIVE"
 heroMedia: "~/assets/flower-moon.png"
 ---
 
-Stop managing apps. Open one space, stay there, and let AI help you get things done. Bubbles.space acts like a personal operating system powered by AI—your own Jarvis for work and life. 
+AUTONOMOUS OPERATING ENVIRONMENT.
 
-Features a spatial canvas, a dynamic widget ecosystem (graphs, mermaid, imagery, timers), and agentic AI workflows powered by the Eve Framework with realtime multiplayer synchronization via Ably.
+- SPATIAL CANVAS ARCHITECTURE.
+- DYNAMIC WIDGET ECOSYSTEM.
+- AGENTIC WORKFLOWS (EVE FRAMEWORK).
+- REALTIME STATE SYNC (ABLY PROTOCOL).
+
+ELIMINATE CONTEXT SWITCHING. DEPLOY ONE UNIFIED SPACE.

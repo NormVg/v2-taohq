@@ -1,8 +1,14 @@
 ---
 title: "BUBBLES.MAIL"
-description: "An intelligent, minimalist, AI-powered email client for macOS."
+description: "AI-ACCELERATED MACOS CLIENT. HIGH-SIGNAL TIER."
 status: "LIVE"
 heroMedia: "~/assets/skull-arrow.png"
 ---
 
-Bubbles.mail is an intelligent, minimalist, AI-powered email client for macOS designed for high-signal communication.
+HIGH-SIGNAL COMMUNICATION PROTOCOL.
+
+- ZERO LATENCY.
+- AI-DRIVEN TRIAGE.
+- NATIVE ARCHITECTURE.
+
+MAXIMUM THROUGHPUT. ZERO FRICTION.

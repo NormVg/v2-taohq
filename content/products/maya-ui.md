@@ -1,8 +1,14 @@
 ---
 title: "MAYA UI"
-description: "A polished Vue and Nuxt component library for expressive UI and Ux"
+description: "VUE & NUXT DESIGN SYSTEM. BRUTALIST PRIMITIVES."
 status: "DESIGN SYSTEM"
 heroMedia: "~/assets/body-flower.png"
 ---
 
-Maya UI defines the visual language of TheAlphaOnes.
+THE VISUAL LANGUAGE OF THEALPHAONES.
+
+- HIGH-PERFORMANCE COMPONENT ARCHITECTURE.
+- SEAMLESS NUXT INTEGRATION.
+- STRICT DESIGN PRIMITIVES.
+
+ENGINEERED FOR EXPRESSIVE, ZERO-FLUFF DEPLOYMENTS.

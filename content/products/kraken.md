@@ -1,8 +1,14 @@
 ---
 title: "KRAKEN"
-description: "A coding agent and editor."
+description: "AUTONOMOUS CODING AGENT. DEPLOYMENT EDITOR."
 status: "INTERNAL"
 heroMedia: "~/assets/pray-skull.png"
 ---
 
-Kraken powers our digital machinery behind the scenes.
+CORE DIGITAL INFRASTRUCTURE.
+
+- AUTOMATED CODE GENERATION.
+- INTERNAL SYSTEMS MANAGEMENT.
+- BACKGROUND EXECUTION.
+
+THE ENGINE POWERING THEALPHAONES LOGIC.
