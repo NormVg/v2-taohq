@@ -197,8 +197,8 @@ useSeoMeta({
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
 }
 .display-title {
   font-size: clamp(4rem, 10vw, 8rem);
