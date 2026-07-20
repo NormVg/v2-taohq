@@ -32,9 +32,6 @@ const { isSoundEnabled, toggleSound } = useUISound()
           <NuxtLink to="/studio" v-sound>Studio //</NuxtLink>
           <NuxtLink to="/products" v-sound>Products //</NuxtLink>
           <NuxtLink to="/writing" v-sound>Writing //</NuxtLink>
-          <NuxtLink to="/careers" v-sound>Careers //</NuxtLink>
-          <NuxtLink to="/contact" v-sound>Contact //</NuxtLink>
-          <NuxtLink to="/legal" v-sound>Legal //</NuxtLink>
         </div>
         
         <!-- Organization / Foundation -->
@@ -43,6 +40,7 @@ const { isSoundEnabled, toggleSound } = useUISound()
           <NuxtLink to="/organization/team" v-sound>Team //</NuxtLink>
           <NuxtLink to="/organization/timeline" v-sound>Timeline //</NuxtLink>
           <NuxtLink to="/organization/infrastructure" v-sound>Systems //</NuxtLink>
+          <NuxtLink to="/careers" v-sound>Careers //</NuxtLink>
         </div>
 
         <!-- Systems & Assets -->
@@ -50,13 +48,15 @@ const { isSoundEnabled, toggleSound } = useUISound()
           <NuxtLink to="/organization/design-language" v-sound>Design //</NuxtLink>
           <NuxtLink to="/organization/open-source" v-sound>Open Source //</NuxtLink>
           <NuxtLink to="/organization/brand-assets" v-sound>Brand Assets //</NuxtLink>
+          <NuxtLink to="/legal" v-sound>Legal //</NuxtLink>
         </div>
 
         <!-- External & Comms -->
         <div class="footer-col">
+          <NuxtLink to="/contact" v-sound>Contact //</NuxtLink>
+          <a href="mailto:hello@taohq.org" v-sound>Communicate //</a>
           <a href="https://github.com/TheAlphaOnes/" target="_blank" v-sound>GitHub //</a>
           <a href="https://x.com/TheNormVg" target="_blank" v-sound>X (Twitter) //</a>
-          <a href="mailto:hello@taohq.org" v-sound>Communicate //</a>
           
           <div class="sound-toggle-container mt-4">
             <button class="sound-toggle" @click="toggleSound" v-sound="'pop'">
