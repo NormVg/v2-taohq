@@ -19,6 +19,18 @@ export function useUISound() {
     }
     
     isInitialized.value = true
+
+    // Unlock AudioContext on first user interaction to allow hover sounds
+    const unlockAudio = () => {
+      // Play a silent sound to force AudioContext to resume
+      libPlaySound('click', { gainMult: 0.001, decayMult: 0.01, filterFreq: 200, q: 1, pitchMult: 1, oscType: 'sine' })
+      window.removeEventListener('click', unlockAudio)
+      window.removeEventListener('touchstart', unlockAudio)
+      window.removeEventListener('keydown', unlockAudio)
+    }
+    window.addEventListener('click', unlockAudio, { once: true })
+    window.addEventListener('touchstart', unlockAudio, { once: true })
+    window.addEventListener('keydown', unlockAudio, { once: true })
   }
 
   // Watch for changes to save to localStorage
