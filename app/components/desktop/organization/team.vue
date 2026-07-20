@@ -9,7 +9,7 @@
         <div class="right">
           <AnimatedSlashes :count="24" right />
           <p class="team-manifesto mt-8">
-            An aggregate of independent nodes, synchronized by a shared terminal. We do not have titles. We have functions.
+            We are a small, independent studio building tools for the modern web. We care about performance, clarity, and building software that respects your attention.
           </p>
         </div>
       </div>
@@ -28,7 +28,7 @@
           </div>
           <div class="bio-text mt-8">
             <p class="body-copy">
-              The singular operational node behind TAOHQ. Dictating system architecture, brutalist design enforcement, and full-stack deployment from a centralized terminal.
+              Founder and developer at TAOHQ. Building fast, reliable, and intentionally designed digital environments. Leading the vision and engineering of the Bubbles ecosystem.
             </p>
           </div>
         </div>
