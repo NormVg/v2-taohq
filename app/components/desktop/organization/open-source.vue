@@ -36,50 +36,22 @@ useSeoMeta({
       </div>
 
       <div class="repo-list mt-12">
-        <div class="repo-item">
-          <div class="repo-meta">
-            <h2>TAO-BRUTALIST-UI</h2>
-            <AnimatedSlashes :count="15" />
-          </div>
-          <div class="repo-desc">
-            <p>The exact Vue 3 component library powering this interface. Raw, unstyled DOM nodes with rigid geometric borders. Built for Nuxt 4.</p>
-            <div class="stats">
-              <span>★ 1,402</span>
-              <span>⑂ 340</span>
-              <span>v2.1.0</span>
+        <a href="https://github.com/NormVg/web-have-sound" target="_blank" class="repo-item-link" style="text-decoration: none; color: inherit; display: block;">
+          <div class="repo-item">
+            <div class="repo-meta">
+              <h2>WEB-HAVE-SOUNDS</h2>
+              <AnimatedSlashes :count="15" />
+            </div>
+            <div class="repo-desc">
+              <p>A zero-dependency JavaScript library for generating UI sound effects through math. No audio files. No network requests. Just the Web Audio API doing what it was always capable of, wrapped in a clean, minimal interface.</p>
+              <div class="stats">
+                <span>★ 0</span>
+                <span>⑂ 0</span>
+                <span>v1.0.0</span>
+              </div>
             </div>
           </div>
-        </div>
-        
-        <div class="repo-item">
-          <div class="repo-meta">
-            <h2>NITRO-EDGE-LOGGER</h2>
-            <AnimatedSlashes :count="15" />
-          </div>
-          <div class="repo-desc">
-            <p>Zero-latency telemetry ingestion for Nitro servers deployed on Cloudflare Workers. Flushes logs to Axiom without blocking the main thread.</p>
-            <div class="stats">
-              <span>★ 890</span>
-              <span>⑂ 120</span>
-              <span>v1.0.4</span>
-            </div>
-          </div>
-        </div>
-        
-        <div class="repo-item">
-          <div class="repo-meta">
-            <h2>BAYER-DITHER-WEBGL</h2>
-            <AnimatedSlashes :count="15" />
-          </div>
-          <div class="repo-desc">
-            <p>A highly optimized WebGL fragment shader for 4x4 ordered dithering. Used to enforce strict monochrome color palettes on dynamic images.</p>
-            <div class="stats">
-              <span>★ 2,105</span>
-              <span>⑂ 505</span>
-              <span>v3.0.1</span>
-            </div>
-          </div>
-        </div>
+        </a>
       </div>
     </BrutalistCard>
 
