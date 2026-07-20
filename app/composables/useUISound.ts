@@ -6,22 +6,20 @@ const isSoundEnabled = ref(true)
 const isInitialized = ref(false)
 
 export function useUISound() {
-  onMounted(() => {
-    if (!isInitialized.value) {
-      // Respect user's explicit preference first, fallback to system reduced motion preference
-      const storedPref = localStorage.getItem('tao-ui-sound-enabled')
-      
-      if (storedPref !== null) {
-        isSoundEnabled.value = storedPref === 'true'
-      } else {
-        // If no preference is set, check if the user prefers reduced motion (which often implies a desire for less sensory input)
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-        isSoundEnabled.value = !prefersReducedMotion
-      }
-      
-      isInitialized.value = true
+  if (import.meta.client && !isInitialized.value) {
+    // Respect user's explicit preference first, fallback to system reduced motion preference
+    const storedPref = localStorage.getItem('tao-ui-sound-enabled')
+    
+    if (storedPref !== null) {
+      isSoundEnabled.value = storedPref === 'true'
+    } else {
+      // If no preference is set, check if the user prefers reduced motion
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      isSoundEnabled.value = !prefersReducedMotion
     }
-  })
+    
+    isInitialized.value = true
+  }
 
   // Watch for changes to save to localStorage
   watch(isSoundEnabled, (newValue) => {
