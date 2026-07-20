@@ -6,19 +6,19 @@
       </NuxtLink>
       
       <nav class="nav-links">
-        <NuxtLink to="/products" class="nav-link" active-class="active" v-sound>
+        <NuxtLink to="/products" class="nav-link" active-class="active" v-sound v-hover-sound>
           [ PRODUCTS ]
         </NuxtLink>
-        <NuxtLink to="/organization/about" class="nav-link" active-class="active" v-sound>
+        <NuxtLink to="/organization/about" class="nav-link" active-class="active" v-sound v-hover-sound>
           [ ORG ]
         </NuxtLink>
-        <NuxtLink to="/writing" class="nav-link" active-class="active" v-sound>
+        <NuxtLink to="/writing" class="nav-link" active-class="active" v-sound v-hover-sound>
           [ WRITING ]
         </NuxtLink>
-        <NuxtLink to="/careers" class="nav-link" active-class="active" v-sound>
+        <NuxtLink to="/careers" class="nav-link" active-class="active" v-sound v-hover-sound>
           [ CAREERS ]
         </NuxtLink>
-        <NuxtLink to="/contact" class="nav-link" active-class="active" v-sound>
+        <NuxtLink to="/contact" class="nav-link" active-class="active" v-sound v-hover-sound>
           [ CONTACT ]
         </NuxtLink>
       </nav>

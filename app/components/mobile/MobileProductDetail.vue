@@ -11,7 +11,7 @@
           <div class="meta">
             <span>STATUS // {{ page.status || 'ONLINE' }}</span>
             <span>VERSION // {{ page.version || '1.0.0' }}</span>
-            <a v-if="page.link" :href="page.link" target="_blank" rel="noopener noreferrer" class="link-out">GITHUB // OPEN -></a>
+            <a v-if="page.link" :href="page.link" target="_blank" rel="noopener noreferrer" class="link-out" v-sound v-hover-sound>GITHUB // OPEN -></a>
           </div>
         </template>
       </MobilePageHero>

@@ -3,7 +3,7 @@
     <BrutalistCard dashed padding="4rem">
       <div class="header-split">
         <div class="left">
-          <NuxtLink to="/" class="back-link">&lt;&lt; RETURN</NuxtLink>
+          <NuxtLink to="/" class="back-link" v-sound v-hover-sound>&lt;&lt; RETURN</NuxtLink>
           <h1 class="display-title mt-8">TEAM // TAOHQ</h1>
         </div>
         <div class="right">
@@ -20,7 +20,7 @@
           <DitherImage :src="vishnuPlaceholderImg" :pixelSize="4" />
         </div>
         <div class="profile-data">
-          <div class="roster-row primary-node">
+          <div class="roster-row primary-node" v-hover-sound>
             <div class="col-id">001</div>
             <div class="col-name" style="font-size: 2rem;">VISHNU</div>
             <div class="col-role">FOUNDER // SOLE ARCHITECT</div>

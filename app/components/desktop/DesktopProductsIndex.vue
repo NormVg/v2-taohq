@@ -15,7 +15,7 @@
     <BrutalistCard padding="4rem">
       <div class="products-grid mt-8">
         <div v-for="product in products" :key="product.path" class="product-card">
-          <NuxtLink :to="product.path" class="product-link">
+          <NuxtLink :to="product.path" class="product-link" v-sound v-hover-sound>
             <div class="product-hover-dither">
               <DitherImage :src="hoverImage" class="hover-dither-img" />
             </div>
@@ -36,7 +36,7 @@
 
     <div class="fixed-logo-wrapper">
       <div class="logo-inner-anim">
-        <a href="#" class="logo-hover-target" aria-label="TheAlphaOnes logo" @click.prevent v-sound.hover="{ type: 'drop', feel: 'glass' }">
+        <a href="#" class="logo-hover-target" aria-label="TheAlphaOnes logo" @click.prevent v-hover-sound="{ type: 'drop', feel: 'glass' }">
           <img src="~/assets/logo.svg" alt="TAO Logo" class="flipping-logo" />
         </a>
       </div>

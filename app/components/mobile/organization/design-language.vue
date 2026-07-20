@@ -66,7 +66,7 @@
               <div class="interaction-card">
                 <h3>HOVER STATE</h3>
                 <p>Links and buttons invert colors or deploy dashed underlines.</p>
-                <button class="demo-btn mt-4">HOVER ME</button>
+                <button class="demo-btn mt-4" v-sound v-hover-sound>HOVER ME</button>
               </div>
               <div class="interaction-card">
                 <h3>ACTIVE STATE</h3>

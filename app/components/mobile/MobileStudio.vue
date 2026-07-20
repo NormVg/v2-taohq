@@ -33,7 +33,7 @@ import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
       <div class="mobile-section-content services-stack">
         
         <!-- Service 1: UI/UX -->
-        <div class="service-card group" v-sound.hover="{ type: 'tick', feel: 'organic' }">
+        <div class="service-card group" v-hover-sound>
           <div class="sc-corner sc-tl"></div>
           <div class="sc-corner sc-tr"></div>
           <div class="sc-corner sc-bl"></div>
@@ -60,7 +60,7 @@ import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
         </div>
 
         <!-- Service 2: ENGINEERING -->
-        <div class="service-card group" v-sound.hover="{ type: 'tick', feel: 'organic' }">
+        <div class="service-card group" v-hover-sound>
           <div class="sc-corner sc-tl"></div>
           <div class="sc-corner sc-tr"></div>
           <div class="sc-corner sc-bl"></div>
@@ -87,7 +87,7 @@ import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
         </div>
 
         <!-- Service 3: BRAND IDENTITY -->
-        <div class="service-card group" v-sound.hover="{ type: 'tick', feel: 'organic' }">
+        <div class="service-card group" v-hover-sound>
           <div class="sc-corner sc-tl"></div>
           <div class="sc-corner sc-tr"></div>
           <div class="sc-corner sc-bl"></div>

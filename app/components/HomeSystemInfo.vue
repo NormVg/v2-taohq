@@ -12,7 +12,7 @@
 
     <!-- Massive Interactive Directory -->
     <div class="directory-list">
-      <a href="mailto:hello@taohq.org" class="dir-row group" v-sound="'tick'">
+      <a href="mailto:hello@taohq.org" class="dir-row group" v-sound="'tick'" v-hover-sound>
         <div class="dir-bg-wipe"></div>
         <div class="hover-dither-bg">
           <DitherImage :src="img1" class="tiled-img align-center" />
@@ -29,7 +29,7 @@
         </div>
       </a>
 
-      <a href="https://x.com/TheNormVg" target="_blank" class="dir-row group" v-sound="'tick'">
+      <a href="https://x.com/TheNormVg" target="_blank" class="dir-row group" v-sound="'tick'" v-hover-sound>
         <div class="dir-bg-wipe"></div>
         <div class="hover-dither-bg">
           <DitherImage :src="img2" class="tiled-img" />
@@ -46,7 +46,7 @@
         </div>
       </a>
 
-      <a href="https://github.com/TheAlphaOnes/" target="_blank" class="dir-row group" v-sound="'tick'">
+      <a href="https://github.com/TheAlphaOnes/" target="_blank" class="dir-row group" v-sound="'tick'" v-hover-sound>
         <div class="dir-bg-wipe"></div>
         <div class="hover-dither-bg">
           <DitherImage :src="img3" class="tiled-img" />

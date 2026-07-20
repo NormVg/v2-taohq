@@ -35,15 +35,15 @@ onMounted(() => {
 
     <div class="bottom-nav">
       <div class="nav-links-row">
-        <NuxtLink to="/products" class="nav-link-brutal" v-sound>PRODUCTS</NuxtLink>
+        <NuxtLink to="/products" class="nav-link-brutal" v-sound v-hover-sound>PRODUCTS</NuxtLink>
         <span class="slash-separator">///</span>
-        <NuxtLink to="/organization/about" class="nav-link-brutal" v-sound>ORGANIZATION</NuxtLink>
+        <NuxtLink to="/organization/about" class="nav-link-brutal" v-sound v-hover-sound>ORGANIZATION</NuxtLink>
         <span class="slash-separator">///</span>
-        <NuxtLink to="/writing" class="nav-link-brutal" v-sound>WRITING</NuxtLink>
+        <NuxtLink to="/writing" class="nav-link-brutal" v-sound v-hover-sound>WRITING</NuxtLink>
         <span class="slash-separator">///</span>
-        <NuxtLink to="/careers" class="nav-link-brutal" v-sound>CAREERS</NuxtLink>
+        <NuxtLink to="/careers" class="nav-link-brutal" v-sound v-hover-sound>CAREERS</NuxtLink>
         <span class="slash-separator">///</span>
-        <NuxtLink to="/contact" class="nav-link-brutal" v-sound>CONTACT</NuxtLink>
+        <NuxtLink to="/contact" class="nav-link-brutal" v-sound v-hover-sound>CONTACT</NuxtLink>
       </div>
       <AnimatedSlashes :count="50" class="mt-2" />
     </div>

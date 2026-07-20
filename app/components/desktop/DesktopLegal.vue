@@ -30,10 +30,11 @@ useSeoMeta({
       <div class="legal-body">
         <div class="sidebar">
           <ul class="toc">
-            <li><a href="#section-1">01. TERMS OF USE</a></li>
-            <li><a href="#section-2">02. DATA RETENTION</a></li>
-            <li><a href="#section-3">03. LIABILITY</a></li>
-            <li><a href="#section-4">04. TERMINATION</a></li>
+            <li><a href="#welcome" v-sound v-hover-sound>00_WELCOME</a></li>
+            <li><a href="#telemetry" v-sound v-hover-sound>01_TELEMETRY</a></li>
+            <li><a href="#liability" v-sound v-hover-sound>02_LIABILITY</a></li>
+            <li><a href="#modifications" v-sound v-hover-sound>03_MODIFICATIONS</a></li>
+            <li><a href="#jurisdiction" v-sound v-hover-sound>04_JURISDICTION</a></li>
           </ul>
         </div>
         <div class="content">
@@ -62,7 +63,7 @@ useSeoMeta({
 
     <div class="fixed-logo-wrapper">
       <div class="logo-inner-anim">
-        <a href="#" class="logo-hover-target" aria-label="TheAlphaOnes logo" @click.prevent v-sound.hover="{ type: 'drop', feel: 'glass' }">
+        <a href="#" class="logo-hover-target" aria-label="TheAlphaOnes logo" @click.prevent v-hover-sound="{ type: 'drop', feel: 'glass' }">
           <img src="~/assets/logo.svg" alt="TAO Logo" class="flipping-logo" />
         </a>
       </div>

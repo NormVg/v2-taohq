@@ -3,7 +3,7 @@
     <!-- ABOUT HERO -->
     <BrutalistCard inverted dashed class="hero-section" padding="4rem">
       <div class="top-nav">
-        <NuxtLink to="/" class="back-link">&lt;&lt; RETURN</NuxtLink>
+        <NuxtLink to="/" class="back-link" v-sound v-hover-sound>&lt;&lt; RETURN</NuxtLink>
         <AnimatedSlashes :count="12" right />
       </div>
       
@@ -144,7 +144,7 @@
 
     <div class="fixed-logo-wrapper">
       <div class="logo-inner-anim">
-        <a href="#" class="logo-hover-target" aria-label="TheAlphaOnes logo" @click.prevent v-sound.hover="{ type: 'drop', feel: 'glass' }">
+        <a href="#" class="logo-hover-target" aria-label="TheAlphaOnes logo" @click.prevent v-hover-sound="{ type: 'drop', feel: 'glass' }">
           <img src="~/assets/logo.svg" alt="TAO Logo" class="flipping-logo" />
         </a>
       </div>

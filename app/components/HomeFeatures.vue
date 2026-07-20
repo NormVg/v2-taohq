@@ -1,7 +1,7 @@
 <template>
   <BrutalistCard inverted dashed class="section-features">
     <div class="features-grid">
-      <div class="grid-cell feature-cell" @mouseenter="triggerFeature1" @mouseleave="resetFeature1" v-sound.hover="{ type: 'tick', feel: 'organic' }">
+      <div class="grid-cell feature-cell" @mouseenter="triggerFeature1" @mouseleave="resetFeature1" v-hover-sound>
         <div class="dither-wipe-bg">
           <DitherImage :src="skull1Img" class="feature-dither" />
         </div>
@@ -16,7 +16,7 @@
         </div>
       </div>
       
-      <div class="grid-cell feature-cell" @mouseenter="triggerFeature2" @mouseleave="resetFeature2" v-sound.hover="{ type: 'tick', feel: 'organic' }">
+      <div class="grid-cell feature-cell" @mouseenter="triggerFeature2" @mouseleave="resetFeature2" v-hover-sound>
         <div class="dither-wipe-bg">
           <DitherImage :src="skull2Img" class="feature-dither" />
         </div>

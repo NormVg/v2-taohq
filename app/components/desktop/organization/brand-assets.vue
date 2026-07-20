@@ -37,7 +37,7 @@ useSeoMeta({
           <div class="details">
             <span class="label">PRIMARY MARK</span>
             <span class="desc">THE GEOMETRIC LOGO</span>
-            <a :href="logoSvg" class="download" download>DL SVG</a>
+            <a :href="logoSvg" class="download" download v-sound v-hover-sound>DL SVG</a>
           </div>
         </div>
         
@@ -59,7 +59,7 @@ useSeoMeta({
           <div class="details">
             <span class="label">MASCOT</span>
             <span class="desc">DITHERED FELINE</span>
-            <a :href="catImg" class="download" download>DL PNG</a>
+            <a :href="catImg" class="download" download v-sound v-hover-sound>DL PNG</a>
           </div>
         </div>
       </div>
@@ -89,7 +89,7 @@ useSeoMeta({
 
     <div class="fixed-logo-wrapper">
       <div class="logo-inner-anim">
-        <a href="#" class="logo-hover-target" aria-label="TheAlphaOnes logo" @click.prevent v-sound.hover="{ type: 'drop', feel: 'glass' }">
+        <a href="#" class="logo-hover-target" aria-label="TheAlphaOnes logo" @click.prevent v-hover-sound="{ type: 'drop', feel: 'glass' }">
           <img src="~/assets/logo.svg" alt="TAO Logo" class="flipping-logo" />
         </a>
       </div>

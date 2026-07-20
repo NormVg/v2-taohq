@@ -15,12 +15,12 @@ const { isSoundEnabled, toggleSound } = useUISound()
       <div class="footer-group">
         <h3 class="footer-heading">CORE //</h3>
         <div class="footer-links">
-          <NuxtLink to="/" v-sound>Home</NuxtLink>
-          <NuxtLink to="/studio" v-sound>Studio</NuxtLink>
-          <NuxtLink to="/products" v-sound>Products</NuxtLink>
-          <NuxtLink to="/writing" v-sound>Writing</NuxtLink>
-          <NuxtLink to="/careers" v-sound>Careers</NuxtLink>
-          <NuxtLink to="/contact" v-sound>Contact</NuxtLink>
+          <NuxtLink to="/" v-sound v-hover-sound>Home</NuxtLink>
+          <NuxtLink to="/studio" v-sound v-hover-sound>Studio</NuxtLink>
+          <NuxtLink to="/products" v-sound v-hover-sound>Products</NuxtLink>
+          <NuxtLink to="/writing" v-sound v-hover-sound>Writing</NuxtLink>
+          <NuxtLink to="/careers" v-sound v-hover-sound>Careers</NuxtLink>
+          <NuxtLink to="/contact" v-sound v-hover-sound>Contact</NuxtLink>
         </div>
       </div>
 
@@ -28,9 +28,9 @@ const { isSoundEnabled, toggleSound } = useUISound()
       <div class="footer-group">
         <h3 class="footer-heading">FOUNDATION //</h3>
         <div class="footer-links">
-          <NuxtLink to="/organization/about" v-sound>About</NuxtLink>
-          <NuxtLink to="/organization/team" v-sound>Team</NuxtLink>
-          <NuxtLink to="/organization/infrastructure" v-sound>Systems</NuxtLink>
+          <NuxtLink to="/organization/about" v-sound v-hover-sound>About</NuxtLink>
+          <NuxtLink to="/organization/team" v-sound v-hover-sound>Team</NuxtLink>
+          <NuxtLink to="/organization/infrastructure" v-sound v-hover-sound>Systems</NuxtLink>
         </div>
       </div>
 
@@ -38,9 +38,9 @@ const { isSoundEnabled, toggleSound } = useUISound()
       <div class="footer-group">
         <h3 class="footer-heading">SYSTEMS //</h3>
         <div class="footer-links">
-          <NuxtLink to="/organization/design-language" v-sound>Design</NuxtLink>
-          <NuxtLink to="/organization/open-source" v-sound>Open Source</NuxtLink>
-          <NuxtLink to="/organization/brand-assets" v-sound>Brand Assets</NuxtLink>
+          <NuxtLink to="/organization/design-language" v-sound v-hover-sound>Design</NuxtLink>
+          <NuxtLink to="/organization/open-source" v-sound v-hover-sound>Open Source</NuxtLink>
+          <NuxtLink to="/organization/brand-assets" v-sound v-hover-sound>Brand Assets</NuxtLink>
         </div>
       </div>
       
@@ -48,10 +48,10 @@ const { isSoundEnabled, toggleSound } = useUISound()
       <div class="footer-group">
         <h3 class="footer-heading">CONNECT //</h3>
         <div class="footer-links">
-          <a href="https://github.com/TheAlphaOnes/" target="_blank" v-sound>GitHub</a>
-          <a href="https://x.com/TheNormVg" target="_blank" v-sound>X (Twitter)</a>
-          <a href="mailto:hello@taohq.org" v-sound>Communicate</a>
-          <button class="sound-toggle mt-2" @click="toggleSound" v-sound="'pop'">
+          <a href="https://github.com/TheAlphaOnes/" target="_blank" v-sound v-hover-sound>GitHub</a>
+          <a href="https://x.com/TheNormVg" target="_blank" v-sound v-hover-sound>X (Twitter)</a>
+          <a href="mailto:hello@taohq.org" v-sound v-hover-sound>Communicate</a>
+          <button class="sound-toggle mt-2" @click="toggleSound" v-sound v-hover-sound="'pop'">
             Sound: {{ isSoundEnabled ? 'ON' : 'OFF' }}
           </button>
         </div>

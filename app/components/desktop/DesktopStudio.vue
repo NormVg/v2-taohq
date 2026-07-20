@@ -29,7 +29,7 @@
       <div class="services-grid">
         
         <!-- Service 1: UI/UX -->
-        <div class="service-card group" v-sound.hover="{ type: 'tick', feel: 'organic' }">
+        <div class="service-card group" v-hover-sound>
           <!-- corner squares sit outside service-inner overflow -->
           <div class="sc-corner sc-tl"></div>
           <div class="sc-corner sc-tr"></div>
@@ -57,7 +57,7 @@
         </div>
 
         <!-- Service 2: ENGINEERING -->
-        <div class="service-card group" v-sound.hover="{ type: 'tick', feel: 'organic' }">
+        <div class="service-card group" v-hover-sound>
           <div class="sc-corner sc-tl"></div>
           <div class="sc-corner sc-tr"></div>
           <div class="sc-corner sc-bl"></div>
@@ -84,7 +84,7 @@
         </div>
 
         <!-- Service 3: BRAND IDENTITY -->
-        <div class="service-card group" v-sound.hover="{ type: 'tick', feel: 'organic' }">
+        <div class="service-card group" v-hover-sound>
           <div class="sc-corner sc-tl"></div>
           <div class="sc-corner sc-tr"></div>
           <div class="sc-corner sc-bl"></div>
@@ -151,7 +151,7 @@
     <!-- Global Spinning Logo -->
     <div class="fixed-logo-wrapper">
       <div class="logo-inner-anim">
-        <a href="#" class="logo-hover-target" aria-label="TheAlphaOnes logo" @click.prevent v-sound.hover="{ type: 'drop', feel: 'glass' }">
+        <a href="#" class="logo-hover-target" aria-label="TheAlphaOnes logo" @click.prevent v-hover-sound="{ type: 'drop', feel: 'glass' }">
           <img src="~/assets/logo.svg" alt="TAO Logo" class="flipping-logo" />
         </a>
       </div>

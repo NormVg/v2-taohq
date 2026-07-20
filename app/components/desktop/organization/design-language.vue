@@ -86,13 +86,13 @@ useSeoMeta({
             <div class="interaction-card">
               <h3>HOVER STATE</h3>
               <p>Links and buttons invert colors or deploy dashed underlines. Backgrounds wipe in via scale transforms.</p>
-              <button class="demo-btn mt-4">HOVER ME</button>
+              <button class="demo-btn mt-4" v-sound v-hover-sound>HOVER ME</button>
             </div>
             <div class="interaction-card">
               <h3>ACTIVE STATE</h3>
               <p>All clickable geometry physically depresses. `transform: scale(0.96)` creates a tactile, hardware-like button press.</p>
             </div>
-            <div class="interaction-card dither-card">
+            <div class="interaction-card dither-card" v-hover-sound>
               <div class="dither-bg">
                 <DitherImage :src="catImg" :pixelSize="3.0" />
               </div>
@@ -109,7 +109,7 @@ useSeoMeta({
 
     <div class="fixed-logo-wrapper">
       <div class="logo-inner-anim">
-        <a href="#" class="logo-hover-target" aria-label="TheAlphaOnes logo" @click.prevent v-sound.hover="{ type: 'drop', feel: 'glass' }">
+        <a href="#" class="logo-hover-target" aria-label="TheAlphaOnes logo" @click.prevent v-hover-sound="{ type: 'drop', feel: 'glass' }">
           <img src="~/assets/logo.svg" alt="TAO Logo" class="flipping-logo" />
         </a>
       </div>

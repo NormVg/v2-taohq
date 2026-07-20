@@ -2,7 +2,7 @@
   <BrutalistCard dashed class="section-4" padding="0">
     <div class="horizontal-scroll-container" ref="scrollContainer">
       <div class="scroll-wrapper">
-        <div class="scroll-item group" @mouseenter="activeProject = 'BUBBLES.SPACE // LIVE'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-sound.hover="{ type: 'tick', feel: 'organic' }">
+        <div class="scroll-item group" @mouseenter="activeProject = 'BUBBLES.SPACE // LIVE'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-hover-sound>
           <div class="ticker ticker-top">
             <div class="marquee"><span class="m-text">110010101110010010101001100101010010110111</span><span class="m-text">110010101110010010101001100101010010110111</span></div>
           </div>
@@ -11,7 +11,7 @@
           </div>
           <DitherImage :src="flowerMoonImg" class="card-img" />
         </div>
-        <div class="scroll-item group" @mouseenter="activeProject = 'BUBBLES.MAIL // LIVE'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-sound.hover="{ type: 'tick', feel: 'organic' }">
+        <div class="scroll-item group" @mouseenter="activeProject = 'BUBBLES.MAIL // LIVE'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-hover-sound>
           <div class="ticker ticker-top">
             <div class="marquee"><span class="m-text">101010110100101010100100101010101001110101</span><span class="m-text">101010110100101010100100101010101001110101</span></div>
           </div>
@@ -20,7 +20,7 @@
           </div>
           <DitherImage :src="img2" class="card-img" />
         </div>
-        <div class="scroll-item group" @mouseenter="activeProject = 'WEB-HAVE-SOUNDS // OSS'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-sound.hover="{ type: 'tick', feel: 'organic' }">
+        <div class="scroll-item group" @mouseenter="activeProject = 'WEB-HAVE-SOUNDS // OSS'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-hover-sound>
           <div class="ticker ticker-top">
             <div class="marquee"><span class="m-text">011010010101011101001010010110101011010101</span><span class="m-text">011010010101011101001010010110101011010101</span></div>
           </div>
@@ -29,7 +29,7 @@
           </div>
           <DitherImage :src="crawlHandsImg" class="card-img" />
         </div>
-        <div class="scroll-item group" @mouseenter="activeProject = 'KRAKEN // INTERNAL'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-sound.hover="{ type: 'tick', feel: 'organic' }">
+        <div class="scroll-item group" @mouseenter="activeProject = 'KRAKEN // INTERNAL'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-hover-sound>
           <div class="ticker ticker-top">
             <div class="marquee"><span class="m-text">100110101110010010101001100101010010110100</span><span class="m-text">100110101110010010101001100101010010110100</span></div>
           </div>
@@ -38,7 +38,7 @@
           </div>
           <DitherImage :src="krakenImg" class="card-img" />
         </div>
-        <div class="scroll-item group" @mouseenter="activeProject = 'MAYA UI // DESIGN SYSTEM'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-sound.hover="{ type: 'tick', feel: 'organic' }">
+        <div class="scroll-item group" @mouseenter="activeProject = 'MAYA UI // DESIGN SYSTEM'" @mouseleave="activeProject = 'SELECT ASSET // ---'" v-hover-sound>
           <div class="ticker ticker-top">
             <div class="marquee"><span class="m-text">110010101110010010101001100101010010110111</span><span class="m-text">110010101110010010101001100101010010110111</span></div>
           </div>

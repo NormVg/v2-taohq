@@ -4,40 +4,47 @@ import { useUISound } from '~/composables/useUISound'
 export default defineNuxtPlugin((nuxtApp) => {
   const { playSound } = useUISound()
 
-  // v-sound Directive
-  // Usage: v-sound="'click'" or v-sound="{ type: 'pop', feel: 'glass' }"
+  // v-sound Directive (Defaults to click)
   nuxtApp.vueApp.directive('sound', {
     mounted(el, binding) {
-      const attachSound = (event) => {
-        el.addEventListener(event, () => {
-          let soundType = event === 'mouseenter' ? 'tick' : 'click'
-          let soundFeel = 'aero'
-          
-          if (binding.value) {
-            if (typeof binding.value === 'string') {
-              soundType = binding.value
-            } else if (typeof binding.value === 'object') {
-              soundType = binding.value.type || soundType
-              soundFeel = binding.value.feel || 'aero'
-            }
+      el.addEventListener('click', () => {
+        let soundType = 'click'
+        let soundFeel = 'aero'
+        
+        if (binding.value) {
+          if (typeof binding.value === 'string') {
+            soundType = binding.value
+          } else if (typeof binding.value === 'object') {
+            soundType = binding.value.type || soundType
+            soundFeel = binding.value.feel || 'aero'
           }
-          
-          playSound(soundType, soundFeel)
-        })
-      }
-
-      // Default to click if no modifiers provided, or if .click is explicitly used
-      if (binding.modifiers.click || Object.keys(binding.modifiers).length === 0) {
-        attachSound('click')
-      }
-      
-      // Support .hover modifier
-      if (binding.modifiers.hover) {
-        attachSound('mouseenter')
-      }
+        }
+        
+        playSound(soundType, soundFeel)
+      })
     },
-    getSSRProps() {
-      return {} // Return empty object to prevent SSR crash
-    }
+    getSSRProps() { return {} }
+  })
+
+  // v-hover-sound Directive (For mouseenter)
+  nuxtApp.vueApp.directive('hover-sound', {
+    mounted(el, binding) {
+      el.addEventListener('mouseenter', () => {
+        let soundType = 'pop'
+        let soundFeel = 'minimal'
+        
+        if (binding.value) {
+          if (typeof binding.value === 'string') {
+            soundType = binding.value
+          } else if (typeof binding.value === 'object') {
+            soundType = binding.value.type || soundType
+            soundFeel = binding.value.feel || soundFeel
+          }
+        }
+        
+        playSound(soundType, soundFeel)
+      })
+    },
+    getSSRProps() { return {} }
   })
 })

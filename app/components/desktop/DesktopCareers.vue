@@ -40,25 +40,25 @@ useSeoMeta({
        </div>
        <div class="roles-grid">
          
-         <div class="role-card inverted-role">
+         <div class="role-card inverted-role" v-hover-sound>
            <div class="role-meta">LEADERSHIP /// REMOTE</div>
            <h3>FOUNDING MEMBER (BUSINESS)</h3>
            <p>Shape the operational and business trajectory of TAOHQ. We have the engineering; we need the strategic mind to scale the organization without compromising the philosophy.</p>
-           <a href="mailto:hello@tao.hq?subject=Founding Member Application" class="brutal-btn">TRANSMIT DOSSIER</a>
+           <a href="mailto:hello@tao.hq?subject=Founding Member Application" class="brutal-btn" v-sound v-hover-sound>TRANSMIT DOSSIER</a>
          </div>
 
-         <div class="role-card">
+         <div class="role-card" v-hover-sound>
            <div class="role-meta">CONTENT /// REMOTE</div>
            <h3>CONTENT STRATEGIST</h3>
            <p>You write like a technical architect. No marketing fluff. No buzzwords. You will document our research, philosophies, and product launches with clarity and authority.</p>
-           <a href="mailto:hello@tao.hq?subject=Content Strategist Application" class="brutal-btn">TRANSMIT DOSSIER</a>
+           <a href="mailto:hello@tao.hq?subject=Content Strategist Application" class="brutal-btn" v-sound v-hover-sound>TRANSMIT DOSSIER</a>
          </div>
 
-         <div class="role-card">
+         <div class="role-card" v-hover-sound>
            <div class="role-meta">COMMUNITY /// REMOTE</div>
            <h3>EVANGELIST</h3>
            <p>Bridge the gap between our infrastructure and the public domain. Build a community of engineers and designers who resonate with digital asceticism.</p>
-           <a href="mailto:hello@tao.hq?subject=Evangelist Application" class="brutal-btn">TRANSMIT DOSSIER</a>
+           <a href="mailto:hello@tao.hq?subject=Evangelist Application" class="brutal-btn" v-sound v-hover-sound>TRANSMIT DOSSIER</a>
          </div>
          
       </div>
