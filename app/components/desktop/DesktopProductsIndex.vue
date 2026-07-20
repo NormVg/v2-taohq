@@ -74,6 +74,8 @@ const { data: products } = await useAsyncData('products-list', () => fetchProduc
 
 .product-card {
   border-top: 2px dashed var(--fg-color);
+  /* Isolate hover interactions from triggering scroll-snap recalculations */
+  contain: layout style;
 }
 
 .product-card:last-child {

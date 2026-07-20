@@ -69,6 +69,8 @@ const { data: logs } = await useAsyncData('writing-list', () => fetchWriting())
 
 .log-entry {
   border-top: 2px dashed var(--fg-color);
+  /* Isolate hover interactions from triggering scroll-snap recalculations */
+  contain: layout style;
 }
 
 .log-entry:last-child {
