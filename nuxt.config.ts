@@ -82,7 +82,6 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-        { rel: 'canonical', href: SITE_URL },
         { rel: 'alternate', type: 'application/rss+xml', title: `${SITE_NAME} Writing`, href: `${SITE_URL}/writing` },
         // AI / LLM discovery
         { rel: 'describedby', href: `${SITE_URL}/llms.txt`, type: 'text/plain', title: 'llms.txt' },

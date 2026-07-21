@@ -7,7 +7,19 @@
 </template>
 
 <script setup>
-// Global meta is set in nuxt.config.ts app.head — no module-specific composables needed.
+import { useRoute, useRuntimeConfig, useHead } from '#imports'
+
+const route = useRoute()
+const config = useRuntimeConfig()
+
+useHead(() => ({
+  link: [
+    {
+      rel: 'canonical',
+      href: `${config.public.siteUrl}${route.path}`
+    }
+  ]
+}))
 </script>
 
 <style>
