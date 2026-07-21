@@ -207,7 +207,8 @@ useHead({
 
 .stats-box {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   gap: 2rem;
   border-top: 2px dashed var(--fg-color);
   padding-top: 1.5rem;
