@@ -23,7 +23,7 @@ export default defineNuxtConfig({
         lang: 'en',
       },
       title: SITE_NAME,
-      titleTemplate: (title) => title === SITE_NAME ? `${SITE_NAME} — Digital Infrastructure & Software Design` : `${title} | ${SITE_NAME}`,
+      titleTemplate: (title) => title === SITE_NAME ? `${SITE_NAME} — Independent Software Organization` : `${title} | ${SITE_NAME}`,
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
