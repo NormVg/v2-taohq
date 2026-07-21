@@ -1,10 +1,21 @@
 <script setup>
+import { watch, nextTick } from 'vue'
 import { useDevice } from '#imports'
 import MobileNav from '~/components/mobile/MobileNav.vue'
 import MobileFooter from '~/components/mobile/MobileFooter.vue'
 import AppFooter from '~/components/AppFooter.vue'
 
 const { isMobile } = useDevice()
+const route = useRoute()
+
+watch(() => route.path, async () => {
+  await nextTick()
+  if (isMobile) {
+    window.scrollTo(0, 0)
+  } else {
+    window.scrollTo(0, 0)
+  }
+})
 </script>
 
 <template>

@@ -11,11 +11,13 @@ const route = useRoute()
 const layoutWrapper = ref(null)
 
 watch(() => route.path, async () => {
+  await nextTick()
   if (!isMobile) {
-    await nextTick()
     if (layoutWrapper.value) {
       layoutWrapper.value.scrollTop = 0
     }
+  } else {
+    window.scrollTo(0, 0)
   }
 })
 </script>
