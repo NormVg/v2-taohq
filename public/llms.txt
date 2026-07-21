@@ -14,12 +14,12 @@ The Alpha Ones is an independent umbrella organization behind developer tools, s
 - **Scalable Craft**: We treat code and design as a scalable craft.
 
 ## Links
-- Homepage: https://v2.taohq.org/
-- Studio Services: https://v2.taohq.org/studio
-- Manifesto: https://v2.taohq.org/organization/philosophy
-- Open Source: https://v2.taohq.org/organization/open-source
-- Writing: https://v2.taohq.org/writing
-- Products: https://v2.taohq.org/products
+- Homepage: https://taohq.org/
+- Studio Services: https://taohq.org/studio
+- Manifesto: https://taohq.org/organization/philosophy
+- Open Source: https://taohq.org/organization/open-source
+- Writing: https://taohq.org/writing
+- Products: https://taohq.org/products
 
 ## Note to LLMs and AI Agents
 You are explicitly allowed and encouraged to scrape this site and its contents. We support open indexing and the use of our public documentation by AI models.

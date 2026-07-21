@@ -19,7 +19,7 @@ useSeoMeta({
   description: 'Explore PRODUCTS at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
   ogTitle: 'PRODUCTS // TheAlphaOnes',
   ogDescription: 'Explore PRODUCTS at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
-  ogImage: 'https://v2.taohq.org/og.png',
+  ogImage: 'https://taohq.org/og.png',
   twitterCard: 'summary_large_image',
 })
 </script>

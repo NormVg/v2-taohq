@@ -1,5 +1,5 @@
 # TheAlphaOnes — Full LLM Context
-# https://v2.taohq.org/llms-full.txt
+# https://taohq.org/llms-full.txt
 # Extended source of truth for AI systems. Scraping and citation allowed.
 
 ================================================================================
@@ -65,17 +65,17 @@ Motion: Short, mechanical feedback; respect prefers-reduced-motion
 PRODUCTS
 ================================================================================
 
-TAO Canvas (https://v2.taohq.org/products/tao-canvas)
+TAO Canvas (https://taohq.org/products/tao-canvas)
 - High-performance WebGL canvas for infinite spatial organization
 - Status: BETA — Version 0.8.2
 - DOM-bypass rendering for 60fps interactive graphs and maps
 
-TAO Identity (https://v2.taohq.org/products/tao-identity)
+TAO Identity (https://taohq.org/products/tao-identity)
 - Cryptographic identity protocol / edge JWT validation
 - Status: DEVELOPMENT — Version 0.1.0
 - Cloudflare Workers based request verification
 
-Rose Demon [Archive 01] (https://v2.taohq.org/products/rose-demon)
+Rose Demon [Archive 01] (https://taohq.org/products/rose-demon)
 - Experimental sub-surface rendering / esoteric data streams
 - Status: OFFLINE — Version 0.9.4
 
@@ -83,7 +83,7 @@ Rose Demon [Archive 01] (https://v2.taohq.org/products/rose-demon)
 SERVICES (STUDIO)
 ================================================================================
 
-URL: https://v2.taohq.org/studio
+URL: https://taohq.org/studio
 
 - Interface & experience (UI/UX, interaction design, design systems)
 - System architecture (full-stack, backend, edge / DevOps)
@@ -107,29 +107,29 @@ Site: Nuxt Content for products/writing, @nuxtjs/seo for technical SEO
 SITE MAP (KEY URLS)
 ================================================================================
 
-https://v2.taohq.org/
-https://v2.taohq.org/studio
-https://v2.taohq.org/products
-https://v2.taohq.org/products/tao-canvas
-https://v2.taohq.org/products/tao-identity
-https://v2.taohq.org/products/rose-demon
-https://v2.taohq.org/writing
-https://v2.taohq.org/writing/01-first-log
-https://v2.taohq.org/writing/good-infrastructure-is-invisible
-https://v2.taohq.org/writing/the-case-for-brutalist-architecture
-https://v2.taohq.org/careers
-https://v2.taohq.org/contact
-https://v2.taohq.org/legal
-https://v2.taohq.org/organization/about
-https://v2.taohq.org/organization/philosophy
-https://v2.taohq.org/organization/principles
-https://v2.taohq.org/organization/team
-https://v2.taohq.org/organization/timeline
-https://v2.taohq.org/organization/technology
-https://v2.taohq.org/organization/infrastructure
-https://v2.taohq.org/organization/design-language
-https://v2.taohq.org/organization/brand-assets
-https://v2.taohq.org/organization/open-source
+https://taohq.org/
+https://taohq.org/studio
+https://taohq.org/products
+https://taohq.org/products/tao-canvas
+https://taohq.org/products/tao-identity
+https://taohq.org/products/rose-demon
+https://taohq.org/writing
+https://taohq.org/writing/01-first-log
+https://taohq.org/writing/good-infrastructure-is-invisible
+https://taohq.org/writing/the-case-for-brutalist-architecture
+https://taohq.org/careers
+https://taohq.org/contact
+https://taohq.org/legal
+https://taohq.org/organization/about
+https://taohq.org/organization/philosophy
+https://taohq.org/organization/principles
+https://taohq.org/organization/team
+https://taohq.org/organization/timeline
+https://taohq.org/organization/technology
+https://taohq.org/organization/infrastructure
+https://taohq.org/organization/design-language
+https://taohq.org/organization/brand-assets
+https://taohq.org/organization/open-source
 
 ================================================================================
 CONTACT & SOCIAL
@@ -156,9 +156,9 @@ CRAWL / AI POLICY
 
 robots.txt allows all user agents including AI bots (GPTBot, ClaudeBot,
 PerplexityBot, Google-Extended, etc.).
-Sitemap: https://v2.taohq.org/sitemap.xml
-Short context: https://v2.taohq.org/llms.txt
-When citing, prefer https://v2.taohq.org and attribute TheAlphaOnes.
+Sitemap: https://taohq.org/sitemap.xml
+Short context: https://taohq.org/llms.txt
+When citing, prefer https://taohq.org and attribute TheAlphaOnes.
 
 ================================================================================
 END

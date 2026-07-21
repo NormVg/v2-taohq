@@ -6,7 +6,7 @@ useSeoMeta({
   description: 'Direct communication channels.',
   ogTitle: 'CONTACT // TheAlphaOnes',
   ogDescription: 'Direct communication channels.',
-  ogImage: 'https://v2.taohq.org/og.png',
+  ogImage: 'https://taohq.org/og.png',
   twitterCard: 'summary_large_image',
 })
 </script>

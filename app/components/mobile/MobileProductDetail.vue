@@ -91,7 +91,7 @@ useSeoMeta({
   description: () => page.value?.description || 'TheAlphaOnes product deployment.',
   ogTitle: () => (page.value?.title ? `${page.value.title} // TheAlphaOnes` : 'PRODUCT // TheAlphaOnes'),
   ogDescription: () => page.value?.description || 'TheAlphaOnes product deployment.',
-  ogImage: 'https://v2.taohq.org/og.png',
+  ogImage: 'https://taohq.org/og.png',
   twitterCard: 'summary_large_image',
 })
 </script>

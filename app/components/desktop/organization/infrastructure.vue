@@ -6,7 +6,7 @@ useSeoMeta({
   description: 'Explore SYSTEMS at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
   ogTitle: 'SYSTEMS // TheAlphaOnes',
   ogDescription: 'Explore SYSTEMS at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
-  ogImage: 'https://v2.taohq.org/og.png',
+  ogImage: 'https://taohq.org/og.png',
   twitterCard: 'summary_large_image',
 })
 </script>

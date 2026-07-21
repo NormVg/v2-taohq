@@ -170,7 +170,7 @@ useSeoMeta({
   description: 'We partner with ambitious organizations to design, architect, and deploy uncompromising interfaces and brutalist systems.',
   ogTitle: 'STUDIO // TheAlphaOnes',
   ogDescription: 'We partner with ambitious organizations to design, architect, and deploy uncompromising interfaces and brutalist systems.',
-  ogImage: 'https://v2.taohq.org/og.png',
+  ogImage: 'https://taohq.org/og.png',
   twitterCard: 'summary_large_image',
 })
 </script>

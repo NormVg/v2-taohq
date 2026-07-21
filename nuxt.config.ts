@@ -1,5 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-const SITE_URL = 'https://v2.taohq.org'
+const SITE_URL = 'https://taohq.org'
 const SITE_NAME = 'TheAlphaOnes'
 const SITE_DESCRIPTION =
   'TheAlphaOnes builds thoughtful software, developer tools, and digital infrastructure. Calm interfaces, durable systems, and long-term craft.'

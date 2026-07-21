@@ -17,7 +17,7 @@ useSeoMeta({
   description: 'Join us. Build what is necessary. Discard what is not.',
   ogTitle: 'CAREERS // TheAlphaOnes',
   ogDescription: 'Join us. Build what is necessary. Discard what is not.',
-  ogImage: 'https://v2.taohq.org/og.png',
+  ogImage: 'https://taohq.org/og.png',
   twitterCard: 'summary_large_image',
 })
 </script>

@@ -4,7 +4,7 @@ useSeoMeta({
   description: 'Terms, conditions, and legally binding doctrines.',
   ogTitle: 'LEGAL // TheAlphaOnes',
   ogDescription: 'Terms, conditions, and legally binding doctrines.',
-  ogImage: 'https://v2.taohq.org/og.png',
+  ogImage: 'https://taohq.org/og.png',
   twitterCard: 'summary_large_image',
 })
 </script>
