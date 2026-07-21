@@ -8,21 +8,22 @@ let audioUnlocked = false
 
 export function useUISound() {
   if (import.meta.client && !isInitialized.value) {
-    // Respect user's explicit preference first, fallback to system reduced motion preference
-    const storedPref = localStorage.getItem('tao-ui-sound-enabled')
-    
-    if (storedPref !== null) {
-      isSoundEnabled.value = storedPref === 'true'
-    } else {
-      // If no preference is set, check if the user prefers reduced motion
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-      isSoundEnabled.value = !prefersReducedMotion
-    }
-    
     isInitialized.value = true
+    
+    // Defer localStorage read to avoid Nuxt hydration mismatch
+    setTimeout(() => {
+      const storedPref = localStorage.getItem('tao-ui-sound-enabled')
+      if (storedPref !== null) {
+        isSoundEnabled.value = storedPref === 'true'
+      } else {
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        isSoundEnabled.value = !prefersReducedMotion
+      }
+    }, 0)
 
     // Unlock AudioContext on first user interaction to allow hover sounds
     const unlockAudio = () => {
+      if (audioUnlocked) return
       audioUnlocked = true
       // Play a silent sound to force AudioContext to resume
       libPlaySound('click', { gainMult: 0.001, decayMult: 0.01, filterFreq: 200, q: 1, pitchMult: 1, oscType: 'sine' })

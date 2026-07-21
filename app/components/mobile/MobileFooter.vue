@@ -73,6 +73,8 @@ const { isSoundEnabled, toggleSound } = useUISound()
   background-color: var(--fg-color);
   color: var(--bg-color);
   font-family: 'VT323', monospace;
+  position: relative;
+  z-index: 10;
 }
 
 .footer-brand {
