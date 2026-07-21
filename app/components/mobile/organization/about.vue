@@ -85,7 +85,7 @@
           <div class="item-header">
             <span class="axiom-num">AXIOM .02</span>
           </div>
-          <h2 class="item-title mt-4">LONG-TERM THINKING</h2>
+          <h2 class="item-title mt-4">NO MAGIC</h2>
           <p class="item-desc mt-4">We build products that should still make sense five years from now. We value permanence over novelty.</p>
         </div>
 
