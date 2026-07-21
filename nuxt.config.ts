@@ -23,7 +23,7 @@ export default defineNuxtConfig({
         lang: 'en',
       },
       title: SITE_NAME,
-      titleTemplate: (title) => title === SITE_NAME ? SITE_NAME : `${title} | ${SITE_NAME}`,
+      titleTemplate: (title) => title === SITE_NAME ? `${SITE_NAME} — Digital Infrastructure & Software Design` : `${title} | ${SITE_NAME}`,
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -68,7 +68,7 @@ export default defineNuxtConfig({
         { name: 'geo.placename', content: 'India' },
         { name: 'geo.position', content: '20.5937;78.9629' },
         { name: 'ICBM', content: '20.5937, 78.9629' },
-        { name: 'language', content: 'English' },
+
         { name: 'coverage', content: 'Worldwide' },
         { name: 'distribution', content: 'global' },
         { name: 'rating', content: 'general' },

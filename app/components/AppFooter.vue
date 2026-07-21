@@ -16,7 +16,7 @@ const { isSoundEnabled, toggleSound } = useUISound()
         </div>
         <div class="banner-inner">
           <img src="~/assets/logo.svg" class="logo-icon" alt="TheAlphaOnes Logo" />
-          <h1 class="logo-text-large">taohq</h1>
+          <div class="logo-text-large">taohq</div>
         </div>
       </div>
       

@@ -10,9 +10,9 @@
 
 <script setup>
 useSeoMeta({
-  title: 'TheAlphaOnes',
+  title: 'TheAlphaOnes — Digital Infrastructure & Software Design',
   description: 'TheAlphaOnes builds thoughtful software, developer tools, and digital infrastructure. Calm interfaces, durable systems, and long-term craft.',
-  ogTitle: 'TheAlphaOnes',
+  ogTitle: 'TheAlphaOnes — Digital Infrastructure & Software Design',
   ogDescription: 'TheAlphaOnes builds thoughtful software, developer tools, and digital infrastructure. Calm interfaces, durable systems, and long-term craft.',
   ogImage: 'https://taohq.org/og.png',
   twitterCard: 'summary_large_image',
