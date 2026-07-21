@@ -11,9 +11,9 @@
 <script setup>
 useSeoMeta({
   title: 'TheAlphaOnes',
-  description: 'We build digital machinery. Brutalist interfaces, zero-latency APIs, and uncompromising brand identities.',
+  description: 'TheAlphaOnes builds thoughtful software, developer tools, and digital infrastructure. Calm interfaces, durable systems, and long-term craft.',
   ogTitle: 'TheAlphaOnes',
-  ogDescription: 'We build digital machinery. Brutalist interfaces, zero-latency APIs, and uncompromising brand identities.',
+  ogDescription: 'TheAlphaOnes builds thoughtful software, developer tools, and digital infrastructure. Calm interfaces, durable systems, and long-term craft.',
   ogImage: 'https://taohq.org/og.png',
   twitterCard: 'summary_large_image',
 })
