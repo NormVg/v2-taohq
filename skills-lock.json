@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "web-have-sounds": {
+      "source": "normvg/web-have-sound",
+      "sourceType": "github",
+      "skillPath": "skills/web-have-sounds/SKILL.md",
+      "computedHash": "c2ccfc6dca4b2bcbe8933b481afc32e6885135d4cc134961b458d04552721456"
+    }
+  }
+}
