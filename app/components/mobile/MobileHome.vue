@@ -1,5 +1,13 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+
+const showSplash = ref(true)
+
+onMounted(() => {
+  setTimeout(() => {
+    showSplash.value = false
+  }, 1600)
+})
 import eyeWallImg from '~/assets/eye-wall.png'
 import skull1Img from '~/assets/22skull.png'
 import skull2Img from '~/assets/skull-flower.png'
@@ -60,6 +68,13 @@ const resetFeature2 = () => {
 
 <template>
   <div class="mobile-home-container">
+    <Transition name="splash">
+      <div v-if="showSplash" class="splash-screen">
+        <div class="splash-mark">
+          <img src="~/assets/logo.svg" alt="TAO Logo" class="splash-logo-img" />
+        </div>
+      </div>
+    </Transition>
     
     <!-- 1. Hero Section (Inverted) -->
     <section class="mobile-section hero-section inverted-section border-b-dashed">
@@ -532,5 +547,49 @@ const resetFeature2 = () => {
   font-family: 'VT323', monospace;
   font-size: 1.2rem;
   opacity: 0.6;
+}
+
+/* SPLASH SCREEN STYLES */
+.splash-screen {
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0;
+  background-color: var(--bg-color);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.splash-mark {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0.1);
+  animation: logo-breathe 2s ease-in-out infinite alternate;
+}
+
+@keyframes logo-breathe {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  100% { transform: scale(1.05); opacity: 1; }
+}
+
+.splash-leave-active {
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.splash-leave-to {
+  opacity: 0;
+  transform: scale(1.05);
 }
 </style>

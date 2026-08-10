@@ -29,18 +29,7 @@ body {
 
 /* Custom Brutalist Scrollbar */
 ::-webkit-scrollbar {
-  width: 16px;
-}
-::-webkit-scrollbar-track {
-  background: var(--fg-color);
-  border-left: 2px solid var(--fg-color);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--bg-color);
-  border: 3px solid var(--fg-color);
-}
-::-webkit-scrollbar-thumb:hover {
-  background: white;
+  display: none;
 }
 
 /* Base utility for the brutalist boxes */
