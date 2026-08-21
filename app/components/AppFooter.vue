@@ -48,6 +48,7 @@ const { isSoundEnabled, toggleSound } = useUISound()
           <NuxtLink to="/organization/open-source" v-sound v-hover-sound>Open Source //</NuxtLink>
           <NuxtLink to="/organization/brand-assets" v-sound v-hover-sound>Brand Assets //</NuxtLink>
           <NuxtLink to="/legal" v-sound v-hover-sound>Legal //</NuxtLink>
+          <NuxtLink to="/privacy" v-sound v-hover-sound>Privacy //</NuxtLink>
         </div>
 
         <!-- External & Comms -->

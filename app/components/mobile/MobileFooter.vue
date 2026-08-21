@@ -61,7 +61,10 @@ const { isSoundEnabled, toggleSound } = useUISound()
     <div class="footer-divider"></div>
     
     <div class="footer-bottom">
-      <NuxtLink to="/legal" class="legal-link">LEGAL //</NuxtLink>
+      <div class="footer-bottom-links">
+        <NuxtLink to="/legal" class="legal-link">LEGAL //</NuxtLink>
+        <NuxtLink to="/privacy" class="legal-link">PRIVACY //</NuxtLink>
+      </div>
       <p class="copyright">© 2026 TAOHQ.<br>ALL RIGHTS RESERVED.</p>
     </div>
   </footer>
@@ -173,6 +176,12 @@ const { isSoundEnabled, toggleSound } = useUISound()
   justify-content: space-between;
   align-items: flex-end;
   font-size: 1.1rem;
+}
+
+.footer-bottom-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .legal-link {
