@@ -1,12 +1,9 @@
-<script setup>
-useSeoMeta({
-  title: 'PRIVACY // TheAlphaOnes',
-  description: 'Universal privacy policy and data doctrines.',
-  ogTitle: 'PRIVACY // TheAlphaOnes',
-  ogDescription: 'Universal privacy policy and data doctrines.',
-  ogImage: 'https://taohq.org/og.png',
-  twitterCard: 'summary_large_image',
-})
+<script setup lang="ts">
+import PrivacyBlocks from '~/components/privacy/PrivacyBlocks.vue'
+import { PRIVACY_POLICY_META, PRIVACY_POLICY_SECTIONS } from '~/constants/privacy-policy'
+
+const sectionNumber = (index: number) => String(index).padStart(2, '0')
+const tocLabel = (title: string) => title.toUpperCase().replace(/\s+/g, '_')
 </script>
 
 <template>
@@ -18,49 +15,35 @@ useSeoMeta({
       </div>
       <div class="legal-header mt-12">
         <div class="left-mark">
-          <p class="mono-label">DOCUMENT NO: PRV-001</p>
+          <p class="mono-label">DOCUMENT NO: {{ PRIVACY_POLICY_META.documentId }}</p>
           <AnimatedSlashes :count="15" />
         </div>
-        <h1 class="display-title">PRIVACY DOCTRINE</h1>
-        <p class="doc-desc mt-4">UNIVERSAL DATA AND TELEMETRY POLICY</p>
+        <h1 class="display-title">PRIVACY POLICY</h1>
+        <p class="doc-desc mt-4">
+          LAST UPDATED: <time :datetime="PRIVACY_POLICY_META.lastUpdatedIso">{{ PRIVACY_POLICY_META.lastUpdated.toUpperCase() }}</time>
+        </p>
       </div>
     </BrutalistCard>
 
     <BrutalistCard padding="4rem">
       <div class="legal-body">
-        <div class="sidebar">
+        <nav class="sidebar" aria-label="Privacy policy sections">
           <ul class="toc">
-            <li><a href="#welcome" v-sound v-hover-sound>00_WELCOME</a></li>
-            <li><a href="#collection" v-sound v-hover-sound>01_COLLECTION</a></li>
-            <li><a href="#telemetry" v-sound v-hover-sound>02_TELEMETRY</a></li>
-            <li><a href="#third-party" v-sound v-hover-sound>03_THIRD_PARTY</a></li>
-            <li><a href="#erasure" v-sound v-hover-sound>04_ERASURE</a></li>
+            <li v-for="(section, index) in PRIVACY_POLICY_SECTIONS" :key="section.id">
+              <a :href="`#${section.id}`" v-sound v-hover-sound>{{ sectionNumber(index) }}_{{ tocLabel(section.title) }}</a>
+            </li>
           </ul>
-        </div>
+        </nav>
         <div class="content">
-          <section id="welcome" class="legal-section">
-            <h2 class="sec-heading">00. WELCOME</h2>
-            <p>This is our universal privacy doctrine. It applies to all domains, applications, and digital machinery built and maintained by TheAlphaOnes. We respect your data, but we do not sugarcoat reality. Read carefully.</p>
-          </section>
-
-          <section id="collection" class="legal-section">
-            <h2 class="sec-heading">01. COLLECTION</h2>
-            <p>We log what is necessary to keep the systems running. Authentication tokens, basic identity parameters, and essential configurations are stored securely. We do not hoard personal details beyond what you willingly provide to use our infrastructure.</p>
-          </section>
-
-          <section id="telemetry" class="legal-section">
-            <h2 class="sec-heading">02. TELEMETRY</h2>
-            <p>Telemetry is collected to optimize the void. We track system performance, crash reports, and interface interactions to ensure brutal efficiency. This data is anonymized where possible. You are a metric in the machine, helping it evolve.</p>
-          </section>
-
-          <section id="third-party" class="legal-section">
-            <h2 class="sec-heading">03. THIRD PARTY</h2>
-            <p>We do not sell your data. We have no interest in ad-tech or behavioral manipulation. However, our infrastructure relies on external providers (e.g., Cloudflare, Vercel). Your data traverses their networks, subject to their respective security doctrines.</p>
-          </section>
-
-          <section id="erasure" class="legal-section">
-            <h2 class="sec-heading">04. ERASURE</h2>
-            <p>You have the right to disappear. If you wish to erase your shadow from our databases, submit a formal request. We will obliterate your existence from our active systems, leaving only cryptographic ghosts where legally mandated.</p>
+          <section
+            v-for="(section, index) in PRIVACY_POLICY_SECTIONS"
+            :id="section.id"
+            :key="section.id"
+            class="legal-section"
+            :style="{ '--i': index }"
+          >
+            <h2 class="sec-heading">{{ sectionNumber(index) }}. {{ section.title.toUpperCase() }}</h2>
+            <PrivacyBlocks :blocks="section.blocks" class="sec-body" />
           </section>
         </div>
       </div>
@@ -154,6 +137,7 @@ useSeoMeta({
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  scroll-margin-top: 2rem;
 }
 .sec-heading {
   font-family: 'VT323', monospace;
@@ -162,11 +146,39 @@ useSeoMeta({
   border-bottom: 2px dashed var(--fg-color);
   padding-bottom: 0.5rem;
 }
-.legal-section p {
+.sec-body {
   font-size: 1.2rem;
   line-height: 1.6;
   opacity: 0.9;
   max-width: 70ch;
+}
+
+/*
+ * Staggered entrance: heading and body settle at different rates and
+ * each section starts slightly later, so the document assembles itself
+ * instead of appearing as one block. Transform/opacity only (compositor).
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .legal-section .sec-heading {
+    animation: rise-in 0.42s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    animation-delay: calc(var(--i) * 45ms);
+  }
+  .legal-section .sec-body {
+    animation: rise-in 0.68s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    animation-delay: calc(var(--i) * 45ms + 90ms);
+  }
+  .toc li {
+    animation: slide-in 0.36s ease-out both;
+  }
+  .toc li:nth-child(odd) { animation-duration: 0.5s; }
+  .toc li:nth-child(3n) { animation-delay: 60ms; }
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(10px); }
+}
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(-8px); }
 }
 
 @media (max-width: 900px) {

@@ -1,44 +1,30 @@
-<script setup>
-import AnimatedSlashes from '~/components/AnimatedSlashes.vue'
+<script setup lang="ts">
 import MobilePageHero from '~/components/mobile/MobilePageHero.vue'
+import PrivacyBlocks from '~/components/privacy/PrivacyBlocks.vue'
+import { PRIVACY_POLICY_META, PRIVACY_POLICY_SECTIONS } from '~/constants/privacy-policy'
+
+const sectionNumber = (index: number) => String(index).padStart(2, '0')
 </script>
 
 <template>
   <main class="mobile-page-wrapper">
     <MobilePageHero
-      eyebrow="DOC: PRV-001"
-      title="PRIVACY DOCTRINE"
-      subtitle="DATA AND TELEMETRY"
+      :eyebrow="`DOC: ${PRIVACY_POLICY_META.documentId}`"
+      title="PRIVACY POLICY"
+      :subtitle="`UPDATED ${PRIVACY_POLICY_META.lastUpdated.toUpperCase()}`"
     />
 
     <section class="mobile-section">
       <div class="mobile-section-content legal-body">
-        
-        <section id="welcome" class="legal-section">
-          <h2 class="sec-heading">00. WELCOME</h2>
-          <p class="sec-body">This is our universal privacy doctrine. It applies to all domains, applications, and digital machinery built and maintained by TheAlphaOnes. We respect your data, but we do not sugarcoat reality. Read carefully.</p>
+        <section
+          v-for="(section, index) in PRIVACY_POLICY_SECTIONS"
+          :id="section.id"
+          :key="section.id"
+          class="legal-section"
+        >
+          <h2 class="sec-heading">{{ sectionNumber(index) }}. {{ section.title.toUpperCase() }}</h2>
+          <PrivacyBlocks :blocks="section.blocks" class="sec-body" />
         </section>
-
-        <section id="collection" class="legal-section">
-          <h2 class="sec-heading">01. COLLECTION</h2>
-          <p class="sec-body">We log what is necessary to keep the systems running. Authentication tokens, basic identity parameters, and essential configurations are stored securely. We do not hoard personal details beyond what you willingly provide to use our infrastructure.</p>
-        </section>
-
-        <section id="telemetry" class="legal-section">
-          <h2 class="sec-heading">02. TELEMETRY</h2>
-          <p class="sec-body">Telemetry is collected to optimize the void. We track system performance, crash reports, and interface interactions to ensure brutal efficiency. This data is anonymized where possible. You are a metric in the machine, helping it evolve.</p>
-        </section>
-
-        <section id="third-party" class="legal-section">
-          <h2 class="sec-heading">03. THIRD PARTY</h2>
-          <p class="sec-body">We do not sell your data. We have no interest in ad-tech or behavioral manipulation. However, our infrastructure relies on external providers (e.g., Cloudflare, Vercel). Your data traverses their networks, subject to their respective security doctrines.</p>
-        </section>
-
-        <section id="erasure" class="legal-section">
-          <h2 class="sec-heading">04. ERASURE</h2>
-          <p class="sec-body">You have the right to disappear. If you wish to erase your shadow from our databases, submit a formal request. We will obliterate your existence from our active systems, leaving only cryptographic ghosts where legally mandated.</p>
-        </section>
-
       </div>
     </section>
   </main>
@@ -132,6 +118,5 @@ import MobilePageHero from '~/components/mobile/MobilePageHero.vue'
   font-size: 1.2rem;
   line-height: 1.4;
   opacity: 0.9;
-  text-transform: uppercase;
 }
 </style>

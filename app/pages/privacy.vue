@@ -13,10 +13,10 @@ import MobilePrivacy from '~/components/mobile/MobilePrivacy.vue'
 const { isMobile } = useDevice()
 
 useSeoMeta({
-  title: 'PRIVACY // TheAlphaOnes',
-  description: 'Universal privacy policy and data doctrines.',
-  ogTitle: 'PRIVACY // TheAlphaOnes',
-  ogDescription: 'Universal privacy policy and data doctrines.',
+  title: 'Privacy Policy',
+  description: 'How TheAlphaOnes and taohq.org collect, use, store, share, and delete your data, including Google user data.',
+  ogTitle: 'Privacy Policy // TheAlphaOnes',
+  ogDescription: 'How TheAlphaOnes and taohq.org collect, use, store, share, and delete your data, including Google user data.',
   ogImage: 'https://taohq.org/og.png',
   twitterCard: 'summary_large_image',
 })
