@@ -61,8 +61,9 @@ usePageSeo({
 }
 
 .why__quote {
-  font-family: var(--font-script);
-  font-size: clamp(2.5rem, 2rem + 2.4vw, 4.5rem);
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: clamp(2rem, 1.6rem + 1.8vw, 3.25rem);
   line-height: 1;
   color: var(--accent);
 }

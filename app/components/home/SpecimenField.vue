@@ -121,11 +121,12 @@ onBeforeUnmount(() => cancelAnimationFrame(frame))
   left: 50%;
   top: 50%;
   z-index: -2;
-  font-family: var(--font-script);
-  font-size: clamp(14rem, 38vw, 40rem);
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: clamp(10rem, 30vw, 32rem);
   line-height: 1;
   color: var(--accent);
-  opacity: 0.045;
+  opacity: 0.03;
   transform: translate(-50%, -54%) rotate(-8deg);
   pointer-events: none;
   user-select: none;
@@ -196,8 +197,9 @@ onBeforeUnmount(() => cancelAnimationFrame(frame))
 .field__script {
   display: block;
   margin-top: var(--space-1);
-  font-family: var(--font-script);
-  font-size: 2.5rem;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.875rem;
   font-weight: 400;
   line-height: 1;
   letter-spacing: 0;

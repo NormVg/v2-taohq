@@ -1,14 +1,12 @@
 <script setup lang="ts">
-/** Primary navigation as tiny editorial links. The current page carries a lavender dot. */
-import { CONTACT_NAV, PRIMARY_NAV } from '~/constants/site'
-
-const items = [...PRIMARY_NAV, CONTACT_NAV]
+/** Primary navigation as tiny editorial links. The current page carries a lavender square. */
+import { PRIMARY_NAV } from '~/constants/site'
 </script>
 
 <template>
   <nav class="nav" aria-label="Primary">
     <ul class="nav__list" role="list">
-      <li v-for="item in items" :key="item.to">
+      <li v-for="item in PRIMARY_NAV" :key="item.to">
         <NuxtLink v-sound="'tick'" :to="item.to" class="nav__link">{{ item.label }}</NuxtLink>
       </li>
     </ul>
@@ -18,11 +16,11 @@ const items = [...PRIMARY_NAV, CONTACT_NAV]
 <style scoped>
 .nav__list {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 
 .nav__link {
-  position: relative;
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
@@ -35,6 +33,7 @@ const items = [...PRIMARY_NAV, CONTACT_NAV]
   transition: color var(--dur-hover) var(--ease-out);
 }
 
+/* Square marker: grows in for the active page, peeks in on hover. */
 .nav__link::before {
   content: '';
   width: 5px;
@@ -46,6 +45,10 @@ const items = [...PRIMARY_NAV, CONTACT_NAV]
 
 .nav__link:hover {
   color: var(--text-primary);
+}
+
+.nav__link:hover::before {
+  transform: scale(0.6);
 }
 
 .nav__link.router-link-active {

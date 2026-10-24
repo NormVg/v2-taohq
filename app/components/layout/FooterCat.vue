@@ -4,7 +4,7 @@
 
 <template>
   <div class="cat">
-    <DitherImage class="cat__image" src="/art/cat.webp" alt="A pixel cat with its mouth wide open" aspect="1 / 1" fit="contain" />
+    <DitherImage class="cat__image" src="/art/cat.webp" alt="A pixel cat with its mouth wide open" aspect="494 / 606" fit="contain" />
     <span class="cat__corner" aria-hidden="true" />
   </div>
 </template>
@@ -14,7 +14,8 @@
   position: relative;
   width: 100%;
   max-width: 15rem;
-  padding: 0 0 0 var(--space-4);
+  /* The art is cropped to the cat, so it sits right on the dashed baseline. */
+  padding: var(--space-6) var(--space-8) 0 var(--space-3);
   border-left: 2px dashed var(--text-primary);
   border-bottom: 2px dashed var(--text-primary);
 }

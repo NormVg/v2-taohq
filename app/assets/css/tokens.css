@@ -45,7 +45,8 @@
   /* ── Type ──────────────────────────────────────── */
   --font-display: 'VT323', ui-monospace, monospace;
   --font-body: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
-  --font-script: 'Italianno', cursive;
+  /* Accent voice: lavender italic lines (taglines, quotes). Always set italic. */
+  --font-accent: 'Instrument Serif', Georgia, 'Times New Roman', serif;
 
   /* Fluid display sizes: phone → desktop. VT323 reads small, so it runs large. */
   --text-hero: clamp(2.5rem, 1rem + 7.5vw, 7.5rem);

@@ -108,9 +108,10 @@ defineProps<{ value: ProductsCollectionItem | WritingCollectionItem }>()
   padding-left: var(--space-6);
   border-left: 2px solid var(--accent);
   color: var(--accent);
-  font-family: var(--font-script);
-  font-size: 2.25rem;
-  line-height: 1.1;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.75rem;
+  line-height: 1.25;
 }
 
 .prose :deep(hr) {

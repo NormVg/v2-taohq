@@ -2,7 +2,7 @@
 import { SITE } from './app/constants/site'
 
 const FONT_STYLESHEET =
-  'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Italianno&family=VT323&display=swap'
+  'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&family=VT323&display=swap'
 
 /** Old URLs from the previous site, kept alive so links and search results never 404. */
 const LEGACY_REDIRECTS = {

@@ -82,9 +82,10 @@ const counter = computed(() => `${String(props.index).padStart(2, '0')} / ${Stri
 }
 
 .item__tagline {
-  font-family: var(--font-script);
-  font-size: 2rem;
-  line-height: 1;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.15;
   color: var(--accent);
 }
 

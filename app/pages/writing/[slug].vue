@@ -56,9 +56,10 @@ useSchemaOrg([
   max-width: var(--measure);
   padding-bottom: var(--space-6);
   border-bottom: 1px solid var(--line);
-  font-family: var(--font-script);
-  font-size: 2rem;
-  line-height: 1.1;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.3;
   color: var(--accent);
 }
 

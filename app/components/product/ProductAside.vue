@@ -51,8 +51,9 @@ const meta = computed(() => productMeta(props.product))
 
 .aside__tagline {
   margin-top: calc(var(--space-2) * -1);
-  font-family: var(--font-script);
-  font-size: clamp(2.25rem, 1.8rem + 1.4vw, 3rem);
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: clamp(1.75rem, 1.4rem + 1vw, 2.25rem);
   line-height: 1;
   color: var(--accent);
 }
