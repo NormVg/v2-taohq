@@ -1,10 +1,14 @@
 ---
-title: "BUBBLES.SPACE"
-description: "Your AI assistant's home. A workspace OS built for the way you actually think."
-status: "IN DEVELOPMENT"
-homeImage: "flower-moon.png"
-tickerTop: "110010101110010010101001100101010010110111"
-tickerBottom: "101101001010001011001010100101101010010"
+title: "Bubbles.space"
+tagline: "Your AI assistant's home."
+description: "A personal AI workspace OS built for the way you actually think. Bubbles, your assistant, lives and works alongside you."
+status: "in-development"
+kind: "app"
+order: 3
+art: "bubbles-space"
+artAlt: "A small figure sitting under a blossoming tree beneath a full moon"
+platforms: []
+facts: ["Part of the Bubbles family", "AI-agent first"]
 ---
 
 **We are building a personal AI workspace OS for people who want to stop managing tools and start actually thinking — a space where Bubbles, your AI assistant, lives and works alongside you.**
@@ -34,4 +38,4 @@ It's built on a deeply integrated stack — Nuxt 4, Neon Postgres, Ably for real
 
 This isn't just a productivity app. We're trying to create a lifestyle — a new way of relating to your work and your tools, powered by AI that actually respects your intelligence.
 
-Follow along with what we're building on [X (Twitter)](https://twitter.com/TheNormVg), or read more about our thinking in our [Writing](/writing) section.
+Follow along with what we're building on [X](https://x.com/TheNormVg), or read more about our thinking in our [Writing](/writing) section.

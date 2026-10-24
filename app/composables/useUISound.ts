@@ -1,65 +1,65 @@
-import { ref, watch } from 'vue'
-import { playUISound as libPlaySound } from '@thenormvg/web-have-sounds'
+import { playUISound } from '@thenormvg/web-have-sounds'
+import type { FeelType, SoundType } from '@thenormvg/web-have-sounds'
 
-// Global state for sound preference
-const isSoundEnabled = ref(true)
-const isInitialized = ref(false)
-let audioUnlocked = false
+/**
+ * Site-wide UI sound preference + playback.
+ *
+ * Sounds play on deliberate actions (clicks) only, never on hover, and every
+ * sound accompanies a visible change. The preference persists per browser and
+ * defaults to off for people who ask the OS for reduced motion.
+ */
+
+const STORAGE_KEY = 'taohq-ui-sound'
 
 export function useUISound() {
-  if (import.meta.client && !isInitialized.value) {
-    isInitialized.value = true
-    
-    // Defer localStorage read to avoid Nuxt hydration mismatch
-    setTimeout(() => {
-      const storedPref = localStorage.getItem('tao-ui-sound-enabled')
-      if (storedPref !== null) {
-        isSoundEnabled.value = storedPref === 'true'
-      } else {
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-        isSoundEnabled.value = !prefersReducedMotion
-      }
-    }, 0)
+  // Server and first client render agree on `true`; the stored preference is
+  // applied after hydration (see plugins/sound.ts) to avoid a mismatch.
+  const enabled = useState<boolean>('ui-sound-enabled', () => true)
 
-    // Unlock AudioContext on first user interaction to allow hover sounds
-    const unlockAudio = () => {
-      if (audioUnlocked) return
-      audioUnlocked = true
-      // Play a silent sound to force AudioContext to resume
-      libPlaySound('click', { gainMult: 0.001, decayMult: 0.01, filterFreq: 200, q: 1, pitchMult: 1, oscType: 'sine' })
-      window.removeEventListener('click', unlockAudio)
-      window.removeEventListener('touchstart', unlockAudio)
-      window.removeEventListener('keydown', unlockAudio)
-    }
-    window.addEventListener('click', unlockAudio, { once: true })
-    window.addEventListener('touchstart', unlockAudio, { once: true })
-    window.addEventListener('keydown', unlockAudio, { once: true })
+  function restorePreference() {
+    if (import.meta.client) enabled.value = readPreference()
   }
 
-  // Watch for changes to save to localStorage
-  watch(isSoundEnabled, (newValue) => {
-    if (import.meta.client) {
-      localStorage.setItem('tao-ui-sound-enabled', String(newValue))
-    }
-  })
-
-  const toggleSound = () => {
-    isSoundEnabled.value = !isSoundEnabled.value
+  function setEnabled(value: boolean) {
+    enabled.value = value
+    writePreference(value)
   }
 
-  // Wrapper around the library's play function
-  const playSound = (type: any, feel: any = 'aero', isHover = false) => {
-    if (import.meta.client && isSoundEnabled.value) {
-      if (isHover && !audioUnlocked) return
-      if (!isHover) audioUnlocked = true
-      libPlaySound(type, feel)
-    }
+  function toggle() {
+    setEnabled(!enabled.value)
+  }
+
+  /** Plays only if the visitor has sound on. */
+  function play(type: SoundType = 'click', feel: FeelType = 'minimal') {
+    if (!import.meta.client || !enabled.value) return
+    playUISound(type, feel)
   }
 
   return {
-    isSoundEnabled,
-    toggleSound,
-    playSound
+    enabled: readonly(enabled),
+    toggle,
+    setEnabled,
+    play,
+    restorePreference,
   }
 }
 
+function readPreference(): boolean {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY)
+    if (stored !== null) return stored === 'on'
+  }
+  catch {
+    // Storage can be blocked (private mode, disabled site data); fall through to the OS hint.
+  }
+  return !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
+function writePreference(value: boolean) {
+  try {
+    localStorage.setItem(STORAGE_KEY, value ? 'on' : 'off')
+  }
+  catch {
+    // Not persisting is acceptable: the toggle still works for this visit.
+  }
+}

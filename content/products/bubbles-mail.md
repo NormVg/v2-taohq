@@ -1,10 +1,14 @@
 ---
-title: "BUBBLES.MAIL"
-description: "An intelligent mail client from the Bubbles ecosystem. It reads your inbox so you don't have to."
-status: "IN DEVELOPMENT"
-homeImage: "skull-arrow.png"
-tickerTop: "101010110100101010100100101010101001110101"
-tickerBottom: "010010111010010100110101001011101001010"
+title: "Bubbles.mail"
+tagline: "It reads your inbox so you don't have to."
+description: "An intelligent mail client that turns the raw chaos of email into a short report of what matters, what can wait, and what to hand off."
+status: "in-development"
+kind: "app"
+order: 4
+art: "bubbles-mail"
+artAlt: "A skull crowned with blossoms, pierced by an arrow"
+platforms: ["macOS"]
+facts: ["Part of the Bubbles family", "Native macOS"]
 ---
 
 **We are building an intelligent mail client for people drowning in their own inboxes — one that takes the raw chaos of email and turns it into something you can actually act on.**
@@ -32,4 +36,4 @@ You don't ask Bubbles.mail for a summary. It already knows. You don't configure 
 
 Bubbles.mail isn't a standalone app. It's one expression of a broader belief — that AI should quietly make your life easier, not add another thing to manage. Every app in the [Bubbles ecosystem](/products/bubbles-space) is built around this same principle: practical, sensible, AI-agent-first.
 
-We're still building this. If the idea resonates, follow our progress on [X (Twitter)](https://twitter.com/TheNormVg) or read more about the thinking behind Bubbles in our [writing](/writing).
+We're still building this. If the idea resonates, follow our progress on [X](https://x.com/TheNormVg) or read more about the thinking behind Bubbles in our [writing](/writing).

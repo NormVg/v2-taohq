@@ -1,115 +1,113 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-const SITE_URL = 'https://taohq.org'
-const SITE_NAME = 'TheAlphaOnes'
-const SITE_DESCRIPTION =
-  'TheAlphaOnes builds thoughtful software, developer tools, and digital infrastructure. Calm interfaces, durable systems, and long-term craft.'
+import { fileURLToPath } from 'node:url'
+import { SITE } from './app/constants/site'
+
+const FONT_STYLESHEET =
+  'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&family=VT323&display=swap'
+
+/** Old URLs from the previous site, kept alive so links and search results never 404. */
+const LEGACY_REDIRECTS = {
+  '/organization/**': { redirect: { to: '/about', statusCode: 301 } },
+  '/products/tao-canvas': { redirect: { to: '/products', statusCode: 301 } },
+  '/products/tao-identity': { redirect: { to: '/products', statusCode: 301 } },
+  '/products/rose-demon': { redirect: { to: '/products', statusCode: 301 } },
+  '/writing/01-first-log': { redirect: { to: '/writing', statusCode: 301 } },
+  '/writing/good-infrastructure-is-invisible': { redirect: { to: '/writing', statusCode: 301 } },
+  '/writing/the-case-for-brutalist-architecture': { redirect: { to: '/writing', statusCode: 301 } },
+} as const
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
-  css: ['~/assets/css/main.css'],
+  css: ['lenis/dist/lenis.css', '~/assets/css/main.css'],
+
+  // Folders group components by layer (ui/, layout/, product/…); names come from the file alone.
+  components: [{ path: '~/components', pathPrefix: false }],
+
   modules: [
-    '@nuxt/content',
+    '@nuxtjs/seo',
     '@vercel/analytics/nuxt',
-    '@nuxtjs/device',
   ],
 
+  /** Read by every @nuxtjs/seo sub-module (sitemap, robots, schema.org, meta). */
+  site: {
+    url: SITE.url,
+    name: SITE.name,
+    description: SITE.description,
+    defaultLocale: SITE.locale,
+  },
+
+  seo: {
+    meta: {
+      themeColor: '#c4b5e3',
+      twitterSite: '@TheNormVg',
+      twitterCreator: '@TheNormVg',
+    },
+  },
+
+  // A static /og.png is shared by every page; per-page generated images are not needed yet.
+  ogImage: { enabled: false },
+
+  schemaOrg: {
+    identity: {
+      type: 'Organization',
+      name: SITE.name,
+      alternateName: SITE.legalName,
+      url: SITE.url,
+      logo: `${SITE.url}/favicon.svg`,
+      email: SITE.email,
+      address: { addressCountry: SITE.country.code },
+      areaServed: 'Worldwide',
+      description: SITE.description,
+      sameAs: ['https://x.com/TheNormVg', 'https://github.com/NormVg'],
+    },
+  },
+
+  linkChecker: { enabled: false },
 
 
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
     head: {
-      htmlAttrs: {
-        lang: 'en',
-      },
-      title: SITE_NAME,
-      titleTemplate: (title) => title === SITE_NAME ? `${SITE_NAME} — Independent Software Organization` : `${title} | ${SITE_NAME}`,
+      htmlAttrs: { lang: SITE.locale },
+      titleTemplate: '%s %separator %siteName',
+      templateParams: { separator: '·' },
       meta: [
-        { charset: 'utf-8' },
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: SITE_DESCRIPTION },
-        { name: 'author', content: SITE_NAME },
-        { name: 'creator', content: SITE_NAME },
-        { name: 'publisher', content: SITE_NAME },
-        {
-          name: 'robots',
-          content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
-        },
-        {
-          name: 'googlebot',
-          content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
-        },
-        // AI / answer-engine friendly
-        { name: 'ai-content-declaration', content: 'human-authored' },
-        { name: 'llms', content: `${SITE_URL}/llms.txt` },
-
-        // Open Graph
-        { property: 'og:site_name', content: SITE_NAME },
-        { property: 'og:title', content: SITE_NAME },
-        { property: 'og:description', content: SITE_DESCRIPTION },
-        { property: 'og:type', content: 'website' },
-        { property: 'og:url', content: SITE_URL },
-        { property: 'og:image', content: `${SITE_URL}/og.png` },
-        { property: 'og:image:width', content: '1200' },
-        { property: 'og:image:height', content: '630' },
-        { property: 'og:image:alt', content: `${SITE_NAME} — thoughtful software & infrastructure` },
-        { property: 'og:locale', content: 'en_US' },
-
-        // Twitter / X
-        { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:site', content: '@TheNormVg' },
-        { name: 'twitter:creator', content: '@TheNormVg' },
-        { name: 'twitter:title', content: SITE_NAME },
-        { name: 'twitter:description', content: SITE_DESCRIPTION },
-        { name: 'twitter:image', content: `${SITE_URL}/og.png` },
-
-        // GEO (India HQ / global presence)
-        { name: 'geo.region', content: 'IN' },
-        { name: 'geo.placename', content: 'India' },
-        { name: 'geo.position', content: '20.5937;78.9629' },
-        { name: 'ICBM', content: '20.5937, 78.9629' },
-
-        { name: 'coverage', content: 'Worldwide' },
-        { name: 'distribution', content: 'global' },
-        { name: 'rating', content: 'general' },
-        { name: 'revisit-after', content: '7 days' },
-        { name: 'target', content: 'all' },
-        { name: 'HandheldFriendly', content: 'True' },
-        { name: 'MobileOptimized', content: '320' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
         { name: 'format-detection', content: 'telephone=no' },
-        { name: 'theme-color', content: '#c4b5e3' },
-        { name: 'msapplication-TileColor', content: '#151515' },
+        // Geo: where taohq is based (serves everyone, worldwide).
+        { name: 'geo.region', content: SITE.country.code },
+        { name: 'geo.placename', content: SITE.country.name },
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
-        { rel: 'alternate', type: 'application/rss+xml', title: `${SITE_NAME} Writing`, href: `${SITE_URL}/writing` },
-        // AI / LLM discovery
-        { rel: 'describedby', href: `${SITE_URL}/llms.txt`, type: 'text/plain', title: 'llms.txt' },
-        { rel: 'alternate', type: 'text/plain', href: `${SITE_URL}/llms.txt`, title: 'LLM context' },
-        { rel: 'alternate', type: 'text/plain', href: `${SITE_URL}/llms-full.txt`, title: 'LLM full context' },
-        { rel: 'sitemap', type: 'application/xml', href: `${SITE_URL}/sitemap.xml` },
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        { rel: 'stylesheet', href: FONT_STYLESHEET },
+        { rel: 'alternate', type: 'text/plain', href: '/llms.txt', title: 'llms.txt' },
+      ],
+      script: [
+        // Runs before first paint so reveal animations start hidden instead of flashing.
+        // Failsafe: if the app hasn't booted within 3s (slow network, blocked JS),
+        // drop the class so all content shows without animation.
+        {
+          innerHTML: 'document.documentElement.classList.add(\'js\');setTimeout(function(){if(!window.__revealReady)document.documentElement.classList.remove(\'js\')},3000)',
+          tagPosition: 'head',
+        },
       ],
     },
+  },
+
+  routeRules: {
+    ...LEGACY_REDIRECTS,
   },
 
   nitro: {
+    // Markdown in content/ ships inside the server bundle; read via useStorage('assets:content').
+    serverAssets: [{ baseName: 'content', dir: fileURLToPath(new URL('./content', import.meta.url)) }],
     prerender: {
       crawlLinks: true,
-      routes: [
-        '/',
-        '/sitemap.xml',
-        '/robots.txt',
-        '/llms.txt',
-        '/llms-full.txt',
-      ],
-      failOnError: false,
-    },
-  },
-
-  runtimeConfig: {
-    public: {
-      siteUrl: SITE_URL,
-      siteName: SITE_NAME,
+      routes: ['/', '/sitemap.xml', '/robots.txt', '/llms.txt', '/llms-full.txt'],
     },
   },
 })

@@ -1,23 +1,12 @@
-<template>
-  <div>
-    <MobileLegal v-if="isMobile" />
-    <DesktopLegal v-else />
-  </div>
-</template>
+<script setup lang="ts">
+import { TERMS_OF_USE } from '~/constants/legal/terms'
 
-<script setup>
-import { useDevice } from '#imports'
-import DesktopLegal from '~/components/desktop/DesktopLegal.vue'
-import MobileLegal from '~/components/mobile/MobileLegal.vue'
-
-const { isMobile } = useDevice()
-
-useSeoMeta({
-  title: 'LEGAL // TheAlphaOnes',
-  description: 'Terms, conditions, and legally binding doctrines.',
-  ogTitle: 'LEGAL // TheAlphaOnes',
-  ogDescription: 'Terms, conditions, and legally binding doctrines.',
-  ogImage: 'https://taohq.org/og.png',
-  twitterCard: 'summary_large_image',
+usePageSeo({
+  title: TERMS_OF_USE.title,
+  description: TERMS_OF_USE.summary,
 })
 </script>
+
+<template>
+  <LegalDocumentView :document="TERMS_OF_USE" />
+</template>

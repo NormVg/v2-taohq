@@ -1,0 +1,153 @@
+/**
+ * Design tokens. Components read these; they never hardcode colours,
+ * spacing, type sizes, radii or motion values.
+ *
+ * Palette, 60 / 30 / 10:
+ *   60  ink       page backgrounds and surfaces
+ *   30  lavender  the accent: buttons, labels, art, script type, the footer
+ *   10  paper     body text (a lavender-tinted off-white)
+ */
+:root {
+  /* ── Colour: lilac ─────────────────────────────── */
+  --lilac-50: #ece6f6;
+  --lilac-100: #d9cfee;
+  --lilac-200: #c4b5e3; /* brand */
+  --lilac-300: #b2a0d8;
+  --lilac-400: #9c87c8;
+
+  /* ── Colour: ink ───────────────────────────────── */
+  --ink-950: #0f0f10;
+  --ink-900: #151515; /* brand */
+  --ink-800: #201e25;
+  --ink-700: #2d2a33;
+
+  /* ── Colour: paper (text on ink) ───────────────── */
+  --paper: #ece8f3;
+
+  /* ── Semantic tokens: default tone = ink page ───── */
+  --surface-page: var(--ink-900);
+  --surface-raised: var(--ink-800);
+  --surface-sunken: var(--ink-950);
+  --text-primary: var(--paper);
+  --text-secondary: rgb(236 232 243 / 0.72);
+  --text-muted: rgb(236 232 243 / 0.56);
+  --line: rgb(236 232 243 / 0.12);
+  --line-strong: rgb(236 232 243 / 0.26);
+  --accent: var(--lilac-200);
+  --accent-hover: var(--lilac-100);
+  --on-accent: var(--ink-900);
+  --focus-ring: var(--lilac-200);
+
+  /* ── Type ──────────────────────────────────────── */
+  --font-display: 'VT323', ui-monospace, monospace;
+  --font-body: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  /* Accent voice: lavender italic lines (taglines, quotes). Always set italic. */
+  --font-accent: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+
+  /* Fluid display sizes: phone → desktop. VT323 reads small, so it runs large. */
+  --text-hero: clamp(2.5rem, 1rem + 7.5vw, 7.5rem);
+  --text-display: clamp(2.5rem, 1.6rem + 3.8vw, 5rem);
+  --text-h1: clamp(2.5rem, 1.9rem + 2.4vw, 4rem);
+  --text-h2: clamp(2rem, 1.6rem + 1.6vw, 3rem);
+  --text-h3: clamp(1.625rem, 1.4rem + 0.8vw, 2.125rem);
+  --text-lead: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-caption: 0.75rem;
+  /* Editorial UI type: tiny uppercase mono for labels, nav, meta. */
+  --text-ui: 0.75rem;
+  --tracking-ui: 0.08em;
+
+  --leading-tight: 0.95;
+  --leading-snug: 1.25;
+  --leading-body: 1.7;
+
+  /* ── Space (8pt grid) ──────────────────────────── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  --gutter: var(--space-4);
+  --section-y: var(--space-16);
+  --container-max: 77.5rem; /* 1240px */
+  --measure: 68ch;
+  --header-h: 4.5rem;
+
+  /* ── Shape ─────────────────────────────────────── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Layered: tight edge + soft ambient. */
+  --shadow-raised: 0 1px 2px rgb(21 21 21 / 0.08), 0 8px 24px rgb(21 21 21 / 0.08);
+  --shadow-lifted: 0 2px 6px rgb(21 21 21 / 0.1), 0 18px 48px rgb(21 21 21 / 0.14);
+
+  /* ── Motion ────────────────────────────────────── */
+  --ease-out: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-in: cubic-bezier(0.55, 0.05, 0.68, 0.19);
+  --ease-in-out: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --dur-press: 120ms;
+  --dur-hover: 160ms;
+  --dur-state: 220ms;
+  --dur-panel: 260ms;
+  --dur-exit: 150ms;
+
+  /* Entrance choreography: each segment has its own pace. */
+  --dur-enter-fast: 360ms;
+  --dur-enter: 560ms;
+  --dur-enter-slow: 820ms;
+
+  --z-header: 50;
+  --z-menu: 60;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --gutter: var(--space-8);
+    --section-y: var(--space-24);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --gutter: var(--space-12);
+    --section-y: var(--space-32);
+  }
+}
+
+/*
+ * Section tones. Any element with data-tone flips the semantic tokens so
+ * components inside render correctly without knowing about it.
+ *   raised  slightly lifted ink band, to separate sections
+ *   accent  lavender band (the 30%): dark text, lavender surfaces
+ */
+[data-tone='raised'] {
+  --surface-page: var(--ink-800);
+  --surface-raised: var(--ink-700);
+  --surface-sunken: var(--ink-900);
+}
+
+[data-tone='accent'] {
+  --surface-page: var(--lilac-200);
+  --surface-raised: var(--lilac-100);
+  --surface-sunken: var(--lilac-300);
+  --text-primary: var(--ink-900);
+  --text-secondary: rgb(21 21 21 / 0.74);
+  --text-muted: rgb(21 21 21 / 0.6);
+  --line: rgb(21 21 21 / 0.14);
+  --line-strong: rgb(21 21 21 / 0.28);
+  --accent: var(--ink-900);
+  --accent-hover: var(--ink-800);
+  --on-accent: var(--lilac-200);
+  --focus-ring: var(--ink-900);
+}

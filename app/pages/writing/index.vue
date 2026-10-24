@@ -1,25 +1,35 @@
+<script setup lang="ts">
+const { data: posts, error, refresh } = await useWritingList()
+
+usePageSeo({
+  title: 'Writing',
+  description: 'Notes from taohq on the products we build and the ideas behind them.',
+  schemaType: 'CollectionPage',
+})
+</script>
+
 <template>
   <div>
-    <MobileWritingIndex v-if="isMobile" />
-    <DesktopWritingIndex v-else />
+    <PageIntro
+      title="Writing"
+      :crumbs="['Writing']"
+      :count="error ? undefined : `${String(posts.length).padStart(2, '0')} posts`"
+      lead="What we're building, why, and what we learn along the way."
+    />
+    <AppContainer class="list">
+      <LoadError v-if="error" what="posts" @retry="refresh()" />
+      <PostList v-else-if="posts.length" :posts="posts" />
+      <p v-else class="empty">Nothing published yet. Check back soon.</p>
+    </AppContainer>
   </div>
 </template>
 
-<script setup>
-import { useDevice } from '#imports'
-import DesktopWritingIndex from '~/components/desktop/DesktopWritingIndex.vue'
-import MobileWritingIndex from '~/components/mobile/MobileWritingIndex.vue'
+<style scoped>
+.list {
+  padding-bottom: var(--space-24);
+}
 
-const { isMobile } = useDevice()
-
-definePageMeta({ layout: 'default' })
-
-useSeoMeta({
-  title: 'WRITING // TheAlphaOnes',
-  description: 'Explore WRITING at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
-  ogTitle: 'WRITING // TheAlphaOnes',
-  ogDescription: 'Explore WRITING at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
-  ogImage: 'https://taohq.org/og.png',
-  twitterCard: 'summary_large_image',
-})
-</script>
+.empty {
+  color: var(--text-secondary);
+}
+</style>

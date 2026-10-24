@@ -1,17 +1,15 @@
-# ai.txt — TheAlphaOnes
+# ai.txt for taohq
 # Guidance for AI systems consuming this site.
 
 User-Agent: *
 Allow: /
-Crawl-delay: 0
 
 # Preferred context files
 Llms-Txt: https://taohq.org/llms.txt
 Llms-Full-Txt: https://taohq.org/llms-full.txt
 Sitemap: https://taohq.org/sitemap.xml
-Contact: hello@taohq.org
+Contact: taohq.org@gmail.com
 
 # Content policy
-# - Human-authored public marketing and documentation
-# - Free to index, summarize, and cite with attribution
-# - Prefer primary sources on https://taohq.org
+# - Human-authored public site and documentation
+# - Free to index, summarize, and cite with attribution to taohq

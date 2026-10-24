@@ -1,0 +1,88 @@
+<script setup lang="ts">
+import { PRINCIPLES } from '~/constants/about'
+
+usePageSeo({
+  title: 'About',
+  description: 'taohq is an independent software studio building calm, durable software. What we believe, who we are, and what we share in the open.',
+  schemaType: 'AboutPage',
+})
+</script>
+
+<template>
+  <div>
+    <PageIntro
+      title="Software that stays useful."
+      :crumbs="['About']"
+      lead="taohq is an independent software studio. We design and build apps for everyday life, and we'd rather make a few things well than many things loudly."
+    />
+
+    <EditorialRow label="Why" index="01">
+      <div class="why">
+        <p class="why__text">
+          Most software competes for your attention with notifications, complexity and growth tricks. We build the opposite: tools you can rely on every day, that do their job and get out of the way. Infrastructure before features. Longevity over trends.
+        </p>
+        <blockquote class="why__quote">
+          <span class="why__line">The machine must be cold,</span>
+          <span class="why__line">so the human can be warm.</span>
+        </blockquote>
+      </div>
+    </EditorialRow>
+
+    <EditorialRow label="Principles" index="02" sticky>
+      <PrincipleList :principles="PRINCIPLES" />
+    </EditorialRow>
+
+    <EditorialRow label="Team" index="03">
+      <div class="team">
+        <p class="team__text">A small, independent team. Small on purpose.</p>
+        <AppLink to="/team" icon="arrow-right">Meet the team</AppLink>
+      </div>
+    </EditorialRow>
+
+    <EditorialRow label="Open source" index="04">
+      <div class="team">
+        <p class="team__text">Some of what we build along the way, we share with the community.</p>
+        <AppLink to="/open-source" icon="arrow-right">Open source</AppLink>
+      </div>
+    </EditorialRow>
+  </div>
+</template>
+
+<style scoped>
+.why {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.why__text {
+  max-width: 40rem;
+  font-size: var(--text-lead);
+  line-height: 1.7;
+}
+
+.why__line {
+  display: block;
+}
+
+.why__quote {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: clamp(2rem, 1.6rem + 1.8vw, 3.25rem);
+  line-height: 1;
+  color: var(--accent);
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.team__text {
+  font-size: var(--text-small);
+  color: var(--text-secondary);
+}
+
+</style>
