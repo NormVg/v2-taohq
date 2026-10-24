@@ -1,7 +1,8 @@
 ---
 title: "The Lifestyle We're Building Toward"
-date: "21.07.2026"
-author: "TheAlphaOnes"
+date: "2026-07-21"
+author: "taohq"
+description: "A day where the noise is already sorted, and the software around you holds the context."
 ---
 
 There's a version of your day that doesn't exist yet, but almost does.
@@ -48,4 +49,4 @@ An assistant that handles your inbox needs to understand what you value. A works
 
 The lifestyle we're describing isn't a product launch. It's a direction. And we're moving toward it, deliberately, with the belief that this is what software should have been doing all along.
 
-Follow what we're building on [X (Twitter)](https://twitter.com/TheNormVg). Or read about the specific things we're making in our [products](/products) section. Either way — we're glad you're thinking about this too.
+Follow what we're building on [X (Twitter)](https://x.com/TheNormVg). Or read about the specific things we're making in our [products](/products) section. Either way — we're glad you're thinking about this too.

@@ -1,25 +1,29 @@
-<template>
-  <div>
-    <MobileProductsIndex v-if="isMobile" />
-    <DesktopProductsIndex v-else />
-  </div>
-</template>
+<script setup lang="ts">
+const { data: products } = await useProducts()
 
-<script setup>
-import { useDevice } from '#imports'
-import DesktopProductsIndex from '~/components/desktop/DesktopProductsIndex.vue'
-import MobileProductsIndex from '~/components/mobile/MobileProductsIndex.vue'
-
-const { isMobile } = useDevice()
-
-definePageMeta({ layout: 'default' })
-
-useSeoMeta({
-  title: 'PRODUCTS // TheAlphaOnes',
-  description: 'Explore PRODUCTS at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
-  ogTitle: 'PRODUCTS // TheAlphaOnes',
-  ogDescription: 'Explore PRODUCTS at TheAlphaOnes. We believe software should feel understandable, durable, and calm.',
-  ogImage: 'https://taohq.org/og.png',
-  twitterCard: 'summary_large_image',
+usePageSeo({
+  title: 'Products',
+  description: 'Everything taohq is building: Fold, Bottles, Bubbles.space, Bubbles.mail and web-have-sounds.',
 })
 </script>
+
+<template>
+  <div>
+    <PageIntro
+      title="Products"
+      :crumbs="['Products']"
+      :count="`${String(products.length).padStart(2, '0')} products`"
+      lead="A small lineup, each made with the same care. Some are live, some are on the way."
+    />
+    <AppContainer>
+      <ProductIndexRow
+        v-for="(product, i) in products"
+        :key="product.path"
+        :product="product"
+        :index="i + 1"
+        :total="products.length"
+        :priority="i === 0"
+      />
+    </AppContainer>
+  </div>
+</template>

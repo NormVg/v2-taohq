@@ -1,63 +1,39 @@
 /**
  * Singleton WebGL dither renderer.
- * 
- * Uses ONE persistent WebGL context shared across all DitherImage instances.
- * Images are queued and processed sequentially, with the result copied to each
- * component's 2D canvas. This completely eliminates the mobile WebGL context
- * limit problem (typically 8-16 contexts on iOS/Android).
- * 
- * Architecture:
- *   1. Single offscreen WebGL canvas + compiled shader program (created once)
- *   2. Each DitherImage calls `enqueueDither(...)` which adds to a FIFO queue
- *   3. Queue is drained one-at-a-time: resize offscreen canvas → upload texture → render → readPixels → copy to target 2D canvas → next
- *   4. Zero WebGL contexts are held by any component
+ *
+ * One WebGL context is shared by every DitherImage on the page (mobile
+ * browsers cap live contexts at ~8-16). Jobs are queued and drained one per
+ * animation frame so rendering never blocks scrolling.
+ *
+ * A job uploads its image once and renders it at several pixel sizes,
+ * returning one 2D canvas per size. DitherImage plays those frames coarse →
+ * fine to "develop" the image as it enters the viewport.
  */
 
-// ─── Types ───────────────────────────────────────────────────────────────────
+export interface DitherOptions {
+  colorDark: string
+  colorLight: string
+  /** Pixel sizes to render, in order. The last one is the final image. */
+  pixelSizes: number[]
+  /** Make dark cells transparent, leaving a light-only cut-out. */
+  knockout?: boolean
+}
 
 interface DitherJob {
   img: HTMLImageElement
-  targetCanvas: HTMLCanvasElement
-  colorDark: string
-  colorLight: string
-  pixelSize: number
-  resolve: () => void
-  reject: (err: Error) => void
+  options: DitherOptions
+  resolve: (frames: HTMLCanvasElement[]) => void
+  reject: (error: Error) => void
 }
 
-interface DitherRenderer {
+interface Renderer {
   gl: WebGLRenderingContext
-  program: WebGLProgram
-  offscreen: HTMLCanvasElement
-  uniforms: {
-    uResolution: WebGLUniformLocation
-    uPixelSize: WebGLUniformLocation
-    uColorDark: WebGLUniformLocation
-    uColorLight: WebGLUniformLocation
-    uImage: WebGLUniformLocation
-  }
+  canvas: HTMLCanvasElement
+  uniforms: Record<'resolution' | 'pixelSize' | 'colorDark' | 'colorLight' | 'image' | 'knockout', WebGLUniformLocation | null>
 }
 
-// ─── Singleton State ─────────────────────────────────────────────────────────
-
-let renderer: DitherRenderer | null = null
-const queue: DitherJob[] = []
-let processing = false
-
-// ─── Helpers ─────────────────────────────────────────────────────────────────
-
-function hexToRgb(hex: string): [number, number, number] {
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex)
-  return result
-    ? [
-        parseInt(result[1], 16) / 255,
-        parseInt(result[2], 16) / 255,
-        parseInt(result[3], 16) / 255,
-      ]
-    : [0, 0, 0]
-}
-
-// ─── Shader Sources ──────────────────────────────────────────────────────────
+/** GPU memory cap for mobile; dither cells are larger than this resolution anyway. */
+const MAX_DIMENSION = 800
 
 const VERTEX_SHADER = `
   attribute vec2 aPosition;
@@ -69,6 +45,7 @@ const VERTEX_SHADER = `
   }
 `
 
+// 4x4 Bayer ordered dither, two-tone.
 const FRAGMENT_SHADER = `
   precision mediump float;
   varying vec2 vUv;
@@ -77,225 +54,162 @@ const FRAGMENT_SHADER = `
   uniform vec3 uColorDark;
   uniform vec3 uColorLight;
   uniform float uPixelSize;
+  uniform float uKnockout;
 
   float bayer4x4(vec2 p) {
-    vec2 p0 = floor(mod(p, 4.0));
-    float b = 0.0;
-    if (p0.y == 0.0) {
-      if (p0.x == 0.0) b = 0.0;
-      else if (p0.x == 1.0) b = 8.0;
-      else if (p0.x == 2.0) b = 2.0;
-      else b = 10.0;
-    } else if (p0.y == 1.0) {
-      if (p0.x == 0.0) b = 12.0;
-      else if (p0.x == 1.0) b = 4.0;
-      else if (p0.x == 2.0) b = 14.0;
-      else b = 6.0;
-    } else if (p0.y == 2.0) {
-      if (p0.x == 0.0) b = 3.0;
-      else if (p0.x == 1.0) b = 11.0;
-      else if (p0.x == 2.0) b = 1.0;
-      else b = 9.0;
-    } else {
-      if (p0.x == 0.0) b = 15.0;
-      else if (p0.x == 1.0) b = 7.0;
-      else if (p0.x == 2.0) b = 13.0;
-      else b = 5.0;
-    }
-    return b / 16.0;
+    vec2 q = floor(mod(p, 4.0));
+    int i = int(q.x + q.y * 4.0);
+    float m[16];
+    m[0]=0.0; m[1]=8.0; m[2]=2.0; m[3]=10.0;
+    m[4]=12.0; m[5]=4.0; m[6]=14.0; m[7]=6.0;
+    m[8]=3.0; m[9]=11.0; m[10]=1.0; m[11]=9.0;
+    m[12]=15.0; m[13]=7.0; m[14]=13.0; m[15]=5.0;
+    for (int k = 0; k < 16; k++) { if (k == i) return m[k] / 16.0; }
+    return 0.0;
   }
 
   void main() {
-    vec2 pUv = floor(vUv * (uResolution / uPixelSize)) / (uResolution / uPixelSize);
-    vec4 texColor = texture2D(uImage, pUv);
-    float gray = dot(texColor.rgb, vec3(0.299, 0.587, 0.114));
-    vec2 pxCoord = floor(vUv * uResolution / uPixelSize);
+    vec2 cells = uResolution / uPixelSize;
+    vec2 cell = floor(vUv * cells);
+    vec4 tex = texture2D(uImage, cell / cells);
+    if (tex.a < 0.5) discard;
+    float gray = dot(tex.rgb, vec3(0.299, 0.587, 0.114));
     gray = clamp((gray - 0.5) * 1.5 + 0.5, 0.0, 1.0);
-    float threshold = bayer4x4(pxCoord);
-    float finalValue = step(threshold + 0.001, gray);
-    vec3 finalColor = mix(uColorDark, uColorLight, finalValue);
-    if (texColor.a < 0.5) {
-      discard;
-    }
-    gl_FragColor = vec4(finalColor, texColor.a);
+    float lit = step(bayer4x4(cell) + 0.001, gray);
+    float alpha = tex.a * mix(1.0 - uKnockout, 1.0, lit);
+    gl_FragColor = vec4(mix(uColorDark, uColorLight, lit) * alpha, alpha);
   }
 `
 
-// ─── Renderer Init (lazy, once) ──────────────────────────────────────────────
+let renderer: Renderer | null = null
+const queue: DitherJob[] = []
+let draining = false
 
-function initRenderer(): DitherRenderer | null {
+function hexToRgb(hex: string): [number, number, number] {
+  const match = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex.trim())
+  if (!match) return [0, 0, 0]
+  return [1, 2, 3].map(i => Number.parseInt(match[i]!, 16) / 255) as [number, number, number]
+}
+
+function compile(gl: WebGLRenderingContext, type: number, source: string): WebGLShader {
+  const shader = gl.createShader(type)
+  if (!shader) throw new Error('Unable to create shader')
+  gl.shaderSource(shader, source)
+  gl.compileShader(shader)
+  if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+    const log = gl.getShaderInfoLog(shader)
+    gl.deleteShader(shader)
+    throw new Error(`Shader compile failed: ${log}`)
+  }
+  return shader
+}
+
+function bindQuadAttribute(gl: WebGLRenderingContext, program: WebGLProgram, name: string, data: number[]) {
+  gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer())
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(data), gl.STATIC_DRAW)
+  const location = gl.getAttribLocation(program, name)
+  gl.enableVertexAttribArray(location)
+  gl.vertexAttribPointer(location, 2, gl.FLOAT, false, 0, 0)
+}
+
+function getRenderer(): Renderer {
   if (renderer) return renderer
 
-  const offscreen = document.createElement('canvas')
-  const gl = offscreen.getContext('webgl', { preserveDrawingBuffer: true })
-    || offscreen.getContext('experimental-webgl', { preserveDrawingBuffer: true })
+  const canvas = document.createElement('canvas')
+  const gl = canvas.getContext('webgl', { preserveDrawingBuffer: true })
+  if (!gl) throw new Error('WebGL is not available')
 
-  if (!gl) {
-    console.error('[DitherRenderer] WebGL not supported')
-    return null
-  }
-
-  function createShader(type: number, source: string): WebGLShader | null {
-    const shader = gl!.createShader(type)
-    if (!shader) return null
-    gl!.shaderSource(shader, source)
-    gl!.compileShader(shader)
-    if (!gl!.getShaderParameter(shader, gl!.COMPILE_STATUS)) {
-      console.error(gl!.getShaderInfoLog(shader))
-      gl!.deleteShader(shader)
-      return null
-    }
-    return shader
-  }
-
-  const vs = createShader(gl.VERTEX_SHADER, VERTEX_SHADER)
-  const fs = createShader(gl.FRAGMENT_SHADER, FRAGMENT_SHADER)
-  if (!vs || !fs) return null
-
-  const program = gl.createProgram()!
-  gl.attachShader(program, vs)
-  gl.attachShader(program, fs)
+  const program = gl.createProgram()
+  if (!program) throw new Error('Unable to create WebGL program')
+  gl.attachShader(program, compile(gl, gl.VERTEX_SHADER, VERTEX_SHADER))
+  gl.attachShader(program, compile(gl, gl.FRAGMENT_SHADER, FRAGMENT_SHADER))
   gl.linkProgram(program)
-
   if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-    console.error(gl.getProgramInfoLog(program))
-    return null
+    throw new Error(`Program link failed: ${gl.getProgramInfoLog(program)}`)
   }
-
   gl.useProgram(program)
 
-  // Quad geometry (set once, reused for every render)
-  const positions = new Float32Array([
-    -1, -1,  1, -1,  -1, 1,
-    -1,  1,  1, -1,   1, 1,
-  ])
-  const uvs = new Float32Array([
-    0, 1,  1, 1,  0, 0,
-    0, 0,  1, 1,  1, 0,
-  ])
+  bindQuadAttribute(gl, program, 'aPosition', [-1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, 1])
+  bindQuadAttribute(gl, program, 'aUv', [0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0])
 
-  const posBuf = gl.createBuffer()
-  gl.bindBuffer(gl.ARRAY_BUFFER, posBuf)
-  gl.bufferData(gl.ARRAY_BUFFER, positions, gl.STATIC_DRAW)
-  const aPos = gl.getAttribLocation(program, 'aPosition')
-  gl.enableVertexAttribArray(aPos)
-  gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0)
-
-  const uvBuf = gl.createBuffer()
-  gl.bindBuffer(gl.ARRAY_BUFFER, uvBuf)
-  gl.bufferData(gl.ARRAY_BUFFER, uvs, gl.STATIC_DRAW)
-  const aUv = gl.getAttribLocation(program, 'aUv')
-  gl.enableVertexAttribArray(aUv)
-  gl.vertexAttribPointer(aUv, 2, gl.FLOAT, false, 0, 0)
-
-  const uniforms = {
-    uResolution: gl.getUniformLocation(program, 'uResolution')!,
-    uPixelSize: gl.getUniformLocation(program, 'uPixelSize')!,
-    uColorDark: gl.getUniformLocation(program, 'uColorDark')!,
-    uColorLight: gl.getUniformLocation(program, 'uColorLight')!,
-    uImage: gl.getUniformLocation(program, 'uImage')!,
+  renderer = {
+    gl,
+    canvas,
+    uniforms: {
+      resolution: gl.getUniformLocation(program, 'uResolution'),
+      pixelSize: gl.getUniformLocation(program, 'uPixelSize'),
+      colorDark: gl.getUniformLocation(program, 'uColorDark'),
+      colorLight: gl.getUniformLocation(program, 'uColorLight'),
+      image: gl.getUniformLocation(program, 'uImage'),
+      knockout: gl.getUniformLocation(program, 'uKnockout'),
+    },
   }
-
-  renderer = { gl: gl as WebGLRenderingContext, program, offscreen, uniforms }
   return renderer
 }
 
-// ─── Process a single job ────────────────────────────────────────────────────
+function fitWithin(width: number, height: number): [number, number] {
+  const ratio = Math.min(1, MAX_DIMENSION / Math.max(width, height))
+  return [Math.round(width * ratio), Math.round(height * ratio)]
+}
 
-function processJob(job: DitherJob): void {
-  const r = initRenderer()
-  if (!r) {
-    job.reject(new Error('WebGL init failed'))
-    return
-  }
+function render({ img, options }: DitherJob): HTMLCanvasElement[] {
+  const { gl, canvas, uniforms } = getRenderer()
+  const [width, height] = fitWithin(img.naturalWidth, img.naturalHeight)
 
-  const { gl, offscreen, uniforms } = r
-  const { img, targetCanvas, colorDark, colorLight, pixelSize } = job
+  canvas.width = width
+  canvas.height = height
+  gl.viewport(0, 0, width, height)
+  gl.uniform2f(uniforms.resolution, width, height)
+  gl.uniform3f(uniforms.colorDark, ...hexToRgb(options.colorDark))
+  gl.uniform3f(uniforms.colorLight, ...hexToRgb(options.colorLight))
+  gl.uniform1f(uniforms.knockout, options.knockout ? 1 : 0)
 
-  // Cap dimensions for mobile GPU memory
-  let w = img.width
-  let h = img.height
-  const maxDim = 800 // lower cap for mobile perf
-  if (w > maxDim || h > maxDim) {
-    const ratio = Math.min(maxDim / w, maxDim / h)
-    w = Math.floor(w * ratio)
-    h = Math.floor(h * ratio)
-  }
-
-  // Resize offscreen canvas
-  offscreen.width = w
-  offscreen.height = h
-  gl.viewport(0, 0, w, h)
-
-  // Set per-image uniforms
-  gl.uniform2f(uniforms.uResolution, w, h)
-  gl.uniform1f(uniforms.uPixelSize, pixelSize)
-
-  const cDark = hexToRgb(colorDark)
-  const cLight = hexToRgb(colorLight)
-  gl.uniform3f(uniforms.uColorDark, cDark[0], cDark[1], cDark[2])
-  gl.uniform3f(uniforms.uColorLight, cLight[0], cLight[1], cLight[2])
-
-  // Upload texture
   const texture = gl.createTexture()
+  gl.activeTexture(gl.TEXTURE0)
   gl.bindTexture(gl.TEXTURE_2D, texture)
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE)
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE)
-  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST)
+  gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR)
   gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST)
   gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, img)
+  gl.uniform1i(uniforms.image, 0)
 
-  gl.activeTexture(gl.TEXTURE0)
-  gl.uniform1i(uniforms.uImage, 0)
+  const frames = options.pixelSizes.map((pixelSize) => {
+    gl.clearColor(0, 0, 0, 0)
+    gl.clear(gl.COLOR_BUFFER_BIT)
+    gl.uniform1f(uniforms.pixelSize, pixelSize)
+    gl.drawArrays(gl.TRIANGLES, 0, 6)
 
-  // Render
-  gl.drawArrays(gl.TRIANGLES, 0, 6)
+    const frame = document.createElement('canvas')
+    frame.width = width
+    frame.height = height
+    frame.getContext('2d')?.drawImage(canvas, 0, 0)
+    return frame
+  })
 
-  // Copy result to the component's visible 2D canvas
-  targetCanvas.width = w
-  targetCanvas.height = h
-  const ctx = targetCanvas.getContext('2d')
-  if (ctx) {
-    ctx.drawImage(offscreen, 0, 0)
-  }
-
-  // Cleanup the texture (the program/context persists for reuse)
   gl.deleteTexture(texture)
-
-  job.resolve()
+  return frames
 }
 
-// ─── Queue Drain ─────────────────────────────────────────────────────────────
-
-async function drainQueue(): Promise<void> {
-  if (processing) return
-  processing = true
-
-  while (queue.length > 0) {
+async function drain() {
+  if (draining) return
+  draining = true
+  while (queue.length) {
     const job = queue.shift()!
     try {
-      processJob(job)
-    } catch (err) {
-      job.reject(err instanceof Error ? err : new Error(String(err)))
+      job.resolve(render(job))
     }
-    // Yield to the browser between jobs to prevent jank
-    await new Promise<void>((r) => requestAnimationFrame(() => r()))
+    catch (error) {
+      job.reject(error instanceof Error ? error : new Error(String(error)))
+    }
+    await new Promise<void>(resolve => requestAnimationFrame(() => resolve()))
   }
-
-  processing = false
+  draining = false
 }
 
-// ─── Public API ──────────────────────────────────────────────────────────────
-
-export function enqueueDither(
-  img: HTMLImageElement,
-  targetCanvas: HTMLCanvasElement,
-  colorDark: string,
-  colorLight: string,
-  pixelSize: number
-): Promise<void> {
+export function renderDitherFrames(img: HTMLImageElement, options: DitherOptions): Promise<HTMLCanvasElement[]> {
   return new Promise((resolve, reject) => {
-    queue.push({ img, targetCanvas, colorDark, colorLight, pixelSize, resolve, reject })
-    drainQueue()
+    queue.push({ img, options, resolve, reject })
+    void drain()
   })
 }

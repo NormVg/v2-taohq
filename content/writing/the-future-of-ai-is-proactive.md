@@ -1,7 +1,8 @@
 ---
 title: "The Future of AI Is Proactive"
-date: "21.07.2026"
-author: "TheAlphaOnes"
+date: "2026-07-21"
+author: "taohq"
+description: "AI assistants shouldn't be something you go and visit. Here's what comes after the chat box."
 ---
 
 Somewhere along the way, we decided that "AI assistant" means something you have to go visit.
@@ -36,4 +37,4 @@ The intelligence isn't in answering questions better. It's in knowing which ques
 
 We're a small team with a clear point of view. We think the transition from reactive to proactive AI is one of the more significant shifts coming in how people relate to software, and we're building toward it now, one carefully considered product at a time.
 
-If this resonates with how you think about the future, we're on [X (Twitter)](https://twitter.com/TheNormVg). We'd like to hear from you.
+If this resonates with how you think about the future, we're on [X (Twitter)](https://x.com/TheNormVg). We'd like to hear from you.

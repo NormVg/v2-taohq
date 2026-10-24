@@ -191,6 +191,60 @@ Keep them minimal.
 
 ---
 
+## Reusable Components First (Core Motive)
+
+Writing UI means composing reusable components. It never means writing fresh markup and styles for every page.
+
+Before writing any UI:
+
+1. Look in `app/components/` for a component that already does the job. If one exists, use it.
+2. If one almost fits, extend it with a prop, variant, or slot. Never copy and modify it.
+3. If nothing fits, build a new reusable component first, then use it.
+
+Rules:
+
+* **Second use = extract.** When the same markup or styling pattern appears a second time, turn it into a component before shipping.
+* **Never style the same thing twice.** Buttons, links, badges, headings, cards, sections, containers, and media always go through shared components.
+* **One responsive component per concept.** Never create `Desktop*` / `Mobile*` copies of a component or page. Handle screen sizes with CSS media or container queries inside a single component.
+* **Variants over clones.** Express differences with typed `variant` / `size` / `tone` props (string unions), not new near-identical components.
+* **Slots over prop soup.** Pass rich content through slots. Keep props for configuration.
+* **Tokens only.** Colours, spacing, type scale, radii, and motion curves/durations come from CSS custom properties in `app/assets/css`. Components never hardcode these values.
+* **Typed contracts.** Every component uses `<script setup lang="ts">` with `defineProps<...>()` and `defineEmits<...>()`.
+* **Thin pages.** Files in `app/pages/` only fetch data, set SEO, and compose components. No large markup blocks or heavy styling in pages.
+
+Component layers:
+
+```txt
+app/components/
+├─ ui/         Primitives: AppButton, AppLink, AppLabel, AppBadge, AppIcon, AppContainer, EmailLink, CopyCommand
+├─ media/      DitherImage (WebGL dither, develop animation, knockout mode)
+├─ editorial/  Inner-page system: PageIntro, EditorialRow, MetaList
+├─ layout/     SiteHeader, SiteNav, SiteMenu, SiteFooter, SiteLogo, SkipLink, SoundToggle, FooterCat
+├─ article/    ProseContent (markdown typography)
+├─ home/       SpecimenField + Specimen (the home cabinet)
+├─ product/    Product feature components (index row, aside, actions, status, next)
+├─ writing/    PostList, PostAside
+├─ about/ studio/ legal/   Page-specific feature components
+```
+
+Visual system (keep it consistent):
+
+* **60 / 30 / 10 colour:** ink backgrounds (60), lavender accent (30) for buttons, labels, art, script type and the footer band, paper text (10). Lavender is never the default page background. Section tones switch via `data-tone="raised" | "accent"`.
+* **Type:** VT323 for names and titles, IBM Plex Mono for body, tiny uppercase mono (`--text-ui`) for labels/nav/meta, Italianno only for lavender script accents.
+* **Inner pages are editorial:** compose `PageIntro` + `EditorialRow`s. No cards, no boxed sections; hairlines and space create structure.
+* **Art is always dithered** through `DitherImage`; use `knockout` when art floats over a background.
+
+Lower layers never import from higher layers (`ui/` never imports from `product/`).
+
+---
+
+# Brand
+
+* The public brand name is **taohq** (lowercase) everywhere: UI copy, titles, SEO metadata, structured data `name`, social cards.
+* **TheAlphaOnes** is the internal/legal name only. It may appear in legal and privacy text and as `alternateName` in structured data, nowhere else.
+
+---
+
 # Composable Standards
 
 Use composables for reusable business logic. Nuxt auto-imports composables from the composables directory.
@@ -604,6 +658,8 @@ Before completing any task verify:
 
 * Is the code modular?
 * Is the code reusable?
+* Did I reuse existing components instead of writing new markup and styles?
+* Is any pattern now repeated that should become a component?
 * Is the code typed?
 * Is the code tested mentally against edge cases?
 * Is the architecture clean?

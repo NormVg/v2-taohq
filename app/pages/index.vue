@@ -1,23 +1,17 @@
-<template>
-  <div>
-    <MobileHome v-if="isMobile" />
-    <DesktopHome v-else />
-  </div>
-</template>
+<script setup lang="ts">
+import { SITE } from '~/constants/site'
 
-<script setup>
-import { useDevice } from '#imports'
-import DesktopHome from '~/components/desktop/DesktopHome.vue'
-import MobileHome from '~/components/mobile/MobileHome.vue'
+definePageMeta({ layout: 'field' })
 
-const { isMobile } = useDevice()
+const { data: products } = await useProducts()
 
-useSeoMeta({
-  title: 'TheAlphaOnes — Independent Software Organization',
-  description: 'TheAlphaOnes builds thoughtful software, developer tools, and digital infrastructure. Calm interfaces, durable systems, and long-term craft.',
-  ogTitle: 'TheAlphaOnes — Independent Software Organization',
-  ogDescription: 'TheAlphaOnes builds thoughtful software, developer tools, and digital infrastructure. Calm interfaces, durable systems, and long-term craft.',
-  ogImage: 'https://taohq.org/og.png',
-  twitterCard: 'summary_large_image',
+usePageSeo({
+  title: `${SITE.name}: ${SITE.tagline}`,
+  description: SITE.description,
+  bareTitle: true,
 })
 </script>
+
+<template>
+  <SpecimenField :products="products" />
+</template>

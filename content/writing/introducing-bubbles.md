@@ -1,7 +1,9 @@
 ---
 title: "Introducing Bubbles"
-date: "21.07.2026"
-author: "TheAlphaOnes"
+date: "2026-07-21"
+author: "taohq"
+description: "Why we're building a family of AI-agent-first apps that do the carrying for you."
+product: "bubbles-space"
 ---
 
 There's a version of AI that most of us are used to by now. You open a tab, you type a question, you read the answer, you close the tab, you go back to what you were doing. It's useful. Sometimes it's genuinely impressive. But if you sit with it for a moment, you start to feel that something is a little off.
@@ -44,4 +46,4 @@ That's the lifestyle we're building toward. A version of your days where the fri
 
 We're a small, independent team. We don't have a roadmap printed on a billboard. But we have a direction, and we're moving toward it.
 
-Follow along on [X (Twitter)](https://twitter.com/TheNormVg). We'll keep building.
+Follow along on [X (Twitter)](https://x.com/TheNormVg). We'll keep building.

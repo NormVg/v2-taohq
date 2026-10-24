@@ -1,0 +1,123 @@
+/**
+ * Entrance choreography.
+ *
+ * A container marked with `v-reveal` gets `data-revealed` once it scrolls into
+ * view. Inside it, each `data-reveal="<segment>"` element plays its own
+ * segment, at its own pace, after its own `--reveal-delay`. Mixing segments
+ * (a slow headline rise, a quick badge tick, a long rule wipe) is what keeps
+ * the page from moving as one monotonous block.
+ *
+ * Keyframes use `animation-fill-mode: backwards`, so once a segment finishes
+ * the element returns to its normal styles and its own hover transforms work.
+ */
+
+.js [data-reveal-group]:not([data-revealed]) [data-reveal] {
+  opacity: 0;
+}
+
+[data-revealed] [data-reveal] {
+  animation-delay: var(--reveal-delay, 0ms);
+  animation-fill-mode: backwards;
+}
+
+[data-revealed] [data-reveal='fade'] {
+  animation-name: reveal-fade;
+  animation-duration: var(--reveal-duration, var(--dur-enter-fast));
+  animation-timing-function: var(--ease-out);
+}
+
+[data-revealed] [data-reveal='rise'] {
+  animation-name: reveal-rise;
+  animation-duration: var(--reveal-duration, var(--dur-enter));
+  animation-timing-function: var(--ease-out);
+}
+
+[data-revealed] [data-reveal='rise-slow'] {
+  animation-name: reveal-rise-far;
+  animation-duration: var(--reveal-duration, var(--dur-enter-slow));
+  animation-timing-function: var(--ease-out);
+}
+
+[data-revealed] [data-reveal='tick'] {
+  animation-name: reveal-tick;
+  animation-duration: var(--reveal-duration, var(--dur-enter-fast));
+  animation-timing-function: var(--ease-spring);
+}
+
+[data-revealed] [data-reveal='wipe'] {
+  animation-name: reveal-wipe;
+  animation-duration: var(--reveal-duration, var(--dur-enter-slow));
+  animation-timing-function: var(--ease-in-out);
+}
+
+@keyframes reveal-fade {
+  from { opacity: 0; }
+}
+
+@keyframes reveal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+@keyframes reveal-rise-far {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+}
+
+@keyframes reveal-tick {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+}
+
+@keyframes reveal-wipe {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+/* Route change: quick fade + small lift, exit faster than entrance. */
+.page-enter-active {
+  transition:
+    opacity var(--dur-panel) var(--ease-out),
+    transform var(--dur-panel) var(--ease-out);
+}
+
+.page-leave-active {
+  transition:
+    opacity var(--dur-exit) var(--ease-in),
+    transform var(--dur-exit) var(--ease-in);
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.page-leave-to {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal-group]:not([data-revealed]) [data-reveal] {
+    opacity: 1;
+  }
+
+  [data-revealed] [data-reveal] {
+    animation: none;
+  }
+
+  .page-enter-active,
+  .page-leave-active {
+    transition: none;
+  }
+
+  .page-enter-from {
+    transform: none;
+  }
+}

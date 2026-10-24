@@ -1,11 +1,18 @@
 ---
-title: "WEB-HAVE-SOUNDS"
-description: "A zero-dependency JavaScript library for generating UI sound effects through math. No audio files. No network requests."
-status: "OSS"
-homeImage: "skull-book.png"
-tickerTop: "011010010101011101001010010110101011010101"
-tickerBottom: "111010100010110100101010110100010101011"
-link: "https://github.com/NormVg/web-have-sound"
+title: "web-have-sounds"
+tagline: "UI sounds, generated with math."
+description: "A zero-dependency JavaScript library for UI sound effects. No audio files, no network requests. Just the Web Audio API."
+status: "open-source"
+kind: "library"
+order: 5
+art: "/art/web-have-sounds.webp"
+artAlt: "A crow perched on a skull inside an arched frame"
+platforms: ["Web", "npm"]
+facts: ["Zero dependencies", "MIT licensed"]
+links:
+  github: "https://github.com/NormVg/web-have-sound"
+  npm: "https://www.npmjs.com/package/@thenormvg/web-have-sounds"
+install: "npm i @thenormvg/web-have-sounds"
 ---
 
 **We are building a sound library for web developers who want interactive audio feedback without the payload — pure math, native APIs, zero compromise.**
@@ -50,10 +57,10 @@ One thing worth knowing: browsers require a user gesture before the Web Audio AP
 
 ## Where to Find It
 
-This is one of the first open-source tools we've shipped as [TheAlphaOnes](/organization/about). We believe in building in the open — not just for visibility, but because the best tools get sharper when more people use them.
+This is one of the first open-source tools we've shipped at [taohq](/about). We believe in building in the open — not just for visibility, but because the best tools get sharper when more people use them.
 
 - **npm**: [npmjs.com/package/@thenormvg/web-have-sounds](https://www.npmjs.com/package/@thenormvg/web-have-sounds)
 - **GitHub**: [github.com/NormVg/web-have-sound](https://github.com/NormVg/web-have-sound)
-- **Updates**: [X (Twitter)](https://twitter.com/TheNormVg)
+- **Updates**: [X](https://x.com/TheNormVg)
 
 If you use it in a project, we'd genuinely love to hear about it.

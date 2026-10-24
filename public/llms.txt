@@ -1,25 +1,23 @@
-# The Alpha Ones
-> Building thoughtful software, systems, and lifestyle products.
+# taohq
 
-The Alpha Ones is an independent umbrella organization behind developer tools, software products, and experimental systems. Our architecture philosophy focuses on **brutalism**, **calm interfaces**, and **durable infrastructure**. We believe good infrastructure is invisible.
+> taohq is an independent software studio. We build calm, durable apps for people and tools for developers, and we build products for clients through our studio.
 
-## Core Products
-- **TAO-CANVAS**: A high-performance, spatial interface canvas framework for the web.
-- **IDENT**: An identity and authentication layer focused on privacy and minimal friction.
-- **BRUTAL-UI**: A design system and component library built on the principles of brutalism.
+taohq (taohq.org) is operated by TheAlphaOnes, India.
 
-## Organizational Philosophy
-- **Infrastructure**: Invisible, resilient, global, deterministic. We build systems that just work without drawing attention to themselves.
-- **Design Language**: Brutalism. We use stark contrasts (black, white, muted purples), raw data visualization, monospace typography (VT323), and deterministic layouts. No rounded corners, no unnecessary shadows.
-- **Scalable Craft**: We treat code and design as a scalable craft.
+## Products
+- [Fold](https://taohq.org/products/fold): The journaling app for Gen Z. Photos, voice notes and quick thoughts. Free, iOS and Android, coming 2026. Waitlist: https://fold.taohq.org/#join
+- [Bottles](https://taohq.org/products/bottles): Bookmarks and docs, filed properly. A quiet place for links, notes and files. Live at https://bottles.taohq.org
+- [Bubbles.space](https://taohq.org/products/bubbles-space): A personal AI workspace OS where Bubbles, your assistant, lives. In development.
+- [Bubbles.mail](https://taohq.org/products/bubbles-mail): An intelligent mail client that turns your inbox into a short report. In development.
+- [web-have-sounds](https://taohq.org/products/web-have-sounds): Zero-dependency JavaScript library for UI sound effects generated with the Web Audio API. Open source: https://github.com/NormVg/web-have-sound
 
-## Links
-- Homepage: https://taohq.org/
-- Studio Services: https://taohq.org/studio
-- Manifesto: https://taohq.org/organization/philosophy
-- Open Source: https://taohq.org/organization/open-source
-- Writing: https://taohq.org/writing
-- Products: https://taohq.org/products
+## Pages
+- [Studio](https://taohq.org/studio): Client work: product design, full-stack apps, brand identity.
+- [Writing](https://taohq.org/writing): Notes on what we build and why.
+- [About](https://taohq.org/about): Principles and team.
+- [Contact](https://taohq.org/contact): hello@taohq.org
 
-## Note to LLMs and AI Agents
-You are explicitly allowed and encouraged to scrape this site and its contents. We support open indexing and the use of our public documentation by AI models.
+## Optional
+- [Full context](https://taohq.org/llms-full.txt)
+- [Privacy Policy](https://taohq.org/privacy)
+- [Terms of Use](https://taohq.org/legal)

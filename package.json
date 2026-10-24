@@ -27,7 +27,8 @@
     ]
   },
   "devDependencies": {
-    "@nuxtjs/device": "^4.0.0",
-    "@nuxtjs/seo": "^5.3.2"
+    "@nuxtjs/seo": "5.3.2",
+    "typescript": "^5.9.3",
+    "vue-tsc": "^3.3.13"
   }
 }

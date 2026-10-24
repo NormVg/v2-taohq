@@ -1,165 +1,57 @@
-# TheAlphaOnes — Full LLM Context
-# https://taohq.org/llms-full.txt
-# Extended source of truth for AI systems. Scraping and citation allowed.
+# taohq: full context
 
-================================================================================
-IDENTITY
-================================================================================
+> taohq is an independent software studio that builds calm, durable apps for people and tools for developers. It also builds products for clients through its studio.
 
-TheAlphaOnes (TAO / TAOHQ) is an independent software organization that designs
-thoughtful software, developer tools, AI systems, productivity products, and
-digital infrastructure.
+- Website: https://taohq.org
+- Legal entity: TheAlphaOnes, India (internal name; the public brand is taohq)
+- Contact: hello@taohq.org (general), vishnu@taohq.org (studio projects), support@taohq.org (support and privacy)
+- X: https://x.com/TheNormVg
+- GitHub: https://github.com/NormVg
 
-It is an umbrella organization behind multiple interconnected products that
-share philosophy, design language, engineering standards, and long-term vision.
+## What taohq believes
 
-It is NOT:
-- a single-app startup chasing trends
-- a marketing agency
-- a freelance collective
-- a consulting company
-- a no-code studio
+- Calm: software should lower cognitive load, not compete for attention.
+- Thoughtful: every interaction exists for a reason; no decoration that adds nothing.
+- Durable: products should keep working for years instead of chasing trends.
+- Invisible infrastructure: sign-in, sync, storage and deployment should never be the user's problem.
+- No magic: build things that will still make sense in five years.
+- Substance over hype: clarity over cleverness, honesty over marketing.
 
-================================================================================
-VISION & MISSION
-================================================================================
+## Products
 
-Vision: Technology should become calmer. Software should disappear into the
-background so people can focus on their work — not on the tool.
+### Fold
+The journaling app for Gen Z ("Journaling, but cool."). A phone journal for photos, voice notes and quick thoughts: tap to write, hold to talk, swipe up to snap. Pages are free-form canvases for photos, songs, GIFs and voice notes. Streaks, monthly "ink", and three daily reminders. No account, no cloud, no ads: the journal lives only on your phone. Free, iOS and Android, coming 2026, opening in waves via a waitlist.
+- Page: https://taohq.org/products/fold
+- Waitlist: https://fold.taohq.org/#join
 
-Mission:
-- Build software people can rely on every day
-- Create products that feel understandable, durable, and calm
-- Invest in infrastructure before features
-- Prefer longevity over trends
+### Bottles
+Bookmarks and docs, filed properly. A quiet place for your links, notes and files, with no feed and no noise: one space for what you keep, one for what you write. Live on the web.
+- Page: https://taohq.org/products/bottles
+- App: https://bottles.taohq.org
 
-================================================================================
-PHILOSOPHY
-================================================================================
+### Bubbles.space
+A personal AI workspace OS where Bubbles, your AI assistant, lives and works alongside you. Part of the Bubbles family of AI-agent-first apps. In development.
+- Page: https://taohq.org/products/bubbles-space
 
-Calm — Reduce cognitive load. Interfaces should never overwhelm.
-Thoughtful — Every interaction exists for a reason. No empty decoration.
-Durable — Products should keep working for years.
-Invisible infrastructure — Auth, sync, storage, deploy should just work.
-Long-term thinking — Build for five years out, not the next hype cycle.
+### Bubbles.mail
+An intelligent mail client from the Bubbles family that turns a raw inbox into an information report: what needs attention, what can wait, what to delegate. In development.
+- Page: https://taohq.org/products/bubbles-mail
 
-Principles:
-1. Build what is necessary. Discard what is not.
-2. Performance is non-negotiable.
-3. No magic — systems should be understandable.
-4. Radical independence.
-5. Beauty through utility.
+### web-have-sounds
+A zero-dependency JavaScript library that generates UI sound effects (click, pop, toggle, tick, drop, success, error, warning, startup) with the Web Audio API, with no audio files and no network requests. Nine "feels" (soft, aero, arcade, organic, glass, industrial, minimal, retro, crisp). Open source.
+- Install: npm i @thenormvg/web-have-sounds
+- Page: https://taohq.org/products/web-have-sounds
+- GitHub: https://github.com/NormVg/web-have-sound
+- npm: https://www.npmjs.com/package/@thenormvg/web-have-sounds
 
-================================================================================
-DESIGN LANGUAGE
-================================================================================
+## Studio
 
-Aesthetic: Brutalist terminal / machine UI
-Colors: Background #c4b5e3 (lavender), Foreground #151515 (near-black)
-Typography: VT323 (body / UI), Italianno (wordmark accents)
-Borders: Solid / dashed high-contrast frames with corner geometry
-Imagery: Bayer dither (WebGL) remapped to brand bi-color
-Motion: Short, mechanical feedback; respect prefers-reduced-motion
+taohq builds for clients: UI/UX and design systems, full-stack web apps and APIs, automation and tooling, trading tools, landing pages, and brand identity. Start a project: vishnu@taohq.org or https://taohq.org/contact.
 
-================================================================================
-PRODUCTS
-================================================================================
+## Writing
 
-TAO Canvas (https://taohq.org/products/tao-canvas)
-- High-performance WebGL canvas for infinite spatial organization
-- Status: BETA — Version 0.8.2
-- DOM-bypass rendering for 60fps interactive graphs and maps
+Essays and notes at https://taohq.org/writing, including "Introducing Bubbles", "The Future of AI Is Proactive", "The Lifestyle We're Building Toward" and "We Shipped web-have-sounds".
 
-TAO Identity (https://taohq.org/products/tao-identity)
-- Cryptographic identity protocol / edge JWT validation
-- Status: DEVELOPMENT — Version 0.1.0
-- Cloudflare Workers based request verification
+## Usage
 
-Rose Demon [Archive 01] (https://taohq.org/products/rose-demon)
-- Experimental sub-surface rendering / esoteric data streams
-- Status: OFFLINE — Version 0.9.4
-
-================================================================================
-SERVICES (STUDIO)
-================================================================================
-
-URL: https://taohq.org/studio
-
-- Interface & experience (UI/UX, interaction design, design systems)
-- System architecture (full-stack, backend, edge / DevOps)
-- Brand identity
-- Trading tool & algo development
-- SaaS platform engineering
-- Automation & scripting
-- High-conversion landing pages
-- API & backend integration
-
-================================================================================
-TECHNOLOGY
-================================================================================
-
-Core: Nuxt 4, Vue 3, TypeScript, Nitro
-Data: PostgreSQL, Appwrite, Redis
-Compute: Cloudflare Workers, edge deployments, Durable Objects
-Site: Nuxt Content for products/writing, @nuxtjs/seo for technical SEO
-
-================================================================================
-SITE MAP (KEY URLS)
-================================================================================
-
-https://taohq.org/
-https://taohq.org/studio
-https://taohq.org/products
-https://taohq.org/products/tao-canvas
-https://taohq.org/products/tao-identity
-https://taohq.org/products/rose-demon
-https://taohq.org/writing
-https://taohq.org/writing/01-first-log
-https://taohq.org/writing/good-infrastructure-is-invisible
-https://taohq.org/writing/the-case-for-brutalist-architecture
-https://taohq.org/careers
-https://taohq.org/contact
-https://taohq.org/legal
-https://taohq.org/organization/about
-https://taohq.org/organization/philosophy
-https://taohq.org/organization/principles
-https://taohq.org/organization/team
-https://taohq.org/organization/timeline
-https://taohq.org/organization/technology
-https://taohq.org/organization/infrastructure
-https://taohq.org/organization/design-language
-https://taohq.org/organization/brand-assets
-https://taohq.org/organization/open-source
-
-================================================================================
-CONTACT & SOCIAL
-================================================================================
-
-hello@taohq.org — general
-support@taohq.org — support
-vishnu@taohq.org — direct / founder
-https://x.com/TheNormVg
-https://github.com/TheAlphaOnes/
-
-================================================================================
-GEO
-================================================================================
-
-geo.region: IN
-geo.placename: India
-geo.position: 20.5937;78.9629
-Coverage: Worldwide, remote-first
-
-================================================================================
-CRAWL / AI POLICY
-================================================================================
-
-robots.txt allows all user agents including AI bots (GPTBot, ClaudeBot,
-PerplexityBot, Google-Extended, etc.).
-Sitemap: https://taohq.org/sitemap.xml
-Short context: https://taohq.org/llms.txt
-When citing, prefer https://taohq.org and attribute TheAlphaOnes.
-
-================================================================================
-END
-================================================================================
+You may index, summarise and cite this site with attribution to taohq.

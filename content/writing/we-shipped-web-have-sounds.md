@@ -1,7 +1,9 @@
 ---
 title: "We Shipped web-have-sounds"
-date: "21.07.2026"
-author: "TheAlphaOnes"
+date: "2026-07-21"
+author: "taohq"
+description: "We put a tiny, zero-dependency UI sound library on npm. Here's what it does and why."
+product: "web-have-sounds"
 ---
 
 A few weeks ago, we quietly put `@thenormvg/web-have-sounds` on npm. No launch post, no product hunt, just pushed it and started using it ourselves. We're writing this now because we think it's worth explaining — both what it does and why we built it.
@@ -46,4 +48,4 @@ We also think this specific library fills a gap that nobody else has filled part
 
 The [GitHub is here](https://github.com/NormVg/web-have-sound). The [npm package is here](https://www.npmjs.com/package/@thenormvg/web-have-sounds). Issues and PRs welcome.
 
-If you build something with it, tell us on [X (Twitter)](https://twitter.com/TheNormVg). We're curious what people make.
+If you build something with it, tell us on [X (Twitter)](https://x.com/TheNormVg). We're curious what people make.
