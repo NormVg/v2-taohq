@@ -3,7 +3,7 @@
  * The develop sequence of one artwork laid out side by side: the same
  * four frames DitherImage plays over time, shown as a contact sheet.
  */
-import { ART_MANIFEST, ART_STEPS, type ArtName } from '~/constants/art-manifest'
+import { ART_MANIFEST, ART_STEPS, type ArtName } from '#shared/constants/art-manifest'
 
 const props = defineProps<{ name: ArtName, alt: string }>()
 

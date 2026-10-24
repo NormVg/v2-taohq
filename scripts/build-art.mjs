@@ -11,7 +11,7 @@
  *
  * Input:  art/source/<name>.webp   (see ART below)
  * Output: public/art/<name>/<0..3>.png   coarse → final
- *         app/constants/art-manifest.ts  (names, grid sizes)
+ *         shared/constants/art-manifest.ts  (names, grid sizes; used by app + server)
  */
 import { mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
@@ -53,9 +53,8 @@ const ART = [
 ]
 
 /**
- * Writes only when the bytes differ. The manifest is imported by
- * content.config.ts, so needless rewrites make Nuxt Content rebuild its
- * database in dev, and queries briefly come back empty.
+ * Writes only when the bytes differ, so re-running the script
+ * doesn't trigger dev reloads for unchanged art.
  */
 async function writeIfChanged(path, data) {
   const next = Buffer.isBuffer(data) ? data : Buffer.from(data)
@@ -147,5 +146,5 @@ export const ART_NAMES = Object.keys(ART_MANIFEST) as [ArtName, ...ArtName[]]
 }
 
 const entries = await Promise.all(ART.map(renderArt))
-await writeIfChanged(join(ROOT, 'app/constants/art-manifest.ts'), manifestSource(entries))
+await writeIfChanged(join(ROOT, 'shared/constants/art-manifest.ts'), manifestSource(entries))
 console.log(`Rendered ${entries.length} artworks × ${DEVELOP_SCALES.length} frames`)

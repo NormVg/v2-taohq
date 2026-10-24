@@ -1,14 +1,14 @@
 <script setup lang="ts">
-/** Long-form markdown typography for product pages and posts. */
-import type { ProductsCollectionItem, WritingCollectionItem } from '@nuxt/content'
-
-defineProps<{ value: ProductsCollectionItem | WritingCollectionItem }>()
+/**
+ * Long-form typography for product pages and posts. `html` is our own
+ * markdown, rendered on the server (server/utils/markdown.ts), never user input.
+ */
+defineProps<{ html: string }>()
 </script>
 
 <template>
-  <div class="prose">
-    <ContentRenderer :value="value" />
-  </div>
+  <!-- eslint-disable-next-line vue/no-v-html -->
+  <div class="prose" v-html="html" />
 </template>
 
 <style scoped>
@@ -25,7 +25,7 @@ defineProps<{ value: ProductsCollectionItem | WritingCollectionItem }>()
   color: var(--text-primary);
 }
 
-/* Flow spacing between sibling blocks at any depth (ContentRenderer adds its own wrapper). */
+/* Flow spacing between sibling blocks. */
 .prose :deep(:is(p, ul, ol, pre, blockquote, hr, table) + :is(p, ul, ol, pre, blockquote, hr, table)) {
   margin-top: var(--space-6);
 }

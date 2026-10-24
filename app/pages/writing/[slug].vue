@@ -29,7 +29,7 @@ useSchemaOrg([
       <div v-reveal class="post__main">
         <h1 class="post__title" data-reveal="rise-slow">{{ post.title }}</h1>
         <p class="post__summary" data-reveal="rise" style="--reveal-delay: 160ms">{{ post.description }}</p>
-        <ProseContent :value="post" data-reveal="fade" style="--reveal-delay: 280ms" />
+        <ProseContent :html="post.html" data-reveal="fade" style="--reveal-delay: 280ms" />
       </div>
     </article>
   </AppContainer>

@@ -1,5 +1,5 @@
 /** Copy for /about: what we believe and who we are. */
-import type { ArtName } from '~/constants/art-manifest'
+import type { ArtName } from '#shared/constants/art-manifest'
 import { mailtoHref } from '~/utils/mailto'
 
 export interface Principle {

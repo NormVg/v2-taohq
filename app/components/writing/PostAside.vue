@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /** Sticky left column of a post: back link and the post's spec sheet. */
-import type { Post } from '~/composables/useWriting'
+import type { Post } from '#shared/types/content'
 import type { Product } from '~/utils/product'
 
 const props = defineProps<{
@@ -10,7 +10,7 @@ const props = defineProps<{
 
 const meta = computed(() => [
   { label: 'Published', value: formatDate(props.post.date) },
-  { label: 'Reading', value: `${readingMinutes(props.post.body)} min` },
+  { label: 'Reading', value: `${props.post.readingMinutes} min` },
   { label: 'By', value: props.post.author ?? 'taohq' },
 ])
 </script>

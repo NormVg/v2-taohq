@@ -1,5 +1,5 @@
 /** Studio (client work) offering for the /studio page. */
-import type { ArtName } from '~/constants/art-manifest'
+import type { ArtName } from '#shared/constants/art-manifest'
 
 export interface StudioService {
   id: string

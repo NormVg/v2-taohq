@@ -32,7 +32,7 @@ useSchemaOrg([
       <ProductAside :product="product" />
       <div class="dossier__main">
         <DitherImage class="dossier__art" :name="product.art" :alt="product.artAlt" aspect="4 / 5" fit="cover" priority />
-        <ProseContent :value="product" />
+        <ProseContent :html="product.html" />
       </div>
     </div>
     <NextProduct v-if="next && next.path !== product.path" :product="next" />

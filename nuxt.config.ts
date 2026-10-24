@@ -1,4 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { fileURLToPath } from 'node:url'
 import { SITE } from './app/constants/site'
 
 const FONT_STYLESHEET =
@@ -25,7 +26,6 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxtjs/seo',
-    '@nuxt/content',
     '@vercel/analytics/nuxt',
   ],
 
@@ -62,15 +62,6 @@ export default defineNuxtConfig({
 
   linkChecker: { enabled: false },
 
-  content: {
-    build: {
-      markdown: {
-        // rose-pine: muted ink + iris (#c4a7e7, near our lavender). Nuxt Content only
-        // loads Shiki's bundled themes by name, so this is the closest stock match.
-        highlight: { theme: 'rose-pine', langs: ['bash', 'js', 'ts', 'vue', 'json', 'html', 'css'] },
-      },
-    },
-  },
 
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
@@ -106,6 +97,8 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    // Markdown in content/ ships inside the server bundle; read via useStorage('assets:content').
+    serverAssets: [{ baseName: 'content', dir: fileURLToPath(new URL('./content', import.meta.url)) }],
     prerender: {
       crawlLinks: true,
       routes: ['/', '/sitemap.xml', '/robots.txt', '/llms.txt', '/llms-full.txt'],

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /** Writing index as an editorial table: № · date · title + summary · read time. Each row is one link. */
-import type { Post } from '~/composables/useWriting'
+import type { Post } from '#shared/types/content'
 
 defineProps<{ posts: Post[] }>()
 </script>
@@ -23,7 +23,7 @@ defineProps<{ posts: Post[] }>()
         <p class="post__summary">{{ post.description }}</p>
       </div>
       <span class="post__meta post__read">
-        {{ readingMinutes(post.body) }} min
+        {{ post.readingMinutes }} min
         <AppIcon name="arrow-right" :size="14" class="post__arrow" />
       </span>
     </li>

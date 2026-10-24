@@ -8,7 +8,7 @@
  * cached PNGs; developing just swaps the <img> src, with no canvas or GPU work.
  * Frame holds are deliberately uneven so it reads like a print coming up.
  */
-import { ART_MANIFEST, ART_STEPS, type ArtName } from '~/constants/art-manifest'
+import { ART_MANIFEST, ART_STEPS, type ArtName } from '#shared/constants/art-manifest'
 import { preloadFrame } from '~/utils/art-frames'
 
 const props = withDefaults(defineProps<{

@@ -1,7 +1,7 @@
-import type { ProductsCollectionItem } from '@nuxt/content'
+import type { Product } from '#shared/types/content'
 import { FOLLOW_LINK } from '~/constants/site'
 
-export type Product = ProductsCollectionItem
+export type { Product }
 export type ProductStatus = Product['status']
 type ProductLinkKind = keyof NonNullable<Product['links']>
 

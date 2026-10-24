@@ -1,14 +1,14 @@
-import { defineContentConfig, defineCollection, z } from '@nuxt/content'
-import { ART_NAMES } from './app/constants/art-manifest'
-
 /**
- * Two typed collections instead of one catch-all: every field a page renders
- * is declared here, so components never dig through untyped `meta`.
+ * Frontmatter schemas for content/products/*.md and content/writing/*.md.
+ * Validated on the server when files are read; a bad file fails the build
+ * with its name in the error rather than rendering half-empty pages.
  */
+import { z } from 'zod'
+import { ART_NAMES } from '../constants/art-manifest'
 
 export const PRODUCT_STATUSES = ['live', 'waitlist', 'in-development', 'open-source'] as const
 
-const productSchema = z.object({
+export const productFrontmatterSchema = z.object({
   title: z.string(),
   /** Short hook shown under the name, e.g. "Journaling, but cool." */
   tagline: z.string(),
@@ -25,17 +25,17 @@ const productSchema = z.object({
   facts: z.array(z.string()).optional(),
   links: z
     .object({
-      waitlist: z.string().url().optional(),
-      app: z.string().url().optional(),
-      github: z.string().url().optional(),
-      npm: z.string().url().optional(),
+      waitlist: z.url().optional(),
+      app: z.url().optional(),
+      github: z.url().optional(),
+      npm: z.url().optional(),
     })
     .optional(),
   /** Install command for libraries, shown as a copyable snippet. */
   install: z.string().optional(),
 })
 
-const writingSchema = z.object({
+export const postFrontmatterSchema = z.object({
   title: z.string(),
   description: z.string(),
   /** ISO date (YYYY-MM-DD). */
@@ -45,17 +45,5 @@ const writingSchema = z.object({
   product: z.string().optional(),
 })
 
-export default defineContentConfig({
-  collections: {
-    products: defineCollection({
-      type: 'page',
-      source: 'products/*.md',
-      schema: productSchema,
-    }),
-    writing: defineCollection({
-      type: 'page',
-      source: 'writing/*.md',
-      schema: writingSchema,
-    }),
-  },
-})
+export type ProductFrontmatter = z.infer<typeof productFrontmatterSchema>
+export type PostFrontmatter = z.infer<typeof postFrontmatterSchema>
