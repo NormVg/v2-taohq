@@ -24,7 +24,7 @@ export interface Typeface {
 }
 
 export const TYPEFACES: Typeface[] = [
-  { name: 'VT323', role: 'Names and titles', sample: 'Small software', token: '--font-display' },
+  { name: 'VT323', role: 'Names and titles', sample: 'Crafted with care', token: '--font-display' },
   { name: 'IBM Plex Mono', role: 'Body, labels and interface', sample: 'Calm, durable, made with care.', token: '--font-body' },
   { name: 'Instrument Serif Italic', role: 'Lavender accent lines', sample: 'Journaling, but cool.', token: '--font-accent', italic: true },
 ]

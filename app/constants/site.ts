@@ -9,7 +9,7 @@ export const SITE = {
   /** Internal / legal entity. Only for legal text and structured data. */
   legalName: 'TheAlphaOnes',
   url: 'https://taohq.org',
-  tagline: 'Small software, made with care.',
+  tagline: 'Software, crafted with care.',
   description:
     'taohq makes calm, durable apps for everyday life: Fold, Bottles and the Bubbles family. Some of what we build along the way, we share with the community as open source.',
   locale: 'en',
