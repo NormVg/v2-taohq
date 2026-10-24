@@ -59,7 +59,6 @@ onBeforeUnmount(() => cancelAnimationFrame(frame))
   <section ref="field" v-reveal class="field" aria-labelledby="field-title" @pointermove="onPointerMove">
     <div class="field__glow" aria-hidden="true" />
     <div class="field__grain" aria-hidden="true" />
-    <span v-for="corner in ['tl', 'tr', 'bl', 'br']" :key="corner" class="field__mark" :class="`field__mark--${corner}`" aria-hidden="true" />
 
     <ul class="field__specimens" role="list" aria-label="Products">
       <Specimen
@@ -125,22 +124,6 @@ onBeforeUnmount(() => cancelAnimationFrame(frame))
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
-
-/* Registration marks: the field reads as a specimen board. */
-.field__mark {
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  opacity: 0.5;
-  background:
-    linear-gradient(var(--accent), var(--accent)) center / 1px 100% no-repeat,
-    linear-gradient(var(--accent), var(--accent)) center / 100% 1px no-repeat;
-}
-
-.field__mark--tl { top: 88px; left: var(--gutter); }
-.field__mark--tr { top: 88px; right: var(--gutter); }
-.field__mark--bl { bottom: var(--space-4); left: var(--gutter); }
-.field__mark--br { bottom: var(--space-4); right: var(--gutter); }
 
 .field__specimens {
   position: absolute;
@@ -242,11 +225,6 @@ onBeforeUnmount(() => cancelAnimationFrame(frame))
 
   .field__meta {
     display: none;
-  }
-
-  .field__mark--tl,
-  .field__mark--tr {
-    top: 76px;
   }
 }
 </style>
