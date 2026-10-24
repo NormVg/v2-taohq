@@ -54,6 +54,7 @@ export const FOOTER_NAV: NavGroup[] = [
       { label: 'Writing', to: '/writing' },
       { label: 'Design', to: '/design' },
       { label: 'Brand', to: '/brand' },
+      { label: 'Open source', to: '/open-source' },
     ],
   },
 ]
