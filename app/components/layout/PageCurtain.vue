@@ -1,15 +1,17 @@
 <script setup lang="ts">
 /**
  * Route-change curtain: an ink panel with a dithered leading edge sweeps up
- * over the page, the new page swaps in underneath (hiding the scroll reset),
- * then the curtain lifts away. Each phase has its own pace: a quick cover,
- * a slower reveal. Off entirely for reduced motion.
+ * over the page, holds a beat while the spark spins (the new page swaps in
+ * underneath, hiding the scroll reset), then lifts away. Three phases at
+ * three paces: cover, hold, reveal. Off entirely for reduced motion.
  */
 type Phase = 'idle' | 'cover' | 'reveal'
 
 /** Must match the CSS durations below. */
-const COVER_MS = 240
-const REVEAL_MS = 420
+const COVER_MS = 550
+/** Time on the ink, so the moment registers before the new page lifts in. */
+const HOLD_MS = 350
+const REVEAL_MS = 750
 
 const nuxtApp = useNuxtApp()
 const phase = ref<Phase>('idle')
@@ -27,12 +29,12 @@ function cover() {
   timers.forEach(clearTimeout)
   timers = []
   phase.value = 'cover'
-  coveredAt = performance.now() + COVER_MS
+  coveredAt = performance.now() + COVER_MS + HOLD_MS
 }
 
 function reveal() {
   if (phase.value !== 'cover') return
-  // Never lift before the page is fully covered, even on instant navigations.
+  // Never lift before cover + hold have played, even on instant navigations.
   const wait = Math.max(0, coveredAt - performance.now())
   later(() => {
     phase.value = 'reveal'
@@ -52,7 +54,7 @@ onBeforeUnmount(() => timers.forEach(clearTimeout))
 
 <template>
   <div class="curtain" :data-phase="phase" aria-hidden="true">
-    <LogoMark size="40px" />
+    <LogoMark class="curtain__mark" size="44px" />
   </div>
 </template>
 
@@ -93,12 +95,35 @@ onBeforeUnmount(() => timers.forEach(clearTimeout))
   visibility: visible;
   pointer-events: auto;
   transform: translateY(0);
-  transition: transform 240ms var(--ease-out);
+  transition: transform 550ms var(--ease-out);
 }
 
 .curtain[data-phase='reveal'] {
   visibility: visible;
   transform: translateY(-100%);
-  transition: transform 420ms var(--ease-in-out);
+  transition: transform 750ms var(--ease-in-out);
+}
+
+/* The spark arrives a beat after the cover lands, and spins through the hold. */
+.curtain__mark {
+  opacity: 0;
+  transform: scale(0.7);
+  transition:
+    opacity 220ms var(--ease-out),
+    transform 320ms var(--ease-spring);
+}
+
+.curtain[data-phase='cover'] .curtain__mark {
+  opacity: 1;
+  transform: none;
+  transition-delay: 380ms;
+}
+
+.curtain__mark :deep(.mark__glyph) {
+  animation: curtain-spin 900ms linear infinite;
+}
+
+@keyframes curtain-spin {
+  to { transform: rotateY(360deg); }
 }
 </style>
