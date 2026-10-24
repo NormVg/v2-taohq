@@ -10,7 +10,7 @@ defineProps<{ product: Product }>()
     <AppLabel>Next ↳</AppLabel>
     <span class="next__title">{{ product.title }}</span>
     <span class="next__tagline">{{ product.tagline }}</span>
-    <DitherImage class="next__art" :src="product.art" :alt="product.artAlt" aspect="4 / 5" fit="contain" knockout />
+    <DitherImage class="next__art" :name="product.art" :alt="product.artAlt" aspect="4 / 5" />
   </NuxtLink>
 </template>
 

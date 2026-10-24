@@ -5,7 +5,7 @@ description: "The journaling app for Gen Z. Photos, voice notes and quick though
 status: "waitlist"
 kind: "app"
 order: 1
-art: "/art/fold.webp"
+art: "fold"
 artAlt: "A skeleton reading a book in a field of roses"
 platforms: ["iOS", "Android"]
 facts: ["Free", "Coming 2026", "No account, no cloud"]

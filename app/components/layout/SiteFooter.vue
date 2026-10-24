@@ -1,7 +1,8 @@
 <script setup lang="ts">
 /**
- * Lavender footer band (the 30% accent): link columns, the cat on its
- * dashed corner, a giant wordmark, and the legal line.
+ * Lavender footer band (the 30% accent): link columns, then the giant
+ * wordmark with the cat sitting bottom-right on the same baseline, then
+ * the legal line.
  */
 import { CONTACT_NAV, LEGAL_NAV, PRIMARY_NAV, SITE, SOCIAL_LINKS } from '~/constants/site'
 
@@ -35,10 +36,12 @@ const columns = computed(() => [
             </ul>
           </div>
         </nav>
-        <FooterCat class="footer__cat" data-reveal="rise-slow" style="--reveal-delay: 260ms" />
       </div>
 
-      <p class="footer__wordmark" aria-hidden="true">{{ SITE.name }}</p>
+      <div v-reveal class="footer__base">
+        <p class="footer__wordmark" aria-hidden="true" data-reveal="rise-slow">{{ SITE.name }}</p>
+        <FooterCat class="footer__cat" data-reveal="rise-slow" style="--reveal-delay: 200ms; --reveal-duration: 1000ms" />
+      </div>
 
       <div class="footer__bottom">
         <p>© {{ year }} {{ SITE.name }} · Operated by {{ SITE.legalName }}, India</p>
@@ -59,11 +62,6 @@ const columns = computed(() => [
   overflow: hidden;
 }
 
-.footer__top {
-  display: grid;
-  gap: var(--space-12);
-  align-items: end;
-}
 
 .footer__columns {
   display: grid;
@@ -79,13 +77,23 @@ const columns = computed(() => [
   font-size: var(--text-small);
 }
 
+.footer__base {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
 .footer__cat {
-  justify-self: end;
-  max-width: 12rem;
+  flex-shrink: 0;
+  width: clamp(6rem, 16vw, 14rem);
+  /* Paws rest on the rule below. */
+  margin-bottom: -1px;
 }
 
 .footer__wordmark {
-  margin-block: var(--space-8) var(--space-6);
+  margin-bottom: var(--space-6);
   font-family: var(--font-display);
   font-size: clamp(6rem, 26vw, 24rem);
   /* Tight leading, but enough to keep the q's descender off the rule below. */
@@ -113,13 +121,4 @@ const columns = computed(() => [
   gap: var(--space-6);
 }
 
-@media (min-width: 900px) {
-  .footer__top {
-    grid-template-columns: 1fr auto;
-  }
-
-  .footer__cat {
-    max-width: 14rem;
-  }
-}
 </style>

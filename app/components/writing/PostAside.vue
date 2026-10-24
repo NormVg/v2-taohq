@@ -17,14 +17,11 @@ const meta = computed(() => [
 
 <template>
   <aside v-reveal class="aside">
-    <AppLabel data-reveal="fade">
-      <NuxtLink to="/writing" class="aside__back">← Writing</NuxtLink>
-    </AppLabel>
     <MetaList :items="meta" data-reveal="wipe" style="--reveal-delay: 120ms" />
     <NuxtLink v-if="related" :to="related.path" class="aside__related" data-reveal="rise" style="--reveal-delay: 240ms">
       <AppLabel>About</AppLabel>
       <span class="aside__related-title">{{ related.title }}</span>
-      <DitherImage :src="related.art" :alt="related.artAlt" aspect="4 / 5" fit="contain" knockout />
+      <DitherImage :name="related.art" :alt="related.artAlt" aspect="4 / 5" />
     </NuxtLink>
   </aside>
 </template>
@@ -34,10 +31,6 @@ const meta = computed(() => [
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
-}
-
-.aside__back:hover {
-  color: var(--text-primary);
 }
 
 .aside__related {
@@ -61,7 +54,7 @@ const meta = computed(() => [
 @media (min-width: 900px) {
   .aside {
     position: sticky;
-    top: calc(var(--header-h) + var(--space-8));
+    top: calc(var(--header-h) + var(--space-12));
     align-self: start;
   }
 }

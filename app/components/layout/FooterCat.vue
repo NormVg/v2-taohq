@@ -1,42 +1,42 @@
 <script setup lang="ts">
-/** The taohq cat: dithered, sitting in a dashed corner frame on the footer's baseline. */
+/**
+ * The taohq cat: dithered, mirrored to face into the page, sitting on the
+ * footer's baseline. Hover makes it yelp: a squash-and-stretch hop anchored
+ * to the baseline while its dither re-develops.
+ */
+const art = ref<{ develop: () => void } | null>(null)
 </script>
 
 <template>
-  <div class="cat">
-    <DitherImage class="cat__image" src="/art/cat.webp" alt="A pixel cat with its mouth wide open" aspect="494 / 606" fit="contain" />
-    <span class="cat__corner" aria-hidden="true" />
+  <div class="cat" @mouseenter="art?.develop()">
+    <DitherImage ref="art" class="cat__image" name="cat" alt="A pixel cat with its mouth wide open" />
   </div>
 </template>
 
 <style scoped>
 .cat {
-  position: relative;
   width: 100%;
-  max-width: 15rem;
-  /* The art is cropped to the cat, so it sits right on the dashed baseline. */
-  padding: var(--space-6) var(--space-8) 0 var(--space-3);
-  border-left: 2px dashed var(--text-primary);
-  border-bottom: 2px dashed var(--text-primary);
 }
 
+/* Mirrored so the cat looks back across the footer toward the wordmark.
+   The flip lives on the image so the wrapper's entrance animation can't undo it. */
 .cat__image {
+  transform: scaleX(-1);
   transform-origin: bottom center;
-  transition: transform var(--dur-panel) var(--ease-spring);
 }
 
-.cat__corner {
-  position: absolute;
-  left: -7px;
-  bottom: -7px;
-  width: 12px;
-  height: 12px;
-  background: var(--text-primary);
-}
-
-@media (hover: hover) {
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
   .cat:hover .cat__image {
-    transform: scale(1.04) rotate(-2deg);
+    animation: yelp 520ms var(--ease-out);
   }
+}
+
+/* Feet never leave the line: every frame scales from the bottom edge. */
+@keyframes yelp {
+  0% { transform: scaleX(-1); }
+  25% { transform: scaleX(-1) scale(1.04, 0.94); }
+  55% { transform: scaleX(-1) scale(0.97, 1.07); }
+  80% { transform: scaleX(-1) scale(1.01, 0.99); }
+  100% { transform: scaleX(-1); }
 }
 </style>

@@ -23,6 +23,7 @@ useSchemaOrg([
 
 <template>
   <AppContainer>
+    <CrumbBar :crumbs="[{ label: 'Writing', to: '/writing' }, { label: post.title }]" :count="formatDate(post.date)" />
     <article class="post">
       <PostAside :post="post" :related="related" />
       <div v-reveal class="post__main">
@@ -38,7 +39,7 @@ useSchemaOrg([
 .post {
   display: grid;
   gap: var(--space-12);
-  padding-bottom: var(--space-24);
+  padding-block: var(--space-12) var(--space-24);
 }
 
 .post__main {

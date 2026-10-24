@@ -58,7 +58,6 @@ onBeforeUnmount(() => cancelAnimationFrame(frame))
 <template>
   <section ref="field" v-reveal class="field" aria-labelledby="field-title" @pointermove="onPointerMove">
     <div class="field__glow" aria-hidden="true" />
-    <div class="field__watermark" aria-hidden="true">{{ SITE.name }}</div>
     <div class="field__grain" aria-hidden="true" />
     <span v-for="corner in ['tl', 'tr', 'bl', 'br']" :key="corner" class="field__mark" :class="`field__mark--${corner}`" aria-hidden="true" />
 
@@ -114,23 +113,6 @@ onBeforeUnmount(() => cancelAnimationFrame(frame))
   background:
     radial-gradient(circle at var(--glow-x) var(--glow-y), rgb(196 181 227 / var(--glow-a)) 0%, transparent 42%),
     radial-gradient(ellipse at 50% 120%, rgb(196 181 227 / 0.08) 0%, transparent 60%);
-}
-
-.field__watermark {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  z-index: -2;
-  font-family: var(--font-accent);
-  font-style: italic;
-  font-size: clamp(10rem, 30vw, 32rem);
-  line-height: 1;
-  color: var(--accent);
-  opacity: 0.03;
-  transform: translate(-50%, -54%) rotate(-8deg);
-  pointer-events: none;
-  user-select: none;
-  white-space: nowrap;
 }
 
 /* Static film grain: an SVG noise tile, composited once. */

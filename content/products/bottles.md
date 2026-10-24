@@ -5,7 +5,7 @@ description: "A quiet place for your links, notes and files. No feed, no noise. 
 status: "live"
 kind: "app"
 order: 2
-art: "/art/bottles.webp"
+art: "bottles"
 artAlt: "A skull resting in still water, surrounded by rings of ripples"
 platforms: ["Web"]
 facts: ["Live now"]

@@ -66,11 +66,9 @@ function activate() {
         <DitherImage
           ref="art"
           class="specimen__art"
-          :src="product.art"
+          :name="product.art"
           :alt="product.artAlt"
           aspect="4 / 5"
-          fit="contain"
-          knockout
           priority
         />
       </div>

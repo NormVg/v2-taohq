@@ -8,7 +8,7 @@ Allow: /
 Llms-Txt: https://taohq.org/llms.txt
 Llms-Full-Txt: https://taohq.org/llms-full.txt
 Sitemap: https://taohq.org/sitemap.xml
-Contact: hello@taohq.org
+Contact: taohq.org@gmail.com
 
 # Content policy
 # - Human-authored public site and documentation

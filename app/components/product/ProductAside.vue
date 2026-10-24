@@ -3,23 +3,13 @@
 import type { Product } from '~/utils/product'
 import { productMeta } from '~/utils/product-meta'
 
-const props = defineProps<{
-  product: Product
-  index: number
-  total: number
-}>()
+const props = defineProps<{ product: Product }>()
 
-const counter = computed(() => `№ ${String(props.index).padStart(2, '0')} / ${String(props.total).padStart(2, '0')}`)
 const meta = computed(() => productMeta(props.product))
 </script>
 
 <template>
   <aside v-reveal class="aside">
-    <AppLabel data-reveal="fade">
-      <NuxtLink to="/products" class="aside__back">Products</NuxtLink>
-      <span aria-hidden="true">/</span>
-      <span class="aside__counter">{{ counter }}</span>
-    </AppLabel>
     <h1 class="aside__title" data-reveal="rise-slow" style="--reveal-delay: 60ms">{{ product.title }}</h1>
     <p class="aside__tagline" data-reveal="rise" style="--reveal-delay: 180ms">{{ product.tagline }}</p>
     <p class="aside__description" data-reveal="rise" style="--reveal-delay: 240ms">{{ product.description }}</p>
@@ -34,14 +24,6 @@ const meta = computed(() => productMeta(props.product))
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
-}
-
-.aside__back:hover {
-  color: var(--text-primary);
-}
-
-.aside__counter {
-  color: var(--accent);
 }
 
 .aside__title {
@@ -68,7 +50,7 @@ const meta = computed(() => productMeta(props.product))
 @media (min-width: 900px) {
   .aside {
     position: sticky;
-    top: calc(var(--header-h) + var(--space-8));
+    top: calc(var(--header-h) + var(--space-12));
     align-self: start;
   }
 }

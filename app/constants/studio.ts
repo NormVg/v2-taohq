@@ -1,11 +1,12 @@
-/** Studio (client work) offering. Shared by the home teaser and the /studio page. */
+/** Studio (client work) offering for the /studio page. */
+import type { ArtName } from '~/constants/art-manifest'
 
 export interface StudioService {
   id: string
   title: string
   summary: string
   includes: string[]
-  art: string
+  art: ArtName
   artAlt: string
 }
 
@@ -15,7 +16,7 @@ export const STUDIO_SERVICES: StudioService[] = [
     title: 'Interface & experience',
     summary: 'Product design that is clear first and beautiful second: flows people understand at a glance, and interfaces with the same care as our own apps.',
     includes: ['UI / UX design', 'Interaction & motion', 'Design systems'],
-    art: '/art/studio-interface.webp',
+    art: 'studio-interface',
     artAlt: 'A skeleton kneeling in prayer',
   },
   {
@@ -23,7 +24,7 @@ export const STUDIO_SERVICES: StudioService[] = [
     title: 'Apps & systems',
     summary: 'Full-stack web apps, APIs and the infrastructure under them, built on Nuxt, Vue and modern serverless platforms, and made to keep working.',
     includes: ['Full-stack development', 'Backend & APIs', 'Automation & tooling'],
-    art: '/art/studio-systems.webp',
+    art: 'studio-systems',
     artAlt: 'A cracked skull half buried in leaves',
   },
   {
@@ -31,7 +32,7 @@ export const STUDIO_SERVICES: StudioService[] = [
     title: 'Brand identity',
     summary: 'Type, marks and visual language with a point of view, so your product looks like itself and nothing else.',
     includes: ['Logo design', 'Brand guidelines', 'Landing pages'],
-    art: '/art/studio-identity.webp',
+    art: 'studio-identity',
     artAlt: 'A horned figure surrounded by roses',
   },
 ]

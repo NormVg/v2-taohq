@@ -1,4 +1,6 @@
 /** Copy for /about: what we believe and who we are. */
+import type { ArtName } from '~/constants/art-manifest'
+import { mailtoHref } from '~/utils/mailto'
 
 export interface Principle {
   id: string
@@ -43,7 +45,7 @@ export interface TeamMember {
   name: string
   role: string
   bio: string
-  photo: string
+  photo: ArtName
   photoAlt: string
   links: { label: string, href: string }[]
 }
@@ -53,12 +55,12 @@ export const TEAM: TeamMember[] = [
     name: 'Vishnu',
     role: 'Founder',
     bio: 'Designs and builds everything at taohq, from Fold and Bottles to the Bubbles family. Cares about fast, reliable, intentionally designed software.',
-    photo: '/art/team-vishnu.webp',
+    photo: 'team-vishnu',
     photoAlt: 'Portrait of Vishnu',
     links: [
       { label: 'X', href: 'https://x.com/TheNormVg' },
       { label: 'GitHub', href: 'https://github.com/NormVg' },
-      { label: 'Email', href: 'mailto:vishnu@taohq.org' },
+      { label: 'Email', href: mailtoHref() },
     ],
   },
 ]

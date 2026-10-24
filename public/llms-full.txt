@@ -1,10 +1,10 @@
 # taohq: full context
 
-> taohq is an independent software studio that builds calm, durable apps for people and tools for developers. It also builds products for clients through its studio.
+> taohq is an independent software studio that makes calm, durable apps for everyday life. It also builds products for clients through its studio, and shares some of its tools with the community as open source.
 
 - Website: https://taohq.org
 - Legal entity: TheAlphaOnes, India (internal name; the public brand is taohq)
-- Contact: hello@taohq.org (general), vishnu@taohq.org (studio projects), support@taohq.org (support and privacy)
+- Contact: taohq.org@gmail.com (projects, support, privacy and general questions)
 - X: https://x.com/TheNormVg
 - GitHub: https://github.com/NormVg
 
@@ -46,7 +46,7 @@ A zero-dependency JavaScript library that generates UI sound effects (click, pop
 
 ## Studio
 
-taohq builds for clients: UI/UX and design systems, full-stack web apps and APIs, automation and tooling, trading tools, landing pages, and brand identity. Start a project: vishnu@taohq.org or https://taohq.org/contact.
+taohq builds for clients: UI/UX and design systems, full-stack web apps and APIs, automation and tooling, trading tools, landing pages, and brand identity. Start a project: taohq.org@gmail.com or https://taohq.org/contact.
 
 ## Writing
 

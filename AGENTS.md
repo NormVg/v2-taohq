@@ -216,9 +216,9 @@ Component layers:
 
 ```txt
 app/components/
-├─ ui/         Primitives: AppButton, AppLink, AppLabel, AppBadge, AppIcon, AppContainer, EmailLink, CopyCommand
-├─ media/      DitherImage (WebGL dither, develop animation, knockout mode)
-├─ editorial/  Inner-page system: PageIntro, EditorialRow, MetaList
+├─ ui/         Primitives: AppButton, AppLink, AppLabel, AppIcon, AppContainer, EmailLink, CopyCommand
+├─ media/      DitherImage (pre-rendered dither frames + develop animation)
+├─ editorial/  Inner-page system: CrumbBar, PageIntro, EditorialRow, MetaList
 ├─ layout/     SiteHeader, SiteNav, SiteMenu, SiteFooter, SiteLogo, SkipLink, SoundToggle, FooterCat
 ├─ article/    ProseContent (markdown typography)
 ├─ home/       SpecimenField + Specimen (the home cabinet)
@@ -232,7 +232,7 @@ Visual system (keep it consistent):
 * **60 / 30 / 10 colour:** ink backgrounds (60), lavender accent (30) for buttons, labels, art, script type and the footer band, paper text (10). Lavender is never the default page background. Section tones switch via `data-tone="raised" | "accent"`.
 * **Type:** VT323 for names and titles, IBM Plex Mono for body, tiny uppercase mono (`--text-ui`) for labels/nav/meta, Instrument Serif italic (`--font-accent`) only for lavender accent lines; script fonts were rejected as unreadable.
 * **Inner pages are editorial:** compose `PageIntro` + `EditorialRow`s. No cards, no boxed sections; hairlines and space create structure.
-* **Art is always dithered** through `DitherImage`; use `knockout` when art floats over a background.
+* **Art is always dithered at build time.** Put a source image in `art/source/`, register it in `scripts/build-art.mjs` (mode `light` for ink backgrounds, `dark` for lavender), run `pnpm art`, and commit the generated `public/art/<name>/` frames and `app/constants/art-manifest.ts`. Render it only through `DitherImage` with its typed `name`. Never dither in the browser.
 
 Lower layers never import from higher layers (`ui/` never imports from `product/`).
 

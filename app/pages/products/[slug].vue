@@ -7,6 +7,7 @@ const { data: products } = await useProducts()
 
 const position = computed(() => products.value.findIndex(item => item.path === product.value.path))
 const next = computed(() => products.value[(position.value + 1) % products.value.length])
+const counter = computed(() => `№ ${String(position.value + 1).padStart(2, '0')} / ${String(products.value.length).padStart(2, '0')}`)
 
 usePageSeo(() => ({
   title: `${product.value.title}: ${product.value.tagline}`,
@@ -26,10 +27,11 @@ useSchemaOrg([
 
 <template>
   <AppContainer>
+    <CrumbBar :crumbs="[{ label: 'Products', to: '/products' }, { label: product.title }]" :count="counter" />
     <div class="dossier">
-      <ProductAside :product="product" :index="position + 1" :total="products.length" />
+      <ProductAside :product="product" />
       <div class="dossier__main">
-        <DitherImage class="dossier__art" :src="product.art" :alt="product.artAlt" aspect="4 / 5" priority />
+        <DitherImage class="dossier__art" :name="product.art" :alt="product.artAlt" aspect="4 / 5" fit="cover" priority />
         <ProseContent :value="product" />
       </div>
     </div>
@@ -41,7 +43,7 @@ useSchemaOrg([
 .dossier {
   display: grid;
   gap: var(--space-12);
-  padding-bottom: var(--space-24);
+  padding-block: var(--space-12) var(--space-24);
 }
 
 .dossier__main {

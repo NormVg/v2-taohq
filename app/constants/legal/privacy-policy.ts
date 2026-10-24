@@ -11,6 +11,8 @@
 
 import type { LegalDocument, LegalLink, LegalSection } from '~/types/legal'
 import { list, paragraph as p } from './blocks'
+import { SITE } from '~/constants/site'
+import { mailtoHref } from '~/utils/mailto'
 
 const GOOGLE_USER_DATA_POLICY: LegalLink = {
   label: 'Google API Services User Data Policy',
@@ -23,8 +25,8 @@ const GOOGLE_PERMISSIONS: LegalLink = {
 }
 
 const PRIVACY_EMAIL: LegalLink = {
-  label: 'support@taohq.org',
-  href: 'mailto:support@taohq.org?subject=Privacy%20Request',
+  label: SITE.email,
+  href: mailtoHref('Privacy request'),
 }
 
 const SECTIONS: LegalSection[] = [

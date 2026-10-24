@@ -1,13 +1,14 @@
 <script setup lang="ts">
-/** taohq mark + wordmark. The mark is a CSS mask so it inherits text colour on any tone. */
+/**
+ * taohq mark + wordmark. The mark is a CSS mask so it takes the accent
+ * colour on any tone, and it slowly turns like a coin, a quiet sign of life.
+ */
 import logoUrl from '~/assets/logo.svg?url'
 import { SITE } from '~/constants/site'
-
-withDefaults(defineProps<{ size?: 'md' | 'lg' }>(), { size: 'md' })
 </script>
 
 <template>
-  <NuxtLink to="/" class="logo" :class="`logo--${size}`" :aria-label="`${SITE.name} home`">
+  <NuxtLink to="/" class="logo" :aria-label="`${SITE.name} home`">
     <span class="logo__mark" :style="{ '--logo-url': `url(${logoUrl})` }" aria-hidden="true" />
     <span class="logo__word" aria-hidden="true">{{ SITE.name }}</span>
   </NuxtLink>
@@ -20,6 +21,7 @@ withDefaults(defineProps<{ size?: 'md' | 'lg' }>(), { size: 'md' })
   gap: var(--space-2);
   min-height: 44px;
   color: var(--text-primary);
+  perspective: 120px;
 }
 
 .logo__mark {
@@ -27,7 +29,8 @@ withDefaults(defineProps<{ size?: 'md' | 'lg' }>(), { size: 'md' })
   height: 19px;
   background: var(--accent);
   mask: var(--logo-url) center / contain no-repeat;
-  transition: transform var(--dur-panel) var(--ease-spring);
+  /* Linear is right here: it's continuous rotation, not a state change. */
+  animation: coin-spin 6s linear infinite;
 }
 
 .logo__word {
@@ -37,20 +40,13 @@ withDefaults(defineProps<{ size?: 'md' | 'lg' }>(), { size: 'md' })
   letter-spacing: 0.02em;
 }
 
-.logo--lg .logo__mark {
-  width: 34px;
-  height: 46px;
-  background: currentColor;
+@keyframes coin-spin {
+  to { transform: rotateY(360deg); }
 }
 
-.logo--lg .logo__word {
-  font-size: clamp(4rem, 2rem + 10vw, 11rem);
-  line-height: 0.8;
-}
-
-@media (hover: hover) {
-  .logo:hover .logo__mark {
-    transform: rotate(-12deg);
+@media (prefers-reduced-motion: reduce) {
+  .logo__mark {
+    animation: none;
   }
 }
 </style>

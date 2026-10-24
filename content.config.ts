@@ -1,4 +1,5 @@
 import { defineContentConfig, defineCollection, z } from '@nuxt/content'
+import { ART_NAMES } from './app/constants/art-manifest'
 
 /**
  * Two typed collections instead of one catch-all: every field a page renders
@@ -16,8 +17,8 @@ const productSchema = z.object({
   kind: z.enum(['app', 'library']),
   /** Display order across the site. Lower comes first. */
   order: z.number(),
-  /** Path under /public, rendered through the dither shader. */
-  art: z.string(),
+  /** Pre-rendered dither artwork name (see scripts/build-art.mjs). */
+  art: z.enum(ART_NAMES),
   artAlt: z.string(),
   platforms: z.array(z.string()).optional(),
   /** Short facts shown in the product hero, e.g. "Free", "Coming 2026". */

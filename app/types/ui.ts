@@ -16,3 +16,9 @@ export interface MetaItem {
   label: string
   value: string
 }
+
+/** One step in components/editorial/CrumbBar.vue. Omit `to` for the current page. */
+export interface Crumb {
+  label: string
+  to?: string
+}

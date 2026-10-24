@@ -5,7 +5,7 @@ description: "An intelligent mail client that turns the raw chaos of email into 
 status: "in-development"
 kind: "app"
 order: 4
-art: "/art/bubbles-mail.webp"
+art: "bubbles-mail"
 artAlt: "A skull crowned with blossoms, pierced by an arrow"
 platforms: ["macOS"]
 facts: ["Part of the Bubbles family", "Native macOS"]

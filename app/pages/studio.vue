@@ -14,7 +14,7 @@ usePageSeo({
       :crumbs="['Studio']"
       lead="The care we put into our own products, applied to yours. We design, engineer and ship end to end, from the first sketch to production."
     >
-      <AppButton to="/contact">Start a project</AppButton>
+      <AppButton :href="mailtoHref('New project')" icon="arrow-right">Start a project</AppButton>
     </PageIntro>
 
     <EditorialRow label="Services" index="01">
@@ -23,14 +23,18 @@ usePageSeo({
 
     <EditorialRow label="Capabilities" index="02">
       <ul class="capabilities" role="list">
-        <li v-for="capability in STUDIO_CAPABILITIES" :key="capability">{{ capability }}</li>
+        <li v-for="(capability, index) in STUDIO_CAPABILITIES" :key="capability" class="capability">
+          <span class="capability__no">{{ String(index + 1).padStart(2, '0') }}</span>
+          {{ capability }}
+        </li>
       </ul>
     </EditorialRow>
 
     <EditorialRow label="Start" index="03">
       <div class="start">
         <p class="start__text">Tell us what you're building and your timeline. We reply within a couple of days.</p>
-        <EmailLink email="vishnu@taohq.org" />
+        <EmailLink subject="New project" />
+        <AppButton :href="mailtoHref('New project')" size="lg" icon="arrow-right">Start a project</AppButton>
       </div>
     </EditorialRow>
   </div>
@@ -39,18 +43,34 @@ usePageSeo({
 <style scoped>
 .capabilities {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
-  gap: var(--space-2) var(--space-8);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+  column-gap: var(--space-8);
+  border-top: 1px solid var(--line);
+}
+
+.capability {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding-block: var(--space-3);
+  border-bottom: 1px solid var(--line);
   font-family: var(--font-display);
-  font-size: 1.625rem;
-  line-height: 1.3;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.capability__no {
+  font-family: var(--font-body);
+  font-size: var(--text-ui);
+  letter-spacing: var(--tracking-ui);
+  color: var(--accent);
 }
 
 .start {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-4);
+  gap: var(--space-6);
 }
 
 .start__text {

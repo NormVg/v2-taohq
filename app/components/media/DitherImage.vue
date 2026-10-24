@@ -1,188 +1,150 @@
 <script setup lang="ts">
 /**
- * Two-tone dithered artwork that "develops" coarse → fine as it scrolls
- * into view. Rendering is lazy (starts ~400px before the viewport) and
- * shared through a single WebGL context (utils/dither-renderer).
+ * Pre-rendered dithered artwork (see scripts/build-art.mjs) that "develops"
+ * coarse → fine when it scrolls into view, and again on demand (hover).
  *
- * The develop steps deliberately have uneven durations so the reveal
- * feels like a print coming up, not a linear fade.
+ * The server renders the final frame as a real <img> with alt text, so the
+ * art works without JS and is indexable. On the client the frames are tiny
+ * cached PNGs; developing just swaps the <img> src, with no canvas or GPU work.
+ * Frame holds are deliberately uneven so it reads like a print coming up.
  */
-import { renderDitherFrames } from '~/utils/dither-renderer'
+import { ART_MANIFEST, ART_STEPS, type ArtName } from '~/constants/art-manifest'
+import { preloadFrame } from '~/utils/art-frames'
 
 const props = withDefaults(defineProps<{
-  src: string
+  name: ArtName
   alt: string
-  /** CSS aspect-ratio of the frame, e.g. "4 / 5". Reserves space to avoid layout shift. */
+  /** CSS aspect-ratio of the frame. Defaults to the artwork's own ratio. */
   aspect?: string
   fit?: 'cover' | 'contain'
-  /** Final dither cell size in source pixels. */
-  pixelSize?: number
-  /** Load and develop immediately (above-the-fold art). */
+  /** Above-the-fold art: load eagerly with high priority. */
   priority?: boolean
-  /** Drop the dark tone entirely: light stipple floating on whatever is behind. */
-  knockout?: boolean
 }>(), {
-  aspect: '4 / 5',
-  fit: 'cover',
-  pixelSize: 3,
+  fit: 'contain',
   priority: false,
-  knockout: false,
 })
 
-/** Coarse → fine cell sizes and how long each frame holds (ms). */
-const DEVELOP_STEPS = [
-  { scale: 8, hold: 70 },
-  { scale: 4.5, hold: 90 },
-  { scale: 2.4, hold: 130 },
-] as const
+/** How long each coarse frame holds before the next (ms). */
+const FRAME_HOLDS = [70, 90, 130]
+
+/**
+ * Develop once this much of the art is on screen, so the effect plays in
+ * view rather than at the viewport's edge. Art taller than the viewport
+ * can't reach that ratio, so it uses whatever share fits in 60% of the screen.
+ */
+const VISIBLE_SHARE = 0.4
+const OBSERVER_THRESHOLDS = [0, 0.1, 0.2, 0.3, 0.4]
 
 const root = ref<HTMLElement | null>(null)
-const canvas = ref<HTMLCanvasElement | null>(null)
-const state = ref<'idle' | 'ready' | 'failed'>('idle')
+const img = ref<HTMLImageElement | null>(null)
+const shown = ref(false)
 
-let frames: HTMLCanvasElement[] = []
-let loadObserver: IntersectionObserver | null = null
-let viewObserver: IntersectionObserver | null = null
+const size = computed(() => ART_MANIFEST[props.name])
+const frames = computed(() => Array.from({ length: ART_STEPS }, (_, step) => `/art/${props.name}/${step}.png`))
+const finalFrame = computed(() => frames.value[ART_STEPS - 1]!)
+const aspectRatio = computed(() => props.aspect ?? `${size.value.width} / ${size.value.height}`)
+
+let observer: IntersectionObserver | null = null
 let timers: number[] = []
 
-function draw(frame: HTMLCanvasElement) {
-  const target = canvas.value
-  if (!target) return
-  target.width = frame.width
-  target.height = frame.height
-  target.getContext('2d')?.drawImage(frame, 0, 0)
-}
-
-function develop() {
-  if (!frames.length) return
+function clearTimers() {
   timers.forEach(clearTimeout)
   timers = []
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  if (reduceMotion) {
-    draw(frames.at(-1)!)
+}
+
+function setFrame(src: string) {
+  if (img.value) img.value.src = src
+}
+
+async function develop() {
+  clearTimers()
+  // Frames are a few hundred bytes to a few KB each; have them all before playing.
+  const ready = await Promise.all(frames.value.map(preloadFrame)).then(() => true, () => false)
+  shown.value = true
+  if (!ready) {
+    setFrame(finalFrame.value)
     return
   }
   let elapsed = 0
-  frames.forEach((frame, index) => {
-    timers.push(window.setTimeout(() => draw(frame), elapsed))
-    elapsed += DEVELOP_STEPS[index]?.hold ?? 0
+  frames.value.forEach((src, step) => {
+    timers.push(window.setTimeout(() => setFrame(src), elapsed))
+    elapsed += FRAME_HOLDS[step] ?? 0
   })
 }
 
-async function load() {
-  const el = root.value
-  if (!el) return
-  const styles = getComputedStyle(el)
-
-  try {
-    const img = new Image()
-    img.decoding = 'async'
-    img.src = props.src
-    await img.decode()
-
-    frames = await renderDitherFrames(img, {
-      colorDark: styles.getPropertyValue('--dither-dark') || '#151515',
-      colorLight: styles.getPropertyValue('--dither-light') || '#c4b5e3',
-      pixelSizes: [...DEVELOP_STEPS.map(step => props.pixelSize * step.scale), props.pixelSize],
-      knockout: props.knockout,
-    })
-    draw(frames[0]!)
-    state.value = 'ready'
-    viewObserver = new IntersectionObserver(([entry]) => {
-      if (!entry?.isIntersecting) return
-      viewObserver?.disconnect()
-      develop()
-    }, { threshold: 0.2 })
-    viewObserver.observe(el)
-  }
-  catch (error) {
-    // Image or WebGL failure: fall back to a CSS-toned <img> so the art still shows.
-    console.error(`[DitherImage] Unable to render ${props.src}`, error)
-    state.value = 'failed'
-  }
-}
-
-onMounted(() => {
-  if (props.priority) {
-    void load()
-    return
-  }
-  loadObserver = new IntersectionObserver(([entry]) => {
-    if (!entry?.isIntersecting) return
-    loadObserver?.disconnect()
-    void load()
-  }, { rootMargin: '400px 0px' })
-  loadObserver.observe(root.value!)
-})
-
-/** Re-runs the coarse → fine develop, e.g. on hover. No-op until the art has rendered. */
 defineExpose({ develop })
 
+onMounted(() => {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    shown.value = true
+    return
+  }
+  observer = new IntersectionObserver(([entry]) => {
+    if (!entry?.isIntersecting) return
+    const fits = (window.innerHeight * 0.6) / entry.boundingClientRect.height
+    if (entry.intersectionRatio < Math.min(VISIBLE_SHARE, fits)) return
+    observer?.disconnect()
+    void develop()
+  }, { threshold: OBSERVER_THRESHOLDS })
+  observer.observe(root.value!)
+})
+
 onBeforeUnmount(() => {
-  loadObserver?.disconnect()
-  viewObserver?.disconnect()
-  timers.forEach(clearTimeout)
-  timers = []
-  frames = []
+  observer?.disconnect()
+  clearTimers()
 })
 </script>
 
 <template>
   <div
     ref="root"
-    class="dither"
-    :class="`dither--${fit}`"
-    :data-state="state"
-    :style="{ aspectRatio: aspect }"
-    role="img"
-    :aria-label="alt"
+    class="art"
+    :class="`art--${fit}`"
+    :data-shown="shown || undefined"
+    :style="{ aspectRatio }"
   >
     <img
-      v-if="state === 'failed'"
-      class="dither__fallback"
-      :src="src"
-      alt=""
-      loading="lazy"
+      ref="img"
+      class="art__img"
+      :src="finalFrame"
+      :alt="alt"
+      :width="size.width"
+      :height="size.height"
+      :loading="priority ? 'eager' : 'lazy'"
+      :fetchpriority="priority ? 'high' : undefined"
+      decoding="async"
     >
-    <canvas v-else ref="canvas" class="dither__canvas" aria-hidden="true" />
   </div>
 </template>
 
 <style scoped>
-.dither {
+.art {
   position: relative;
   width: 100%;
   overflow: hidden;
   contain: layout paint;
 }
 
-.dither__canvas,
-.dither__fallback {
+.art__img {
   width: 100%;
   height: 100%;
   object-position: center;
-}
-
-.dither--cover :is(.dither__canvas, .dither__fallback) {
-  object-fit: cover;
-}
-
-.dither--contain :is(.dither__canvas, .dither__fallback) {
-  object-fit: contain;
-}
-
-.dither__canvas {
+  /* One file pixel per dither cell: scale up without smoothing. */
   image-rendering: pixelated;
-  opacity: 0;
   transition: opacity var(--dur-enter-fast) var(--ease-out);
 }
 
-.dither[data-state='ready'] .dither__canvas {
-  opacity: 1;
+.art--cover .art__img {
+  object-fit: cover;
 }
 
-.dither__fallback {
-  filter: grayscale(1) contrast(1.6);
-  mix-blend-mode: multiply;
+.art--contain .art__img {
+  object-fit: contain;
+}
+
+/* With JS, art waits for its develop so the sharp frame never flashes first.
+   The head failsafe drops `.js` if the app never boots, showing it anyway. */
+.js .art:not([data-shown]) .art__img {
+  opacity: 0;
 }
 </style>

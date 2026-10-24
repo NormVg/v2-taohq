@@ -25,7 +25,8 @@ defineProps<{ value: ProductsCollectionItem | WritingCollectionItem }>()
   color: var(--text-primary);
 }
 
-.prose :deep(> * + *) {
+/* Flow spacing between sibling blocks at any depth (ContentRenderer adds its own wrapper). */
+.prose :deep(:is(p, ul, ol, pre, blockquote, hr, table) + :is(p, ul, ol, pre, blockquote, hr, table)) {
   margin-top: var(--space-6);
 }
 

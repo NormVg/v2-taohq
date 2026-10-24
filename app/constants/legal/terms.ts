@@ -5,10 +5,12 @@
 
 import type { LegalDocument, LegalLink, LegalSection } from '~/types/legal'
 import { list, paragraph as p } from './blocks'
+import { SITE } from '~/constants/site'
+import { mailtoHref } from '~/utils/mailto'
 
 const CONTACT_EMAIL: LegalLink = {
-  label: 'hello@taohq.org',
-  href: 'mailto:hello@taohq.org?subject=Terms%20of%20Use',
+  label: SITE.email,
+  href: mailtoHref('Terms of Use'),
 }
 
 const PRIVACY: LegalLink = { label: 'Privacy Policy', href: '/privacy' }

@@ -1,6 +1,6 @@
 # taohq
 
-> taohq is an independent software studio. We build calm, durable apps for people and tools for developers, and we build products for clients through our studio.
+> taohq is an independent software studio. We make calm, durable apps for everyday life, build products for clients through our studio, and share some of our tools with the community as open source.
 
 taohq (taohq.org) is operated by TheAlphaOnes, India.
 
@@ -15,9 +15,10 @@ taohq (taohq.org) is operated by TheAlphaOnes, India.
 - [Studio](https://taohq.org/studio): Client work: product design, full-stack apps, brand identity.
 - [Writing](https://taohq.org/writing): Notes on what we build and why.
 - [About](https://taohq.org/about): Principles and team.
-- [Contact](https://taohq.org/contact): hello@taohq.org
+- [Contact](https://taohq.org/contact): taohq.org@gmail.com
 
 ## Optional
 - [Full context](https://taohq.org/llms-full.txt)
 - [Privacy Policy](https://taohq.org/privacy)
 - [Terms of Use](https://taohq.org/legal)
+- [DMCA & Copyright](https://taohq.org/dmca)

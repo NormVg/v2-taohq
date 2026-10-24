@@ -11,9 +11,11 @@ export const SITE = {
   url: 'https://taohq.org',
   tagline: 'Small software, made with care.',
   description:
-    'taohq builds calm, durable apps for people and tools for developers: Fold, Bottles, Bubbles and web-have-sounds.',
+    'taohq makes calm, durable apps for everyday life: Fold, Bottles and the Bubbles family. Some of what we build along the way, we share with the community as open source.',
   locale: 'en',
   ogImage: '/og.png',
+  /** The one inbox for everything. */
+  email: 'taohq.org@gmail.com',
 } as const
 
 export interface NavItem {
@@ -33,33 +35,41 @@ export const CONTACT_NAV: NavItem = { label: 'Contact', to: '/contact' }
 export const LEGAL_NAV: NavItem[] = [
   { label: 'Privacy', to: '/privacy' },
   { label: 'Terms', to: '/legal' },
+  { label: 'DMCA', to: '/dmca' },
 ]
 
-export interface ContactChannel {
+/** What people write to us about. Each pre-fills the email subject. */
+export interface ContactTopic {
   id: string
   label: string
   description: string
-  email: string
+  subject: string
 }
 
-export const CONTACT_CHANNELS: ContactChannel[] = [
+export const CONTACT_TOPICS: ContactTopic[] = [
   {
-    id: 'hello',
-    label: 'General',
-    description: 'Questions, ideas, press, or just saying hi.',
-    email: 'hello@taohq.org',
-  },
-  {
-    id: 'studio',
-    label: 'Work with us',
-    description: 'Have a product or project you want built? Tell us about it.',
-    email: 'vishnu@taohq.org',
+    id: 'project',
+    label: 'Start a project',
+    description: 'A product or idea you want built. Tell us what it is and your timeline.',
+    subject: 'New project',
   },
   {
     id: 'support',
-    label: 'Support & privacy',
-    description: 'Help with one of our products, or a data request.',
-    email: 'support@taohq.org',
+    label: 'Product support',
+    description: 'Help with Fold, Bottles, Bubbles or web-have-sounds.',
+    subject: 'Support',
+  },
+  {
+    id: 'privacy',
+    label: 'Privacy request',
+    description: 'Access, correct or delete your data.',
+    subject: 'Privacy request',
+  },
+  {
+    id: 'hello',
+    label: 'Just saying hi',
+    description: 'Questions, ideas, press, or anything else.',
+    subject: 'Hello',
   },
 ]
 

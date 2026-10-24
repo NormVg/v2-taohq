@@ -1,11 +1,13 @@
 <script setup lang="ts">
-/** An email address set large in pixel type, as the action itself. */
-defineProps<{ email: string }>()
+/** The taohq address set large in pixel type, as the action itself. */
+import { SITE } from '~/constants/site'
+
+defineProps<{ subject?: string }>()
 </script>
 
 <template>
-  <a v-sound :href="`mailto:${email}`" class="email">
-    {{ email }}
+  <a v-sound :href="mailtoHref(subject)" class="email">
+    {{ SITE.email }}
     <AppIcon name="arrow-up-right" :size="20" class="email__icon" />
   </a>
 </template>

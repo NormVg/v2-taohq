@@ -15,7 +15,7 @@ usePageSeo({
     <PageIntro
       title="Software that stays useful."
       :crumbs="['About']"
-      lead="taohq is an independent software studio. We design and build apps for people and tools for developers, and we'd rather make a few things well than many things loudly."
+      lead="taohq is an independent software studio. We design and build apps for everyday life, and we'd rather make a few things well than many things loudly."
     />
 
     <EditorialRow label="Why" index="01">
@@ -23,7 +23,10 @@ usePageSeo({
         <p class="why__text">
           Most software competes for your attention with notifications, complexity and growth tricks. We build the opposite: tools you can rely on every day, that do their job and get out of the way. Infrastructure before features. Longevity over trends.
         </p>
-        <blockquote class="why__quote">The machine must be cold, so the human can be warm.</blockquote>
+        <blockquote class="why__quote">
+          <span class="why__line">The machine must be cold,</span>
+          <span class="why__line">so the human can be warm.</span>
+        </blockquote>
       </div>
     </EditorialRow>
 
@@ -58,6 +61,10 @@ usePageSeo({
   max-width: 40rem;
   font-size: var(--text-lead);
   line-height: 1.7;
+}
+
+.why__line {
+  display: block;
 }
 
 .why__quote {

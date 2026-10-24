@@ -7,7 +7,7 @@ defineProps<{ member: TeamMember }>()
 
 <template>
   <article class="member">
-    <DitherImage class="member__photo" :src="member.photo" :alt="member.photoAlt" aspect="1 / 1" :pixel-size="4" />
+    <DitherImage class="member__photo" :name="member.photo" :alt="member.photoAlt" />
     <div class="member__text">
       <AppLabel>{{ member.role }}</AppLabel>
       <h3 class="member__name">{{ member.name }}</h3>

@@ -15,7 +15,7 @@ const menuButton = ref<HTMLButtonElement | null>(null)
   <header class="header">
     <AppContainer class="header__row">
       <SiteLogo />
-      <p class="header__about">Apps for people<br>tools for developers</p>
+      <p class="header__about">Software made with care</p>
       <SiteNav class="header__nav" />
       <NuxtLink v-sound="'tick'" :to="CONTACT_NAV.to" class="header__contact">
         {{ CONTACT_NAV.label }} <span aria-hidden="true">↗</span>
@@ -73,6 +73,7 @@ const menuButton = ref<HTMLButtonElement | null>(null)
 
 .header__about {
   display: none;
+  white-space: nowrap;
   color: var(--text-muted);
 }
 
@@ -105,13 +106,10 @@ const menuButton = ref<HTMLButtonElement | null>(null)
   .header__row {
     display: grid;
     grid-template-columns: 3fr 3fr 4fr 2fr;
-    align-items: start;
+    align-items: center;
     gap: var(--space-8);
   }
 
-  .header__about {
-    display: block;
-  }
 
   .header__nav {
     display: block;
@@ -125,6 +123,13 @@ const menuButton = ref<HTMLButtonElement | null>(null)
 
   .header__menu {
     display: none;
+  }
+}
+
+/* The about line only appears when the row has room for it on one line. */
+@media (min-width: 1180px) {
+  .header__about {
+    display: block;
   }
 }
 </style>

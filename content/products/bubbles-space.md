@@ -5,7 +5,7 @@ description: "A personal AI workspace OS built for the way you actually think. B
 status: "in-development"
 kind: "app"
 order: 3
-art: "/art/bubbles-space.webp"
+art: "bubbles-space"
 artAlt: "A small figure sitting under a blossoming tree beneath a full moon"
 platforms: []
 facts: ["Part of the Bubbles family", "AI-agent first"]

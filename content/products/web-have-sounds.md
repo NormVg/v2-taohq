@@ -5,10 +5,10 @@ description: "A zero-dependency JavaScript library for UI sound effects. No audi
 status: "open-source"
 kind: "library"
 order: 5
-art: "/art/web-have-sounds.webp"
+art: "web-have-sounds"
 artAlt: "A crow perched on a skull inside an arched frame"
 platforms: ["Web", "npm"]
-facts: ["Zero dependencies", "MIT licensed"]
+facts: ["Zero dependencies"]
 links:
   github: "https://github.com/NormVg/web-have-sound"
   npm: "https://www.npmjs.com/package/@thenormvg/web-have-sounds"

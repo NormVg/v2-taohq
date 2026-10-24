@@ -38,10 +38,6 @@
   --on-accent: var(--ink-900);
   --focus-ring: var(--lilac-200);
 
-  /* Dither art is drawn in these two tones so it melts into the page. */
-  --dither-dark: #151515;
-  --dither-light: #c4b5e3;
-
   /* ── Type ──────────────────────────────────────── */
   --font-display: 'VT323', ui-monospace, monospace;
   --font-body: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
