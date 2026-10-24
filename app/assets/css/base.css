@@ -75,6 +75,35 @@ ol[role='list'] {
   list-style: none;
 }
 
+/* Scrollbar: a slim lavender pixel slab on an ink track. */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--lilac-200) 55%, transparent) var(--ink-900);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ink-900);
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--lilac-200) 55%, var(--ink-900));
+  border: 3px solid var(--ink-900);
+  border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--lilac-200);
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--ink-900);
+}
+
 ::selection {
   background: var(--accent);
   color: var(--on-accent);

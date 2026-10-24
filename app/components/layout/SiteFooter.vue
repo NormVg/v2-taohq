@@ -43,7 +43,10 @@ const columns = computed(() => [
       </div>
 
       <div v-reveal class="footer__base">
-        <p class="footer__wordmark" aria-hidden="true" data-reveal="rise-slow">{{ SITE.name }}</p>
+        <p class="footer__wordmark" aria-hidden="true" data-reveal="rise-slow">
+          <LogoMark size="0.5em" tone="current" class="footer__mark" />
+          {{ SITE.name }}
+        </p>
         <FooterCat class="footer__cat" data-reveal="rise-slow" style="--reveal-delay: 200ms; --reveal-duration: 1000ms" />
       </div>
 
@@ -91,21 +94,26 @@ const columns = computed(() => [
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: var(--space-6);
+  gap: var(--space-12);
   margin-top: var(--space-8);
 }
 
 .footer__cat {
   flex-shrink: 0;
-  width: clamp(6rem, 16vw, 14rem);
+  width: clamp(5.5rem, 13vw, 12rem);
   /* Paws rest on the rule below. */
   margin-bottom: -1px;
 }
 
 .footer__wordmark {
+  display: flex;
+  align-items: center;
+  gap: 0.18em;
+  min-width: 0;
   margin-bottom: var(--space-6);
   font-family: var(--font-display);
-  font-size: clamp(6rem, 26vw, 24rem);
+  /* Sized so spark + wordmark + cat always fit on one line with room between. */
+  font-size: clamp(4rem, 17vw, 16rem);
   /* Tight leading, but enough to keep the q's descender off the rule below. */
   line-height: 0.92;
   letter-spacing: -0.02em;

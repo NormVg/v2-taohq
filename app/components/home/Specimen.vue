@@ -160,7 +160,8 @@ function activate() {
   display: flex;
   flex-direction: column;
   gap: var(--space-1);
-  min-width: 13rem;
+  width: max-content;
+  max-width: 20rem;
   padding: 0 var(--space-3);
   font-size: var(--text-ui);
   letter-spacing: var(--tracking-ui);
@@ -183,6 +184,7 @@ function activate() {
   line-height: 0.9;
   letter-spacing: 0.01em;
   text-transform: none;
+  white-space: nowrap;
   color: var(--text-primary);
 }
 

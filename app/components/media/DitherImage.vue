@@ -38,6 +38,12 @@ const OBSERVER_THRESHOLDS = [0, 0.1, 0.2, 0.3, 0.4]
 const root = ref<HTMLElement | null>(null)
 const img = ref<HTMLImageElement | null>(null)
 const shown = ref(false)
+/**
+ * Crisp nearest-neighbour scaling only looks clean at 2× the cell grid or
+ * more. Nearer 1× (small specimens, phones) it doubles some cells and not
+ * others, which reads as a blocky checkerboard moiré, so smooth instead.
+ */
+const upscaled = ref(true)
 
 const size = computed(() => ART_MANIFEST[props.name])
 const frames = computed(() => Array.from({ length: ART_STEPS }, (_, step) => `/art/${props.name}/${step}.png`))
@@ -45,6 +51,7 @@ const finalFrame = computed(() => frames.value[ART_STEPS - 1]!)
 const aspectRatio = computed(() => props.aspect ?? `${size.value.width} / ${size.value.height}`)
 
 let observer: IntersectionObserver | null = null
+let resizeObserver: ResizeObserver | null = null
 let timers: number[] = []
 
 function clearTimers() {
@@ -75,6 +82,13 @@ async function develop() {
 defineExpose({ develop })
 
 onMounted(() => {
+  resizeObserver = new ResizeObserver(([entry]) => {
+    if (!entry) return
+    const drawn = entry.contentRect.width * window.devicePixelRatio
+    upscaled.value = drawn >= size.value.width * 2
+  })
+  resizeObserver.observe(root.value!)
+
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     shown.value = true
     return
@@ -91,6 +105,7 @@ onMounted(() => {
 
 onBeforeUnmount(() => {
   observer?.disconnect()
+  resizeObserver?.disconnect()
   clearTimers()
 })
 </script>
@@ -99,7 +114,7 @@ onBeforeUnmount(() => {
   <div
     ref="root"
     class="art"
-    :class="`art--${fit}`"
+    :class="[`art--${fit}`, { 'art--smooth': !upscaled }]"
     :data-shown="shown || undefined"
     :style="{ aspectRatio }"
   >
@@ -132,6 +147,10 @@ onBeforeUnmount(() => {
   /* One file pixel per dither cell: scale up without smoothing. */
   image-rendering: pixelated;
   transition: opacity var(--dur-enter-fast) var(--ease-out);
+}
+
+.art--smooth .art__img {
+  image-rendering: auto;
 }
 
 .art--cover .art__img {

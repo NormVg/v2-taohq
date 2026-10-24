@@ -67,7 +67,6 @@ export default defineNuxtConfig({
 
 
   app: {
-    pageTransition: { name: 'page', mode: 'out-in' },
     head: {
       htmlAttrs: { lang: SITE.locale },
       titleTemplate: '%s %separator %siteName',

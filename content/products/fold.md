@@ -10,7 +10,7 @@ artAlt: "A skeleton reading a book in a field of roses"
 platforms: ["iOS", "Android"]
 facts: ["Free", "Coming 2026", "No account, no cloud"]
 links:
-  waitlist: "https://fold.taohq.org/#join"
+  waitlist: "https://fold.taohq.org"
 ---
 
 **Fold is a phone journal for photos, voice notes and quick thoughts, built for overthinkers, photo dumpers, late-night voice noters, and anyone who bought a journal and never opened it.**
@@ -33,4 +33,4 @@ No account. No cloud. No ads. Your journal lives on your phone and nowhere else.
 
 ## Get in early
 
-Fold is free and coming to iOS and Android in 2026. It opens in waves: [join the waitlist](https://fold.taohq.org/#join) to save your spot, and you'll get one email when your invite is ready.
+Fold is free and coming to iOS and Android in 2026. It opens in waves: [join the waitlist](https://fold.taohq.org) to save your spot, and you'll get one email when your invite is ready.
