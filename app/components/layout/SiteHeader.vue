@@ -1,7 +1,7 @@
 <script setup lang="ts">
 /**
- * Editorial top row, no chrome: four columns of tiny type on the page grid.
- *   wordmark · who we are · primary links · contact
+ * Editorial top row, no chrome: three columns of tiny type on the page grid.
+ *   wordmark · primary links · contact
  * A soft ink fade sits behind it so it stays legible over scrolling content.
  * Phones: wordmark · Menu.
  */
@@ -15,7 +15,6 @@ const menuButton = ref<HTMLButtonElement | null>(null)
   <header class="header">
     <AppContainer class="header__row">
       <SiteLogo />
-      <p class="header__about">Software made with care</p>
       <SiteNav class="header__nav" />
       <NuxtLink v-sound="'tick'" :to="CONTACT_NAV.to" class="header__contact">
         {{ CONTACT_NAV.label }} <span aria-hidden="true">↗</span>
@@ -62,19 +61,12 @@ const menuButton = ref<HTMLButtonElement | null>(null)
   pointer-events: auto;
 }
 
-.header__about,
 .header__contact,
 .header__menu {
   font-size: var(--text-ui);
   line-height: 1.5;
   letter-spacing: var(--tracking-ui);
   text-transform: uppercase;
-}
-
-.header__about {
-  display: none;
-  white-space: nowrap;
-  color: var(--text-muted);
 }
 
 .header__nav {
@@ -101,11 +93,11 @@ const menuButton = ref<HTMLButtonElement | null>(null)
   color: var(--text-primary);
 }
 
-/* Desktop: the four columns line up with the 3 / 3 / 4 / 2 page grid. */
+/* Desktop: logo · links · contact on a 3 / 7 / 2 grid. */
 @media (min-width: 900px) {
   .header__row {
     display: grid;
-    grid-template-columns: 3fr 3fr 4fr 2fr;
+    grid-template-columns: 3fr 7fr 2fr;
     align-items: center;
     gap: var(--space-8);
   }
@@ -123,13 +115,6 @@ const menuButton = ref<HTMLButtonElement | null>(null)
 
   .header__menu {
     display: none;
-  }
-}
-
-/* The about line only appears when the row has room for it on one line. */
-@media (min-width: 1180px) {
-  .header__about {
-    display: block;
   }
 }
 </style>

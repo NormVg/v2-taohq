@@ -48,7 +48,7 @@ const columns = computed(() => [
       </div>
 
       <div class="footer__bottom">
-        <p>© {{ year }} {{ SITE.name }} · Operated by {{ SITE.legalName }}, India</p>
+        <p>© {{ year }} {{ SITE.name }} · Software made with care · Operated by {{ SITE.legalName }}, India</p>
         <div class="footer__meta">
           <AppLink v-for="item in LEGAL_NAV" :key="item.to" :to="item.to">{{ item.label }}</AppLink>
           <SoundToggle />
