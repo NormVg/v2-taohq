@@ -25,7 +25,7 @@ useSeoMeta({
       <AppButton variant="outline" @click="clearError({ redirect: '/products' })">See our products</AppButton>
     </PageIntro>
     <AppContainer class="art">
-      <DitherImage name="not-found" alt="Figures peering down into a dark pit" priority />
+      <DitherImage name="not-found" alt="The grim reaper framed in thorns" priority />
     </AppContainer>
   </NuxtLayout>
 </template>

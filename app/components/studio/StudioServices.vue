@@ -1,8 +1,8 @@
 <script setup lang="ts">
 /**
- * Studio services: a triptych of the three artworks, then one row per
- * service. Hovering or focusing a service re-develops its artwork above,
- * tying each panel to its row without decorating the list itself.
+ * Studio services: a triptych of lavender panels printed in soft ink dither
+ * (the 30% accent), then one row per service. Hovering or focusing a
+ * service re-develops its artwork above, tying each panel to its row.
  */
 import type { StudioService } from '~/constants/studio'
 
@@ -28,6 +28,7 @@ function highlight(index: number) {
       >
         <DitherImage
           :ref="(el) => { panels[index] = el as { develop: () => void } | null }"
+          class="panel__art"
           :name="service.art"
           :alt="service.artAlt"
           aspect="3 / 4"
@@ -71,7 +72,14 @@ function highlight(index: number) {
 
 .panel {
   position: relative;
+  background: var(--accent);
   transition: opacity var(--dur-panel) var(--ease-out);
+}
+
+/* Ink at partial strength over lavender: the second tone reads grey-violet,
+   like a print on coloured stock, rather than black. */
+.panel__art {
+  opacity: 0.42;
 }
 
 .panel--dim {
@@ -82,9 +90,11 @@ function highlight(index: number) {
   position: absolute;
   left: var(--space-2);
   bottom: var(--space-2);
+  padding: 0 var(--space-1);
+  background: var(--accent);
   font-size: var(--text-ui);
   letter-spacing: var(--tracking-ui);
-  color: var(--accent);
+  color: var(--on-accent);
 }
 
 .list {

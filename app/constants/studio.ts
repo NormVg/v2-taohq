@@ -17,7 +17,7 @@ export const STUDIO_SERVICES: StudioService[] = [
     summary: 'Product design that is clear first and beautiful second: flows people understand at a glance, and interfaces with the same care as our own apps.',
     includes: ['UI / UX design', 'Interaction & motion', 'Design systems'],
     art: 'studio-interface',
-    artAlt: 'A skeleton kneeling in prayer',
+    artAlt: 'A wall of watching eyes',
   },
   {
     id: 'systems',
@@ -25,7 +25,7 @@ export const STUDIO_SERVICES: StudioService[] = [
     summary: 'Full-stack web apps, APIs and the infrastructure under them, built on Nuxt, Vue and modern serverless platforms, and made to keep working.',
     includes: ['Full-stack development', 'Backend & APIs', 'Automation & tooling'],
     art: 'studio-systems',
-    artAlt: 'A cracked skull half buried in leaves',
+    artAlt: 'Figures peering down into a deep pit',
   },
   {
     id: 'identity',
@@ -33,7 +33,7 @@ export const STUDIO_SERVICES: StudioService[] = [
     summary: 'Type, marks and visual language with a point of view, so your product looks like itself and nothing else.',
     includes: ['Logo design', 'Brand guidelines', 'Landing pages'],
     art: 'studio-identity',
-    artAlt: 'A horned figure surrounded by roses',
+    artAlt: 'A bust with two faces, one turning into a skull',
   },
 ]
 

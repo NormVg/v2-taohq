@@ -1,7 +1,8 @@
 <script setup lang="ts">
 /**
  * taohq mark + wordmark. The mark is a CSS mask so it takes the accent
- * colour on any tone, and it slowly turns like a coin, a quiet sign of life.
+ * colour on any tone. Every few seconds it flips like a tossed coin, then
+ * rests: a quiet sign of life. Its square box keeps the diamond's proportions.
  */
 import logoUrl from '~/assets/logo.svg?url'
 import { SITE } from '~/constants/site'
@@ -21,16 +22,16 @@ import { SITE } from '~/constants/site'
   gap: var(--space-2);
   min-height: 44px;
   color: var(--text-primary);
-  perspective: 120px;
+  perspective: 160px;
 }
 
 .logo__mark {
-  width: 14px;
-  height: 19px;
+  /* Square box: the tall diamond fits inside and never clips while turning. */
+  width: 20px;
+  height: 20px;
   background: var(--accent);
   mask: var(--logo-url) center / contain no-repeat;
-  /* Linear is right here: it's continuous rotation, not a state change. */
-  animation: coin-spin 6s linear infinite;
+  animation: flip 5s var(--ease-in-out) infinite;
 }
 
 .logo__word {
@@ -40,8 +41,10 @@ import { SITE } from '~/constants/site'
   letter-spacing: 0.02em;
 }
 
-@keyframes coin-spin {
-  to { transform: rotateY(360deg); }
+/* Rest for most of the cycle, then one full flip. */
+@keyframes flip {
+  0%, 78% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {

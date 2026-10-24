@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { data: posts } = await useWritingList()
+const { data: posts, error, refresh } = await useWritingList()
 
 usePageSeo({
   title: 'Writing',
@@ -12,11 +12,12 @@ usePageSeo({
     <PageIntro
       title="Writing"
       :crumbs="['Writing']"
-      :count="`${String(posts.length).padStart(2, '0')} posts`"
+      :count="error ? undefined : `${String(posts.length).padStart(2, '0')} posts`"
       lead="What we're building, why, and what we learn along the way."
     />
     <AppContainer class="list">
-      <PostList v-if="posts.length" :posts="posts" />
+      <LoadError v-if="error" what="posts" @retry="refresh()" />
+      <PostList v-else-if="posts.length" :posts="posts" />
       <p v-else class="empty">Nothing published yet. Check back soon.</p>
     </AppContainer>
   </div>

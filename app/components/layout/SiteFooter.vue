@@ -6,14 +6,15 @@
  */
 import { CONTACT_NAV, LEGAL_NAV, PRIMARY_NAV, SITE, SOCIAL_LINKS } from '~/constants/site'
 
-const { data: products } = useProducts()
+// Awaited so SSR renders the product links; un-awaited, the footer ships empty.
+const { data: products } = await useProducts()
 const year = new Date().getFullYear()
 
 const columns = computed(() => [
   { title: 'Products', links: products.value.map(product => ({ label: product.title, to: product.path })) },
   { title: 'taohq', links: [...PRIMARY_NAV.filter(item => item.to !== '/products'), CONTACT_NAV] },
   { title: 'Elsewhere', links: SOCIAL_LINKS.map(link => ({ label: `${link.label} ${link.handle}`, to: link.href })) },
-])
+].filter(column => column.links.length))
 </script>
 
 <template>

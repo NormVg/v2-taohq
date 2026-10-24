@@ -9,9 +9,9 @@ export const ART_MANIFEST = {
   'web-have-sounds': { width: 178, height: 267 },
   'studio-interface': { width: 150, height: 267 },
   'studio-systems': { width: 150, height: 267 },
-  'studio-identity': { width: 187, height: 267 },
+  'studio-identity': { width: 267, height: 267 },
   'team-vishnu': { width: 200, height: 200 },
-  'not-found': { width: 150, height: 267 },
+  'not-found': { width: 221, height: 267 },
   'cat': { width: 165, height: 202 },
 } as const
 
