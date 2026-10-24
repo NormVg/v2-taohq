@@ -2,7 +2,8 @@
 /**
  * The taohq spark on its own. A CSS mask, so it takes the current text
  * colour (or the accent), and every few seconds it flips like a tossed coin,
- * then rests. Its square box keeps the diamond's proportions at any size.
+ * then rests. While hovered (it, or the link it sits in) it spins like a coin.
+ * Its square box keeps the diamond's proportions at any size.
  */
 import logoUrl from '~/assets/logo.svg?url'
 
@@ -50,6 +51,17 @@ withDefaults(defineProps<{
 
 .mark--current .mark__glyph {
   background: currentColor;
+}
+
+/* Hover: spins like a coin on its vertical axis for as long as it's hovered.
+   Linear is right here: it's continuous rotation, not a state change. */
+.mark:hover .mark__glyph,
+:is(a, button):hover > .mark .mark__glyph {
+  animation: coin-spin 900ms linear infinite;
+}
+
+@keyframes coin-spin {
+  to { transform: rotateY(360deg); }
 }
 
 /* Rest for most of the cycle, then one full flip. */
