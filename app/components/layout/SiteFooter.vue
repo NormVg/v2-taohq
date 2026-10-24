@@ -43,7 +43,10 @@ const columns = computed(() => [
       </div>
 
       <div v-reveal class="footer__base">
-        <p class="footer__wordmark" aria-hidden="true" data-reveal="rise-slow">{{ SITE.name }}</p>
+        <p class="footer__wordmark" aria-hidden="true" data-reveal="rise-slow">
+          <LogoMark size="0.62em" tone="current" class="footer__mark" />
+          {{ SITE.name }}
+        </p>
         <FooterCat class="footer__cat" data-reveal="rise-slow" style="--reveal-delay: 200ms; --reveal-duration: 1000ms" />
       </div>
 
@@ -103,6 +106,9 @@ const columns = computed(() => [
 }
 
 .footer__wordmark {
+  display: flex;
+  align-items: center;
+  gap: 0.12em;
   margin-bottom: var(--space-6);
   font-family: var(--font-display);
   font-size: clamp(6rem, 26vw, 24rem);

@@ -4,7 +4,7 @@ tagline: "It reads your inbox so you don't have to."
 description: "An intelligent mail client that turns the raw chaos of email into a short report of what matters, what can wait, and what to hand off."
 status: "in-development"
 kind: "app"
-order: 4
+order: 5
 art: "bubbles-mail"
 artAlt: "A skull crowned with blossoms, pierced by an arrow"
 platforms: ["macOS"]

@@ -25,6 +25,7 @@ export const FIELD_SLOTS: FieldSlot[] = [
   { x: 83, y: 71, size: 'clamp(150px, 15vw, 240px)', depth: 0.75, drift: 11, tag: 'left' },
   { x: 60, y: 80, size: 'clamp(120px, 11vw, 180px)', depth: 0.4, drift: 8, tag: 'right' },
   { x: 11, y: 26, size: 'clamp(120px, 11vw, 190px)', depth: 0.35, drift: 10, tag: 'right' },
+  { x: 50, y: 24, size: 'clamp(110px, 10vw, 170px)', depth: 0.5, drift: 12, tag: 'right' },
 ]
 
 /** Where the moon-glow rests when nothing is hovered. */

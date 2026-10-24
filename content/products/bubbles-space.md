@@ -4,7 +4,7 @@ tagline: "Your AI assistant's home."
 description: "A personal AI workspace OS built for the way you actually think. Bubbles, your assistant, lives and works alongside you."
 status: "in-development"
 kind: "app"
-order: 3
+order: 4
 art: "bubbles-space"
 artAlt: "A small figure sitting under a blossoming tree beneath a full moon"
 platforms: []

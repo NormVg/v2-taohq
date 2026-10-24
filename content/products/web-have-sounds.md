@@ -4,7 +4,7 @@ tagline: "UI sounds, generated with math."
 description: "A zero-dependency JavaScript library for UI sound effects. No audio files, no network requests. Just the Web Audio API."
 status: "open-source"
 kind: "library"
-order: 5
+order: 6
 art: "web-have-sounds"
 artAlt: "A crow perched on a skull inside an arched frame"
 platforms: ["Web", "npm"]
