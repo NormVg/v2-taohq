@@ -8,7 +8,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "art": "node scripts/build-art.mjs"
+    "art": "node scripts/build-art.mjs",
+    "og": "node scripts/build-og.mjs"
   },
   "dependencies": {
     "@takumi-rs/core": "2.0.0-rc.16",

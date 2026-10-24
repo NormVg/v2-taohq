@@ -10,6 +10,8 @@ export interface PageSeo {
   bareTitle?: boolean
   /** schema.org page type, so search engines know what kind of page this is. */
   schemaType?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage'
+  /** ISO date, for articles. */
+  publishedTime?: string
 }
 
 /** One call per page sets title, description and social cards consistently. */
@@ -35,8 +37,17 @@ export function usePageSeo(input: MaybeRefOrGetter<PageSeo>) {
     ogDescription: () => seo.value.description,
     ogType: () => seo.value.type ?? 'website',
     ogImage: () => image.value,
-    ogImageAlt: `${SITE.name}: ${SITE.tagline}`,
+    ogImageAlt: SITE.ogImageAlt,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogImageType: 'image/png',
+    ogLocale: SITE.ogLocale,
+    ogSiteName: SITE.name,
+    articlePublishedTime: () => seo.value.publishedTime,
     twitterCard: 'summary_large_image',
+    twitterTitle: () => seo.value.title,
+    twitterDescription: () => seo.value.description,
     twitterImage: () => image.value,
+    twitterImageAlt: SITE.ogImageAlt,
   })
 }

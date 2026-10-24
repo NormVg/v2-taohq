@@ -9,6 +9,7 @@ usePageSeo(() => ({
   title: post.value.title,
   description: post.value.description,
   type: 'article',
+  publishedTime: post.value.date,
 }))
 
 useSchemaOrg([

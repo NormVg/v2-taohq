@@ -1,10 +1,12 @@
 # taohq: full context
 
-> taohq is an independent software studio that makes calm, durable apps for everyday life. It also builds products for clients through its studio, and shares some of its tools with the community as open source.
+> taohq is an independent software studio based in India that makes calm, durable apps for everyday life: Fold, Bottles and the Bubbles family. It also builds products for clients through its studio, and shares some of its tools with the community as open source.
 
 - Website: https://taohq.org
-- Legal entity: TheAlphaOnes, India (internal name; the public brand is taohq)
-- Contact: taohq.org@gmail.com (projects, support, privacy and general questions)
+- Tagline: Software, crafted with care.
+- Based in: India. Serves people worldwide.
+- Legal entity: TheAlphaOnes (internal name; the public brand is taohq, always lowercase)
+- Contact: taohq.org@gmail.com (projects, support, privacy, press and general questions)
 - X: https://x.com/TheNormVg
 - GitHub: https://github.com/NormVg
 
@@ -37,8 +39,8 @@ A personal AI workspace OS where Bubbles, your AI assistant, lives and works alo
 An intelligent mail client from the Bubbles family that turns a raw inbox into an information report: what needs attention, what can wait, what to delegate. In development.
 - Page: https://taohq.org/products/bubbles-mail
 
-### web-have-sounds
-A zero-dependency JavaScript library that generates UI sound effects (click, pop, toggle, tick, drop, success, error, warning, startup) with the Web Audio API, with no audio files and no network requests. Nine "feels" (soft, aero, arcade, organic, glass, industrial, minimal, retro, crisp). Open source.
+### web-have-sounds (open source)
+A zero-dependency JavaScript library that generates UI sound effects (click, pop, toggle, tick, drop, success, error, warning, startup) with the Web Audio API, with no audio files and no network requests. Nine "feels" (soft, aero, arcade, organic, glass, industrial, minimal, retro, crisp).
 - Install: npm i @thenormvg/web-have-sounds
 - Page: https://taohq.org/products/web-have-sounds
 - GitHub: https://github.com/NormVg/web-have-sound
@@ -46,11 +48,30 @@ A zero-dependency JavaScript library that generates UI sound effects (click, pop
 
 ## Studio
 
-taohq builds for clients: UI/UX and design systems, full-stack web apps and APIs, automation and tooling, trading tools, landing pages, and brand identity. Start a project: taohq.org@gmail.com or https://taohq.org/contact.
+taohq builds for clients: interface and experience design, full-stack web apps and APIs, automation and tooling, trading tools, landing pages, and brand identity. Start a project: taohq.org@gmail.com (subject "New project") or https://taohq.org/studio.
+
+## Team
+
+A small, independent team, small on purpose. Founder: Vishnu, who designs and builds everything at taohq. https://taohq.org/team
+
+## Careers
+
+No open roles right now. People who want to work with taohq someday can send a short note and a link to their work to taohq.org@gmail.com. https://taohq.org/careers
+
+## Design and brand
+
+- Design language: ink (#151515) backgrounds, lavender (#C4B5E3) accent, paper (#ECE8F3) text; VT323, IBM Plex Mono and Instrument Serif Italic; dithered art that develops coarse to fine. https://taohq.org/design
+- Brand assets: the taohq mark (a four-point spark) as SVG, colours and usage rules. https://taohq.org/brand
 
 ## Writing
 
 Essays and notes at https://taohq.org/writing, including "Introducing Bubbles", "The Future of AI Is Proactive", "The Lifestyle We're Building Toward" and "We Shipped web-have-sounds".
+
+## Legal
+
+- Privacy Policy: https://taohq.org/privacy
+- Terms of Use: https://taohq.org/legal
+- DMCA & Copyright: https://taohq.org/dmca
 
 ## Usage
 

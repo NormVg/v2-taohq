@@ -1,6 +1,6 @@
 # taohq
 
-> taohq is an independent software studio. We make calm, durable apps for everyday life, build products for clients through our studio, and share some of our tools with the community as open source.
+> taohq is an independent software studio based in India. We make calm, durable apps for everyday life, build products for clients through our studio, and share some of our tools with the community as open source.
 
 taohq (taohq.org) is operated by TheAlphaOnes, India.
 

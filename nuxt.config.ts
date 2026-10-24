@@ -56,6 +56,9 @@ export default defineNuxtConfig({
       url: SITE.url,
       logo: `${SITE.url}/favicon.svg`,
       email: SITE.email,
+      address: { addressCountry: SITE.country.code },
+      areaServed: 'Worldwide',
+      description: SITE.description,
       sameAs: ['https://x.com/TheNormVg', 'https://github.com/NormVg'],
     },
   },
@@ -72,6 +75,9 @@ export default defineNuxtConfig({
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
         { name: 'format-detection', content: 'telephone=no' },
+        // Geo: where taohq is based (serves everyone, worldwide).
+        { name: 'geo.region', content: SITE.country.code },
+        { name: 'geo.placename', content: SITE.country.name },
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
