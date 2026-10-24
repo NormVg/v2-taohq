@@ -25,7 +25,7 @@ export interface NavItem {
 
 export const PRIMARY_NAV: NavItem[] = [
   { label: 'Products', to: '/products' },
-  { label: 'Studio', to: '/studio' },
+  { label: 'Open source', to: '/open-source' },
   { label: 'Writing', to: '/writing' },
   { label: 'About', to: '/about' },
 ]
@@ -54,7 +54,6 @@ export const FOOTER_NAV: NavGroup[] = [
       { label: 'Writing', to: '/writing' },
       { label: 'Design', to: '/design' },
       { label: 'Brand', to: '/brand' },
-      { label: 'Open source', to: '/open-source' },
     ],
   },
 ]
