@@ -224,7 +224,7 @@ app/components/
 ├─ home/       SpecimenField + Specimen (the home cabinet)
 ├─ product/    Product feature components (index row, aside, actions, status, next)
 ├─ writing/    PostList, PostAside
-├─ about/ studio/ legal/   Page-specific feature components
+├─ about/ studio/ legal/ contact/ design/   Page-specific feature components
 ```
 
 Visual system (keep it consistent):

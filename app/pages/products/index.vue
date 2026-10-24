@@ -4,6 +4,7 @@ const { data: products, error, refresh } = await useProducts()
 usePageSeo({
   title: 'Products',
   description: 'Everything taohq is building: Fold, Bottles, Bubbles.space, Bubbles.mail and web-have-sounds.',
+  schemaType: 'CollectionPage',
 })
 </script>
 

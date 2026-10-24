@@ -5,10 +5,20 @@
  */
 import type { Crumb } from '~/types/ui'
 
-defineProps<{
+const props = defineProps<{
   crumbs: Crumb[]
   count?: string
 }>()
+
+// The visible trail doubles as BreadcrumbList structured data for search results.
+useSchemaOrg([
+  defineBreadcrumb({
+    itemListElement: [
+      { name: 'taohq', item: '/' },
+      ...props.crumbs.map(crumb => ({ name: crumb.label, item: crumb.to })),
+    ],
+  }),
+])
 </script>
 
 <template>

@@ -4,7 +4,7 @@
  * wordmark with the cat sitting bottom-right on the same baseline, then
  * the legal line.
  */
-import { CONTACT_NAV, LEGAL_NAV, PRIMARY_NAV, SITE, SOCIAL_LINKS } from '~/constants/site'
+import { CONTACT_NAV, FOOTER_NAV, LEGAL_NAV, SITE, SOCIAL_LINKS } from '~/constants/site'
 
 // Awaited so SSR renders the product links; un-awaited, the footer ships empty.
 const { data: products } = await useProducts()
@@ -12,8 +12,11 @@ const year = new Date().getFullYear()
 
 const columns = computed(() => [
   { title: 'Products', links: products.value.map(product => ({ label: product.title, to: product.path })) },
-  { title: 'taohq', links: [...PRIMARY_NAV.filter(item => item.to !== '/products'), CONTACT_NAV] },
-  { title: 'Elsewhere', links: SOCIAL_LINKS.map(link => ({ label: `${link.label} ${link.handle}`, to: link.href })) },
+  ...FOOTER_NAV,
+  {
+    title: 'Connect',
+    links: [CONTACT_NAV, ...SOCIAL_LINKS.map(link => ({ label: `${link.label} ${link.handle}`, to: link.href }))],
+  },
 ].filter(column => column.links.length))
 </script>
 
@@ -66,8 +69,14 @@ const columns = computed(() => [
 
 .footer__columns {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-  gap: var(--space-8);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-8) var(--space-6);
+}
+
+@media (min-width: 900px) {
+  .footer__columns {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 .footer__column ul {

@@ -34,11 +34,21 @@ defineProps<{ posts: Post[] }>()
 .post {
   position: relative;
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--space-2) var(--space-6);
+  /* Phones: one tight meta row (№ · date … read time), then the text. */
+  grid-template-columns: auto auto 1fr;
+  grid-template-areas:
+    'no date read'
+    'text text text';
+  align-items: baseline;
+  gap: var(--space-3) var(--space-3);
   padding: var(--space-6) 0;
   border-top: 1px solid var(--line);
 }
+
+.post__no { grid-area: no; }
+.post > time { grid-area: date; }
+.post__read { grid-area: read; justify-self: end; }
+.post__text { grid-area: text; }
 
 .post:last-child {
   border-bottom: 1px solid var(--line);
@@ -56,7 +66,6 @@ defineProps<{ posts: Post[] }>()
 }
 
 .post__text {
-  grid-column: 1 / -1;
   display: flex;
   flex-direction: column;
   gap: var(--space-2);
@@ -112,12 +121,8 @@ defineProps<{ posts: Post[] }>()
 @media (min-width: 900px) {
   .post {
     grid-template-columns: 3rem 8rem 1fr auto;
-    align-items: baseline;
+    grid-template-areas: 'no date text read';
     gap: var(--space-8);
-  }
-
-  .post__text {
-    grid-column: auto;
   }
 }
 </style>

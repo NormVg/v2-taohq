@@ -4,6 +4,7 @@ import { CONTACT_TOPICS, SOCIAL_LINKS } from '~/constants/site'
 usePageSeo({
   title: 'Contact',
   description: 'Get in touch with taohq: new projects, product support, privacy requests, or just to say hello.',
+  schemaType: 'ContactPage',
 })
 </script>
 

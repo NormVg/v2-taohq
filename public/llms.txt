@@ -15,6 +15,11 @@ taohq (taohq.org) is operated by TheAlphaOnes, India.
 - [Studio](https://taohq.org/studio): Client work: product design, full-stack apps, brand identity.
 - [Writing](https://taohq.org/writing): Notes on what we build and why.
 - [About](https://taohq.org/about): Principles and team.
+- [Team](https://taohq.org/team): The people behind taohq.
+- [Design](https://taohq.org/design): Palette, type, dither and motion.
+- [Open source](https://taohq.org/open-source): Tools we share with the community.
+- [Brand assets](https://taohq.org/brand): Logo files and usage rules.
+- [Careers](https://taohq.org/careers): No open roles right now.
 - [Contact](https://taohq.org/contact): taohq.org@gmail.com
 
 ## Optional

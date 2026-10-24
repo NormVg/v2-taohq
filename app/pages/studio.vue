@@ -4,6 +4,7 @@ import { STUDIO_CAPABILITIES, STUDIO_SERVICES } from '~/constants/studio'
 usePageSeo({
   title: 'Studio',
   description: 'taohq builds for clients too: product design, full-stack apps and brand identity, with the same care we put into our own products.',
+  schemaType: 'WebPage',
 })
 </script>
 

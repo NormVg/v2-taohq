@@ -11,6 +11,7 @@ const emit = defineEmits<{ closed: [] }>()
 
 const panel = ref<HTMLElement | null>(null)
 const route = useRoute()
+const { lock, unlock } = useSmoothScroll()
 const items = [...PRIMARY_NAV, CONTACT_NAV]
 
 function close() {
@@ -22,7 +23,8 @@ function onKeydown(event: KeyboardEvent) {
 }
 
 watch(open, async (isOpen) => {
-  document.documentElement.style.overflow = isOpen ? 'hidden' : ''
+  if (isOpen) lock()
+  else unlock()
   if (isOpen) {
     await nextTick()
     panel.value?.querySelector<HTMLElement>('a')?.focus()
@@ -35,7 +37,7 @@ watch(open, async (isOpen) => {
 watch(() => route.fullPath, close)
 
 onBeforeUnmount(() => {
-  document.documentElement.style.overflow = ''
+  unlock()
 })
 </script>
 
@@ -51,6 +53,7 @@ onBeforeUnmount(() => {
         role="dialog"
         aria-modal="true"
         aria-label="Menu"
+        data-lenis-prevent
         @keydown="onKeydown"
       >
         <div class="menu__bar">

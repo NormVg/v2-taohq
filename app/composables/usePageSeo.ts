@@ -8,6 +8,8 @@ export interface PageSeo {
   type?: 'website' | 'article'
   /** Use the title as-is, without the "· taohq" suffix (home page). */
   bareTitle?: boolean
+  /** schema.org page type, so search engines know what kind of page this is. */
+  schemaType?: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage'
 }
 
 /** One call per page sets title, description and social cards consistently. */
@@ -20,6 +22,10 @@ export function usePageSeo(input: MaybeRefOrGetter<PageSeo>) {
 
   if (seo.value.bareTitle) {
     useHead({ titleTemplate: '%s' })
+  }
+
+  if (seo.value.schemaType) {
+    useSchemaOrg([defineWebPage({ '@type': seo.value.schemaType })])
   }
 
   useSeoMeta({

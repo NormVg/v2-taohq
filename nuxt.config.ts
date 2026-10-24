@@ -7,7 +7,6 @@ const FONT_STYLESHEET =
 /** Old URLs from the previous site, kept alive so links and search results never 404. */
 const LEGACY_REDIRECTS = {
   '/organization/**': { redirect: { to: '/about', statusCode: 301 } },
-  '/careers': { redirect: { to: '/about', statusCode: 301 } },
   '/products/tao-canvas': { redirect: { to: '/products', statusCode: 301 } },
   '/products/tao-identity': { redirect: { to: '/products', statusCode: 301 } },
   '/products/rose-demon': { redirect: { to: '/products', statusCode: 301 } },
@@ -19,7 +18,7 @@ const LEGACY_REDIRECTS = {
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
-  css: ['~/assets/css/main.css'],
+  css: ['lenis/dist/lenis.css', '~/assets/css/main.css'],
 
   // Folders group components by layer (ui/, layout/, product/…); names come from the file alone.
   components: [{ path: '~/components', pathPrefix: false }],

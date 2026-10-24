@@ -32,6 +32,33 @@ export const PRIMARY_NAV: NavItem[] = [
 
 export const CONTACT_NAV: NavItem = { label: 'Contact', to: '/contact' }
 
+export interface NavGroup {
+  title: string
+  links: NavItem[]
+}
+
+/** Footer link groups, kept short and balanced. Products and socials are added by the footer. */
+export const FOOTER_NAV: NavGroup[] = [
+  {
+    title: 'Company',
+    links: [
+      { label: 'About', to: '/about' },
+      { label: 'Team', to: '/team' },
+      { label: 'Studio', to: '/studio' },
+      { label: 'Careers', to: '/careers' },
+    ],
+  },
+  {
+    title: 'Resources',
+    links: [
+      { label: 'Writing', to: '/writing' },
+      { label: 'Design', to: '/design' },
+      { label: 'Brand', to: '/brand' },
+      { label: 'Open source', to: '/open-source' },
+    ],
+  },
+]
+
 export const LEGAL_NAV: NavItem[] = [
   { label: 'Privacy', to: '/privacy' },
   { label: 'Terms', to: '/legal' },

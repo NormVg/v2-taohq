@@ -4,6 +4,7 @@ const { data: posts, error, refresh } = await useWritingList()
 usePageSeo({
   title: 'Writing',
   description: 'Notes from taohq on the products we build and the ideas behind them.',
+  schemaType: 'CollectionPage',
 })
 </script>
 

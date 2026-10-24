@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import { PRINCIPLES, TEAM } from '~/constants/about'
-
-const { data: products } = await useProducts()
-const openSource = computed(() => products.value.filter(product => product.status === 'open-source'))
+import { PRINCIPLES } from '~/constants/about'
 
 usePageSeo({
   title: 'About',
   description: 'taohq is an independent software studio building calm, durable software. What we believe, who we are, and what we share in the open.',
+  schemaType: 'AboutPage',
 })
 </script>
 
@@ -35,17 +33,17 @@ usePageSeo({
     </EditorialRow>
 
     <EditorialRow label="Team" index="03">
-      <TeamMember v-for="member in TEAM" :key="member.name" :member="member" />
+      <div class="team">
+        <p class="team__text">A small, independent team. Small on purpose.</p>
+        <AppLink to="/team" icon="arrow-right">Meet the team</AppLink>
+      </div>
     </EditorialRow>
 
-    <EditorialRow v-if="openSource.length" label="Open source" index="04">
-      <ul class="oss" role="list">
-        <li v-for="product in openSource" :key="product.path" class="oss__item">
-          <NuxtLink :to="product.path" class="oss__name">{{ product.title }}</NuxtLink>
-          <p class="oss__description">{{ product.description }}</p>
-          <ProductActions :product="product" :max="2" size="sm" />
-        </li>
-      </ul>
+    <EditorialRow label="Open source" index="04">
+      <div class="team">
+        <p class="team__text">Some of what we build along the way, we share with the community.</p>
+        <AppLink to="/open-source" icon="arrow-right">Open source</AppLink>
+      </div>
     </EditorialRow>
   </div>
 </template>
@@ -75,26 +73,16 @@ usePageSeo({
   color: var(--accent);
 }
 
-.oss__item {
+.team {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-3);
+  gap: var(--space-4);
 }
 
-.oss__name {
-  font-family: var(--font-display);
-  font-size: var(--text-h2);
-  line-height: 1;
-}
-
-.oss__name:hover {
-  color: var(--accent);
-}
-
-.oss__description {
-  max-width: 32rem;
+.team__text {
   font-size: var(--text-small);
   color: var(--text-secondary);
 }
+
 </style>

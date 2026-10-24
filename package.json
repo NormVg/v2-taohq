@@ -16,6 +16,7 @@
     "@thenormvg/web-have-sounds": "^1.0.1",
     "@vercel/analytics": "^2.0.1",
     "better-sqlite3": "^12.11.1",
+    "lenis": "^1.3.27",
     "nuxt": "^4.4.8",
     "vue": "^3.5.39",
     "vue-router": "^5.1.0"
