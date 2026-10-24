@@ -1,4 +1,4 @@
-<!-- Full-bleed layout for the home cabinet: floating header, no footer. -->
+<!-- Home layout: the full-screen cabinet first, then the footer below the fold. -->
 <template>
   <div>
     <SkipLink />
@@ -6,6 +6,7 @@
     <main id="main" class="main" tabindex="-1">
       <slot />
     </main>
+    <SiteFooter />
   </div>
 </template>
 

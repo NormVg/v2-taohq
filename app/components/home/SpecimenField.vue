@@ -80,6 +80,8 @@ onBeforeUnmount(() => cancelAnimationFrame(frame))
       <p class="field__sub">Independent software · {{ String(specimens.length).padStart(2, '0') }} products</p>
     </div>
 
+    <span class="field__cue" data-reveal="fade" style="--reveal-delay: 1400ms" aria-hidden="true">Scroll ↓</span>
+
     <div class="field__meta" data-reveal="fade" style="--reveal-delay: 1100ms" aria-hidden="true">
       <span class="field__hint">Hover a specimen to examine</span>
       <span ref="readout" class="field__readout">X 0.50 · Y 0.50</span>
@@ -184,6 +186,28 @@ onBeforeUnmount(() => cancelAnimationFrame(frame))
   gap: var(--space-1);
 }
 
+.field__cue {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-12);
+  font-size: var(--text-ui);
+  letter-spacing: var(--tracking-ui);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transform: translateX(-50%);
+  animation: cue-bob 2.4s var(--ease-in-out) infinite;
+}
+
+@keyframes cue-bob {
+  50% { transform: translate(-50%, 4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field__cue {
+    animation: none;
+  }
+}
+
 .field__readout {
   font-variant-numeric: tabular-nums;
   color: var(--accent);
@@ -223,7 +247,8 @@ onBeforeUnmount(() => cancelAnimationFrame(frame))
     order: -1;
   }
 
-  .field__meta {
+  .field__meta,
+  .field__cue {
     display: none;
   }
 }
