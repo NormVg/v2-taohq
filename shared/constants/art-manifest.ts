@@ -4,7 +4,7 @@
 export const ART_MANIFEST = {
   'fold': { width: 149, height: 267 },
   'bottles': { width: 158, height: 267 },
-  'sober-spend': { width: 267, height: 261 },
+  'opendraw': { width: 267, height: 267 },
   'bubbles-space': { width: 201, height: 267 },
   'bubbles-mail': { width: 211, height: 267 },
   'web-have-sounds': { width: 178, height: 267 },

@@ -40,7 +40,7 @@ const DEVELOP_SCALES = [8, 4.5, 2.4, 1]
 const ART = [
   { name: 'fold', mode: 'light', cell: 3 },
   { name: 'bottles', mode: 'light', cell: 3 },
-  { name: 'sober-spend', mode: 'light', cell: 3 },
+  { name: 'opendraw', mode: 'light', cell: 3 },
   { name: 'bubbles-space', mode: 'light', cell: 3 },
   { name: 'bubbles-mail', mode: 'light', cell: 3 },
   { name: 'web-have-sounds', mode: 'light', cell: 3 },
