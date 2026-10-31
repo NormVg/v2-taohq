@@ -73,7 +73,7 @@ No open roles right now. People who want to work with taohq someday can send a s
 
 ## Writing
 
-Essays and notes at https://taohq.org/writing, including "Introducing Bubbles", "The Future of AI Is Proactive", "The Lifestyle We're Building Toward" and "We Shipped web-have-sounds".
+Essays and notes at https://taohq.org/writing, including the opendraw series ("Introducing opendraw", "Why We Built opendraw", "How We Built opendraw", "How to Use opendraw", "Inside the opendraw Engine"), the product essays ("Why UI Sound Matters", "Why Journaling Apps Fail", "The Case Against Feeds", "What a Workspace OS Actually Means", "Email as an Information Report") and the earlier notes ("Introducing Bubbles", "The Future of AI Is Proactive", "The Lifestyle We're Building Toward", "We Shipped web-have-sounds").
 
 ## Legal
 
