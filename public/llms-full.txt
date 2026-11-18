@@ -1,6 +1,6 @@
 # taohq: full context
 
-> taohq is an independent software studio based in India that makes calm, durable apps for everyday life: Fold, Bottles, Sober.Spend and the Bubbles family. It also builds products for clients through its studio, and shares some of its tools with the community as open source.
+> taohq is an independent software studio based in India that makes calm, durable apps for everyday life: Fold, Bottles and the Bubbles family. It also builds products for clients through its studio, and shares some of its tools with the community as open source.
 
 - Website: https://taohq.org
 - Tagline: Software, crafted with care.
@@ -31,10 +31,13 @@ Bookmarks and docs, filed properly. A quiet place for your links, notes and file
 - Page: https://taohq.org/products/bottles
 - App: https://bottles.taohq.org
 
-### Sober.Spend
-UPI budgeting, before you pay ("Spend like you're sober."). Scan a UPI QR in the app to see what the payment does to your month and category, then pay or skip; paying opens your own UPI app with details filled in and logs the expense (the app never moves money). Monthly budget view with a daily allowance and a pixel-cat status from CHILL to BROKE, spend lists, subscription tracking, auto-categories, and bill splitting where only your share counts. No bank linking, no SMS reading, works offline. For people in India who pay with UPI. Early access via waitlist.
-- Page: https://taohq.org/products/sober-spend
-- Waitlist: https://sober.spend.taohq.org
+### opendraw (open source)
+A free, open-source (MIT) hand-drawn whiteboard for your app: shapes (rectangle, diamond, ellipse), arrows that connect, lines, freehand drawing, text, sticky notes and frames, all rendered sketchy with rough.js, as one component for Vue, Nuxt, React and Svelte. Ships as five packages: @opendrawjs/core (the engine), @opendrawjs/editor (framework-free), @opendrawjs/nuxt, @opendrawjs/react and @opendrawjs/svelte. Autosaves the scene to localStorage. Tools and keyboard shortcuts for everything.
+- Install: npm i @opendrawjs/nuxt
+- Page: https://taohq.org/products/opendraw
+- Docs and demo: https://opendraw.taohq.org
+- GitHub: https://github.com/TheAlphaOnes/opendraw
+- npm: https://www.npmjs.com/package/@opendrawjs/nuxt
 
 ### Bubbles.space
 A personal AI workspace OS where Bubbles, your AI assistant, lives and works alongside you. Part of the Bubbles family of AI-agent-first apps. In development.
@@ -70,7 +73,7 @@ No open roles right now. People who want to work with taohq someday can send a s
 
 ## Writing
 
-Essays and notes at https://taohq.org/writing, including "Introducing Bubbles", "The Future of AI Is Proactive", "The Lifestyle We're Building Toward" and "We Shipped web-have-sounds".
+Essays and notes at https://taohq.org/writing, including the opendraw series ("Introducing opendraw", "Why We Built opendraw", "How We Built opendraw", "How to Use opendraw", "Inside the opendraw Engine"), the product essays ("Why UI Sound Matters", "Why Journaling Apps Fail", "The Case Against Feeds", "What a Workspace OS Actually Means", "Email as an Information Report") and the earlier notes ("Introducing Bubbles", "The Future of AI Is Proactive", "The Lifestyle We're Building Toward", "We Shipped web-have-sounds").
 
 ## Legal
 

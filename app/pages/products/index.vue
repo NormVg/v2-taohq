@@ -3,7 +3,7 @@ const { data: products, error, refresh } = await useProducts()
 
 usePageSeo({
   title: 'Products',
-  description: 'Everything taohq is building: Fold, Bottles, Sober.Spend, Bubbles.space, Bubbles.mail and web-have-sounds.',
+  description: 'Everything taohq is building: Fold, Bottles, opendraw, Bubbles.space, Bubbles.mail and web-have-sounds.',
   schemaType: 'CollectionPage',
 })
 </script>

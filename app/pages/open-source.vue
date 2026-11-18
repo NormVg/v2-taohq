@@ -4,7 +4,7 @@ const projects = computed(() => products.value.filter(product => product.status 
 
 usePageSeo({
   title: 'Open source',
-  description: 'Tools taohq built for its own products and shares with the community, free to use, read and improve. Including web-have-sounds, zero-dependency UI sounds for the web.',
+  description: 'Tools taohq built for its own products and shares with the community, free to use, read and improve. Including opendraw, hand-drawn diagrams for Vue, Nuxt, React and Svelte, and web-have-sounds, zero-dependency UI sounds for the web.',
   schemaType: 'CollectionPage',
 })
 </script>
