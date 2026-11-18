@@ -74,6 +74,8 @@ export default defineNuxtConfig({
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
         { name: 'format-detection', content: 'telephone=no' },
+        // AdSense site verification / account association.
+        { name: 'google-adsense-account', content: 'ca-pub-3310796531633258' },
         // Geo: where taohq is based (serves everyone, worldwide).
         { name: 'geo.region', content: SITE.country.code },
         { name: 'geo.placename', content: SITE.country.name },
