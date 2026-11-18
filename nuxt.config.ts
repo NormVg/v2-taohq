@@ -95,6 +95,12 @@ export default defineNuxtConfig({
           innerHTML: 'document.documentElement.classList.add(\'js\');setTimeout(function(){if(!window.__revealReady)document.documentElement.classList.remove(\'js\')},3000)',
           tagPosition: 'head',
         },
+        // Google AdSense loader; pairs with the google-adsense-account meta and /ads.txt.
+        {
+          src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3310796531633258',
+          async: true,
+          crossorigin: 'anonymous',
+        },
       ],
     },
   },
