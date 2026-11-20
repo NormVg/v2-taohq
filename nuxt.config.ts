@@ -11,6 +11,7 @@ const LEGACY_REDIRECTS = {
   '/products/tao-canvas': { redirect: { to: '/products', statusCode: 301 } },
   '/products/tao-identity': { redirect: { to: '/products', statusCode: 301 } },
   '/products/rose-demon': { redirect: { to: '/products', statusCode: 301 } },
+  '/products/sober-spend': { redirect: { to: '/products', statusCode: 301 } },
   '/writing/01-first-log': { redirect: { to: '/writing', statusCode: 301 } },
   '/writing/good-infrastructure-is-invisible': { redirect: { to: '/writing', statusCode: 301 } },
   '/writing/the-case-for-brutalist-architecture': { redirect: { to: '/writing', statusCode: 301 } },
